@@ -1,0 +1,33 @@
+# 环境变量（含密钥，绝不提交）
+.env
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.bak.*
+.pytest_cache/
+.coverage
+.mypy_cache/
+
+# 输出产物（大文件、二进制、可重新生成）
+outputs/
+*.pkl
+*.faiss/
+*.index
+
+# IDE/编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 日志
+*.log
+
+# 临时文件
+*.tmp
+*.temp

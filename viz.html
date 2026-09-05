@@ -1,0 +1,508 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'>
+<style>
+body{font-family:system-ui,sans-serif;background:#0d1117;color:#c9d1d9;margin:0;padding:20px}
+h1{font-size:20px;border-bottom:1px solid #30363d;padding-bottom:12px}
+.stats{display:flex;gap:16px;margin:12px 0;flex-wrap:wrap}
+.stat{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px 18px}
+.stat .n{font-size:24px;font-weight:700;color:#58a6ff}
+.stat .l{font-size:11px;color:#8b949e;margin-top:2px}
+h2{font-size:14px;color:#8b949e;text-transform:uppercase;margin-top:24px;border-bottom:1px solid #21262d;padding-bottom:6px}
+.group{margin:8px 0;padding:12px;background:#161b22;border-radius:8px;border-left:3px solid #58a6ff}
+.group h3{margin:0 0 8px;font-size:14px}
+.entities{display:flex;flex-wrap:wrap;gap:6px}
+.entity{background:#21262d;border-radius:4px;padding:4px 10px;font-size:12px}
+.entity .t{color:#c9d1d9}
+.entity .i{color:#8b949e;font-size:10px}
+.rel{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:10px 14px;margin:6px 0;font-size:13px;display:flex;align-items:center;gap:8px}
+.rel .a{color:#f778ba7;font-weight:600;white-space:nowrap}
+.rel .b{color:#79c0ff;font-weight:600;white-space:nowrap}
+.rel .arrow{color:#8b949e;font-weight:700}
+.rel .type{background:#21262d;border-radius:3px;padding:1px 8px;font-size:11px;color:#58a6ff;white-space:nowrap}
+.rel .conf{color:#8b949e;font-size:10px}
+.gate{background:linear-gradient(135deg,#1a2332,#0d1117);border:1px solid #30363d;border-radius:10px;padding:16px;margin-top:20px}
+.gate h3{margin:0 0 8px;color:#58a6ff}
+.p{display:inline-block;background:#238636;color:#fff;padding:2px 10px;border-radius:12px;font-size:11px;margin-right:6px}
+</style></head><body>
+<h1>CONTAINER-INVESTMENT-ONT Knowledge Graph</h1>
+<div class="stats">
+<div class="stat"><div class="n">696</div><div class="l">Entities</div></div>
+<div class="stat"><div class="n">27</div><div class="l">Relations</div></div>
+<div class="stat"><div class="n">35</div><div class="l">Labels</div></div>
+<div class="stat"><div class="n">5</div><div class="l">Documents</div></div>
+</div>
+<div class="gate"><h3>AKOS Gate: PASS</h3>
+<span class="p">NER F1: 0.9091</span><span class="p">RE F1: 0.8000</span>
+<span class="p">Contract: 6/6</span><span class="p">source_id</span><span class="p">intake_id</span>
+<span class="p">tenant</span><span class="p">provenance</span><span class="p">audit</span><span class="p">review</span>
+</div>
+<h2>Entities by Label</h2>
+<div class="group" style="border-left-color:#1abc9c"><h3>Depot <span style="color:#8b949e;font-weight:400">(104)</span></h3><div class="entities">
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">货运站</span></div>
+<div class="entity"><span class="t">Depot</span></div>
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">Depot</span></div>
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">货运站</span></div>
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">Container Freight Station</span></div>
+<div class="entity"><span class="t">CFS</span></div>
+<div class="entity"><span class="t">堆场</span></div>
+<div class="entity"><span class="i">... +89 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#95a5a6"><h3>Action <span style="color:#8b949e;font-weight:400">(101)</span></h3><div class="entities">
+<div class="entity"><span class="t">处置</span></div>
+<div class="entity"><span class="t">Return</span></div>
+<div class="entity"><span class="t">交付</span></div>
+<div class="entity"><span class="t">交付</span></div>
+<div class="entity"><span class="t">Repair</span></div>
+<div class="entity"><span class="t">Repair</span></div>
+<div class="entity"><span class="t">维修</span></div>
+<div class="entity"><span class="t">处置</span></div>
+<div class="entity"><span class="t">租赁</span></div>
+<div class="entity"><span class="t">采购</span></div>
+<div class="entity"><span class="t">出租</span></div>
+<div class="entity"><span class="t">出售</span></div>
+<div class="entity"><span class="t">Deliver</span></div>
+<div class="entity"><span class="t">Lease</span></div>
+<div class="entity"><span class="t">Rent</span></div>
+<div class="entity"><span class="i">... +86 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#c0392b"><h3>Gate <span style="color:#8b949e;font-weight:400">(55)</span></h3><div class="entities">
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="t">Gate</span></div>
+<div class="entity"><span class="i">... +40 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#3498db"><h3>InvoicePayment <span style="color:#8b949e;font-weight:400">(42)</span></h3><div class="entities">
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Receipt</span></div>
+<div class="entity"><span class="t">付款</span></div>
+<div class="entity"><span class="t">付款</span></div>
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Payment</span></div>
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Payment</span></div>
+<div class="entity"><span class="t">Invoice</span></div>
+<div class="entity"><span class="t">Payment</span></div>
+<div class="entity"><span class="i">... +27 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#7f8c8d"><h3>EvidenceRecord <span style="color:#8b949e;font-weight:400">(41)</span></h3><div class="entities">
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="t">证据</span></div>
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="t">证据</span></div>
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="t">证据</span></div>
+<div class="entity"><span class="t">证据</span></div>
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="t">证据</span></div>
+<div class="entity"><span class="t">证据</span></div>
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="t">Evidence</span></div>
+<div class="entity"><span class="i">... +26 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#34495e"><h3>Contract <span style="color:#8b949e;font-weight:400">(32)</span></h3><div class="entities">
+<div class="entity"><span class="t">Contract</span></div>
+<div class="entity"><span class="t">合同</span></div>
+<div class="entity"><span class="t">SLA</span></div>
+<div class="entity"><span class="t">Contract</span></div>
+<div class="entity"><span class="t">SLA</span></div>
+<div class="entity"><span class="t">Term</span></div>
+<div class="entity"><span class="t">Term</span></div>
+<div class="entity"><span class="t">合同</span></div>
+<div class="entity"><span class="t">Term</span></div>
+<div class="entity"><span class="t">Contract</span></div>
+<div class="entity"><span class="t">Tariff</span></div>
+<div class="entity"><span class="t">合同</span></div>
+<div class="entity"><span class="t">Tariff</span></div>
+<div class="entity"><span class="t">合同</span></div>
+<div class="entity"><span class="t">Contract</span></div>
+<div class="entity"><span class="i">... +17 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#3498db"><h3>Document <span style="color:#8b949e;font-weight:400">(31)</span></h3><div class="entities">
+<div class="entity"><span class="t">装箱单</span></div>
+<div class="entity"><span class="t">舱单</span></div>
+<div class="entity"><span class="t">提单</span></div>
+<div class="entity"><span class="t">装箱单</span></div>
+<div class="entity"><span class="t">舱单</span></div>
+<div class="entity"><span class="t">提单</span></div>
+<div class="entity"><span class="t">报关单</span></div>
+<div class="entity"><span class="t">CustomsDecl</span></div>
+<div class="entity"><span class="t">Manifest</span></div>
+<div class="entity"><span class="t">装箱单</span></div>
+<div class="entity"><span class="t">舱单</span></div>
+<div class="entity"><span class="t">提单</span></div>
+<div class="entity"><span class="t">报关单</span></div>
+<div class="entity"><span class="t">订舱</span></div>
+<div class="entity"><span class="t">提单</span></div>
+<div class="entity"><span class="i">... +16 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#e74c3c"><h3>Risk <span style="color:#8b949e;font-weight:400">(29)</span></h3><div class="entities">
+<div class="entity"><span class="t">Risk</span></div>
+<div class="entity"><span class="t">Risk</span></div>
+<div class="entity"><span class="t">风险</span></div>
+<div class="entity"><span class="t">违约</span></div>
+<div class="entity"><span class="t">风险</span></div>
+<div class="entity"><span class="t">违约</span></div>
+<div class="entity"><span class="t">信用</span></div>
+<div class="entity"><span class="t">风险</span></div>
+<div class="entity"><span class="t">违约</span></div>
+<div class="entity"><span class="t">违约</span></div>
+<div class="entity"><span class="t">信用</span></div>
+<div class="entity"><span class="t">制裁</span></div>
+<div class="entity"><span class="t">风险</span></div>
+<div class="entity"><span class="t">风险</span></div>
+<div class="entity"><span class="t">违约</span></div>
+<div class="entity"><span class="i">... +14 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#2c3e50"><h3>DecisionCard <span style="color:#8b949e;font-weight:400">(26)</span></h3><div class="entities">
+<div class="entity"><span class="t">Decision</span></div>
+<div class="entity"><span class="t">决策</span></div>
+<div class="entity"><span class="t">Decision</span></div>
+<div class="entity"><span class="t">决策</span></div>
+<div class="entity"><span class="t">决策</span></div>
+<div class="entity"><span class="t">决策</span></div>
+<div class="entity"><span class="t">Decision</span></div>
+<div class="entity"><span class="t">决策</span></div>
+<div class="entity"><span class="t">Decision</span></div>
+<div class="entity"><span class="t">Decision</span></div>
+<div class="entity"><span class="t">决策</span></div>
+<div class="entity"><span class="t">决策</span></div>
+<div class="entity"><span class="t">Decision</span></div>
+<div class="entity"><span class="t">Decision</span></div>
+<div class="entity"><span class="t">决策</span></div>
+<div class="entity"><span class="i">... +11 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#7f8c8d"><h3>PersonOrg <span style="color:#8b949e;font-weight:400">(21)</span></h3><div class="entities">
+<div class="entity"><span class="t">Organization</span></div>
+<div class="entity"><span class="t">组织</span></div>
+<div class="entity"><span class="t">Organization</span></div>
+<div class="entity"><span class="t">组织</span></div>
+<div class="entity"><span class="t">组织</span></div>
+<div class="entity"><span class="t">组织</span></div>
+<div class="entity"><span class="t">人员</span></div>
+<div class="entity"><span class="t">Organization</span></div>
+<div class="entity"><span class="t">组织</span></div>
+<div class="entity"><span class="t">Organization</span></div>
+<div class="entity"><span class="t">组织</span></div>
+<div class="entity"><span class="t">组织</span></div>
+<div class="entity"><span class="t">Organization</span></div>
+<div class="entity"><span class="t">Organization</span></div>
+<div class="entity"><span class="t">Organization</span></div>
+<div class="entity"><span class="i">... +6 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#9b59b6"><h3>Metric <span style="color:#8b949e;font-weight:400">(19)</span></h3><div class="entities">
+<div class="entity"><span class="t">利用率</span></div>
+<div class="entity"><span class="t">利用率</span></div>
+<div class="entity"><span class="t">利用率</span></div>
+<div class="entity"><span class="t">残值</span></div>
+<div class="entity"><span class="t">残值</span></div>
+<div class="entity"><span class="t">残值</span></div>
+<div class="entity"><span class="t">Utilization</span></div>
+<div class="entity"><span class="t">Residual</span></div>
+<div class="entity"><span class="t">IRR</span></div>
+<div class="entity"><span class="t">回报率</span></div>
+<div class="entity"><span class="t">Utilization</span></div>
+<div class="entity"><span class="t">Residual</span></div>
+<div class="entity"><span class="t">IRR</span></div>
+<div class="entity"><span class="t">Utilization</span></div>
+<div class="entity"><span class="t">Residual</span></div>
+<div class="entity"><span class="i">... +4 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#e67e22"><h3>InspectionRepairOrder <span style="color:#8b949e;font-weight:400">(16)</span></h3><div class="entities">
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">修箱</span></div>
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">修箱</span></div>
+<div class="entity"><span class="t">InspectionRepairOrder</span></div>
+<div class="entity"><span class="t">InspectionRepairOrder</span></div>
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">Inspection</span></div>
+<div class="entity"><span class="t">检验</span></div>
+<div class="entity"><span class="t">检验</span></div>
+<div class="entity"><span class="i">... +1 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#2980b9"><h3>SPV <span style="color:#8b949e;font-weight:400">(16)</span></h3><div class="entities">
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">投资主体</span></div>
+<div class="entity"><span class="t">项目公司</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">离岸</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">离岸</span></div>
+<div class="entity"><span class="t">SPV</span></div>
+<div class="entity"><span class="t">离岸</span></div>
+<div class="entity"><span class="i">... +1 more</span></div>
+</div></div>
+<div class="group" style="border-left-color:#d35400"><h3>Trucker <span style="color:#8b949e;font-weight:400">(15)</span></h3><div class="entities">
+<div class="entity"><span class="t">拖车</span></div>
+<div class="entity"><span class="t">司机</span></div>
+<div class="entity"><span class="t">Trucker</span></div>
+<div class="entity"><span class="t">Driver</span></div>
+<div class="entity"><span class="t">拖车</span></div>
+<div class="entity"><span class="t">司机</span></div>
+<div class="entity"><span class="t">Trucker</span></div>
+<div class="entity"><span class="t">Driver</span></div>
+<div class="entity"><span class="t">司机</span></div>
+<div class="entity"><span class="t">Trucker</span></div>
+<div class="entity"><span class="t">Driver</span></div>
+<div class="entity"><span class="t">拖车</span></div>
+<div class="entity"><span class="t">Trucker</span></div>
+<div class="entity"><span class="t">Trucker</span></div>
+<div class="entity"><span class="t">Driver</span></div>
+</div></div>
+<div class="group" style="border-left-color:#16a085"><h3>LeaseContract <span style="color:#8b949e;font-weight:400">(15)</span></h3><div class="entities">
+<div class="entity"><span class="t">Lease Contract</span></div>
+<div class="entity"><span class="t">Lease Contract</span></div>
+<div class="entity"><span class="t">LeaseContract</span></div>
+<div class="entity"><span class="t">LeaseContract</span></div>
+<div class="entity"><span class="t">LeaseContract</span></div>
+<div class="entity"><span class="t">租约</span></div>
+<div class="entity"><span class="t">租约</span></div>
+<div class="entity"><span class="t">LeaseContract</span></div>
+<div class="entity"><span class="t">租赁合同</span></div>
+<div class="entity"><span class="t">租约</span></div>
+<div class="entity"><span class="t">租约</span></div>
+<div class="entity"><span class="t">租约</span></div>
+<div class="entity"><span class="t">LeaseContract</span></div>
+<div class="entity"><span class="t">租约</span></div>
+<div class="entity"><span class="t">租约</span></div>
+</div></div>
+<div class="group" style="border-left-color:#8e44ad"><h3>Operator <span style="color:#8b949e;font-weight:400">(13)</span></h3><div class="entities">
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">运营管理人</span></div>
+<div class="entity"><span class="t">Operator</span></div>
+<div class="entity"><span class="t">运营管理人</span></div>
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">源海通</span></div>
+<div class="entity"><span class="t">运营管理人</span></div>
+</div></div>
+<div class="group" style="border-left-color:#2ecc71"><h3>FreightForwarder <span style="color:#8b949e;font-weight:400">(12)</span></h3><div class="entities">
+<div class="entity"><span class="t">Forwarder</span></div>
+<div class="entity"><span class="t">货代</span></div>
+<div class="entity"><span class="t">Forwarder</span></div>
+<div class="entity"><span class="t">NVOCC</span></div>
+<div class="entity"><span class="t">货代</span></div>
+<div class="entity"><span class="t">无船承运</span></div>
+<div class="entity"><span class="t">Forwarder</span></div>
+<div class="entity"><span class="t">Forwarder</span></div>
+<div class="entity"><span class="t">Forwarder</span></div>
+<div class="entity"><span class="t">Logistics</span></div>
+<div class="entity"><span class="t">Forwarder</span></div>
+<div class="entity"><span class="t">NVOCC</span></div>
+</div></div>
+<div class="group" style="border-left-color:#f39c12"><h3>ContainerAsset <span style="color:#8b949e;font-weight:400">(12)</span></h3><div class="entities">
+<div class="entity"><span class="t">箱资产</span></div>
+<div class="entity"><span class="t">箱资产</span></div>
+<div class="entity"><span class="t">Container Asset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+<div class="entity"><span class="t">ContainerAsset</span></div>
+</div></div>
+<div class="group" style="border-left-color:#e67e22"><h3>RentRate <span style="color:#8b949e;font-weight:400">(9)</span></h3><div class="entities">
+<div class="entity"><span class="t">Per Diem</span></div>
+<div class="entity"><span class="t">Per Diem</span></div>
+<div class="entity"><span class="t">Per Diem</span></div>
+<div class="entity"><span class="t">$3</span></div>
+<div class="entity"><span class="t">$1.5</span></div>
+<div class="entity"><span class="t">$0.70</span></div>
+<div class="entity"><span class="t">$0.412</span></div>
+<div class="entity"><span class="t">$1.50</span></div>
+<div class="entity"><span class="t">$0.80</span></div>
+</div></div>
+<div class="group" style="border-left-color:#16a085"><h3>LeaseTerm <span style="color:#8b949e;font-weight:400">(8)</span></h3><div class="entities">
+<div class="entity"><span class="t">free days</span></div>
+<div class="entity"><span class="t">免费期</span></div>
+<div class="entity"><span class="t">租期</span></div>
+<div class="entity"><span class="t">租期</span></div>
+<div class="entity"><span class="t">10年</span></div>
+<div class="entity"><span class="t">租期</span></div>
+<div class="entity"><span class="t">12月</span></div>
+<div class="entity"><span class="t">5年</span></div>
+</div></div>
+<div class="group" style="border-left-color:#34495e"><h3>PurchaseContract <span style="color:#8b949e;font-weight:400">(8)</span></h3><div class="entities">
+<div class="entity"><span class="t">Purchase Contract</span></div>
+<div class="entity"><span class="t">Purchase Contract</span></div>
+<div class="entity"><span class="t">PurchaseContract</span></div>
+<div class="entity"><span class="t">PurchaseContract</span></div>
+<div class="entity"><span class="t">采购合同</span></div>
+<div class="entity"><span class="t">PurchaseContract</span></div>
+<div class="entity"><span class="t">采购合同</span></div>
+<div class="entity"><span class="t">采购合同</span></div>
+</div></div>
+<div class="group" style="border-left-color:#16a085"><h3>Lessee <span style="color:#8b949e;font-weight:400">(8)</span></h3><div class="entities">
+<div class="entity"><span class="t">Lessee</span></div>
+<div class="entity"><span class="t">租箱客户</span></div>
+<div class="entity"><span class="t">买家</span></div>
+<div class="entity"><span class="t">Lessee</span></div>
+<div class="entity"><span class="t">Lessee</span></div>
+<div class="entity"><span class="t">Lessee</span></div>
+<div class="entity"><span class="t">Lessee</span></div>
+<div class="entity"><span class="t">买家</span></div>
+</div></div>
+<div class="group" style="border-left-color:#1abc9c"><h3>TradeLane <span style="color:#8b949e;font-weight:400">(8)</span></h3><div class="entities">
+<div class="entity"><span class="t">TradeLane</span></div>
+<div class="entity"><span class="t">起讫</span></div>
+<div class="entity"><span class="t">航线</span></div>
+<div class="entity"><span class="t">TradeLane</span></div>
+<div class="entity"><span class="t">TradeLane</span></div>
+<div class="entity"><span class="t">TradeLane</span></div>
+<div class="entity"><span class="t">起讫</span></div>
+<div class="entity"><span class="t">TradeLane</span></div>
+</div></div>
+<div class="group" style="border-left-color:#27ae60"><h3>Currency <span style="color:#8b949e;font-weight:400">(8)</span></h3><div class="entities">
+<div class="entity"><span class="t">人民币</span></div>
+<div class="entity"><span class="t">USD</span></div>
+<div class="entity"><span class="t">USD</span></div>
+<div class="entity"><span class="t">USD</span></div>
+<div class="entity"><span class="t">USD</span></div>
+<div class="entity"><span class="t">USD</span></div>
+<div class="entity"><span class="t">人民币</span></div>
+<div class="entity"><span class="t">RMB</span></div>
+</div></div>
+<div class="group" style="border-left-color:#f1c40f"><h3>ContainerType <span style="color:#8b949e;font-weight:400">(8)</span></h3><div class="entities">
+<div class="entity"><span class="t">40HC</span></div>
+<div class="entity"><span class="t">20GP</span></div>
+<div class="entity"><span class="t">40HC</span></div>
+<div class="entity"><span class="t">20GP</span></div>
+<div class="entity"><span class="t">40HC</span></div>
+<div class="entity"><span class="t">20GP</span></div>
+<div class="entity"><span class="t">40HC</span></div>
+<div class="entity"><span class="t">40HC</span></div>
+</div></div>
+<div class="group" style="border-left-color:#27ae60"><h3>CapitalProvider <span style="color:#8b949e;font-weight:400">(7)</span></h3><div class="entities">
+<div class="entity"><span class="t">投资方</span></div>
+<div class="entity"><span class="t">投资人</span></div>
+<div class="entity"><span class="t">资本提供</span></div>
+<div class="entity"><span class="t">投资人</span></div>
+<div class="entity"><span class="t">投资人</span></div>
+<div class="entity"><span class="t">Fund</span></div>
+<div class="entity"><span class="t">资金方</span></div>
+</div></div>
+<div class="group" style="border-left-color:#f39c12"><h3>ContainerBatch <span style="color:#8b949e;font-weight:400">(7)</span></h3><div class="entities">
+<div class="entity"><span class="t">Container Batch</span></div>
+<div class="entity"><span class="t">Batch</span></div>
+<div class="entity"><span class="t">批次</span></div>
+<div class="entity"><span class="t">批次</span></div>
+<div class="entity"><span class="t">Batch</span></div>
+<div class="entity"><span class="t">批次</span></div>
+<div class="entity"><span class="t">Batch</span></div>
+</div></div>
+<div class="group" style="border-left-color:#2c3e50"><h3>Organization <span style="color:#8b949e;font-weight:400">(5)</span></h3><div class="entities">
+<div class="entity"><span class="t">公司</span></div>
+<div class="entity"><span class="t">公司</span></div>
+<div class="entity"><span class="t">公司</span></div>
+<div class="entity"><span class="t">Inc</span></div>
+<div class="entity"><span class="t">Inc</span></div>
+</div></div>
+<div class="group" style="border-left-color:#c0392b"><h3>Insurance <span style="color:#8b949e;font-weight:400">(5)</span></h3><div class="entities">
+<div class="entity"><span class="t">Insurance</span></div>
+<div class="entity"><span class="t">Insurance</span></div>
+<div class="entity"><span class="t">保险</span></div>
+<div class="entity"><span class="t">保险</span></div>
+<div class="entity"><span class="t">全损</span></div>
+</div></div>
+<div class="group" style="border-left-color:#8e44ad"><h3>Equipment <span style="color:#8b949e;font-weight:400">(4)</span></h3><div class="entities">
+<div class="entity"><span class="t">叉车</span></div>
+<div class="entity"><span class="t">WeighBridge</span></div>
+<div class="entity"><span class="t">叉车</span></div>
+<div class="entity"><span class="t">地磅</span></div>
+</div></div>
+<div class="group" style="border-left-color:#27ae60"><h3>CapitalCommitment <span style="color:#8b949e;font-weight:400">(3)</span></h3><div class="entities">
+<div class="entity"><span class="t">Capital Commitment</span></div>
+<div class="entity"><span class="t">资金承诺</span></div>
+<div class="entity"><span class="t">Capital Commitment</span></div>
+</div></div>
+<div class="group" style="border-left-color:#7f8c8d"><h3>Shipper <span style="color:#8b949e;font-weight:400">(2)</span></h3><div class="entities">
+<div class="entity"><span class="t">Consignor</span></div>
+<div class="entity"><span class="t">发货人</span></div>
+</div></div>
+<div class="group" style="border-left-color:#7f8c8d"><h3>Consignee <span style="color:#8b949e;font-weight:400">(2)</span></h3><div class="entities">
+<div class="entity"><span class="t">Consignee</span></div>
+<div class="entity"><span class="t">收货人</span></div>
+</div></div>
+<div class="group" style="border-left-color:#e74c3c"><h3>ShippingLine <span style="color:#8b949e;font-weight:400">(2)</span></h3><div class="entities">
+<div class="entity"><span class="t">马士基</span></div>
+<div class="entity"><span class="t">马士基</span></div>
+</div></div>
+<div class="group" style="border-left-color:#e67e22"><h3>Port <span style="color:#8b949e;font-weight:400">(2)</span></h3><div class="entities">
+<div class="entity"><span class="t">深圳</span></div>
+<div class="entity"><span class="t">上海</span></div>
+</div></div>
+<h2>Relations (27)</h2>
+<div class="rel"><span class="a">NVOCC</span><span class="arrow">—[</span><span class="type">books</span><span class="arrow">]→</span><span class="b">装箱单</span><span class="conf">conf=0.77</span></div>
+<div class="rel"><span class="a">货代</span><span class="arrow">—[</span><span class="type">books</span><span class="arrow">]→</span><span class="b">装箱单</span><span class="conf">conf=0.82</span></div>
+<div class="rel"><span class="a">无船承运</span><span class="arrow">—[</span><span class="type">books</span><span class="arrow">]→</span><span class="b">装箱单</span><span class="conf">conf=0.87</span></div>
+<div class="rel"><span class="a">NVOCC</span><span class="arrow">—[</span><span class="type">books</span><span class="arrow">]→</span><span class="b">40HC</span><span class="conf">conf=0.81</span></div>
+<div class="rel"><span class="a">投资人</span><span class="arrow">—[</span><span class="type">commits</span><span class="arrow">]→</span><span class="b">资金承诺</span><span class="conf">conf=0.88</span></div>
+<div class="rel"><span class="a">马士基</span><span class="arrow">—[</span><span class="type">contracts</span><span class="arrow">]→</span><span class="b">堆场</span><span class="conf">conf=0.86</span></div>
+<div class="rel"><span class="a">马士基</span><span class="arrow">—[</span><span class="type">contracts</span><span class="arrow">]→</span><span class="b">CFS</span><span class="conf">conf=0.82</span></div>
+<div class="rel"><span class="a">投资人</span><span class="arrow">—[</span><span class="type">funds</span><span class="arrow">]→</span><span class="b">SPV</span><span class="conf">conf=0.89</span></div>
+<div class="rel"><span class="a">Fund</span><span class="arrow">—[</span><span class="type">funds</span><span class="arrow">]→</span><span class="b">SPV</span><span class="conf">conf=0.69</span></div>
+<div class="rel"><span class="a">Lease</span><span class="arrow">—[</span><span class="type">generates</span><span class="arrow">]→</span><span class="b">Invoice</span><span class="conf">conf=0.80</span></div>
+<div class="rel"><span class="a">Lease</span><span class="arrow">—[</span><span class="type">generates</span><span class="arrow">]→</span><span class="b">Receipt</span><span class="conf">conf=0.72</span></div>
+<div class="rel"><span class="a">租约</span><span class="arrow">—[</span><span class="type">generates</span><span class="arrow">]→</span><span class="b">Invoice</span><span class="conf">conf=0.75</span></div>
+<div class="rel"><span class="a">LeaseContract</span><span class="arrow">—[</span><span class="type">leased_to</span><span class="arrow">]→</span><span class="b">Lessee</span><span class="conf">conf=0.75</span></div>
+<div class="rel"><span class="a">Container Asset</span><span class="arrow">—[</span><span class="type">leased_under</span><span class="arrow">]→</span><span class="b">Lease Contract</span><span class="conf">conf=0.67</span></div>
+<div class="rel"><span class="a">Container Asset</span><span class="arrow">—[</span><span class="type">leased_under</span><span class="arrow">]→</span><span class="b">LeaseContract</span><span class="conf">conf=0.67</span></div>
+<div class="rel"><span class="a">Container Asset</span><span class="arrow">—[</span><span class="type">moved_by</span><span class="arrow">]→</span><span class="b">Reposition</span><span class="conf">conf=0.71</span></div>
+<div class="rel"><span class="a">SPV</span><span class="arrow">—[</span><span class="type">owns</span><span class="arrow">]→</span><span class="b">Container Asset</span><span class="conf">conf=0.80</span></div>
+<div class="rel"><span class="a">SPV</span><span class="arrow">—[</span><span class="type">purchased_under</span><span class="arrow">]→</span><span class="b">PurchaseContract</span><span class="conf">conf=0.69</span></div>
+<div class="rel"><span class="a">运营管理人</span><span class="arrow">—[</span><span class="type">responsible_for</span><span class="arrow">]→</span><span class="b">箱资产</span><span class="conf">conf=0.80</span></div>
+<div class="rel"><span class="a">装箱单</span><span class="arrow">—[</span><span class="type">stored_at</span><span class="arrow">]→</span><span class="b">CFS</span><span class="conf">conf=0.88</span></div>
+<div class="rel"><span class="a">集装箱堆场</span><span class="arrow">—[</span><span class="type">stored_at</span><span class="arrow">]→</span><span class="b">Yard</span><span class="conf">conf=0.88</span></div>
+<div class="rel"><span class="a">修箱</span><span class="arrow">—[</span><span class="type">stored_at</span><span class="arrow">]→</span><span class="b">Yard</span><span class="conf">conf=0.84</span></div>
+<div class="rel"><span class="a">Container Asset</span><span class="arrow">—[</span><span class="type">subject_to</span><span class="arrow">]→</span><span class="b">Inspection</span><span class="conf">conf=0.69</span></div>
+<div class="rel"><span class="a">Container Asset</span><span class="arrow">—[</span><span class="type">subject_to</span><span class="arrow">]→</span><span class="b">检验</span><span class="conf">conf=0.72</span></div>
+<div class="rel"><span class="a">Container Asset</span><span class="arrow">—[</span><span class="type">subject_to</span><span class="arrow">]→</span><span class="b">Repair</span><span class="conf">conf=0.73</span></div>
+<div class="rel"><span class="a">Default</span><span class="arrow">—[</span><span class="type">triggers</span><span class="arrow">]→</span><span class="b">Payment</span><span class="conf">conf=0.65</span></div>
+<div class="rel"><span class="a">Lessee</span><span class="arrow">—[</span><span class="type">triggers</span><span class="arrow">]→</span><span class="b">Payment</span><span class="conf">conf=0.79</span></div>
+</body></html>

@@ -1,0 +1,68 @@
+# 本体定义：作为数据的"宪法"
+# 类、关系、必填字段、类型约束
+
+classes:
+  Person:
+    properties:
+      name:
+        type: string
+        required: true
+      birth_date:
+        type: date
+      nationality:
+        type: string
+  Organization:
+    properties:
+      name:
+        type: string
+        required: true
+      founded_date:
+        type: date
+      industry:
+        type: string
+  Location:
+    properties:
+      name:
+        type: string
+        required: true
+      country:
+        type: string
+      coordinates:
+        type: geo_point
+  Event:
+    properties:
+      name:
+        type: string
+        required: true
+      date:
+        type: date
+      location:
+        type: string
+
+relations:
+  WORKS_FOR:
+    domain: Person
+    range: Organization
+    properties:
+      since:
+        type: date
+      role:
+        type: string
+  FOUNDED_BY:
+    domain: Organization
+    range: Person
+    properties:
+      date:
+        type: date
+  LOCATED_IN:
+    domain: Organization
+    range: Location
+  OCCURRED_AT:
+    domain: Event
+    range: Location
+  PARTICIPATED_IN:
+    domain: Person
+    range: Event
+    properties:
+      role:
+        type: string

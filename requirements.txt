@@ -1,0 +1,31 @@
+# Semantica 知识图谱构建管线依赖
+# 优先使用 apk 安装 (py3-*)，pip 仅作补充
+
+# 核心框架
+semantica
+
+# 向量存储与检索
+faiss-cpu
+weaviate-client
+
+# 图数据库驱动
+neo4j
+
+# 图导出格式
+graphml
+rdflib
+
+# NLP 处理
+spacy
+transformers
+
+# 深度学习 (CPU 版，Alpine musl 兼容)
+torch --index-url https://download.pytorch.org/whl/cpu
+
+# 工具库
+pyyaml
+tqdm
+click
+requests
+lxml
+beautifulsoup4

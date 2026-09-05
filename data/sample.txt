@@ -1,0 +1,1 @@
+Semantica is a knowledge graph framework.

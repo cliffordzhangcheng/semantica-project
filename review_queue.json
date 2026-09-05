@@ -1,0 +1,137 @@
+[
+  {
+    "ticket_id": "REV-563717665B",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-5c63f46c",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.0000, RE F1=0.0000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-02T22:40:28Z",
+    "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-EB9EB71AF7",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-c2a74bc6",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.0000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-02T22:42:20Z",
+    "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-17DB8235A7",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-5f9057e7",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.0000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-02T22:43:02Z",
+    "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-5E16CB9976",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-eb3fa557",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.5000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-02T22:43:37Z",
+    "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-6CC93E8CD4",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-a20c9e3b",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.5000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-02T23:15:38Z",
+    "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-A86C3FC393",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-c68b0b47",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.0000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-02T23:19:10Z",
+    "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-38A385F18B",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-c29999db",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.0000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-02T23:19:47Z",
+    "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-7434B7D4D4",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-7faa105b",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.8000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-02T23:23:24Z",
+    "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-F060DE3CE7",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-bd413634",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.8000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-03T06:23:31Z",
+    "requires_founder_approval": false
+  }
+]

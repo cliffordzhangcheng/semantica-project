@@ -1,0 +1,25 @@
+# 存储后端配置：仅修改 backend 即可切换
+# 可选: networkx | neo4j | falkordb | age
+
+# 开发/实验：NetworkX（内存，无外部依赖）
+backend: "networkx"
+options: {}
+
+# 生产：Neo4j
+# backend: "neo4j"
+# options:
+#   uri: "bolt://localhost:7687"
+#   user: "neo4j"
+#   password: "$NEO4J_PASSWORD"  # 从环境变量读取
+
+# 生产：FalkorDB (Redis-based)
+# backend: "falkordb"
+# options:
+#   host: "localhost"
+#   port: 6379
+
+# 生产：PostgreSQL + Apache AGE
+# backend: "age"
+# options:
+#   dsn: "postgresql://user:pass@localhost:5432/db"
+#   graph_name: "semantica"
