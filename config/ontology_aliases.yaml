@@ -1,0 +1,283 @@
+# Ontology Aliases v1.0
+# Canonical type + accepted aliases + deprecated labels + migration map
+# Generated: 2026-09-06 by dsh-web
+
+entities:
+  canonical: ProjectSPV
+    accepted: [SPV, ProjectSPV]
+    deprecated: []
+    supersedes: []
+
+  canonical: Carrier
+    accepted: [Carrier, ShippingLine, 船公司]
+    deprecated: [ShippingLine]
+    supersedes: [ShippingLine]
+
+  canonical: ThirdPartyDepot
+    accepted: [ThirdPartyDepot, Depot, Yard, 堆场]
+    deprecated: []
+    supersedes: []
+
+  canonical: PersonOrg
+    accepted: [PersonOrg, Person, 人员]
+    deprecated: []
+    supersedes: []
+
+  canonical: Lessee
+    accepted: [Lessee, Tenant, 承租方]
+    deprecated: []
+    supersedes: []
+
+  canonical: OneWayContract
+    accepted: [OneWayContract, ONEWAY, OneWayLease, 单程租赁]
+    deprecated: []
+    supersedes: []
+
+  canonical: ContainerAsset
+    accepted: [ContainerAsset, Container, 箱]
+    deprecated: []
+    supersedes: []
+
+  canonical: CapitalProvider
+    accepted: [CapitalProvider, Investor, Capital Provider, 资金方]
+    deprecated: []
+    supersedes: []
+
+  canonical: Operator
+    accepted: [Operator, Cosmos Whales, 源海通]
+    deprecated: []
+    supersedes: []
+
+  canonical: ContainerAgent
+    accepted: [ContainerAgent, 箱代, 中间人]
+    deprecated: []
+    supersedes: []
+
+  canonical: ContainerOwner
+    accepted: [ContainerOwner, SOC Owner, 箱产权方, 箱东]
+    deprecated: []
+    supersedes: []
+
+  canonical: SOCContainer
+    accepted: [SOCContainer, SOC, Shipper Own Container, 货主自有箱]
+    deprecated: []
+    supersedes: []
+
+  canonical: PLAContract
+    accepted: [PLAContract, ProtocolLeaseAgreement, 协议运量合同]
+    deprecated: []
+    supersedes: []
+
+  canonical: InvoicePayment
+    accepted: [InvoicePayment, Invoice, Payment, 发票]
+    deprecated: []
+    supersedes: []
+
+  canonical: InspectionRepairOrder
+    accepted: [InspectionRepairOrder, RepairOrder, 维修单]
+    deprecated: []
+    supersedes: []
+
+  canonical: WishList
+    accepted: [WishList, 箱型需求清单]
+    deprecated: []
+    supersedes: []
+
+  canonical: PUCMargin
+    accepted: [PUCMargin, PickUpCharge, PUC]
+    deprecated: []
+    supersedes: []
+
+relations:
+  canonical: leases_to
+    accepted: [leases_to, leased_to]
+    deprecated: [leased_to]
+    supersedes: [leased_to]
+    domain: Lessee
+    range: LeaseContract
+
+  canonical: charters_under
+    accepted: [charters_under]
+    deprecated: []
+    domain: Carrier
+    range: OneWayContract
+
+  canonical: intermediates
+    accepted: [intermediates]
+    deprecated: []
+    domain: ContainerAgent
+    range: OneWayContract
+
+  canonical: publishes
+    accepted: [publishes]
+    deprecated: []
+    domain: Carrier
+    range: WishList
+
+  canonical: provides
+    accepted: [provides]
+    deprecated: []
+    domain: ContainerOwner
+    range: SOCContainer
+
+  canonical: earns
+    accepted: [earns]
+    deprecated: []
+    domain: ContainerAgent
+    range: PUCMargin
+
+  canonical: off_hires_at
+    accepted: [off_hires_at]
+    deprecated: []
+    domain: ContainerAsset
+    range: Depot
+
+  canonical: disposes_via
+    accepted: [disposes_via]
+    deprecated: []
+    domain: ContainerAsset
+    range: DisposalChannel
+
+  canonical: sells_to
+    accepted: [sells_to]
+    deprecated: []
+    domain: ContainerOwner
+    range: ContainerAgent
+
+  canonical: guarantees
+    accepted: [guarantees]
+    deprecated: []
+    domain: PLAContract
+    range: MinimumVolume
+
+  canonical: feeds
+    accepted: [feeds]
+    deprecated: []
+    domain: EmptyStockPosition
+    range: RepositionTask
+
+  canonical: subject_to
+    accepted: [subject_to]
+    deprecated: []
+    domain: [ContainerAsset, OneWayContract]
+    range: [InspectionRepairOrder, OffHireCondition]
+
+  canonical: specifies
+    accepted: [specifies]
+    deprecated: []
+    domain: OneWayContract
+    range: TradeLane
+
+  canonical: funds
+    accepted: [funds]
+    deprecated: []
+    domain: CapitalProvider
+    range: ProjectSPV
+
+  canonical: owns
+    accepted: [owns]
+    deprecated: []
+    domain: ProjectSPV
+    range: ContainerAsset
+
+  canonical: commits
+    accepted: [commits]
+    deprecated: []
+    domain: CapitalProvider
+    range: CapitalCommitment
+
+  canonical: triggers
+    accepted: [triggers]
+    deprecated: []
+    domain: Lessee
+    range: DefaultChain
+
+  canonical: generates
+    accepted: [generates]
+    deprecated: []
+    domain: [LeaseContract, OneWayContract]
+    range: InvoicePayment
+
+  canonical: responsible_for
+    accepted: [responsible_for]
+    deprecated: []
+    domain: PersonOrg
+    range: [Object, Action, Gate]
+
+  canonical: supports
+    accepted: [supports]
+    deprecated: []
+    domain: EvidenceRecord
+    range: Object
+
+  canonical: governs
+    accepted: [governs]
+    deprecated: []
+    domain: DecisionCard
+    range: [Action, Event]
+
+  canonical: stored_at
+    accepted: [stored_at]
+    deprecated: []
+    domain: ContainerAsset
+    range: Depot
+
+  canonical: moved_by
+    accepted: [moved_by]
+    deprecated: []
+    domain: ContainerAsset
+    range: RepositionTask
+
+  canonical: manufactured_by
+    accepted: [manufactured_by]
+    deprecated: []
+    domain: ContainerAsset
+    range: Manufacturer
+
+  canonical: purchased_under
+    accepted: [purchased_under]
+    deprecated: []
+    domain: ProjectSPV
+    range: PurchaseContract
+
+  canonical: leased_under
+    accepted: [leased_under]
+    deprecated: []
+    domain: ContainerAsset
+    range: LeaseContract
+
+  canonical: leased_to
+    accepted: [leased_to]
+    deprecated: []
+    domain: LeaseContract
+    range: Lessee
+
+  canonical: operates_on
+    accepted: [operates_on]
+    deprecated: []
+    domain: ContainerAsset
+    range: TradeLane
+
+  canonical: books
+    accepted: [books]
+    deprecated: []
+    domain: FreightForwarder
+    range: ContainerType
+
+  canonical: contracts
+    accepted: [contracts]
+    deprecated: []
+    domain: Carrier
+    range: Depot
+
+  canonical: serves
+    accepted: [serves]
+    deprecated: []
+    domain: Port
+    range: Carrier
+
+  canonical: operates_at
+    accepted: [operates_at]
+    deprecated: []
+    domain: Carrier
+    range: Port

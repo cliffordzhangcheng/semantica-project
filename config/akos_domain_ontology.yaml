@@ -1,0 +1,339 @@
+# AKOS Domain Ontology Schema v1.0
+# Canonical ontology for Container Investment / Logistics / Marine domain
+# Generated: 2026-09-06 by dsh-web
+# Status: Candidate (not production)
+
+meta:
+  schema_id: AKOS-DOMAIN-ONT-001
+  version: "1.0"
+  status: candidate
+  description: >
+    Canonical entity/relation schema for AKOS Container Investment
+    Ontology Workbench. Aligns domain_ner.py, domain_re.py, and
+    actual graph labels. FAIL CLOSED on undocumented types.
+
+classes:
+  # === Organization / Roles ===
+  CapitalProvider:
+    description: 资本提供方/投资人
+    identity_key: legal_name
+    required: [legal_name, jurisdiction]
+    optional: [contact, credit_rating]
+    aliases: [Investor, Capital Provider, 资金方]
+    deprecated: []
+    provenance_required: true
+
+  ProjectSPV:
+    description: 投资主体/项目公司
+    identity_key: registration_number
+    required: [registration_number, jurisdiction, bank_account]
+    optional: [tax_status, asset_isolation]
+    aliases: [SPV]
+    deprecated: []
+    provenance_required: true
+
+  Operator:
+    description: 运营管理人（源海通/Cosmos Whales）
+    identity_key: legal_name
+    required: [legal_name, role]
+    optional: [license, contacts]
+    aliases: [Cosmos Whales, 源海通]
+    deprecated: []
+    provenance_required: true
+
+  Lessee:
+    description: 租箱客户/买家
+    identity_key: legal_name
+    required: [legal_name, risk_rating]
+    optional: [credit, sanctions_check, contacts]
+    aliases: [Tenant, 承租方]
+    deprecated: []
+    provenance_required: true
+
+  ContainerOwner:
+    description: 箱东（SOC 箱产权方）
+    identity_key: legal_name
+    required: [legal_name, ownership_proof]
+    optional: [available_ports, credit]
+    aliases: [SOC Owner, 箱产权方]
+    deprecated: []
+    provenance_required: true
+
+  Carrier:
+    description: 承运商/班轮公司
+    identity_key: scac_code
+    required: [scac_code, legal_name]
+    optional: [trade_lanes, credit]
+    aliases: [ShippingLine, 船公司]
+    deprecated: [ShippingLine]
+    provenance_required: true
+
+  ContainerAgent:
+    description: 箱代/中间人（撮合ONEWAY交易）
+    identity_key: legal_name
+    required: [legal_name, commission_rate]
+    optional: [specialization, contacts]
+    aliases: [箱代, 中间人]
+    deprecated: []
+    provenance_required: true
+
+  Manufacturer:
+    description: 箱厂/卖方
+    identity_key: legal_name
+    required: [legal_name, quote_validity]
+    optional: [payment_terms, delivery_liability, credit_risk]
+    aliases: [箱厂, Supplier]
+    deprecated: []
+    provenance_required: true
+
+  ThirdPartyDepot:
+    description: 第三方堆场/存储点
+    identity_key: name
+    required: [name, location, capacity]
+    optional: [rate, capability, contract, inventory_proof]
+    aliases: [Depot, Yard]
+    deprecated: []
+    provenance_required: true
+
+  Founder:
+    description: 投资委员会/最终决策人
+    identity_key: name
+    required: [name, authority_scope]
+    optional: [contacts]
+    aliases: [Investment Committee, 投资委员会]
+    deprecated: []
+    provenance_required: true
+
+  Auditor:
+    description: 审计/法务/税务顾问
+    identity_key: name
+    required: [name, specialty]
+    optional: [contacts]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  # === Assets ===
+  ContainerAsset:
+    description: 集装箱资产（产权归属的实体箱）
+    identity_key: container_no
+    required: [container_no, type, size, owner, cost, location, status]
+    optional: [manufacturer, mfg_date, grade, residual_assumption]
+    aliases: [Container, 箱]
+    deprecated: []
+    provenance_required: true
+    status_machine:
+      available: [ordered, delivered, in_depot, ready]
+      leased: [on_hire, off_hire_pending, returned]
+      disposed: [sold, scrapped, transferred]
+
+  ContainerBatch:
+    description: 集装箱批次
+    identity_key: batch_id
+    required: [batch_id, count, spec, supplier, unit_price]
+    optional: [delivery_window, status, evidence_pack]
+    aliases: [Batch]
+    deprecated: []
+    provenance_required: true
+
+  SOCContainer:
+    description: 货主自有箱
+    identity_key: container_no
+    required: [container_no, owner_entity, age, ownership_status]
+    optional: [available_ports, soc_flag]
+    aliases: [SOC, Shipper Own Container]
+    deprecated: []
+    provenance_required: true
+
+  # === Contracts ===
+  PurchaseContract:
+    description: 采购合同
+    identity_key: contract_no
+    required: [contract_no, subject, quantity, price, incoterms]
+    optional: [delivery, acceptance, breach, signing_status]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  LeaseContract:
+    description: 长期/中期租赁合同
+    identity_key: contract_no
+    required: [contract_no, lease_term, rent_rate, customer]
+    optional: [deposit, redelivery_loc, damage_clause, breach_clause, payment_schedule]
+    aliases: [LongTermLease]
+    deprecated: []
+    provenance_required: true
+
+  OneWayContract:
+    description: 单程租赁合同
+    identity_key: contract_no
+    required: [contract_no, origin_port, dest_port, puc_rate, free_days, redelivery_point]
+    optional: [oneway_terms, offhire_conditions]
+    aliases: [ONEWAY, OneWayLease]
+    deprecated: []
+    provenance_required: true
+
+  PLAContract:
+    description: 协议运量合同
+    identity_key: contract_no
+    required: [contract_no, protocol_volume, container_type, port_pair, min_volume]
+    optional: [bonus_penalty_clause]
+    aliases: [ProtocolLeaseAgreement]
+    deprecated: []
+    provenance_required: true
+
+  # === Financial ===
+  CapitalCommitment:
+    description: 资金承诺
+    identity_key: commitment_id
+    required: [commitment_id, amount, currency, source, purpose]
+    optional: [commitment_date, drawdown_cap, status]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  InvoicePayment:
+    description: 发票/收款记录
+    identity_key: invoice_no
+    required: [invoice_no, amount, currency, entity, due_date]
+    optional: [purpose, voucher, status, reconciliation_ref]
+    aliases: [Invoice, Payment]
+    deprecated: []
+    provenance_required: true
+
+  PUCMargin:
+    description: PUC 差价
+    identity_key: margin_id
+    required: [margin_id, puc_buy, puc_sell, margin_per_container]
+    optional: []
+    aliases: [PickUpCharge]
+    deprecated: []
+    provenance_required: true
+
+  # === Operations ===
+  Depot:
+    description: 堆场（别名 ThirdPartyDepot）
+    identity_key: name
+    required: [name, location, capacity]
+    optional: [rate, capability, contract, inventory_proof]
+    aliases: [ThirdPartyDepot, Yard]
+    deprecated: []
+    provenance_required: true
+
+  TradeLane:
+    description: 贸易航线
+    identity_key: lane_id
+    required: [lane_id, origin, destination]
+    optional: [demand, empty_supply, reposition_cost, restrictions]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  RepositionTask:
+    description: 调箱任务
+    identity_key: task_id
+    required: [task_id, origin, destination, container_count]
+    optional: [carrier_agent, budget, actual_cost, status, anomaly]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  InspectionRepairOrder:
+    description: 验箱/维修单
+    identity_key: order_no
+    required: [order_no, container_no, issue]
+    optional: [photos, quote, approval, repair_result, cost, reinspection]
+    aliases: [RepairOrder]
+    deprecated: []
+    provenance_required: true
+
+  EmptyStockPosition:
+    description: 空箱库存位置
+    identity_key: position_id
+    required: [position_id, port_region, empty_count, container_type]
+    optional: [availability, reposition_cost]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  DisposalChannel:
+    description: 二手箱处置渠道
+    identity_key: channel_id
+    required: [channel_id, type, channel_partner]
+    optional: [price_range, min_order_qty]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  WishList:
+    description: 承运商箱型需求清单
+    identity_key: wishlist_id
+    required: [wishlist_id, carrier, container_type, origin, destination]
+    optional: [quantity, frequency, validity]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  OffHireCondition:
+    description: 单程还箱条件
+    identity_key: condition_id
+    required: [condition_id, condition_standard, location_requirement]
+    optional: [time_window, penalty_clause]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  # === Governance ===
+  DecisionCard:
+    description: 决策卡
+    identity_key: card_id
+    required: [card_id, options, recommendation, assumptions, evidence, risk, capital_impact]
+    optional: [approval_chain, outcome]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  EvidenceRecord:
+    description: 证据记录
+    identity_key: evidence_id
+    required: [evidence_id, type, source, collector, timestamp, hash_link, target_object, reliability]
+    optional: [validity]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  PersonOrg:
+    description: 人员/组织
+    identity_key: person_id
+    required: [person_id, role, authorization_scope]
+    optional: [conflict_of_interest, responsibility, contacts]
+    aliases: [Person]
+    deprecated: []
+    provenance_required: true
+
+  EventLog:
+    description: 事件日志
+    identity_key: event_id
+    required: [event_id, timestamp, subject, action, old_state, new_state, operator]
+    optional: [evidence, impact]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  DefaultChain:
+    description: 违约链
+    identity_key: chain_id
+    required: [chain_id, trigger, steps]
+    optional: [recovery_cost, realized_residual]
+    aliases: []
+    deprecated: []
+    provenance_required: true
+
+  MinimumVolume:
+    description: 协议最低箱量
+    identity_key: volume_id
+    required: [volume_id, pla_contract, min_volume]
+    optional: [actual_volume, penalty]
+    aliases: []
+    deprecated: []
+    provenance_required: true

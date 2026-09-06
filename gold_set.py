@@ -1,8 +1,4 @@
-"""Gold Set for AI-Depot Ontology NER/RE evaluation.
-
-Aligned with domain_ner.py patterns — these are the entities
-the domain regex patterns are designed to extract.
-"""
+"""Gold Set for domain NER/RE evaluation — expanded to 100+ relations."""
 GOLD_TEXT = (
     "马士基(Maersk)在厦门港口部署了40HC集装箱，"
     "向货代Forwarder提供长租服务，日租金约1.5美元。"
@@ -10,8 +6,8 @@ GOLD_TEXT = (
 )
 
 GOLD_ENTITIES = [
-    {"text": "马士基", "label": "ShippingLine", "start_char": 0, "end_char": 3},
-    {"text": "Maersk", "label": "ShippingLine", "start_char": 4, "end_char": 10},
+    {"text": "马士基", "label": "Carrier", "start_char": 0, "end_char": 3},
+    {"text": "Maersk", "label": "Carrier", "start_char": 4, "end_char": 10},
     {"text": "厦门", "label": "Port", "start_char": 13, "end_char": 15},
     {"text": "40HC", "label": "ContainerType", "start_char": 20, "end_char": 24},
     {"text": "货代", "label": "FreightForwarder", "start_char": 31, "end_char": 33},

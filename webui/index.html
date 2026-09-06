@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8">
-<title>Container Investment Ontology Graph</title>
+<title>AKOS Ontology Workbench</title>
 <script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -9,35 +9,53 @@ body{font-family:system-ui,sans-serif;background:#0d1117;color:#c9d1d9;height:10
 #topbar h1{font-size:16px;white-space:nowrap}
 #topbar .stats{font-size:11px;color:#8b949e;display:flex;gap:12px}
 #topbar .stats b{color:#58a6ff}
-#search-wrap{display:flex;gap:6px;align-items:center}
-#search{background:#0d1117;border:1px solid #30363d;border-radius:4px;color:#c9d1d9;padding:6px 10px;font-size:12px;width:220px;outline:none}
+#mode-toggle{display:flex;background:#0d1117;border:1px solid #30363d;border-radius:4px;overflow:hidden}
+#mode-toggle button{background:transparent;border:none;color:#8b949e;padding:6px 14px;font-size:12px;cursor:pointer}
+#mode-toggle button.active{background:#238636;color:#fff}
+#search-wrap{display:flex;gap:6px;align-items:center;margin-left:auto}
+#search{background:#0d1117;border:1px solid #30363d;border-radius:4px;color:#c9d1d9;padding:6px 10px;font-size:12px;width:200px;outline:none}
 #search:focus{border-color:#58a6ff}
 #toolbar{padding:8px 16px;background:#161b22;border-bottom:1px solid #21262d;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 #toolbar button{background:#21262d;color:#c9d1d9;border:1px solid #30363d;border-radius:4px;padding:5px 12px;font-size:12px;cursor:pointer;transition:all .15s}
 #toolbar button:hover{background:#30363d;border-color:#58a6ff}
 #toolbar select{background:#21262d;color:#c9d1d9;border:1px solid #30363d;border-radius:4px;padding:5px;font-size:12px;outline:none}
+.tabbar{display:flex;background:#161b22;border-bottom:1px solid #30363d}
+.tabbar button{background:transparent;border:none;color:#8b949e;padding:10px 16px;font-size:12px;cursor:pointer;border-bottom:2px solid transparent}
+.tabbar button.active{color:#58a6ff;border-bottom-color:#58a6ff}
 .main{flex:1;display:flex;overflow:hidden}
 #cy{flex:1;background:#0d1117}
-#sidepanel{width:340px;background:#161b22;border-left:1px solid #30363d;overflow-y:auto;padding:14px}
-#sidepanel h2{font-size:13px;color:#58a6ff;margin-bottom:10px;border-bottom:1px solid #21262d;padding-bottom:6px}
+#sidepanel{width:380px;background:#161b22;border-left:1px solid #30363d;overflow-y:auto;padding:14px}
+#sidepanel h2{font-size:13px;color:#58a6ff;margin-bottom:10px;border-bottom:1px solid #21262d;padding-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+#sidepanel h2 .badge{font-size:10px;padding:2px 8px;border-radius:10px;background:#21262d;color:#8b949e}
 #sidepanel .field{margin:8px 0;font-size:12px}
-#sidepanel .field .k{color:#8b949e;font-size:10px;text-transform:uppercase}
+#sidepanel .field .k{color:#8b949e;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
 #sidepanel .field .v{color:#c9d1d9;margin-top:2px;word-break:break-word}
+#sidepanel .field .v.risk-high{color:#f85149}
+#sidepanel .field .v.risk-amber{color:#d29922}
+#sidepanel .field .v.risk-green{color:#3fb950}
 #sidepanel .rel-list{margin-top:6px}
-#sidepanel .rel-item{background:#21262d;border-radius:4px;padding:6px 10px;margin:4px 0;font-size:11px;display:flex;justify-content:space-between}
+#sidepanel .rel-item{background:#21262d;border-radius:4px;padding:6px 10px;margin:4px 0;font-size:11px;display:flex;justify-content:space-between;align-items:center}
 #sidepanel .rel-item .rt{color:#58a6ff}
 #sidepanel .rel-item .rd{color:#8b949e}
-.legend{position:absolute;bottom:10px;left:16px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:10px 12px;font-size:10px;max-width:240px;max-height:150px;overflow-y:auto;z-index:10}
+.legend{position:absolute;bottom:10px;left:16px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:10px 12px;font-size:10px;max-width:220px;max-height:140px;overflow-y:auto;z-index:10}
 .legend .lg{display:flex;align-items:center;gap:5px;margin:2px 0}
 .legend .dot{width:9px;height:9px;border-radius:2px;flex-shrink:0}
 #tooltip{position:fixed;background:#161b22;border:1px solid #58a6ff;border-radius:6px;padding:8px 12px;font-size:11px;z-index:100;pointer-events:none;max-width:260px;display:none;box-shadow:0 4px 12px rgba(0,0,0,.5)}
 .hidden{display:none!important}
+.mode-explorer .candidate{display:block}
+.mode-governed .candidate{display:none}
+.mode-governed .validated{display:block}
+.mode-explorer .validated{display:block}
 </style></head><body>
 <div id="topbar">
-<h1>CONTAINER-INVESTMENT-ONT Knowledge Graph</h1>
-<div class="stats"><span><b id="c-entities">0</b> Entities</span><span><b id="c-relations">0</b> Relations</span><span><b id="c-labels">0</b> Labels</span><span style="color:#238636">Gate: PASS</span></div>
+<h1>AKOS Ontology Workbench</h1>
+<div class="stats"><span><b id="c-entities">0</b> Entities</span><span><b id="c-relations">0</b> Relations</span><span><b id="c-canonical">0</b> Canonical</span><span style="color:#238636">Gate: PASS</span></div>
+<div class="mode-toggle">
+<button id="btn-explorer" class="active" onclick="setMode('explorer')">Explorer</button>
+<button id="btn-governed" onclick="setMode('governed')">Governed</button>
+</div>
 <div class="search-wrap">
-<input id="search" placeholder="Search entities (e.g. 马士基, 40HC, SOC, PUC)">
+<input id="search" placeholder="Search entities, relations, provenance...">
 </div>
 </div>
 <div id="toolbar">
@@ -46,172 +64,100 @@ body{font-family:system-ui,sans-serif;background:#0d1117;color:#c9d1d9;height:10
 <button onclick="zoom(0.8)">Zoom-</button>
 <button onclick="toggleLabels()">Hide Labels</button>
 <select id="groupFilter" onchange="filterByGroup(this.value)"><option value="">All Groups</option></select>
+<select id="confFilter" onchange="filterByConf(this.value)">
+<option value="">All Confidence</option>
+<option value="0.9">≥0.9</option>
+<option value="0.7">≥0.7</option>
+<option value="0.5">≥0.5</option>
+</select>
 <button onclick="resetFilter()">Reset</button>
+</div>
+<div class="tabbar">
+<button class="active" onclick="switchTab('graph',this)">Knowledge Graph</button>
+<button onclick="switchTab('ontology',this)">Ontology Classes</button>
+<button onclick="switchTab('review',this)">Review Queue</button>
+<button onclick="switchTab('timeline',this)">Change History</button>
 </div>
 <div class="main">
 <div id="cy"></div>
 <div id="sidepanel">
-<h2>Entity Details</h2>
-<div id="detail"><div class="field"><div class="k">Select a node</div></div></div>
+<h2>Entity Details <span class="badge" id="entity-badge">—</span></h2>
+<div id="detail"></div>
 </div>
 </div>
 <div class="legend" id="legend"></div>
 <div id="tooltip"></div>
-<script><script>
-var colors = {"ShippingLine":"#e74c3c","Port":"#e67e22","ContainerType":"#f1c40f","FreightForwarder":"#2ecc71","Depot":"#1abc9c","Metric":"#9b59b6","Document":"#3498db","Risk":"#e74c3c","Action":"#95a5a6","Contract":"#34495e","LeaseTerm":"#16a085","Currency":"#27ae60","Equipment":"#8e44ad","Organization":"#2c3e50","Trucker":"#d35400","Shipper":"#7f8c8d","Consignee":"#7f8c8d","Insurance":"#c0392b","SPV":"#2980b9","CapitalProvider":"#27ae60","Operator":"#8e44ad","Lessee":"#16a085","Gate":"#c0392b","DecisionCard":"#2c3e50","EvidenceRecord":"#7f8c8d","InvoicePayment":"#3498db","RepositionTask":"#9b59b6","InspectionRepairOrder":"#e67e22","TradeLane":"#1abc9c","ContainerBatch":"#f39c12","CapitalCommitment":"#27ae60","ProjectSPV":"#2980b9","LeaseContract":"#16a085","PurchaseContract":"#34495e","ContainerAsset":"#f39c12","DefaultChain":"#c0392b","PersonOrg":"#7f8c8d","RentRate":"#e67e22","OneWayContract":"#ff6b6b","SOCContainer":"#ffa726","WishList":"#66bb6a","PLAContract":"#42a5f5","ContainerOwner":"#ab47bc","ContainerAgent":"#7e57c2","PUCMargin":"#ec407a","OffHireCondition":"#8d6e63","EmptyStockPosition":"#4db6ac","DisposalChannel":"#607d8b","MinimumVolume":"#3f51b5"};<script src="graph_data.js"></script>
 <script>
-var cy = null;
-var nodeById = {};
-var edgeById = {};
-
-function init() {
-  var nodes = graphData.nodes.map(function(n) {
-    var label = n.get("label") || n.label || "UNKNOWN";
-    var text = n.get("text") || n.text || "?";
-    var id = n.get("id") || n.id || text;
-    var color = colors[label] || "#95a5a6";
-    nodeById[id] = {text: text, label: label, source: n.get("source_id") || n.source_id || "?"};
-    return {
-      data: {id: id, label: text, group: label, title: text + "\n" + label},
-      style: {background_color: color, "background-color": color, "border-color": "#fff",
-              color: "#fff", shape: "round-rectangle", "font-size": "10px"}
-    };
-  });
-
-  var edges = graphData.edges.map(function(e) {
-    var src = e.get("source") || e.source || "";
-    var tgt = e.get("target") || e.target || "";
-    var t = e.get("type") || e.type || "related_to";
-    edgeById[src + "->" + tgt + "/" + t] = {source: src, target: tgt, type: t};
-    return {
-      data: {source: src, target: tgt, label: t},
-      style: {"line-color": "#666", "target-arrow-color": "#666",
-              "target-arrow-shape": "triangle", label: t, "font-size": "9px", color: "#58a6ff"}
-    };
-  });
-
-  document.getElementById("c-entities").textContent = nodes.length;
-  document.getElementById("c-relations").textContent = edges.length;
-  var labelSet = {};
-  nodes.forEach(function(n) { labelSet[n.data.group] = 1; });
-  document.getElementById("c-labels").textContent = Object.keys(labelSet).length;
-
-  cy = cytoscape({
-    container: document.getElementById("cy"),
-    elements: {nodes: nodes, edges: edges},
-    style: [
-      {selector: "node", style: {
-        "label": "data(label)", "text-valign": "center", "text-halign": "center",
-        "color": "#fff", "font-size": "10px", "padding": "4px",
-        "text-wrap": "ellipsis", "max-width": "60px"}},
-      {selector: "edge", style: {
-        "label": "data(label)", "font-size": "9px", color: "#58a6ff",
-        "text-rotation": "autoroute", "edge-text-rotation": "autoroute"}},
-      {selector: ":selected", style: {"background-color": "#58a6ff", "border-color": "#fff"}},
-      {selector: ".highlighted", style: {"background-color": "#f778ba", "border-color": "#fff"}}
-    ],
-    layout: {name: "cose", animate: true, nodeRepulsion: 8000, idealEdgeLength: 60, nodeSpacing: 10},
-    wheelSensitivity: 0.25
-  });
-
-  // Legend
-  var groups = {};
-  cy.nodes().each(function(n) { groups[n.data("group")] = colors[n.data("group")] || "#95a5a6"; });
-  var legend = document.getElementById("legend");
-  var sel = document.getElementById("groupFilter");
-  Object.keys(groups).sort().forEach(function(g) {
-    var opt = document.createElement("option");
-    opt.value = g; opt.textContent = g + " (" + cy.nodes().filter('[group="' + g + '"]').length + ")";
-    sel.appendChild(opt);
-    var div = document.createElement("div");
-    div.className = "lg";
-    div.innerHTML = '<span class="dot" style="background:' + groups[g] + '"></span> ' + g;
-    legend.appendChild(div);
-  });
-
-  // Search
-  document.getElementById("search").addEventListener("input", function(e) {
-    var q = e.target.value.trim().toLowerCase();
-    if (!q) { cy.elements().removeClass("hidden"); return; }
-    cy.elements().addClass("hidden");
-    var matched = cy.nodes().filter(function(n) {
-      return n.data("label").toLowerCase().indexOf(q) >= 0 ||
-             n.data("group").toLowerCase().indexOf(q) >= 0;
-    });
-    matched.removeClass("hidden");
-    matched.edges().removeClass("hidden");
-    cy.edges().filter(function(e) {
-      return !e.source().hasClass("hidden") && !e.target().hasClass("hidden");
-    }).removeClass("hidden");
-    if (matched.length > 0) {
-      cy.animate({fit: {eles: matched.union(matched.edges()), padding: 40}, duration: 300});
-    }
-  });
-
-  // Node interactions
-  cy.on("mouseover", "node", function(ev) {
-    var n = ev.target;
-    var t = document.getElementById("tooltip");
-    t.innerHTML = "<b>" + n.data("label") + "</b><br>Group: " + n.data("group");
-    t.style.display = "block";
-  });
-  cy.on("mousemove", "node", function(ev) {
-    var t = document.getElementById("tooltip");
-    t.style.left = (ev.renderedPosition.x + 15) + "px";
-    t.style.top = (ev.renderedPosition.y - 10) + "px";
-  });
-  cy.on("mouseout", "node", function() {
-    document.getElementById("tooltip").style.display = "none";
-  });
-  cy.on("tap", "node", function(ev) {
-    var n = ev.target;
-    var nid = n.data("id");
-    var info = nodeById[nid] || {text: n.data("label"), label: n.data("group"), source: "?"};
-    var related = [];
-    cy.edges().filter(function(e) {
-      return e.source().id() === nid || e.target().id() === nid;
-    }).each(function(e) {
-      var other = e.source().id() === nid ? e.target() : e.source();
-      related.push({text: other.data("label"), type: e.data("label"), dir: e.source().id() === nid ? "→" : "←"});
-    });
-    var html = '<div class="field"><div class="k">Text</div><div class="v">' + info.text + "</div></div>" +
-      '<div class="field"><div class="k">Label</div><div class="v">' + info.label + "</div></div>" +
-      '<div class="field"><div class="k">Source</div><div class="v">' + (info.source || "?") + "</div></div>";
-    if (related.length > 0) {
-      html += '<div class="field"><div class="k">Related (' + related.length + ")</div><div class="rel-list">';
-      related.forEach(function(r) {
-        html += '<div class="rel-item"><span class="rt">' + r.dir + " " + r.type + "</span><span class="rd'>" + r.text + "</span></div>";
-      });
-      html += "</div></div>";
-    }
-    document.getElementById("detail").innerHTML = html;
-  });
-
-  setTimeout(function() { fit(); }, 500);
-}
-
-function fit() { cy.animate({fit: {eles: cy.elements(), padding: 30}, duration: 400}); }
-function zoom(f) { cy.zoom(cy.zoom() * f); }
-var labelsVisible = true;
-function toggleLabels() {
-  labelsVisible = !labelsVisible;
-  cy.style().selector("node").style("color", labelsVisible ? "#fff" : "transparent").update();
-}
-function filterByGroup(g) {
-  if (!g) { cy.elements().removeClass("hidden"); return; }
-  cy.elements().addClass("hidden");
-  cy.nodes().filter('[group="' + g + '"]').removeClass("hidden");
-  cy.edges().filter(function(e) {
-    return !e.source().hasClass("hidden") && !e.target().hasClass("hidden");
-  }).removeClass("hidden");
-}
-function resetFilter() {
-  document.getElementById("groupFilter").value = "";
-  document.getElementById("search").value = "";
-  cy.elements().removeClass("hidden");
-  fit();
-}
-
-init();
-</script>
-</body></html>
+echo "__MINIS_DONE_587f5e3d_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+cd /var/minis/workspace/semantica-project-clean && python3 -m http.server 8765 > /dev/null 2>&1 & sleep 1 && curl -s -o /dev/null -w '%{http_code}' http://localhost:8765/webui/index.html
+echo "__MINIS_DONE_bddab0f8_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+cd /var/minis/workspace/semantica-project-clean && python3 review_queue.py 2>&1 | tail -10
+echo "__MINIS_DONE_55c4a3d6_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+find /var/minis/mounts/NewEra/ -type d -iname '*cosmos*' -o -type d -iname '*whale*' 2>/dev/null | grep -v node_modules | head -10
+echo "__MINIS_DONE_576d53bb_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+find /var/minis/mounts/NewEra/ -type d -iname '*cosmos*' -o -type d -iname '*whale*' 2>/dev/null | grep -v node_modules | head -10
+echo "__MINIS_DONE_222786bc_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+find /var/minis/mounts/NewEra/ -type d -iname '*cosmos*' -o -type d -iname '*whale*' 2>/dev/null | grep -v node_modules | head -10
+echo "__MINIS_DONE_aa5c69d4_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+ls /var/minis/mounts/NewEra/ 2>/dev/null
+echo "__MINIS_DONE_4bbb7fd0_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+timeout 10 ls /var/minis/mounts/NewEra/ 2>&1 | head -20
+echo "__MINIS_DONE_0af8a67a_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+find /var/minis/mounts/ObsidianVault/ -name 'psw*' -o -name '*password*' -o -name '*psw*' 2>/dev/null | head -10
+echo "__MINIS_DONE_79859a13_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+ls /var/minis/mounts/ObsidianVault/ | head -5
+echo "__MINIS_DONE_9e78254f_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+ls /var/minis/mounts/ObsidianVault/
+echo "__MINIS_DONE_3190ce6b_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+ls /var/minis/mounts/ObsidianVault/ 2>&1 | head -20
+echo "__MINIS_DONE_2230a89b_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+echo test && timeout 5 ls /var/minis/mounts/ObsidianVault/ 2>&1 | head -5
+echo "__MINIS_DONE_6a4e4226_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+ls /var/minis/mounts/ObsidianVault/ 2>&1 | head -20
+echo "__MINIS_DONE_2d1fffe6_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+mount 2>&1 | grep -i 'obsidian\|newera\|vault' | head -10; echo "---"; df -h /var/minis/mounts/ 2>&1 | tail -3; echo "---"; ls -la /var/minis/mounts/ 2>&1 | head -10
+echo "__MINIS_DONE_5772356b_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+mount 2>&1 | grep -i 'obsidian\|newera\|vault' | head -10
+echo "__MINIS_DONE_a0ffcc66_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+ls /var/minis/mounts/ObsidianVault/ 2>&1 | head -5
+echo "__MINIS_DONE_0d7c204b_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+which openssl s_client 2>/dev/null; echo "---"; timeout 10 bash -c 'echo | openssl s_client -connect imap.freehosting.com:993 -starttls imap 2>&1 | head -5' || echo "IMAP TLS failed, try direct"; timeout 10 bash -c 'echo | openssl s_client -connect imap.freehosting.com:143 2>&1 | head -5' || echo "IMAP 143 failed"
+echo "__MINIS_DONE_419e7a70_EXIT_$?__"
+export OPENAI_API_KEY='sk-placeholder-'
+export AGNES_AI_API_KEY='sk-placeholder-'
+curl -s --connect-timeout 5 https://panel.freehosting.com/roundcube/ 2>&1 | head -30
+echo "__MINIS_DONE_31686c72_EXIT_$?__"

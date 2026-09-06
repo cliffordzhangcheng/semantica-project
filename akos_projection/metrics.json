@@ -1,0 +1,9 @@
+{
+  "entity_count": 493,
+  "relation_count": 93,
+  "ner_f1": 0.9091,
+  "re_f1": 0.8,
+  "gate_result": "PASS",
+  "projection_status": "candidate",
+  "source_of_truth": false
+}

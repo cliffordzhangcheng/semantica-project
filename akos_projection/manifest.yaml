@@ -1,0 +1,22 @@
+{
+  "package_id": "AKOS-PROJ-SEMANTICA-001",
+  "generated_at": "2026-09-06T03:17:33.786819+00:00",
+  "repo_commit": "unknown",
+  "ontology_version": "1.0",
+  "ontology_hash": "70e3051232ec158c",
+  "corpus_hash": "d98e9973ec7e5617",
+  "entity_count": 493,
+  "relation_count": 93,
+  "quality_metrics": {
+    "ner_f1": 0.9091,
+    "re_f1": 0.8,
+    "duplicate_rate": "pending",
+    "unresolved_rate": "pending",
+    "evidence_coverage": "pending"
+  },
+  "gate_result": "PASS",
+  "projection_status": "candidate",
+  "source_of_truth": false,
+  "schema_version": "1.0",
+  "source_snapshot": "outputs/06_graph.json"
+}
