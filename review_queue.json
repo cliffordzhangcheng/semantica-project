@@ -133,5 +133,20 @@
     "status": "pending",
     "submitted_at": "2026-09-03T06:23:31Z",
     "requires_founder_approval": false
+  },
+  {
+    "ticket_id": "REV-F98441C99D",
+    "risk_level": "medium",
+    "agent_id": "dsh-web",
+    "work_session_id": "ws-b3228147",
+    "record_summary": {
+      "type": "pipeline_run",
+      "resource": "semantica-akos-pipeline",
+      "action": "evaluate_kg_quality",
+      "description": "NER F1=0.9091, RE F1=0.8000"
+    },
+    "status": "pending",
+    "submitted_at": "2026-09-06T02:27:43Z",
+    "requires_founder_approval": false
   }
 ]

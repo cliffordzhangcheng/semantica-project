@@ -29,17 +29,17 @@ DOMAIN_REL_PATTERNS: List[Tuple[str, str, str, int]] = [
     ("responsible_for", r"Operator|运营管理人|源海通|Cosmos Whales|鲸航", r"Object|Action|Event|Decision|Asset|资产|Container|箱|Mission|任务", 30),
     ("commits", r"投资方|投资人|资本提供|Capital Provider|资金方", r"Capital Commitment|资金承诺|承诺资金|投资额度", 25),
     ("triggers", r"Lessee|租箱客户|承租方|违约|Default", r"Default Chain|违约链|Payment Arrears|欠款|坏账|Bad Debt", 25),
-    # ONEWAY v0.2
-    ("intermediates", r"箱代|Container.?Agent|中间人", r"One.?Way|单程|OneWayContract", 30),
-    ("provides", r"箱东|Container.?Owner|SOC.?Owner", r"SOC|SOCContainer|货主自有箱", 25),
-    ("publishes", r"承运商|Carrier|马士基|Maersk|ONE|CMA", r"Wish.?List|箱型需求|需求清单", 30),
-    ("charters_under", r"承运商|Carrier|马士基|Maersk|ONE|CMA|Hapag", r"One.?Way|单程|OneWayContract", 30),
-    ("earns", r"箱代|Container.?Agent|中间人", r"PUC|Pick.?Up.?Charge|提箱费|箱价差", 25),
-    ("off_hires_at", r"Container|箱|ContainerAsset", r"Depot|堆场|还箱点|Off.?Hire", 30),
-    ("disposes_via", r"Container|箱|ContainerAsset", r"Disposal.?Channel|处置渠道|二手市场|拆解", 30),
-    ("guarantees", r"PLA|协议.?运量|PLAContract", r"Minimum.?Volume|最低箱量|协议箱量", 25),
-    ("feeds", r"Empty.?Stock|空箱库存|EmptyStockPosition", r"Reposition|调箱|RepositionTask", 30),
-    ("sells_to", r"箱东|Container.?Owner|SOC.?Owner", r"箱代|Container.?Agent|中间人", 30),
+    # ONEWAY v0.2 — large windows for business prose
+    ("intermediates", r"箱代|Container.?Agent|中间人|源海通|Cosmos.?Whales", r"One.?Way|单程|OneWayContract", 500),
+    ("provides", r"箱东|Container.?Owner|SOC.?Owner|箱产权方", r"SOC|SOCContainer|货主自有箱|SOC箱", 200),
+    ("publishes", r"承运商|Carrier|马士基|Maersk|ONE|CMA|Hapag| wish.?list", r"Wish.?List|箱型需求|需求清单|箱型清单", 200),
+    ("charters_under", r"承运商|Carrier|马士基|Maersk|ONE|CMA|Hapag", r"One.?Way|单程|OneWayContract|单程租", 200),
+    ("earns", r"箱代|Container.?Agent|中间人|源海通|Cosmos.?Whales", r"PUC|Pick.?Up.?Charge|提箱费|箱价差|PUCMargin", 200),
+    ("off_hires_at", r"Container|箱|ContainerAsset|还箱", r"Depot|堆场|还箱点|Off.?Hire|还箱场", 200),
+    ("disposes_via", r"Container|箱|ContainerAsset|旧箱|二手箱", r"Disposal.?Channel|处置渠道|二手市场|拆解|处置|越南", 200),
+    ("guarantees", r"PLA|协议.?运量|PLAContract|协议运量", r"Minimum.?Volume|最低箱量|协议箱量|PLA", 200),
+    ("feeds", r"Empty.?Stock|空箱库存|EmptyStockPosition|空箱", r"Reposition|调箱|RepositionTask|调箱任务", 200),
+    ("sells_to", r"箱东|Container.?Owner|SOC.?Owner|箱产权方|箱源", r"箱代|Container.?Agent|中间人|源海通|Cosmos.?Whales|撮合", 200),
 ]
 
 
