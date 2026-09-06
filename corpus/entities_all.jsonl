@@ -1,0 +1,62 @@
+{"type": "ShippingLine", "text": "Maersk", "count": 38, "confidence": 0.95}
+{"type": "ShippingLine", "text": "Hapag-Lloyd", "count": 4, "confidence": 0.95}
+{"type": "ShippingLine", "text": "NYK", "count": 4, "confidence": 0.95}
+{"type": "ShippingLine", "text": "ONE", "count": 27, "confidence": 0.95}
+{"type": "ContainerType", "text": "20GP", "count": 2, "confidence": 0.9}
+{"type": "ContainerType", "text": "20'GP", "count": 10, "confidence": 0.9}
+{"type": "ContainerType", "text": "40'HC", "count": 7, "confidence": 0.9}
+{"type": "Port", "text": "Xiamen", "count": 8, "confidence": 0.9}
+{"type": "Port", "text": "Shanghai", "count": 12, "confidence": 0.9}
+{"type": "Port", "text": "Qingdao", "count": 9, "confidence": 0.9}
+{"type": "Port", "text": "Ningbo", "count": 2, "confidence": 0.9}
+{"type": "Port", "text": "Fremantle", "count": 5, "confidence": 0.9}
+{"type": "Port", "text": "Brisbane", "count": 5, "confidence": 0.9}
+{"type": "Port", "text": "Melbourne", "count": 3, "confidence": 0.9}
+{"type": "Port", "text": "Sydney", "count": 3, "confidence": 0.9}
+{"type": "Port", "text": "Haiphong", "count": 6, "confidence": 0.9}
+{"type": "Port", "text": "Mauritius", "count": 3, "confidence": 0.9}
+{"type": "Port", "text": "Port Louis", "count": 3, "confidence": 0.9}
+{"type": "Port", "text": "Singapore", "count": 3, "confidence": 0.9}
+{"type": "Port", "text": "Vietnam", "count": 1, "confidence": 0.9}
+{"type": "FinancialTerm", "text": "USD", "count": 1, "confidence": 0.85}
+{"type": "FinancialTerm", "text": "RMB", "count": 1, "confidence": 0.85}
+{"type": "FinancialTerm", "text": "FOB", "count": 2, "confidence": 0.85}
+{"type": "FinancialTerm", "text": "CIF", "count": 8, "confidence": 0.85}
+{"type": "FinancialTerm", "text": "PUC", "count": 3, "confidence": 0.85}
+{"type": "FinancialTerm", "text": "Per diem", "count": 1, "confidence": 0.85}
+{"type": "FinancialTerm", "text": "Freedays", "count": 1, "confidence": 0.85}
+{"type": "Organization", "text": "Cosmos Whales", "count": 29, "confidence": 0.92}
+{"type": "Organization", "text": "WNS", "count": 4, "confidence": 0.92}
+{"type": "Organization", "text": "Hapag-Lloyd", "count": 4, "confidence": 0.92}
+{"type": "Organization", "text": "Maersk", "count": 38, "confidence": 0.92}
+{"type": "Organization", "text": "NYK", "count": 4, "confidence": 0.92}
+{"type": "Person", "text": "Thomas Lee", "count": 9, "confidence": 0.88}
+{"type": "Person", "text": "Michelle Chan", "count": 3, "confidence": 0.88}
+{"type": "Person", "text": "Peggy Wong", "count": 4, "confidence": 0.88}
+{"type": "Person", "text": "Roi", "count": 6, "confidence": 0.88}
+{"type": "Person", "text": "Soenke Hansen", "count": 1, "confidence": 0.88}
+{"type": "Person", "text": "Lak Phen", "count": 11, "confidence": 0.88}
+{"type": "Organization", "text": "Hapag-Lloyd AG", "count": 1, "confidence": 0.9}
+{"type": "Person", "text": "Christian Halgmann", "count": 1, "confidence": 0.9}
+{"type": "Person", "text": "Soh Kuan Ong", "count": 1, "confidence": 0.9}
+{"type": "Email", "text": "CONTAINER.INTERCHANGE@hlag.com", "count": 1, "confidence": 0.9}
+{"type": "Organization", "text": "Ballindamm 25", "count": 1, "confidence": 0.9}
+{"type": "Location", "text": "Hamburg", "count": 1, "confidence": 0.9}
+{"type": "Location", "text": "Germany", "count": 1, "confidence": 0.9}
+{"type": "ContainerType", "text": "22G1", "count": 1, "confidence": 0.9}
+{"type": "ContainerType", "text": "42G1", "count": 1, "confidence": 0.9}
+{"type": "ContainerType", "text": "45G1", "count": 1, "confidence": 0.9}
+{"type": "ContainerType", "text": "22GB", "count": 1, "confidence": 0.9}
+{"type": "ContainerType", "text": "40GP", "count": 1, "confidence": 0.9}
+{"type": "ContainerType", "text": "40HC", "count": 1, "confidence": 0.9}
+{"type": "BusinessTerm", "text": "PUC", "count": 1, "confidence": 0.9}
+{"type": "BusinessTerm", "text": "Freedays", "count": 1, "confidence": 0.9}
+{"type": "BusinessTerm", "text": "Per diem", "count": 1, "confidence": 0.9}
+{"type": "BusinessTerm", "text": "demurrage", "count": 1, "confidence": 0.9}
+{"type": "BusinessTerm", "text": "detention", "count": 1, "confidence": 0.9}
+{"type": "BusinessTerm", "text": "offhire", "count": 1, "confidence": 0.9}
+{"type": "BusinessTerm", "text": "Weekly Open Oneway Volume", "count": 1, "confidence": 0.9}
+{"type": "BusinessProcess", "text": "container leasing", "count": 1, "confidence": 0.9}
+{"type": "BusinessProcess", "text": "one way leasing", "count": 1, "confidence": 0.9}
+{"type": "BusinessProcess", "text": "total loss disposal", "count": 1, "confidence": 0.9}
+{"type": "BusinessProcess", "text": "SOC Update Issue", "count": 1, "confidence": 0.9}
