@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "created": "2026-09-15",
+    "spec_version": "v0.1",
+    "total_sources": 2,
+    "total_emails": 80,
+    "total_entities": 67,
+    "total_relations": 142
+  },
+  "sources": [
+    {
+      "source_id": "COSW-001",
+      "source_type": "email_archive",
+      "domain": "logistics",
+      "date": "2026-08-11 to 2026-09-11",
+      "version": "v1.0",
+      "provenance": "cliffordzhang@cosmoswhales.com via IMAP (imap.freehosting.com)",
+      "access": "user-owned inbox",
+      "license": "internal-use",
+      "confidence": 0.95,
+      "raw_location": "corpus/cosmos_whales_emails.jsonl",
+      "normalized_location": null,
+      "entity_count": 50,
+      "ontology_relevance": [
+        "ShippingLine",
+        "Port",
+        "ContainerType",
+        "BusinessTerm",
+        "Organization"
+      ],
+      "notes": "ONE, Maersk, Hapag-Lloyd business communications; ONEWAY container leasing negotiations"
+    },
+    {
+      "source_id": "CNTR-001",
+      "source_type": "email_archive",
+      "domain": "logistics",
+      "date": "2026-08-12 to 2026-09-11",
+      "version": "v1.0",
+      "provenance": "cliffordzhang@cntransworld.com via IMAP (imap.exmail.qq.com)",
+      "access": "user-owned enterprise inbox",
+      "license": "internal-use",
+      "confidence": 0.95,
+      "raw_location": "corpus/cntransworld_emails.jsonl",
+      "normalized_location": null,
+      "entity_count": 30,
+      "ontology_relevance": [
+        "ShippingLine",
+        "BusinessProcess",
+        "Organization",
+        "Person"
+      ],
+      "notes": "Hapag-Lloyd digital tools (eBL, ONE QUOTE); VSNB agency correspondence; ONE-WAY INVOICING"
+    }
+  ]
+}

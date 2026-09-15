@@ -1,0 +1,70 @@
+{
+  "version": "v0.1",
+  "created": "2026-09-15",
+  "gaps": [
+    {
+      "capability": "Entity Extraction from Emails",
+      "existing_semantica": "BASIC - keyword-based with source tracking",
+      "existing_akos": "NONE - no email integration",
+      "gap": "HIGH - needs NLP-based extraction pipeline",
+      "adopt": "YES",
+      "owner": "AKOS-Data-Ingestion",
+      "next_action": "Integrate Semantica email corpus into AKOS ingestion pipeline"
+    },
+    {
+      "capability": "Relation Extraction",
+      "existing_semantica": "MEDIUM - rule-based with 157 candidates",
+      "existing_akos": "NONE",
+      "gap": "HIGH - needs automated RE with confidence scoring",
+      "adopt": "YES",
+      "owner": "AKOS-Knowledge-Engine",
+      "next_action": "Promote high-confidence relations to AKOS ontology"
+    },
+    {
+      "capability": "Provenance Tracking",
+      "existing_semantica": "HIGH - full source-to-claim mapping",
+      "existing_akos": "LOW - basic audit trail",
+      "gap": "MEDIUM - enhance AKOS with Semantica provenance schema",
+      "adopt": "YES",
+      "owner": "AKOS-Compliance",
+      "next_action": "Implement PROV-v1.0 schema in AKOS"
+    },
+    {
+      "capability": "Interactive Visualization",
+      "existing_semantica": "HIGH - D3.js force graph with 8 patterns",
+      "existing_akos": "MEDIUM - static views",
+      "gap": "LOW - Semantica patterns can be adopted directly",
+      "adopt": "YES",
+      "owner": "AKOS-UI",
+      "next_action": "Port P001-P004, P006 interaction patterns to AKOS portal"
+    },
+    {
+      "capability": "Entity Resolution",
+      "existing_semantica": "LOW - manual entity merging",
+      "existing_akos": "MEDIUM - fuzzy matching available",
+      "gap": "MEDIUM - needs automated deduplication",
+      "adopt": "PARTIAL",
+      "owner": "AKOS-Data-Quality",
+      "next_action": "Integrate entity resolution service"
+    },
+    {
+      "capability": "Temporal Reasoning",
+      "existing_semantica": "LOW - no time-aware querying",
+      "existing_akos": "LOW - basic timestamps only",
+      "gap": "HIGH - needs temporal graph support",
+      "adopt": "FUTURE",
+      "owner": "AKOS-Research",
+      "next_action": "Research temporal ontology extensions"
+    },
+    {
+      "capability": "Automated Pattern Ingestion",
+      "existing_semantica": "MEDIUM - semi-automated extraction",
+      "existing_akos": "NONE",
+      "gap": "HIGH - needs batch processing pipeline",
+      "adopt": "YES",
+      "owner": "AKOS-Pipeline",
+      "next_action": "Build email ingestion pipeline using Semantica corpus prep"
+    }
+  ],
+  "total": 7
+}

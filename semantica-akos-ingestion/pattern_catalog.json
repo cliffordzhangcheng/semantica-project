@@ -1,0 +1,138 @@
+{
+  "version": "v1.0",
+  "patterns": [
+    {
+      "pattern_id": "P001",
+      "name": "Progressive Disclosure",
+      "description": "Show summary first, reveal details on click",
+      "user_problem_solved": "Information overload in large graphs",
+      "interaction_behavior": "Click node → show detail panel with evidence",
+      "data_contract": {
+        "node_id": "string",
+        "detail_fields": [
+          "text",
+          "type",
+          "evidence_refs",
+          "confidence"
+        ]
+      },
+      "implementation_complexity": "LOW",
+      "akos_destination_surface": "Entity detail panel",
+      "recommendation": "ADOPT"
+    },
+    {
+      "pattern_id": "P002",
+      "name": "Evidence-on-Click",
+      "description": "Show source evidence when clicking entity/relation",
+      "user_problem_solved": "Trust and verification of extracted claims",
+      "interaction_behavior": "Click → show source email + text span",
+      "data_contract": {
+        "entity_id": "string",
+        "evidence_refs": [
+          "source_id:text_span"
+        ]
+      },
+      "implementation_complexity": "MEDIUM",
+      "akos_destination_surface": "Entity/Relation inspector",
+      "recommendation": "ADOPT"
+    },
+    {
+      "pattern_id": "P003",
+      "name": "Relation Explanation",
+      "description": "Explain relationship semantics in natural language",
+      "user_problem_solved": "Understanding why two entities are connected",
+      "interaction_behavior": "Hover edge → tooltip with relation description",
+      "data_contract": {
+        "relation_type": "string",
+        "explanation": "string"
+      },
+      "implementation_complexity": "LOW",
+      "akos_destination_surface": "Graph edge tooltip",
+      "recommendation": "ADOPT"
+    },
+    {
+      "pattern_id": "P004",
+      "name": "Confidence Visualization",
+      "description": "Color-code entities/relations by confidence level",
+      "user_problem_solved": "Distinguishing high-confidence from candidate claims",
+      "interaction_behavior": "Green=high, Yellow=medium, Red=low confidence",
+      "data_contract": {
+        "confidence": -1.0,
+        "color": "string"
+      },
+      "implementation_complexity": "LOW",
+      "akos_destination_surface": "Graph rendering",
+      "recommendation": "ADOPT"
+    },
+    {
+      "pattern_id": "P005",
+      "name": "Temporal Filtering",
+      "description": "Filter entities/relations by time period",
+      "user_problem_solved": "Tracking changes over time",
+      "interaction_behavior": "Time slider → show entities active in period",
+      "data_contract": {
+        "start_date": "string",
+        "end_date": "string",
+        "active_entities": [
+          "string"
+        ]
+      },
+      "implementation_complexity": "HIGH",
+      "akos_destination_surface": "Timeline view",
+      "recommendation": "CONSIDER"
+    },
+    {
+      "pattern_id": "P006",
+      "name": "Provenance Trace",
+      "description": "Show full provenance chain from source to final claim",
+      "user_problem_solved": "Audit trail for regulatory compliance",
+      "interaction_behavior": "Click provenance icon → show chain visualization",
+      "data_contract": {
+        "chain": [
+          {
+            "step": "string",
+            "agent": "string",
+            "timestamp": "string"
+          }
+        ]
+      },
+      "implementation_complexity": "MEDIUM",
+      "akos_destination_surface": "Provenance panel",
+      "recommendation": "ADOPT"
+    },
+    {
+      "pattern_id": "P007",
+      "name": "Compare-Two-Entities",
+      "description": "Side-by-side comparison of two entities",
+      "user_problem_solved": "Decision making between alternatives",
+      "interaction_behavior": "Select two nodes → show comparison table",
+      "data_contract": {
+        "entity_a": "object",
+        "entity_b": "object",
+        "comparison_fields": [
+          "string"
+        ]
+      },
+      "implementation_complexity": "MEDIUM",
+      "akos_destination_surface": "Comparison view",
+      "recommendation": "CONSIDER"
+    },
+    {
+      "pattern_id": "P008",
+      "name": "Ontology-to-Workflow Transition",
+      "description": "Switch from graph view to task/workflow view",
+      "user_problem_solved": "Moving from understanding to action",
+      "interaction_behavior": "Click 'Actions' → show related workflow tasks",
+      "data_contract": {
+        "entity_id": "string",
+        "related_tasks": [
+          "task_id"
+        ]
+      },
+      "implementation_complexity": "HIGH",
+      "akos_destination_surface": "Workflow module",
+      "recommendation": "FUTURE"
+    }
+  ],
+  "total": 8
+}
