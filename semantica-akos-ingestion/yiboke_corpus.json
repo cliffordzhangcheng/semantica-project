@@ -1,0 +1,1485 @@
+{
+  "entities": [
+    {
+      "type": "FinancialValue",
+      "text": "USD 1",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "value": "USD 1"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 700.00",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "value": "USD 700.00"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 135.",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "value": "USD 135."
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 120.00",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "value": "USD 120.00"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 150.",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "value": "USD 150."
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 2,000",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "value": "USD 2,000"
+    },
+    {
+      "type": "Weight",
+      "text": "13000 KG",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "value": "13000"
+    },
+    {
+      "type": "Weight",
+      "text": "3 TON",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "value": "3"
+    },
+    {
+      "type": "DocumentType",
+      "text": "invoice",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "ChargeType",
+      "text": "EXW",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "ChargeType"
+    },
+    {
+      "type": "ChargeType",
+      "text": "FOB",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "ChargeType"
+    },
+    {
+      "type": "ChargeType",
+      "text": "THC",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "ChargeType"
+    },
+    {
+      "type": "ChargeType",
+      "text": "cif",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "ChargeType"
+    },
+    {
+      "type": "ServiceType",
+      "text": "EXW",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "ServiceType",
+      "text": "FOB",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "ServiceType",
+      "text": "CFR",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "ServiceType",
+      "text": "cif",
+      "source": "意保克-瑞士台中发电厂材料运输报价 2023.07.28.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "Organization",
+      "text": "ENGINEERING(SHANGHAI)",
+      "source": "MAWB784-02253204.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Organization",
+      "text": "AIRLINES",
+      "source": "MAWB784-02253204.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Organization",
+      "text": "LOGISTICS",
+      "source": "MAWB784-02253204.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Port",
+      "text": "SHANGHAI",
+      "source": "MAWB784-02253204.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Port",
+      "text": "DXB",
+      "source": "MAWB784-02253204.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Port",
+      "text": "SZX",
+      "source": "MAWB784-02253204.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Port",
+      "text": "MIAOYAN",
+      "source": "MAWB784-02253204.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Organization",
+      "text": "Collection:",
+      "source": "意保克在沙特的合作公司采购水下机器人 2025.01.27.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Organization",
+      "text": "Service:",
+      "source": "意保克在沙特的合作公司采购水下机器人 2025.01.27.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Person",
+      "text": "me",
+      "source": "意保克在沙特的合作公司采购水下机器人 2025.01.27.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Port",
+      "text": "CAN",
+      "source": "意保克在沙特的合作公司采购水下机器人 2025.01.27.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Organization",
+      "text": "XIAMENTRANSWORLDLOGISTICS",
+      "source": "《国际货运代理合作协议》--相互委托 意保克.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Organization",
+      "text": "EPOCHOFFSHOREENGINEERING",
+      "source": "《国际货运代理合作协议》--相互委托 意保克.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Person",
+      "text": "英文名职位联系电话",
+      "source": "《国际货运代理合作协议》--相互委托 意保克.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "DocumentType",
+      "text": "运单",
+      "source": "《国际货运代理合作协议》--相互委托 意保克.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "DocumentType",
+      "text": "提单",
+      "source": "《国际货运代理合作协议》--相互委托 意保克.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "DocumentType",
+      "text": "委托书",
+      "source": "《国际货运代理合作协议》--相互委托 意保克.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "DocumentType",
+      "text": "发票",
+      "source": "《国际货运代理合作协议》--相互委托 意保克.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "Organization",
+      "text": "schedule.",
+      "source": "意保克-瑞士台中发电厂材料运输报价2023.12.19.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 2760.00",
+      "source": "意保克-瑞士台中发电厂材料运输报价2023.12.19.pdf",
+      "value": "USD 2760.00"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD100",
+      "source": "意保克-瑞士台中发电厂材料运输报价2023.12.19.pdf",
+      "value": "USD100"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD985.00",
+      "source": "意保克-瑞士台中发电厂材料运输报价2023.12.19.pdf",
+      "value": "USD985.00"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 120.",
+      "source": "意保克-瑞士台中发电厂材料运输报价2023.12.19.pdf",
+      "value": "USD 120."
+    },
+    {
+      "type": "Weight",
+      "text": "15689.0 kg",
+      "source": "意保克-瑞士台中发电厂材料运输报价2023.12.19.pdf",
+      "value": "15689.0"
+    },
+    {
+      "type": "Port",
+      "text": "XIAMEN",
+      "source": "意保克-瑞士台中发电厂材料运输报价2023.12.19.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Organization",
+      "text": "ENGINEERING",
+      "source": "《国际货运代理合作协议》--相互委托 意保克 2024.03.25.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Organization",
+      "text": "KG):51.00Dimension:",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Organization",
+      "text": "Shanghai)",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Person",
+      "text": "ectronic",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD7.00",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "value": "USD7.00"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD7.75",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "value": "USD7.75"
+    },
+    {
+      "type": "Port",
+      "text": "SIN",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Port",
+      "text": "SINGAPORE",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "DocumentType",
+      "text": "Quotation",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "ChargeType",
+      "text": "AWC Filing",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "role": "ChargeType"
+    },
+    {
+      "type": "ServiceType",
+      "text": "Air Freight",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "Organization",
+      "text": "BANKING",
+      "source": "Commercial Invoice - Epoch Airfreight 60370267234 2025.06.25.xlsx.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Organization",
+      "text": "ORATION",
+      "source": "Commercial Invoice - Epoch Airfreight 60370267234 2025.06.25.xlsx.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Weight",
+      "text": "57.0 KG",
+      "source": "Commercial Invoice - Epoch Airfreight 60370267234 2025.06.25.xlsx.pdf",
+      "value": "57.0"
+    },
+    {
+      "type": "Port",
+      "text": "SHA",
+      "source": "Commercial Invoice - Epoch Airfreight 60370267234 2025.06.25.xlsx.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "DocumentType",
+      "text": "Proforma Invoice",
+      "source": "Commercial Invoice - Epoch Airfreight 60370267234 2025.06.25.xlsx.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "ChargeType",
+      "text": "COD",
+      "source": "Commercial Invoice - Epoch Airfreight 60370267234 2025.06.25.xlsx.pdf",
+      "role": "ChargeType"
+    },
+    {
+      "type": "Weight",
+      "text": "0 KG",
+      "source": "Commercial Invoice - Epoch Airfreight 60370267234 2025.06.25.pdf",
+      "value": "0"
+    },
+    {
+      "type": "Organization",
+      "text": "KG):57.00Dimension:",
+      "source": "Quotation  SIN-DXB 2025.06.25r.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Person",
+      "text": "Eric",
+      "source": "Quotation  SIN-DXB 2025.06.25r.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Organization",
+      "text": "MA7B6G751A厦门源海通物流",
+      "source": "发票- MWB784-02253204.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "¥8613.86",
+      "source": "发票- MWB784-02253204.pdf",
+      "value": "¥8613.86"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "¥86.14",
+      "source": "发票- MWB784-02253204.pdf",
+      "value": "¥86.14"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "¥8700.00",
+      "source": "发票- MWB784-02253204.pdf",
+      "value": "¥8700.00"
+    },
+    {
+      "type": "Organization",
+      "text": "SHANGHAI中国南⽅航空货运",
+      "source": "MWB-78402253204.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD5.0",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "value": "USD5.0"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD0.6",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "value": "USD0.6"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD125",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "value": "USD125"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 10.00",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "value": "USD 10.00"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD50",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "value": "USD50"
+    },
+    {
+      "type": "Weight",
+      "text": "211.3 kg",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "value": "211.3"
+    },
+    {
+      "type": "Weight",
+      "text": "1.8 kg",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "value": "1.8"
+    },
+    {
+      "type": "Weight",
+      "text": "209.5 kg",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "value": "209.5"
+    },
+    {
+      "type": "Port",
+      "text": "HKG",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD1.1623",
+      "source": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+      "value": "USD1.1623"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD75",
+      "source": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+      "value": "USD75"
+    },
+    {
+      "type": "Organization",
+      "text": "KG):286.04Dimension:",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD3.5",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "value": "USD3.5"
+    },
+    {
+      "type": "Weight",
+      "text": "3500 kg",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "value": "3500"
+    },
+    {
+      "type": "Weight",
+      "text": "34000 kg",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "value": "34000"
+    },
+    {
+      "type": "Weight",
+      "text": "74500 kg",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "value": "74500"
+    },
+    {
+      "type": "Weight",
+      "text": "132000 kg",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "value": "132000"
+    },
+    {
+      "type": "Weight",
+      "text": "42000 kg",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "value": "42000"
+    },
+    {
+      "type": "Weight",
+      "text": "0040 kg",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "value": "0040"
+    },
+    {
+      "type": "Port",
+      "text": "AMS",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD45",
+      "source": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+      "value": "USD45"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD 15,00",
+      "source": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+      "value": "USD 15,00"
+    },
+    {
+      "type": "Person",
+      "text": "Jannik",
+      "source": "ASG261000 (ABG250606).pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "ephone",
+      "source": "ASG261000 (ABG250606).pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "y",
+      "source": "ASG261000 (ABG250606).pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Weight",
+      "text": "64556 kg",
+      "source": "ASG261000 (ABG250606).pdf",
+      "value": "64556"
+    },
+    {
+      "type": "Weight",
+      "text": ". g",
+      "source": "ASG261000 (ABG250606).pdf",
+      "value": "."
+    },
+    {
+      "type": "Weight",
+      "text": "35420 kg",
+      "source": "ASG260980 (ABG250861).pdf",
+      "value": "35420"
+    },
+    {
+      "type": "Person",
+      "text": "LE",
+      "source": "ABD_26DE615680267154B3 - ASG260980+990-1+1000.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "LUNGSZOLLSTELLE",
+      "source": "ABD_26DE615680267154B3 - ASG260980+990-1+1000.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "lung",
+      "source": "ABD_26DE615680267154B3 - ASG260980+990-1+1000.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "beim",
+      "source": "ABD_26DE615680267154B3 - ASG260980+990-1+1000.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "lter",
+      "source": "ABD_26DE615680267154B3 - ASG260980+990-1+1000.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Weight",
+      "text": "2892 kg",
+      "source": "ASG260990 (ABG260912).pdf",
+      "value": "2892"
+    },
+    {
+      "type": "Person",
+      "text": "efon",
+      "source": "Zollvollmacht_Export.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "efax",
+      "source": "Zollvollmacht_Export.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "len",
+      "source": "Zollvollmacht_Export.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "lte",
+      "source": "Zollvollmacht_Export.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "n",
+      "source": "Zollvollmacht_Export.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Weight",
+      "text": "100000 kg",
+      "source": "Invoice-ASG261036-1 Palette 132,000 kg 80,0 x 60,0 x 52,0 cm.pdf",
+      "value": "100000"
+    },
+    {
+      "type": "Person",
+      "text": "Carmen",
+      "source": "Invoice-ASG261012-1 pallet 34,000 kg 80,0 x 60,0 x 44,0 cm.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Weight",
+      "text": "20400 kg",
+      "source": "Invoice-ASG261012-1 pallet 34,000 kg 80,0 x 60,0 x 44,0 cm.pdf",
+      "value": "20400"
+    },
+    {
+      "type": "Weight",
+      "text": "35460 kg",
+      "source": "Invoice-ASG260980-1 Palette 42,000 kg 60,0 x 42,0 x 38,0 cm.pdf",
+      "value": "35460"
+    },
+    {
+      "type": "Person",
+      "text": "ex",
+      "source": "4420071982 PL - Epoch.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Weight",
+      "text": "164614 KG",
+      "source": "4420071982 PL - Epoch.pdf",
+      "value": "164614"
+    },
+    {
+      "type": "Weight",
+      "text": "209500 KG",
+      "source": "4420071982 PL - Epoch.pdf",
+      "value": "209500"
+    },
+    {
+      "type": "Weight",
+      "text": "74600 KG",
+      "source": "4420071982 PL - Epoch.pdf",
+      "value": "74600"
+    },
+    {
+      "type": "Weight",
+      "text": "54240 KG",
+      "source": "4420071982 PL - Epoch.pdf",
+      "value": "54240"
+    },
+    {
+      "type": "Weight",
+      "text": "4374 KG",
+      "source": "4420071982 PL - Epoch.pdf",
+      "value": "4374"
+    },
+    {
+      "type": "Weight",
+      "text": "31400 KG",
+      "source": "4420071982 PL - Epoch.pdf",
+      "value": "31400"
+    },
+    {
+      "type": "Organization",
+      "text": "Shi意保克海洋工程（上海）",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Person",
+      "text": "AWB",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "199",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "1USD",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "1USD"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "7USD",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "7USD"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD0.2",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "USD0.2"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD20",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "USD20"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD90",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "USD90"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "0031007USD",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "0031007USD"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD,",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "USD,"
+    },
+    {
+      "type": "ChargeType",
+      "text": "DAP",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "ChargeType"
+    },
+    {
+      "type": "ChargeType",
+      "text": "DDP",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "ChargeType"
+    },
+    {
+      "type": "ServiceType",
+      "text": "DAP",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "ServiceType",
+      "text": "DDP",
+      "source": "Proforma Invoice-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "Person",
+      "text": "Tel",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "our",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "587.46       CNY",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "587.46       CNY"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "5USD",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "5USD"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "5CNY",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "5CNY"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "3USD",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "3USD"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "4CNY",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "4CNY"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "60 CNY",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "value": "60 CNY"
+    },
+    {
+      "type": "Port",
+      "text": "ROT",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "DocumentType",
+      "text": "STATEMENT OF ACCOUNT",
+      "source": "Statement of Account对账单-Epoch-ROT-SZH 2026.04.07.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "Organization",
+      "text": "Signature美元伍仟零肆拾伍元整TotalUSD5045.00人民币账号：户名：厦门源海通物流有限公司开户行：招商银行厦门分行海天支行RMB帐号：592908020710401美金账号：户名：厦门源海通物流",
+      "source": "HLCUHAM2312AXEY3_费用确认单.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Person",
+      "text": "陆飞",
+      "source": "HLCUHAM2312AXEY3_费用确认单.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "001.0000USD",
+      "source": "HLCUHAM2312AXEY3_费用确认单.pdf",
+      "value": "001.0000USD"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD5045.00",
+      "source": "HLCUHAM2312AXEY3_费用确认单.pdf",
+      "value": "USD5045.00"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "5045.00 USD",
+      "source": "Invoice.pdf",
+      "value": "5045.00 USD"
+    },
+    {
+      "type": "Organization",
+      "text": "KG):Dimension:",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Weight",
+      "text": "12.5 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "12.5"
+    },
+    {
+      "type": "Weight",
+      "text": "5.9 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "5.9"
+    },
+    {
+      "type": "Weight",
+      "text": "6.5 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "6.5"
+    },
+    {
+      "type": "Weight",
+      "text": "10.6 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "10.6"
+    },
+    {
+      "type": "Weight",
+      "text": "8.5 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "8.5"
+    },
+    {
+      "type": "Weight",
+      "text": "8 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "8"
+    },
+    {
+      "type": "Weight",
+      "text": "12 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "12"
+    },
+    {
+      "type": "Weight",
+      "text": "4.5 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "4.5"
+    },
+    {
+      "type": "Weight",
+      "text": "10 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "10"
+    },
+    {
+      "type": "Weight",
+      "text": "16.5 吨",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "16.5"
+    },
+    {
+      "type": "Weight",
+      "text": "5900 KG",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "5900"
+    },
+    {
+      "type": "Weight",
+      "text": "6500 KG",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "6500"
+    },
+    {
+      "type": "Weight",
+      "text": "10600 KG",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "10600"
+    },
+    {
+      "type": "Weight",
+      "text": "8500 KG",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "value": "8500"
+    },
+    {
+      "type": "Port",
+      "text": "ALEXANDRIA",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Person",
+      "text": "Angela",
+      "source": "ABG250396-大管补充.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Weight",
+      "text": "93410 kg",
+      "source": "ABG250396-大管补充.pdf",
+      "value": "93410"
+    },
+    {
+      "type": "Organization",
+      "text": "KGDimension:",
+      "source": "Quotation  HAM-DWC 2025.05.29.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Weight",
+      "text": "230.0 KG",
+      "source": "Quotation  HAM-DWC 2025.05.29.pdf",
+      "value": "230.0"
+    },
+    {
+      "type": "Weight",
+      "text": "230000 kg",
+      "source": "Quotation  HAM-DWC 2025.05.29.pdf",
+      "value": "230000"
+    },
+    {
+      "type": "Port",
+      "text": "FRA",
+      "source": "Quotation  HAM-DWC 2025.05.29.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Person",
+      "text": "Edgar",
+      "source": "ALG250588.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "Janett",
+      "source": "ASG250316(1).pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Weight",
+      "text": "579000 kg",
+      "source": "ASG250316(1).pdf",
+      "value": "579000"
+    },
+    {
+      "type": "Weight",
+      "text": "327000 kg",
+      "source": "ASG250316(1).pdf",
+      "value": "327000"
+    },
+    {
+      "type": "Weight",
+      "text": "803000 kg",
+      "source": "ASG250316(1).pdf",
+      "value": "803000"
+    },
+    {
+      "type": "Weight",
+      "text": "906.0 KG",
+      "source": "Quotation  HAM-DXB 2025.05.07.pdf",
+      "value": "906.0"
+    },
+    {
+      "type": "Person",
+      "text": "Mathias",
+      "source": "ALG250438.pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Port",
+      "text": "HAM",
+      "source": "Commercial Invoice - Epoch Airfreight HAM80115663.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "DocumentType",
+      "text": "MAWB",
+      "source": "Invoice_I0131427_Job_Ref_8HXA5050026-2025.05.28.pdf",
+      "role": "DocumentType"
+    },
+    {
+      "type": "Port",
+      "text": "DMM",
+      "source": "Quotation  HAM-DMM 2025.06.26.pdf",
+      "role": "Location"
+    },
+    {
+      "type": "Weight",
+      "text": "272.0 KG",
+      "source": "Commercial Invoice - Epoch Airfreight 074HAM66576031 2025.07.12.pdf",
+      "value": "272.0"
+    },
+    {
+      "type": "Organization",
+      "text": "AL-ARBIA",
+      "source": "001_EXA4-0725-0012_CSAWB_EX_D(4484016).pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Person",
+      "text": "HAIKO",
+      "source": "001_EXA4-0725-0012_CSAWB_EX_D(4484016).pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Person",
+      "text": "EMAIL",
+      "source": "001_EXA4-0725-0012_CSAWB_EX_D(4484016).pdf",
+      "role": "Contact"
+    },
+    {
+      "type": "Weight",
+      "text": "0300 KG",
+      "source": "4420069018 PL  --can card.pdf",
+      "value": "0300"
+    },
+    {
+      "type": "Weight",
+      "text": "0700 KG",
+      "source": "4420069018 PL  --can card.pdf",
+      "value": "0700"
+    },
+    {
+      "type": "Weight",
+      "text": "0230 KG",
+      "source": "4420069018 PL  --can card.pdf",
+      "value": "0230"
+    },
+    {
+      "type": "Weight",
+      "text": "6422 KG",
+      "source": "4420069017 PL.pdf",
+      "value": "6422"
+    },
+    {
+      "type": "Weight",
+      "text": "7740 KG",
+      "source": "4420069017 PL.pdf",
+      "value": "7740"
+    },
+    {
+      "type": "Weight",
+      "text": "6400 KG",
+      "source": "4420069017 PL.pdf",
+      "value": "6400"
+    },
+    {
+      "type": "Weight",
+      "text": "0148 KG",
+      "source": "4420069017 PL.pdf",
+      "value": "0148"
+    },
+    {
+      "type": "Weight",
+      "text": "0244 KG",
+      "source": "4420069017 PL.pdf",
+      "value": "0244"
+    },
+    {
+      "type": "Weight",
+      "text": "0008 KG",
+      "source": "4420069017 PL.pdf",
+      "value": "0008"
+    },
+    {
+      "type": "Weight",
+      "text": "0016 KG",
+      "source": "4420069017 PL.pdf",
+      "value": "0016"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD  \n10",
+      "source": "4420069017 CI.pdf",
+      "value": "USD  \n10"
+    },
+    {
+      "type": "Weight",
+      "text": "8243 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "8243"
+    },
+    {
+      "type": "Weight",
+      "text": "9020 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "9020"
+    },
+    {
+      "type": "Weight",
+      "text": "1760 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "1760"
+    },
+    {
+      "type": "Weight",
+      "text": "2241 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "2241"
+    },
+    {
+      "type": "Weight",
+      "text": "1540 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "1540"
+    },
+    {
+      "type": "Weight",
+      "text": "0866 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0866"
+    },
+    {
+      "type": "Weight",
+      "text": "0150 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0150"
+    },
+    {
+      "type": "Weight",
+      "text": "0144 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0144"
+    },
+    {
+      "type": "Weight",
+      "text": "0288 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0288"
+    },
+    {
+      "type": "Weight",
+      "text": "0030 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0030"
+    },
+    {
+      "type": "Weight",
+      "text": "0058 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0058"
+    },
+    {
+      "type": "Weight",
+      "text": "0068 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0068"
+    },
+    {
+      "type": "Weight",
+      "text": "0554 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0554"
+    },
+    {
+      "type": "Weight",
+      "text": "0200 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0200"
+    },
+    {
+      "type": "Weight",
+      "text": "0344 KG",
+      "source": "4420069039 pl - Epoch.pdf",
+      "value": "0344"
+    },
+    {
+      "type": "Organization",
+      "text": "kg30*20*22cm*0.7kg",
+      "source": "Quotation  ROT-DXB 2025.10.09.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "Weight",
+      "text": "9.02 kg",
+      "source": "Quotation  ROT-DXB 2025.10.09.pdf",
+      "value": "9.02"
+    },
+    {
+      "type": "Weight",
+      "text": "7.74 kg",
+      "source": "Quotation  ROT-DXB 2025.10.09.pdf",
+      "value": "7.74"
+    },
+    {
+      "type": "Weight",
+      "text": "0.7 kg",
+      "source": "Quotation  ROT-DXB 2025.10.09.pdf",
+      "value": "0.7"
+    },
+    {
+      "type": "Organization",
+      "text": "DeliveryIncluded0.00DOC",
+      "source": "Quotation  ROT-DXB 2025.10.08.pdf",
+      "role": "Company"
+    },
+    {
+      "type": "FinancialValue",
+      "text": "USD14.5",
+      "source": "Quotation  ROT-DXB 2025.09.28.pdf",
+      "value": "USD14.5"
+    },
+    {
+      "type": "ServiceType",
+      "text": "Air Express",
+      "source": "Quotation  ROT-DXB 2025.09.28.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "ServiceType",
+      "text": "Express",
+      "source": "Quotation  ROT-DXB 2025.09.28.pdf",
+      "role": "ServiceType"
+    },
+    {
+      "type": "PortCode",
+      "text": "HAM",
+      "role": "Origin"
+    },
+    {
+      "type": "PortCode",
+      "text": "DXB",
+      "role": "Destination"
+    },
+    {
+      "type": "Location",
+      "text": "Hamamtrk",
+      "role": "Origin"
+    },
+    {
+      "type": "Location",
+      "text": "Dubai World Central",
+      "role": "Destination"
+    },
+    {
+      "type": "PortCode",
+      "text": "SIN",
+      "role": "Origin"
+    },
+    {
+      "type": "PortCode",
+      "text": "DWC",
+      "role": "Destination"
+    },
+    {
+      "type": "Location",
+      "text": "Singapore",
+      "role": "Origin"
+    },
+    {
+      "type": "PortCode",
+      "text": "DMM",
+      "role": "Destination"
+    },
+    {
+      "type": "Location",
+      "text": "Dammam",
+      "role": "Destination"
+    },
+    {
+      "type": "PortCode",
+      "text": "ROT",
+      "role": "Origin"
+    },
+    {
+      "type": "Location",
+      "text": "Rotterdam",
+      "role": "Origin"
+    },
+    {
+      "type": "PortCode",
+      "text": "HKG",
+      "role": "Destination"
+    },
+    {
+      "type": "Location",
+      "text": "Hamburg",
+      "role": "Origin"
+    },
+    {
+      "type": "Location",
+      "text": "Hong Kong",
+      "role": "Destination"
+    }
+  ],
+  "relations": [
+    {
+      "subject": "SIN",
+      "relation": "route_to",
+      "object": "DWC",
+      "source": "Quotation  SIN-DWC 2025.06.23.pdf"
+    },
+    {
+      "subject": "SIN",
+      "relation": "route_to",
+      "object": "DXB",
+      "source": "Quotation  SIN-DXB 2025.06.25r.pdf"
+    },
+    {
+      "subject": "ROT",
+      "relation": "route_to",
+      "object": "HKG",
+      "source": "Quotation  ROT-HKG 2026.03.03.pdf"
+    },
+    {
+      "subject": "HAM",
+      "relation": "route_to",
+      "object": "HKG",
+      "source": "Quotation  HAM-HKG 2026.03.03.pdf"
+    },
+    {
+      "subject": "SGH",
+      "relation": "route_to",
+      "object": "ALX",
+      "source": "Quotation  SGH-ALX 2025.10.24.pdf"
+    },
+    {
+      "subject": "HAM",
+      "relation": "route_to",
+      "object": "DWC",
+      "source": "Quotation  HAM-DWC 2025.05.29.pdf"
+    },
+    {
+      "subject": "HAM",
+      "relation": "route_to",
+      "object": "DXB",
+      "source": "Quotation  HAM-DXB 2025.05.07.pdf"
+    },
+    {
+      "subject": "HAM",
+      "relation": "route_to",
+      "object": "DMM",
+      "source": "Quotation  HAM-DMM 2025.06.26.pdf"
+    },
+    {
+      "subject": "ROT",
+      "relation": "route_to",
+      "object": "DXB",
+      "source": "Quotation  ROT-DXB 2025.10.09.pdf"
+    },
+    {
+      "subject": "HAM",
+      "relation": "origin_of",
+      "object": "DXB",
+      "source": "route:HAM-DXB",
+      "confidence": 0.95
+    },
+    {
+      "subject": "SIN",
+      "relation": "origin_of",
+      "object": "DWC",
+      "source": "route:SIN-DWC",
+      "confidence": 0.95
+    },
+    {
+      "subject": "HAM",
+      "relation": "origin_of",
+      "object": "DMM",
+      "source": "route:HAM-DMM",
+      "confidence": 0.95
+    },
+    {
+      "subject": "ROT",
+      "relation": "origin_of",
+      "object": "DXB",
+      "source": "route:ROT-DXB",
+      "confidence": 0.95
+    },
+    {
+      "subject": "HAM",
+      "relation": "origin_of",
+      "object": "HKG",
+      "source": "route:HAM-HKG",
+      "confidence": 0.95
+    },
+    {
+      "subject": "ROT",
+      "relation": "origin_of",
+      "object": "HKG",
+      "source": "route:ROT-HKG",
+      "confidence": 0.95
+    }
+  ],
+  "entity_type_distribution": {
+    "FinancialValue": 43,
+    "Weight": 77,
+    "DocumentType": 9,
+    "ChargeType": 8,
+    "ServiceType": 9,
+    "Organization": 24,
+    "Port": 16,
+    "Person": 30,
+    "PortCode": 7,
+    "Location": 7
+  },
+  "summary": {
+    "total_entities": 230,
+    "total_relations": 15,
+    "routes": 6
+  }
+}
