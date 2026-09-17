@@ -1,0 +1,11 @@
+Change_ID,Type,Original_Value,Canonical_Value,Source,Reason,Timestamp
+CHG-0001,Incoterm_Normalization,EXW (as ServiceType),EXW (as Incoterm),Entity Canonicalization,P1: Semantic Type Collision,2026-09-17T14:47:51.319049
+CHG-0002,Incoterm_Normalization,FOB (as ChargeType),FOB (as Incoterm),Entity Canonicalization,P1: Semantic Type Collision,2026-09-17T14:47:51.319056
+CHG-0003,Incoterm_Normalization,CIF (as ServiceType),CIF (as Incoterm),Entity Canonicalization,P1: Semantic Type Collision,2026-09-17T14:47:51.319059
+CHG-0004,DocumentType_Normalization,Proforma Invoice,PROFORMA_INVOICE,DocumentType Mapping,Standardize to canonical form,2026-09-17T14:47:51.319062
+CHG-0005,DocumentType_Normalization,Commercial Invoice,COMMERCIAL_INVOICE,DocumentType Mapping,Standardize to canonical form,2026-09-17T14:47:51.319064
+CHG-0006,DocumentType_Normalization,Master Air Waybill,MASTER_AIR_WAYBILL,DocumentType Mapping,Standardize to canonical form,2026-09-17T14:47:51.319066
+CHG-0007,ChargeType_Normalization,AF Rate,AF_RATE,ChargeType Mapping,Standardize to canonical form,2026-09-17T14:47:51.319069
+CHG-0008,ChargeType_Normalization,THC,THC,ChargeType Mapping,Already canonical,2026-09-17T14:47:51.319071
+CHG-0009,Organization_Dedup,Epoch Offshore (HK),"Epoch Offshore Engineering Co.,Ltd (HK)",Entity Canonicalization,Merge variants,2026-09-17T14:47:51.319073
+CHG-0010,Organization_Dedup,Epoch Offshore (SH),"Epoch Offshore Engineering (Shanghai) Co.,Ltd",Entity Canonicalization,Merge variants,2026-09-17T14:47:51.319076
