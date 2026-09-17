@@ -1,0 +1,182 @@
+{
+  "validation_timestamp": "2026-09-17T11:28:06.047302",
+  "shipment_validation": [
+    {
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "route": "HAM-DXB",
+      "checks": {
+        "has_shipper": true,
+        "has_consignee": true,
+        "has_notify_party": true,
+        "has_forwarder": true,
+        "has_cargo": true,
+        "has_service_type": true,
+        "has_documents": true,
+        "has_charges": true,
+        "has_timeline": true,
+        "has_state": true,
+        "has_evidence_coverage": true,
+        "has_unknowns": true,
+        "has_conflicts": false,
+        "has_confidence": true
+      },
+      "pass_ratio": "13/14",
+      "overall": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "route": "SIN-DWC",
+      "checks": {
+        "has_shipper": true,
+        "has_consignee": true,
+        "has_notify_party": true,
+        "has_forwarder": true,
+        "has_cargo": true,
+        "has_service_type": true,
+        "has_documents": true,
+        "has_charges": true,
+        "has_timeline": true,
+        "has_state": true,
+        "has_evidence_coverage": true,
+        "has_unknowns": true,
+        "has_conflicts": false,
+        "has_confidence": true
+      },
+      "pass_ratio": "13/14",
+      "overall": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "route": "HAM-DMM",
+      "checks": {
+        "has_shipper": true,
+        "has_consignee": true,
+        "has_notify_party": true,
+        "has_forwarder": true,
+        "has_cargo": true,
+        "has_service_type": true,
+        "has_documents": true,
+        "has_charges": true,
+        "has_timeline": true,
+        "has_state": true,
+        "has_evidence_coverage": true,
+        "has_unknowns": true,
+        "has_conflicts": false,
+        "has_confidence": true
+      },
+      "pass_ratio": "13/14",
+      "overall": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "route": "ROT-DXB",
+      "checks": {
+        "has_shipper": true,
+        "has_consignee": true,
+        "has_notify_party": true,
+        "has_forwarder": true,
+        "has_cargo": true,
+        "has_service_type": true,
+        "has_documents": true,
+        "has_charges": true,
+        "has_timeline": true,
+        "has_state": true,
+        "has_evidence_coverage": true,
+        "has_unknowns": true,
+        "has_conflicts": false,
+        "has_confidence": true
+      },
+      "pass_ratio": "13/14",
+      "overall": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "route": "HAM-HKG",
+      "checks": {
+        "has_shipper": true,
+        "has_consignee": true,
+        "has_notify_party": true,
+        "has_forwarder": true,
+        "has_cargo": true,
+        "has_service_type": true,
+        "has_documents": true,
+        "has_charges": true,
+        "has_timeline": true,
+        "has_state": true,
+        "has_evidence_coverage": true,
+        "has_unknowns": true,
+        "has_conflicts": false,
+        "has_confidence": true
+      },
+      "pass_ratio": "13/14",
+      "overall": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "route": "ROT-HKG",
+      "checks": {
+        "has_shipper": true,
+        "has_consignee": true,
+        "has_notify_party": true,
+        "has_forwarder": true,
+        "has_cargo": true,
+        "has_service_type": true,
+        "has_documents": true,
+        "has_charges": true,
+        "has_timeline": true,
+        "has_state": true,
+        "has_evidence_coverage": true,
+        "has_unknowns": true,
+        "has_conflicts": false,
+        "has_confidence": true
+      },
+      "pass_ratio": "13/14",
+      "overall": "PARTIAL"
+    }
+  ],
+  "entity_validation": {
+    "total_entities": 230,
+    "by_type": {
+      "FinancialValue": 43,
+      "Weight": 77,
+      "DocumentType": 9,
+      "ChargeType": 8,
+      "ServiceType": 9,
+      "Organization": 24,
+      "Port": 16,
+      "Person": 30,
+      "PortCode": 7,
+      "Location": 7
+    },
+    "canonical_map_size": 8
+  },
+  "relation_validation": {
+    "total_relations": 15,
+    "by_type": {
+      "route_to": 9,
+      "origin_of": 6
+    }
+  },
+  "evidence_validation": {
+    "total_evidence_items": 6,
+    "shipments_covered": 6
+  },
+  "pass_fail_summary": {
+    "total_shipments_validated": 6,
+    "passed": 0,
+    "failed": 6,
+    "pass_rate": "0.0%",
+    "gates_passed": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4"
+    ],
+    "gates_blocked": [
+      "G5",
+      "G6",
+      "G7"
+    ]
+  }
+}

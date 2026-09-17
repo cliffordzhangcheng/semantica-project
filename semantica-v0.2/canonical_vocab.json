@@ -1,0 +1,153 @@
+{
+  "incoterms": {
+    "exw": "EXW",
+    "EXW": "EXW",
+    "Exw": "EXW",
+    "fob": "FOB",
+    "FOB": "FOB",
+    "Fob": "FOB",
+    "cif": "CIF",
+    "CIF": "CIF",
+    "Cif": "CIF",
+    "cfr": "CFR",
+    "CFR": "CFR",
+    "Cfr": "CFR",
+    "fca": "FCA",
+    "FCA": "FCA",
+    "Fca": "FCA",
+    "cpt": "CPT",
+    "CPT": "CPT",
+    "Cpt": "CPT",
+    "cip": "CIP",
+    "CIP": "CIP",
+    "Cip": "CIP",
+    "dap": "DAP",
+    "DAP": "DAP",
+    "Dap": "DAP",
+    "dpu": "DPU",
+    "DPU": "DPU",
+    "Dpu": "DPU",
+    "ddp": "DDP",
+    "DDP": "DDP",
+    "Ddp": "DDP"
+  },
+  "document_types": {
+    "PROFORMA_INVOICE": [
+      "proforma invoice",
+      "proforma",
+      "pi"
+    ],
+    "COMMERCIAL_INVOICE": [
+      "commercial invoice",
+      "invoice",
+      "ci"
+    ],
+    "MASTER_AIR_WAYBILL": [
+      "mawb",
+      "master air waybill",
+      "air waybill",
+      "waybill"
+    ],
+    "HOUSE_AIR_WAYBILL": [
+      "hawb",
+      "house air waybill"
+    ],
+    "QUOTATION": [
+      "quotation",
+      "quote",
+      "报价单"
+    ],
+    "BOOKING_FORM": [
+      "booking form",
+      "booking",
+      "委托书"
+    ],
+    "STATEMENT_OF_ACCOUNT": [
+      "statement of account",
+      "soa",
+      "对账单"
+    ]
+  },
+  "charge_types": {
+    "AF_RATE": [
+      "af rate",
+      "air freight rate",
+      "空运费率"
+    ],
+    "THC": [
+      "thc",
+      "terminal handling charge",
+      "码头操作费"
+    ],
+    "AWC_FILING": [
+      "awc filing",
+      "awc申报费"
+    ],
+    "FUEL_SURCHARGE": [
+      "fuel surcharge",
+      "燃油附加费"
+    ],
+    "SECURITY_SURCHARGE": [
+      "security surcharge",
+      "安全附加费"
+    ],
+    "WAR_RISK": [
+      "war risk",
+      "战争风险附加费"
+    ]
+  },
+  "airport_codes": {
+    "HAM": {
+      "name": "Hamburg Airport",
+      "city": "Hamburg",
+      "country": "Germany",
+      "iata": "HAM"
+    },
+    "DXB": {
+      "name": "Dubai International Airport",
+      "city": "Dubai",
+      "country": "UAE",
+      "iata": "DXB"
+    },
+    "DWC": {
+      "name": "Dubai World Central",
+      "city": "Dubai",
+      "country": "UAE",
+      "iata": "DWC"
+    },
+    "HKG": {
+      "name": "Hong Kong International Airport",
+      "city": "Hong Kong",
+      "country": "China",
+      "iata": "HKG"
+    },
+    "SIN": {
+      "name": "Singapore Changi Airport",
+      "city": "Singapore",
+      "country": "Singapore",
+      "iata": "SIN"
+    },
+    "DMM": {
+      "name": "King Fahd International Airport",
+      "city": "Dammam",
+      "country": "Saudi Arabia",
+      "iata": "DMM"
+    },
+    "ROT": {
+      "name": "Rotterdam The Hague Airport",
+      "city": "Rotterdam",
+      "country": "Netherlands",
+      "iata": "RTM"
+    }
+  },
+  "party_roles": [
+    "SHIPPER",
+    "CONSIGNEE",
+    "NOTIFY_PARTY",
+    "FORWARDER",
+    "CARRIER",
+    "AGENT",
+    "CUSTOMER"
+  ],
+  "created_at": "2026-09-17T11:19:37.410236"
+}

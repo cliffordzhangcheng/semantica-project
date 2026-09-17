@@ -1,0 +1,583 @@
+{
+  "incoterms": {
+    "exw": {
+      "raw": "EXW",
+      "canonical": "EXW",
+      "old_type": "ServiceType",
+      "new_type": "Incoterm",
+      "corrected": true
+    },
+    "fob": {
+      "raw": "FOB",
+      "canonical": "FOB",
+      "old_type": "ServiceType",
+      "new_type": "Incoterm",
+      "corrected": true
+    },
+    "cfr": {
+      "raw": "CFR",
+      "canonical": "CFR",
+      "old_type": "ServiceType",
+      "new_type": "Incoterm",
+      "corrected": true
+    },
+    "cif": {
+      "raw": "cif",
+      "canonical": "CIF",
+      "old_type": "ServiceType",
+      "new_type": "Incoterm",
+      "corrected": true
+    },
+    "dap": {
+      "raw": "DAP",
+      "canonical": "DAP",
+      "old_type": "ServiceType",
+      "new_type": "Incoterm",
+      "corrected": true
+    },
+    "ddp": {
+      "raw": "DDP",
+      "canonical": "DDP",
+      "old_type": "ServiceType",
+      "new_type": "Incoterm",
+      "corrected": true
+    }
+  },
+  "document_types": {
+    "invoice": {
+      "raw": "invoice",
+      "canonical": "COMMERCIAL_INVOICE",
+      "raw_label": "invoice"
+    },
+    "委托书": {
+      "raw": "委托书",
+      "canonical": "BOOKING_FORM",
+      "raw_label": "委托书"
+    },
+    "Quotation": {
+      "raw": "Quotation",
+      "canonical": "QUOTATION",
+      "raw_label": "Quotation"
+    },
+    "Proforma Invoice": {
+      "raw": "Proforma Invoice",
+      "canonical": "PROFORMA_INVOICE",
+      "raw_label": "Proforma Invoice"
+    },
+    "STATEMENT OF ACCOUNT": {
+      "raw": "STATEMENT OF ACCOUNT",
+      "canonical": "STATEMENT_OF_ACCOUNT",
+      "raw_label": "STATEMENT OF ACCOUNT"
+    },
+    "MAWB": {
+      "raw": "MAWB",
+      "canonical": "MASTER_AIR_WAYBILL",
+      "raw_label": "MAWB"
+    }
+  },
+  "charge_types": {
+    "THC": {
+      "raw": "THC",
+      "canonical": "THC",
+      "raw_label": "THC"
+    },
+    "AWC Filing": {
+      "raw": "AWC Filing",
+      "canonical": "AWC_FILING",
+      "raw_label": "AWC Filing"
+    }
+  },
+  "airport_codes": {
+    "HAM": {
+      "raw": "HAM",
+      "canonical": "HAM",
+      "info": {
+        "name": "Hamburg Airport",
+        "city": "Hamburg",
+        "country": "Germany",
+        "iata": "HAM"
+      }
+    },
+    "DXB": {
+      "raw": "DXB",
+      "canonical": "DXB",
+      "info": {
+        "name": "Dubai International Airport",
+        "city": "Dubai",
+        "country": "UAE",
+        "iata": "DXB"
+      }
+    },
+    "SIN": {
+      "raw": "SIN",
+      "canonical": "SIN",
+      "info": {
+        "name": "Singapore Changi Airport",
+        "city": "Singapore",
+        "country": "Singapore",
+        "iata": "SIN"
+      }
+    },
+    "DWC": {
+      "raw": "DWC",
+      "canonical": "DWC",
+      "info": {
+        "name": "Dubai World Central",
+        "city": "Dubai",
+        "country": "UAE",
+        "iata": "DWC"
+      }
+    },
+    "DMM": {
+      "raw": "DMM",
+      "canonical": "DMM",
+      "info": {
+        "name": "King Fahd International Airport",
+        "city": "Dammam",
+        "country": "Saudi Arabia",
+        "iata": "DMM"
+      }
+    },
+    "ROT": {
+      "raw": "ROT",
+      "canonical": "ROT",
+      "info": {
+        "name": "Rotterdam The Hague Airport",
+        "city": "Rotterdam",
+        "country": "Netherlands",
+        "iata": "RTM"
+      }
+    },
+    "HKG": {
+      "raw": "HKG",
+      "canonical": "HKG",
+      "info": {
+        "name": "Hong Kong International Airport",
+        "city": "Hong Kong",
+        "country": "China",
+        "iata": "HKG"
+      }
+    }
+  },
+  "organizations": {
+    "ENGINEERING(SHANGHAI)": {
+      "canonical": "ENGINEERING(SHANGHAI)",
+      "variants": [
+        "ENGINEERING(SHANGHAI)"
+      ],
+      "count": 1
+    },
+    "AIRLINES": {
+      "canonical": "AIRLINES",
+      "variants": [
+        "AIRLINES"
+      ],
+      "count": 1
+    },
+    "LOGISTICS": {
+      "canonical": "LOGISTICS",
+      "variants": [
+        "LOGISTICS"
+      ],
+      "count": 1
+    },
+    "COLLECTION:": {
+      "canonical": "Collection:",
+      "variants": [
+        "Collection:"
+      ],
+      "count": 1
+    },
+    "SERVICE:": {
+      "canonical": "Service:",
+      "variants": [
+        "Service:"
+      ],
+      "count": 1
+    },
+    "XIAMENTRANSWORLDLOGISTICS": {
+      "canonical": "XIAMENTRANSWORLDLOGISTICS",
+      "variants": [
+        "XIAMENTRANSWORLDLOGISTICS"
+      ],
+      "count": 1
+    },
+    "EPOCHOFFSHOREENGINEERING": {
+      "canonical": "EPOCHOFFSHOREENGINEERING",
+      "variants": [
+        "EPOCHOFFSHOREENGINEERING"
+      ],
+      "count": 1
+    },
+    "SCHEDULE.": {
+      "canonical": "schedule.",
+      "variants": [
+        "schedule."
+      ],
+      "count": 1
+    },
+    "ENGINEERING": {
+      "canonical": "ENGINEERING",
+      "variants": [
+        "ENGINEERING"
+      ],
+      "count": 1
+    },
+    "KG):51.00DIMENSION:": {
+      "canonical": "KG):51.00Dimension:",
+      "variants": [
+        "KG):51.00Dimension:"
+      ],
+      "count": 1
+    },
+    "SHANGHAI)": {
+      "canonical": "Shanghai)",
+      "variants": [
+        "Shanghai)"
+      ],
+      "count": 1
+    },
+    "BANKING": {
+      "canonical": "BANKING",
+      "variants": [
+        "BANKING"
+      ],
+      "count": 1
+    },
+    "ORATION": {
+      "canonical": "ORATION",
+      "variants": [
+        "ORATION"
+      ],
+      "count": 1
+    },
+    "KG):57.00DIMENSION:": {
+      "canonical": "KG):57.00Dimension:",
+      "variants": [
+        "KG):57.00Dimension:"
+      ],
+      "count": 1
+    },
+    "MA7B6G751A厦门源海通物流": {
+      "canonical": "MA7B6G751A厦门源海通物流",
+      "variants": [
+        "MA7B6G751A厦门源海通物流"
+      ],
+      "count": 1
+    },
+    "SHANGHAI中国南⽅航空货运": {
+      "canonical": "SHANGHAI中国南⽅航空货运",
+      "variants": [
+        "SHANGHAI中国南⽅航空货运"
+      ],
+      "count": 1
+    },
+    "KG):286.04DIMENSION:": {
+      "canonical": "KG):286.04Dimension:",
+      "variants": [
+        "KG):286.04Dimension:"
+      ],
+      "count": 1
+    },
+    "SHI意保克海洋工程（上海）": {
+      "canonical": "Shi意保克海洋工程（上海）",
+      "variants": [
+        "Shi意保克海洋工程（上海）"
+      ],
+      "count": 1
+    },
+    "SIGNATURE美元伍仟零肆拾伍元整TOTALUSD5045.00人民币账号：户名：厦门源海通物流有限公司开户行：招商银行厦门分行海天支行RMB帐号：592908020710401美金账号：户名：厦门源海通物流": {
+      "canonical": "Signature美元伍仟零肆拾伍元整TotalUSD5045.00人民币账号：户名：厦门源海通物流有限公司开户行：招商银行厦门分行海天支行RMB帐号：592908020710401美金账号：户名：厦门源海通物流",
+      "variants": [
+        "Signature美元伍仟零肆拾伍元整TotalUSD5045.00人民币账号：户名：厦门源海通物流有限公司开户行：招商银行厦门分行海天支行RMB帐号：592908020710401美金账号：户名：厦门源海通物流"
+      ],
+      "count": 1
+    },
+    "KG):DIMENSION:": {
+      "canonical": "KG):Dimension:",
+      "variants": [
+        "KG):Dimension:"
+      ],
+      "count": 1
+    },
+    "KGDIMENSION:": {
+      "canonical": "KGDimension:",
+      "variants": [
+        "KGDimension:"
+      ],
+      "count": 1
+    },
+    "AL-ARBIA": {
+      "canonical": "AL-ARBIA",
+      "variants": [
+        "AL-ARBIA"
+      ],
+      "count": 1
+    },
+    "KG30*20*22CM*0.7KG": {
+      "canonical": "kg30*20*22cm*0.7kg",
+      "variants": [
+        "kg30*20*22cm*0.7kg"
+      ],
+      "count": 1
+    },
+    "DELIVERYINCLUDED0.00DOC": {
+      "canonical": "DeliveryIncluded0.00DOC",
+      "variants": [
+        "DeliveryIncluded0.00DOC"
+      ],
+      "count": 1
+    }
+  },
+  "persons": {
+    "ME": {
+      "canonical": "me",
+      "variants": [
+        "me"
+      ],
+      "count": 1
+    },
+    "英文名职位联系电话": {
+      "canonical": "英文名职位联系电话",
+      "variants": [
+        "英文名职位联系电话"
+      ],
+      "count": 1
+    },
+    "ECTRONIC": {
+      "canonical": "ectronic",
+      "variants": [
+        "ectronic"
+      ],
+      "count": 1
+    },
+    "ERIC": {
+      "canonical": "Eric",
+      "variants": [
+        "Eric"
+      ],
+      "count": 1
+    },
+    "JANNIK": {
+      "canonical": "Jannik",
+      "variants": [
+        "Jannik"
+      ],
+      "count": 1
+    },
+    "EPHONE": {
+      "canonical": "ephone",
+      "variants": [
+        "ephone"
+      ],
+      "count": 1
+    },
+    "Y": {
+      "canonical": "y",
+      "variants": [
+        "y"
+      ],
+      "count": 1
+    },
+    "LE": {
+      "canonical": "LE",
+      "variants": [
+        "LE"
+      ],
+      "count": 1
+    },
+    "LUNGSZOLLSTELLE": {
+      "canonical": "LUNGSZOLLSTELLE",
+      "variants": [
+        "LUNGSZOLLSTELLE"
+      ],
+      "count": 1
+    },
+    "LUNG": {
+      "canonical": "lung",
+      "variants": [
+        "lung"
+      ],
+      "count": 1
+    },
+    "BEIM": {
+      "canonical": "beim",
+      "variants": [
+        "beim"
+      ],
+      "count": 1
+    },
+    "LTER": {
+      "canonical": "lter",
+      "variants": [
+        "lter"
+      ],
+      "count": 1
+    },
+    "EFON": {
+      "canonical": "efon",
+      "variants": [
+        "efon"
+      ],
+      "count": 1
+    },
+    "EFAX": {
+      "canonical": "efax",
+      "variants": [
+        "efax"
+      ],
+      "count": 1
+    },
+    "LEN": {
+      "canonical": "len",
+      "variants": [
+        "len"
+      ],
+      "count": 1
+    },
+    "LTE": {
+      "canonical": "lte",
+      "variants": [
+        "lte"
+      ],
+      "count": 1
+    },
+    "N": {
+      "canonical": "n",
+      "variants": [
+        "n"
+      ],
+      "count": 1
+    },
+    "CARMEN": {
+      "canonical": "Carmen",
+      "variants": [
+        "Carmen"
+      ],
+      "count": 1
+    },
+    "EX": {
+      "canonical": "ex",
+      "variants": [
+        "ex"
+      ],
+      "count": 1
+    },
+    "AWB": {
+      "canonical": "AWB",
+      "variants": [
+        "AWB"
+      ],
+      "count": 1
+    },
+    "199": {
+      "canonical": "199",
+      "variants": [
+        "199"
+      ],
+      "count": 1
+    },
+    "TEL": {
+      "canonical": "Tel",
+      "variants": [
+        "Tel"
+      ],
+      "count": 1
+    },
+    "OUR": {
+      "canonical": "our",
+      "variants": [
+        "our"
+      ],
+      "count": 1
+    },
+    "陆飞": {
+      "canonical": "陆飞",
+      "variants": [
+        "陆飞"
+      ],
+      "count": 1
+    },
+    "ANGELA": {
+      "canonical": "Angela",
+      "variants": [
+        "Angela"
+      ],
+      "count": 1
+    },
+    "EDGAR": {
+      "canonical": "Edgar",
+      "variants": [
+        "Edgar"
+      ],
+      "count": 1
+    },
+    "JANETT": {
+      "canonical": "Janett",
+      "variants": [
+        "Janett"
+      ],
+      "count": 1
+    },
+    "MATHIAS": {
+      "canonical": "Mathias",
+      "variants": [
+        "Mathias"
+      ],
+      "count": 1
+    },
+    "HAIKO": {
+      "canonical": "HAIKO",
+      "variants": [
+        "HAIKO"
+      ],
+      "count": 1
+    },
+    "EMAIL": {
+      "canonical": "EMAIL",
+      "variants": [
+        "EMAIL"
+      ],
+      "count": 1
+    }
+  },
+  "unknowns": [],
+  "corrections": [
+    {
+      "entity": "EXW",
+      "from": "ServiceType",
+      "to": "Incoterm",
+      "reason": "Incoterm normalization per SPEC P1"
+    },
+    {
+      "entity": "FOB",
+      "from": "ServiceType",
+      "to": "Incoterm",
+      "reason": "Incoterm normalization per SPEC P1"
+    },
+    {
+      "entity": "CFR",
+      "from": "ServiceType",
+      "to": "Incoterm",
+      "reason": "Incoterm normalization per SPEC P1"
+    },
+    {
+      "entity": "cif",
+      "from": "ServiceType",
+      "to": "Incoterm",
+      "reason": "Incoterm normalization per SPEC P1"
+    },
+    {
+      "entity": "DAP",
+      "from": "ServiceType",
+      "to": "Incoterm",
+      "reason": "Incoterm normalization per SPEC P1"
+    },
+    {
+      "entity": "DDP",
+      "from": "ServiceType",
+      "to": "Incoterm",
+      "reason": "Incoterm normalization per SPEC P1"
+    }
+  ]
+}

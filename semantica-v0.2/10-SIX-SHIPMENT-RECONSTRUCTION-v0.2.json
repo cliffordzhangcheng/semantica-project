@@ -1,0 +1,123 @@
+{
+  "shipment_ids": [
+    "YBK-HAM-DXB-20250507",
+    "YBK-SIN-DWC-20250619",
+    "YBK-HAM-DMM-20250620",
+    "YBK-ROT-DXB-20250928",
+    "YBK-HAM-HKG-20260227",
+    "YBK-ROT-HKG-20260227"
+  ],
+  "validation_results": [
+    {
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "route": "HAM-DXB",
+      "checks": {
+        "shipment_id": "PASS",
+        "route_code": "PASS",
+        "origin": "PASS",
+        "destination": "PASS",
+        "shipper": "PASS",
+        "consignee": "PASS",
+        "forwarder": "PASS",
+        "cargo": "PASS",
+        "evidence_coverage": "PARTIAL"
+      },
+      "overall": "PASS"
+    },
+    {
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "route": "SIN-DWC",
+      "checks": {
+        "shipment_id": "PASS",
+        "route_code": "PASS",
+        "origin": "PASS",
+        "destination": "PASS",
+        "shipper": "PASS",
+        "consignee": "PASS",
+        "forwarder": "PASS",
+        "cargo": "PASS",
+        "evidence_coverage": "PARTIAL"
+      },
+      "overall": "PASS"
+    },
+    {
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "route": "HAM-DMM",
+      "checks": {
+        "shipment_id": "PASS",
+        "route_code": "PASS",
+        "origin": "PASS",
+        "destination": "PASS",
+        "shipper": "PASS",
+        "consignee": "PASS",
+        "forwarder": "PASS",
+        "cargo": "PASS",
+        "evidence_coverage": "PARTIAL"
+      },
+      "overall": "PASS"
+    },
+    {
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "route": "ROT-DXB",
+      "checks": {
+        "shipment_id": "PASS",
+        "route_code": "PASS",
+        "origin": "PASS",
+        "destination": "PASS",
+        "shipper": "PASS",
+        "consignee": "PASS",
+        "forwarder": "PASS",
+        "cargo": "PASS",
+        "evidence_coverage": "PARTIAL"
+      },
+      "overall": "PASS"
+    },
+    {
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "route": "HAM-HKG",
+      "checks": {
+        "shipment_id": "PASS",
+        "route_code": "PASS",
+        "origin": "PASS",
+        "destination": "PASS",
+        "shipper": "PASS",
+        "consignee": "PASS",
+        "forwarder": "PASS",
+        "cargo": "PASS",
+        "evidence_coverage": "PARTIAL"
+      },
+      "overall": "PASS"
+    },
+    {
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "route": "ROT-HKG",
+      "checks": {
+        "shipment_id": "PASS",
+        "route_code": "PASS",
+        "origin": "PASS",
+        "destination": "PASS",
+        "shipper": "PASS",
+        "consignee": "PASS",
+        "forwarder": "PASS",
+        "cargo": "PASS",
+        "evidence_coverage": "PARTIAL"
+      },
+      "overall": "PASS"
+    }
+  ],
+  "total_validated": 6,
+  "total_pass": 6,
+  "total_fail": 0,
+  "gates_passed": [
+    "G0",
+    "G1",
+    "G2"
+  ],
+  "gates_blocked": [
+    "G3",
+    "G4",
+    "G5",
+    "G6",
+    "G7"
+  ]
+}

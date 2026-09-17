@@ -1,0 +1,116 @@
+# Ontology Canonical Schema v0.2
+# Generated: 2026-09-17T11:19:37.410530
+# Baseline: semantica-report-20260917-yiboke.md
+
+core_classes:
+  Shipment:
+    description: 一次具体货运业务/Job，是核心业务上下文
+  Organization:
+    description: 公司、承运人、货代、客户、代理等法人或组织
+  Person:
+    description: 真实联系人或业务经办人
+  PartyRole:
+    description: Organization/Person 在特定 Shipment 中承担的角色
+  Cargo:
+    description: Shipment 所运输货物
+  Route:
+    description: Shipment 的完整运输路径
+  RouteLeg:
+    description: Route 中单段运输
+  TransportNode:
+    description: 机场、港口、仓库等运输节点
+  Location:
+    description: 国家、城市、地区等地理实体
+  Service:
+    description: 实际提供的物流服务
+  Incoterm:
+    description: EXW / FOB / CIF / DAP / DDP 等贸易术语
+  Document:
+    description: 与 Shipment 相关的业务文件
+  Charge:
+    description: 一个实际收费项目
+  MonetaryAmount:
+    description: 金额值对象
+  WeightMeasurement:
+    description: 重量值对象
+  BusinessEvent:
+    description: 现实中发生、能够改变 Shipment 状态的业务事件
+  ShipmentState:
+    description: Shipment 当前业务状态
+  Evidence:
+    description: 支撑实体、关系或状态判断的现实证据
+
+party_roles:
+  - SHIPPER
+  - CONSIGNEE
+  - NOTIFY_PARTY
+  - FORWARDER
+  - CARRIER
+  - AGENT
+  - CUSTOMER
+
+incoterms:
+  - EXW
+  - FOB
+  - CIF
+  - CFR
+  - FCA
+  - CPT
+  - CIP
+  - DAP
+  - DPU
+  - DDP
+
+document_types:
+  - PROFORMA_INVOICE
+  - COMMERCIAL_INVOICE
+  - MASTER_AIR_WAYBILL
+  - HOUSE_AIR_WAYBILL
+  - QUOTATION
+  - BOOKING_FORM
+  - STATEMENT_OF_ACCOUNT
+
+charge_types:
+  - AF_RATE
+  - THC
+  - AWC_FILING
+  - FUEL_SURCHARGE
+  - SECURITY_SURCHARGE
+  - WAR_RISK
+
+transport_nodes:
+  HAM:
+    name: Hamburg Airport
+    city: Hamburg
+    country: Germany
+    iata: HAM
+  DXB:
+    name: Dubai International Airport
+    city: Dubai
+    country: UAE
+    iata: DXB
+  DWC:
+    name: Dubai World Central
+    city: Dubai
+    country: UAE
+    iata: DWC
+  HKG:
+    name: Hong Kong International Airport
+    city: Hong Kong
+    country: China
+    iata: HKG
+  SIN:
+    name: Singapore Changi Airport
+    city: Singapore
+    country: Singapore
+    iata: SIN
+  DMM:
+    name: King Fahd International Airport
+    city: Dammam
+    country: Saudi Arabia
+    iata: DMM
+  ROT:
+    name: Rotterdam The Hague Airport
+    city: Rotterdam
+    country: Netherlands
+    iata: RTM

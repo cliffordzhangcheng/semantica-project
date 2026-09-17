@@ -1,0 +1,2687 @@
+[
+  {
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-BE3CF01E",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):51.00Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):51.00Dimension:"
+      },
+      {
+        "evidence_id": "EVD-238F8854",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "Shanghai)",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Shanghai)"
+      },
+      {
+        "evidence_id": "EVD-7AA1BDF9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Person",
+        "entity_text": "ectronic",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "ectronic"
+      },
+      {
+        "evidence_id": "EVD-4C392CC7",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.00"
+      },
+      {
+        "evidence_id": "EVD-E06D7AA9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.75"
+      },
+      {
+        "evidence_id": "EVD-60402733",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SIN",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SIN"
+      },
+      {
+        "evidence_id": "EVD-4191276B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SINGAPORE",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SINGAPORE"
+      },
+      {
+        "evidence_id": "EVD-CB57C122",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "DocumentType",
+        "entity_text": "Quotation",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Quotation"
+      },
+      {
+        "evidence_id": "EVD-2C0A0DCD",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ChargeType",
+        "entity_text": "AWC Filing",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AWC Filing"
+      },
+      {
+        "evidence_id": "EVD-F3DCC70B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Freight",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Freight"
+      },
+      {
+        "evidence_id": "EVD-E5688D8C",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD5.0",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD5.0"
+      },
+      {
+        "evidence_id": "EVD-A07FDD9A",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD0.6",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD0.6"
+      },
+      {
+        "evidence_id": "EVD-AA207501",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD125",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD125"
+      },
+      {
+        "evidence_id": "EVD-6A822615",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 10.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 10.00"
+      },
+      {
+        "evidence_id": "EVD-9ABC06A4",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD50",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD50"
+      },
+      {
+        "evidence_id": "EVD-2A0A8BC0",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "211.3 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "211.3 kg"
+      },
+      {
+        "evidence_id": "EVD-C491583B",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "1.8 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "1.8 kg"
+      },
+      {
+        "evidence_id": "EVD-8FCD0E73",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "209.5 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "209.5 kg"
+      },
+      {
+        "evidence_id": "EVD-1B01D6F6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "HKG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "HKG"
+      },
+      {
+        "evidence_id": "EVD-0FF9FC9A",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD1.1623",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD1.1623"
+      },
+      {
+        "evidence_id": "EVD-9C674B09",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD75"
+      },
+      {
+        "evidence_id": "EVD-4BA9F38E",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):286.04Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):286.04Dimension:"
+      },
+      {
+        "evidence_id": "EVD-A5C5D071",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD3.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD3.5"
+      },
+      {
+        "evidence_id": "EVD-5F67AEC5",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "3500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "3500 kg"
+      },
+      {
+        "evidence_id": "EVD-7FFBD05F",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "34000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "34000 kg"
+      },
+      {
+        "evidence_id": "EVD-E1F35D20",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "74500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "74500 kg"
+      },
+      {
+        "evidence_id": "EVD-786DE18C",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "132000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "132000 kg"
+      },
+      {
+        "evidence_id": "EVD-8D9918D3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "42000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "42000 kg"
+      },
+      {
+        "evidence_id": "EVD-646C47C8",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0040 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0040 kg"
+      },
+      {
+        "evidence_id": "EVD-BA914D27",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "AMS",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AMS"
+      },
+      {
+        "evidence_id": "EVD-BE1D6D34",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD45",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD45"
+      },
+      {
+        "evidence_id": "EVD-2014595C",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 15,00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 15,00"
+      },
+      {
+        "evidence_id": "EVD-0CD49CD8",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "Weight",
+        "entity_text": "906.0 KG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "906.0 KG"
+      },
+      {
+        "evidence_id": "EVD-649FB1DB",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "Port",
+        "entity_text": "DMM",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DMM"
+      },
+      {
+        "evidence_id": "EVD-F059716C",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Organization",
+        "entity_text": "kg30*20*22cm*0.7kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "kg30*20*22cm*0.7kg"
+      },
+      {
+        "evidence_id": "EVD-E13DC197",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "9.02 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "9.02 kg"
+      },
+      {
+        "evidence_id": "EVD-730E7CF7",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "7.74 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "7.74 kg"
+      },
+      {
+        "evidence_id": "EVD-D6E35330",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0.7 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0.7 kg"
+      },
+      {
+        "evidence_id": "EVD-649C125B",
+        "source_file": "Quotation  ROT-DXB 2025.10.08.pdf",
+        "entity_type": "Organization",
+        "entity_text": "DeliveryIncluded0.00DOC",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DeliveryIncluded0.00DOC"
+      },
+      {
+        "evidence_id": "EVD-1BBEB7B4",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD14.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD14.5"
+      },
+      {
+        "evidence_id": "EVD-695B1D0F",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Express"
+      },
+      {
+        "evidence_id": "EVD-8A8A6293",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Express"
+      },
+      {
+        "evidence_id": "EVD-C53B47B1",
+        "source_file": "Quotation  SIN-DXB 2025.06.25r.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "SIN -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-52CCE4E3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> HKG",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-8A82BE5B",
+        "source_file": "Quotation  HAM-DWC 2025.05.29.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DWC",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-51BDC0FE",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-8F3D484E",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DMM",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-BFEAAF87",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-D5130095",
+        "source_file": "route:HAM-DXB",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> DXB",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-61F75844",
+        "source_file": "route:HAM-DMM",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> DMM",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-4689A618",
+        "source_file": "route:ROT-DXB",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -origin_of> DXB",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-DCCBF817",
+        "source_file": "route:HAM-HKG",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> HKG",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      }
+    ]
+  },
+  {
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-BE3CF01E",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):51.00Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):51.00Dimension:"
+      },
+      {
+        "evidence_id": "EVD-238F8854",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "Shanghai)",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Shanghai)"
+      },
+      {
+        "evidence_id": "EVD-7AA1BDF9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Person",
+        "entity_text": "ectronic",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "ectronic"
+      },
+      {
+        "evidence_id": "EVD-4C392CC7",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.00"
+      },
+      {
+        "evidence_id": "EVD-E06D7AA9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.75"
+      },
+      {
+        "evidence_id": "EVD-60402733",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SIN",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SIN"
+      },
+      {
+        "evidence_id": "EVD-4191276B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SINGAPORE",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SINGAPORE"
+      },
+      {
+        "evidence_id": "EVD-CB57C122",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "DocumentType",
+        "entity_text": "Quotation",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Quotation"
+      },
+      {
+        "evidence_id": "EVD-2C0A0DCD",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ChargeType",
+        "entity_text": "AWC Filing",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AWC Filing"
+      },
+      {
+        "evidence_id": "EVD-F3DCC70B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Freight",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Freight"
+      },
+      {
+        "evidence_id": "EVD-E5688D8C",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD5.0",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD5.0"
+      },
+      {
+        "evidence_id": "EVD-A07FDD9A",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD0.6",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD0.6"
+      },
+      {
+        "evidence_id": "EVD-AA207501",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD125",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD125"
+      },
+      {
+        "evidence_id": "EVD-6A822615",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 10.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 10.00"
+      },
+      {
+        "evidence_id": "EVD-9ABC06A4",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD50",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD50"
+      },
+      {
+        "evidence_id": "EVD-2A0A8BC0",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "211.3 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "211.3 kg"
+      },
+      {
+        "evidence_id": "EVD-C491583B",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "1.8 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "1.8 kg"
+      },
+      {
+        "evidence_id": "EVD-8FCD0E73",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "209.5 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "209.5 kg"
+      },
+      {
+        "evidence_id": "EVD-1B01D6F6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "HKG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "HKG"
+      },
+      {
+        "evidence_id": "EVD-0FF9FC9A",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD1.1623",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD1.1623"
+      },
+      {
+        "evidence_id": "EVD-9C674B09",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD75"
+      },
+      {
+        "evidence_id": "EVD-4BA9F38E",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):286.04Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):286.04Dimension:"
+      },
+      {
+        "evidence_id": "EVD-A5C5D071",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD3.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD3.5"
+      },
+      {
+        "evidence_id": "EVD-5F67AEC5",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "3500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "3500 kg"
+      },
+      {
+        "evidence_id": "EVD-7FFBD05F",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "34000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "34000 kg"
+      },
+      {
+        "evidence_id": "EVD-E1F35D20",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "74500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "74500 kg"
+      },
+      {
+        "evidence_id": "EVD-786DE18C",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "132000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "132000 kg"
+      },
+      {
+        "evidence_id": "EVD-8D9918D3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "42000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "42000 kg"
+      },
+      {
+        "evidence_id": "EVD-646C47C8",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0040 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0040 kg"
+      },
+      {
+        "evidence_id": "EVD-BA914D27",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "AMS",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AMS"
+      },
+      {
+        "evidence_id": "EVD-BE1D6D34",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD45",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD45"
+      },
+      {
+        "evidence_id": "EVD-2014595C",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 15,00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 15,00"
+      },
+      {
+        "evidence_id": "EVD-0CD49CD8",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "Weight",
+        "entity_text": "906.0 KG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "906.0 KG"
+      },
+      {
+        "evidence_id": "EVD-649FB1DB",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "Port",
+        "entity_text": "DMM",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DMM"
+      },
+      {
+        "evidence_id": "EVD-F059716C",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Organization",
+        "entity_text": "kg30*20*22cm*0.7kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "kg30*20*22cm*0.7kg"
+      },
+      {
+        "evidence_id": "EVD-E13DC197",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "9.02 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "9.02 kg"
+      },
+      {
+        "evidence_id": "EVD-730E7CF7",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "7.74 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "7.74 kg"
+      },
+      {
+        "evidence_id": "EVD-D6E35330",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0.7 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0.7 kg"
+      },
+      {
+        "evidence_id": "EVD-649C125B",
+        "source_file": "Quotation  ROT-DXB 2025.10.08.pdf",
+        "entity_type": "Organization",
+        "entity_text": "DeliveryIncluded0.00DOC",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DeliveryIncluded0.00DOC"
+      },
+      {
+        "evidence_id": "EVD-1BBEB7B4",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD14.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD14.5"
+      },
+      {
+        "evidence_id": "EVD-695B1D0F",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Express"
+      },
+      {
+        "evidence_id": "EVD-8A8A6293",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Express"
+      },
+      {
+        "evidence_id": "EVD-B0B8A81C",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "SIN -route_to> DWC",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-C53B47B1",
+        "source_file": "Quotation  SIN-DXB 2025.06.25r.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "SIN -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-8A82BE5B",
+        "source_file": "Quotation  HAM-DWC 2025.05.29.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DWC",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-C1AD142A",
+        "source_file": "route:SIN-DWC",
+        "entity_type": "RELATION",
+        "entity_text": "SIN -origin_of> DWC",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      }
+    ]
+  },
+  {
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-BE3CF01E",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):51.00Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):51.00Dimension:"
+      },
+      {
+        "evidence_id": "EVD-238F8854",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "Shanghai)",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Shanghai)"
+      },
+      {
+        "evidence_id": "EVD-7AA1BDF9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Person",
+        "entity_text": "ectronic",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "ectronic"
+      },
+      {
+        "evidence_id": "EVD-4C392CC7",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.00"
+      },
+      {
+        "evidence_id": "EVD-E06D7AA9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.75"
+      },
+      {
+        "evidence_id": "EVD-60402733",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SIN",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SIN"
+      },
+      {
+        "evidence_id": "EVD-4191276B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SINGAPORE",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SINGAPORE"
+      },
+      {
+        "evidence_id": "EVD-CB57C122",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "DocumentType",
+        "entity_text": "Quotation",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Quotation"
+      },
+      {
+        "evidence_id": "EVD-2C0A0DCD",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ChargeType",
+        "entity_text": "AWC Filing",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AWC Filing"
+      },
+      {
+        "evidence_id": "EVD-F3DCC70B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Freight",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Freight"
+      },
+      {
+        "evidence_id": "EVD-E5688D8C",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD5.0",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD5.0"
+      },
+      {
+        "evidence_id": "EVD-A07FDD9A",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD0.6",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD0.6"
+      },
+      {
+        "evidence_id": "EVD-AA207501",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD125",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD125"
+      },
+      {
+        "evidence_id": "EVD-6A822615",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 10.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 10.00"
+      },
+      {
+        "evidence_id": "EVD-9ABC06A4",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD50",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD50"
+      },
+      {
+        "evidence_id": "EVD-2A0A8BC0",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "211.3 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "211.3 kg"
+      },
+      {
+        "evidence_id": "EVD-C491583B",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "1.8 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "1.8 kg"
+      },
+      {
+        "evidence_id": "EVD-8FCD0E73",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "209.5 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "209.5 kg"
+      },
+      {
+        "evidence_id": "EVD-1B01D6F6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "HKG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "HKG"
+      },
+      {
+        "evidence_id": "EVD-0FF9FC9A",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD1.1623",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD1.1623"
+      },
+      {
+        "evidence_id": "EVD-9C674B09",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD75"
+      },
+      {
+        "evidence_id": "EVD-4BA9F38E",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):286.04Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):286.04Dimension:"
+      },
+      {
+        "evidence_id": "EVD-A5C5D071",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD3.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD3.5"
+      },
+      {
+        "evidence_id": "EVD-5F67AEC5",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "3500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "3500 kg"
+      },
+      {
+        "evidence_id": "EVD-7FFBD05F",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "34000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "34000 kg"
+      },
+      {
+        "evidence_id": "EVD-E1F35D20",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "74500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "74500 kg"
+      },
+      {
+        "evidence_id": "EVD-786DE18C",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "132000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "132000 kg"
+      },
+      {
+        "evidence_id": "EVD-8D9918D3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "42000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "42000 kg"
+      },
+      {
+        "evidence_id": "EVD-646C47C8",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0040 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0040 kg"
+      },
+      {
+        "evidence_id": "EVD-BA914D27",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "AMS",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AMS"
+      },
+      {
+        "evidence_id": "EVD-BE1D6D34",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD45",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD45"
+      },
+      {
+        "evidence_id": "EVD-2014595C",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 15,00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 15,00"
+      },
+      {
+        "evidence_id": "EVD-0CD49CD8",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "Weight",
+        "entity_text": "906.0 KG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "906.0 KG"
+      },
+      {
+        "evidence_id": "EVD-649FB1DB",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "Port",
+        "entity_text": "DMM",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DMM"
+      },
+      {
+        "evidence_id": "EVD-F059716C",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Organization",
+        "entity_text": "kg30*20*22cm*0.7kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "kg30*20*22cm*0.7kg"
+      },
+      {
+        "evidence_id": "EVD-E13DC197",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "9.02 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "9.02 kg"
+      },
+      {
+        "evidence_id": "EVD-730E7CF7",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "7.74 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "7.74 kg"
+      },
+      {
+        "evidence_id": "EVD-D6E35330",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0.7 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0.7 kg"
+      },
+      {
+        "evidence_id": "EVD-649C125B",
+        "source_file": "Quotation  ROT-DXB 2025.10.08.pdf",
+        "entity_type": "Organization",
+        "entity_text": "DeliveryIncluded0.00DOC",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DeliveryIncluded0.00DOC"
+      },
+      {
+        "evidence_id": "EVD-1BBEB7B4",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD14.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD14.5"
+      },
+      {
+        "evidence_id": "EVD-695B1D0F",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Express"
+      },
+      {
+        "evidence_id": "EVD-8A8A6293",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Express"
+      },
+      {
+        "evidence_id": "EVD-52CCE4E3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> HKG",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-8A82BE5B",
+        "source_file": "Quotation  HAM-DWC 2025.05.29.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DWC",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-51BDC0FE",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-8F3D484E",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DMM",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-D5130095",
+        "source_file": "route:HAM-DXB",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> DXB",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-61F75844",
+        "source_file": "route:HAM-DMM",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> DMM",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-DCCBF817",
+        "source_file": "route:HAM-HKG",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> HKG",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      }
+    ]
+  },
+  {
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-BE3CF01E",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):51.00Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):51.00Dimension:"
+      },
+      {
+        "evidence_id": "EVD-238F8854",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "Shanghai)",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Shanghai)"
+      },
+      {
+        "evidence_id": "EVD-7AA1BDF9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Person",
+        "entity_text": "ectronic",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "ectronic"
+      },
+      {
+        "evidence_id": "EVD-4C392CC7",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.00"
+      },
+      {
+        "evidence_id": "EVD-E06D7AA9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.75"
+      },
+      {
+        "evidence_id": "EVD-60402733",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SIN",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SIN"
+      },
+      {
+        "evidence_id": "EVD-4191276B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SINGAPORE",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SINGAPORE"
+      },
+      {
+        "evidence_id": "EVD-CB57C122",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "DocumentType",
+        "entity_text": "Quotation",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Quotation"
+      },
+      {
+        "evidence_id": "EVD-2C0A0DCD",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ChargeType",
+        "entity_text": "AWC Filing",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AWC Filing"
+      },
+      {
+        "evidence_id": "EVD-F3DCC70B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Freight",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Freight"
+      },
+      {
+        "evidence_id": "EVD-E5688D8C",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD5.0",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD5.0"
+      },
+      {
+        "evidence_id": "EVD-A07FDD9A",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD0.6",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD0.6"
+      },
+      {
+        "evidence_id": "EVD-AA207501",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD125",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD125"
+      },
+      {
+        "evidence_id": "EVD-6A822615",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 10.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 10.00"
+      },
+      {
+        "evidence_id": "EVD-9ABC06A4",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD50",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD50"
+      },
+      {
+        "evidence_id": "EVD-2A0A8BC0",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "211.3 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "211.3 kg"
+      },
+      {
+        "evidence_id": "EVD-C491583B",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "1.8 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "1.8 kg"
+      },
+      {
+        "evidence_id": "EVD-8FCD0E73",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "209.5 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "209.5 kg"
+      },
+      {
+        "evidence_id": "EVD-1B01D6F6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "HKG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "HKG"
+      },
+      {
+        "evidence_id": "EVD-0FF9FC9A",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD1.1623",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD1.1623"
+      },
+      {
+        "evidence_id": "EVD-9C674B09",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD75"
+      },
+      {
+        "evidence_id": "EVD-4BA9F38E",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):286.04Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):286.04Dimension:"
+      },
+      {
+        "evidence_id": "EVD-A5C5D071",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD3.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD3.5"
+      },
+      {
+        "evidence_id": "EVD-5F67AEC5",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "3500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "3500 kg"
+      },
+      {
+        "evidence_id": "EVD-7FFBD05F",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "34000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "34000 kg"
+      },
+      {
+        "evidence_id": "EVD-E1F35D20",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "74500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "74500 kg"
+      },
+      {
+        "evidence_id": "EVD-786DE18C",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "132000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "132000 kg"
+      },
+      {
+        "evidence_id": "EVD-8D9918D3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "42000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "42000 kg"
+      },
+      {
+        "evidence_id": "EVD-646C47C8",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0040 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0040 kg"
+      },
+      {
+        "evidence_id": "EVD-BA914D27",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "AMS",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AMS"
+      },
+      {
+        "evidence_id": "EVD-BE1D6D34",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD45",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD45"
+      },
+      {
+        "evidence_id": "EVD-2014595C",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 15,00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 15,00"
+      },
+      {
+        "evidence_id": "EVD-0CD49CD8",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "Weight",
+        "entity_text": "906.0 KG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "906.0 KG"
+      },
+      {
+        "evidence_id": "EVD-649FB1DB",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "Port",
+        "entity_text": "DMM",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DMM"
+      },
+      {
+        "evidence_id": "EVD-F059716C",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Organization",
+        "entity_text": "kg30*20*22cm*0.7kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "kg30*20*22cm*0.7kg"
+      },
+      {
+        "evidence_id": "EVD-E13DC197",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "9.02 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "9.02 kg"
+      },
+      {
+        "evidence_id": "EVD-730E7CF7",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "7.74 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "7.74 kg"
+      },
+      {
+        "evidence_id": "EVD-D6E35330",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0.7 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0.7 kg"
+      },
+      {
+        "evidence_id": "EVD-649C125B",
+        "source_file": "Quotation  ROT-DXB 2025.10.08.pdf",
+        "entity_type": "Organization",
+        "entity_text": "DeliveryIncluded0.00DOC",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DeliveryIncluded0.00DOC"
+      },
+      {
+        "evidence_id": "EVD-1BBEB7B4",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD14.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD14.5"
+      },
+      {
+        "evidence_id": "EVD-695B1D0F",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Express"
+      },
+      {
+        "evidence_id": "EVD-8A8A6293",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Express"
+      },
+      {
+        "evidence_id": "EVD-C53B47B1",
+        "source_file": "Quotation  SIN-DXB 2025.06.25r.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "SIN -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-B8B617E6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -route_to> HKG",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-51BDC0FE",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-BFEAAF87",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-D5130095",
+        "source_file": "route:HAM-DXB",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> DXB",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-4689A618",
+        "source_file": "route:ROT-DXB",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -origin_of> DXB",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-512B2EE0",
+        "source_file": "route:ROT-HKG",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -origin_of> HKG",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      }
+    ]
+  },
+  {
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-BE3CF01E",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):51.00Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):51.00Dimension:"
+      },
+      {
+        "evidence_id": "EVD-238F8854",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "Shanghai)",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Shanghai)"
+      },
+      {
+        "evidence_id": "EVD-7AA1BDF9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Person",
+        "entity_text": "ectronic",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "ectronic"
+      },
+      {
+        "evidence_id": "EVD-4C392CC7",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.00"
+      },
+      {
+        "evidence_id": "EVD-E06D7AA9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.75"
+      },
+      {
+        "evidence_id": "EVD-60402733",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SIN",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SIN"
+      },
+      {
+        "evidence_id": "EVD-4191276B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SINGAPORE",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SINGAPORE"
+      },
+      {
+        "evidence_id": "EVD-CB57C122",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "DocumentType",
+        "entity_text": "Quotation",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Quotation"
+      },
+      {
+        "evidence_id": "EVD-2C0A0DCD",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ChargeType",
+        "entity_text": "AWC Filing",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AWC Filing"
+      },
+      {
+        "evidence_id": "EVD-F3DCC70B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Freight",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Freight"
+      },
+      {
+        "evidence_id": "EVD-E5688D8C",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD5.0",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD5.0"
+      },
+      {
+        "evidence_id": "EVD-A07FDD9A",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD0.6",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD0.6"
+      },
+      {
+        "evidence_id": "EVD-AA207501",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD125",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD125"
+      },
+      {
+        "evidence_id": "EVD-6A822615",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 10.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 10.00"
+      },
+      {
+        "evidence_id": "EVD-9ABC06A4",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD50",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD50"
+      },
+      {
+        "evidence_id": "EVD-2A0A8BC0",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "211.3 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "211.3 kg"
+      },
+      {
+        "evidence_id": "EVD-C491583B",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "1.8 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "1.8 kg"
+      },
+      {
+        "evidence_id": "EVD-8FCD0E73",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "209.5 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "209.5 kg"
+      },
+      {
+        "evidence_id": "EVD-1B01D6F6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "HKG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "HKG"
+      },
+      {
+        "evidence_id": "EVD-0FF9FC9A",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD1.1623",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD1.1623"
+      },
+      {
+        "evidence_id": "EVD-9C674B09",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD75"
+      },
+      {
+        "evidence_id": "EVD-4BA9F38E",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):286.04Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):286.04Dimension:"
+      },
+      {
+        "evidence_id": "EVD-A5C5D071",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD3.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD3.5"
+      },
+      {
+        "evidence_id": "EVD-5F67AEC5",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "3500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "3500 kg"
+      },
+      {
+        "evidence_id": "EVD-7FFBD05F",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "34000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "34000 kg"
+      },
+      {
+        "evidence_id": "EVD-E1F35D20",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "74500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "74500 kg"
+      },
+      {
+        "evidence_id": "EVD-786DE18C",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "132000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "132000 kg"
+      },
+      {
+        "evidence_id": "EVD-8D9918D3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "42000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "42000 kg"
+      },
+      {
+        "evidence_id": "EVD-646C47C8",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0040 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0040 kg"
+      },
+      {
+        "evidence_id": "EVD-BA914D27",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "AMS",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AMS"
+      },
+      {
+        "evidence_id": "EVD-BE1D6D34",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD45",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD45"
+      },
+      {
+        "evidence_id": "EVD-2014595C",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 15,00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 15,00"
+      },
+      {
+        "evidence_id": "EVD-0CD49CD8",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "Weight",
+        "entity_text": "906.0 KG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "906.0 KG"
+      },
+      {
+        "evidence_id": "EVD-649FB1DB",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "Port",
+        "entity_text": "DMM",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DMM"
+      },
+      {
+        "evidence_id": "EVD-F059716C",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Organization",
+        "entity_text": "kg30*20*22cm*0.7kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "kg30*20*22cm*0.7kg"
+      },
+      {
+        "evidence_id": "EVD-E13DC197",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "9.02 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "9.02 kg"
+      },
+      {
+        "evidence_id": "EVD-730E7CF7",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "7.74 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "7.74 kg"
+      },
+      {
+        "evidence_id": "EVD-D6E35330",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0.7 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0.7 kg"
+      },
+      {
+        "evidence_id": "EVD-649C125B",
+        "source_file": "Quotation  ROT-DXB 2025.10.08.pdf",
+        "entity_type": "Organization",
+        "entity_text": "DeliveryIncluded0.00DOC",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DeliveryIncluded0.00DOC"
+      },
+      {
+        "evidence_id": "EVD-1BBEB7B4",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD14.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD14.5"
+      },
+      {
+        "evidence_id": "EVD-695B1D0F",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Express"
+      },
+      {
+        "evidence_id": "EVD-8A8A6293",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Express"
+      },
+      {
+        "evidence_id": "EVD-B8B617E6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -route_to> HKG",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-52CCE4E3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> HKG",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-8A82BE5B",
+        "source_file": "Quotation  HAM-DWC 2025.05.29.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DWC",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-51BDC0FE",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-8F3D484E",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> DMM",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-D5130095",
+        "source_file": "route:HAM-DXB",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> DXB",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-61F75844",
+        "source_file": "route:HAM-DMM",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> DMM",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-DCCBF817",
+        "source_file": "route:HAM-HKG",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> HKG",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-512B2EE0",
+        "source_file": "route:ROT-HKG",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -origin_of> HKG",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      }
+    ]
+  },
+  {
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-BE3CF01E",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):51.00Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):51.00Dimension:"
+      },
+      {
+        "evidence_id": "EVD-238F8854",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Organization",
+        "entity_text": "Shanghai)",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Shanghai)"
+      },
+      {
+        "evidence_id": "EVD-7AA1BDF9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Person",
+        "entity_text": "ectronic",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "ectronic"
+      },
+      {
+        "evidence_id": "EVD-4C392CC7",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.00"
+      },
+      {
+        "evidence_id": "EVD-E06D7AA9",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD7.75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD7.75"
+      },
+      {
+        "evidence_id": "EVD-60402733",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SIN",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SIN"
+      },
+      {
+        "evidence_id": "EVD-4191276B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "Port",
+        "entity_text": "SINGAPORE",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "SINGAPORE"
+      },
+      {
+        "evidence_id": "EVD-CB57C122",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "DocumentType",
+        "entity_text": "Quotation",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Quotation"
+      },
+      {
+        "evidence_id": "EVD-2C0A0DCD",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ChargeType",
+        "entity_text": "AWC Filing",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AWC Filing"
+      },
+      {
+        "evidence_id": "EVD-F3DCC70B",
+        "source_file": "Quotation  SIN-DWC 2025.06.23.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Freight",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Freight"
+      },
+      {
+        "evidence_id": "EVD-E5688D8C",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD5.0",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD5.0"
+      },
+      {
+        "evidence_id": "EVD-A07FDD9A",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD0.6",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD0.6"
+      },
+      {
+        "evidence_id": "EVD-AA207501",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD125",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD125"
+      },
+      {
+        "evidence_id": "EVD-6A822615",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 10.00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 10.00"
+      },
+      {
+        "evidence_id": "EVD-9ABC06A4",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD50",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD50"
+      },
+      {
+        "evidence_id": "EVD-2A0A8BC0",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "211.3 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "211.3 kg"
+      },
+      {
+        "evidence_id": "EVD-C491583B",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "1.8 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "1.8 kg"
+      },
+      {
+        "evidence_id": "EVD-8FCD0E73",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "209.5 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "209.5 kg"
+      },
+      {
+        "evidence_id": "EVD-1B01D6F6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "HKG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "HKG"
+      },
+      {
+        "evidence_id": "EVD-0FF9FC9A",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD1.1623",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD1.1623"
+      },
+      {
+        "evidence_id": "EVD-9C674B09",
+        "source_file": "Quotation  ROT-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD75",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD75"
+      },
+      {
+        "evidence_id": "EVD-4BA9F38E",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Organization",
+        "entity_text": "KG):286.04Dimension:",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "KG):286.04Dimension:"
+      },
+      {
+        "evidence_id": "EVD-A5C5D071",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD3.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD3.5"
+      },
+      {
+        "evidence_id": "EVD-5F67AEC5",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "3500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "3500 kg"
+      },
+      {
+        "evidence_id": "EVD-7FFBD05F",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "34000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "34000 kg"
+      },
+      {
+        "evidence_id": "EVD-E1F35D20",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "74500 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "74500 kg"
+      },
+      {
+        "evidence_id": "EVD-786DE18C",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "132000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "132000 kg"
+      },
+      {
+        "evidence_id": "EVD-8D9918D3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "42000 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "42000 kg"
+      },
+      {
+        "evidence_id": "EVD-646C47C8",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0040 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0040 kg"
+      },
+      {
+        "evidence_id": "EVD-BA914D27",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "Port",
+        "entity_text": "AMS",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "AMS"
+      },
+      {
+        "evidence_id": "EVD-BE1D6D34",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD45",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD45"
+      },
+      {
+        "evidence_id": "EVD-2014595C",
+        "source_file": "Quotation  HAM-HKG by sea 2026.03.10.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD 15,00",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD 15,00"
+      },
+      {
+        "evidence_id": "EVD-0CD49CD8",
+        "source_file": "Quotation  HAM-DXB 2025.05.07.pdf",
+        "entity_type": "Weight",
+        "entity_text": "906.0 KG",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "906.0 KG"
+      },
+      {
+        "evidence_id": "EVD-649FB1DB",
+        "source_file": "Quotation  HAM-DMM 2025.06.26.pdf",
+        "entity_type": "Port",
+        "entity_text": "DMM",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DMM"
+      },
+      {
+        "evidence_id": "EVD-F059716C",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Organization",
+        "entity_text": "kg30*20*22cm*0.7kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "kg30*20*22cm*0.7kg"
+      },
+      {
+        "evidence_id": "EVD-E13DC197",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "9.02 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "9.02 kg"
+      },
+      {
+        "evidence_id": "EVD-730E7CF7",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "7.74 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "7.74 kg"
+      },
+      {
+        "evidence_id": "EVD-D6E35330",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "Weight",
+        "entity_text": "0.7 kg",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "0.7 kg"
+      },
+      {
+        "evidence_id": "EVD-649C125B",
+        "source_file": "Quotation  ROT-DXB 2025.10.08.pdf",
+        "entity_type": "Organization",
+        "entity_text": "DeliveryIncluded0.00DOC",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "DeliveryIncluded0.00DOC"
+      },
+      {
+        "evidence_id": "EVD-1BBEB7B4",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "FinancialValue",
+        "entity_text": "USD14.5",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "USD14.5"
+      },
+      {
+        "evidence_id": "EVD-695B1D0F",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Air Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Air Express"
+      },
+      {
+        "evidence_id": "EVD-8A8A6293",
+        "source_file": "Quotation  ROT-DXB 2025.09.28.pdf",
+        "entity_type": "ServiceType",
+        "entity_text": "Express",
+        "confidence": 0.5,
+        "claim_type": "ENTITY_EXTRACTION",
+        "claimed_value": "Express"
+      },
+      {
+        "evidence_id": "EVD-B8B617E6",
+        "source_file": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -route_to> HKG",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-52CCE4E3",
+        "source_file": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -route_to> HKG",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-BFEAAF87",
+        "source_file": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -route_to> DXB",
+        "confidence": 0.5,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "route_to"
+      },
+      {
+        "evidence_id": "EVD-4689A618",
+        "source_file": "route:ROT-DXB",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -origin_of> DXB",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-DCCBF817",
+        "source_file": "route:HAM-HKG",
+        "entity_type": "RELATION",
+        "entity_text": "HAM -origin_of> HKG",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      },
+      {
+        "evidence_id": "EVD-512B2EE0",
+        "source_file": "route:ROT-HKG",
+        "entity_type": "RELATION",
+        "entity_text": "ROT -origin_of> HKG",
+        "confidence": 0.95,
+        "claim_type": "RELATION_EXTRACTION",
+        "claimed_value": "origin_of"
+      }
+    ]
+  }
+]

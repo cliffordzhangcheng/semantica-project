@@ -1,0 +1,416 @@
+[
+  {
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "route_code": "HAM-DXB",
+    "origin": "HAM",
+    "destination": "DXB",
+    "date": "2025-05-07",
+    "shipper": {
+      "name": "EPOCH OFFSHORE ENGINEERING CO.,LTD",
+      "role": "SHIPPER",
+      "country": "Hong Kong / China"
+    },
+    "consignee": {
+      "name": "PAC OCEAN SOLUTIONS DMCC",
+      "role": "CONSIGNEE",
+      "country": "UAE"
+    },
+    "notify_party": {
+      "name": "United Fuel Treatment Co.",
+      "role": "NOTIFY_PARTY",
+      "country": "Taiwan"
+    },
+    "forwarder": {
+      "name": "Xiamen Transworld Logistics Co., Ltd",
+      "role": "FORWARDER",
+      "country": "China"
+    },
+    "cargo": {
+      "description": "Offshore engineering equipment / General cargo",
+      "package_count": "Multiple",
+      "gross_weight_kg": "Variable",
+      "chargeable_weight_kg": "Variable"
+    },
+    "service_type": "Air Freight",
+    "documents": [
+      "Proforma Invoice",
+      "Commercial Invoice",
+      "Master Air Waybill",
+      "Air Freight Quotation",
+      "Booking Form"
+    ],
+    "charges": [
+      "AF Rate",
+      "THC",
+      "AWC Filing"
+    ],
+    "timeline": {
+      "booking_date": "2025-05-07",
+      "departure_date": "TBD",
+      "arrival_date": "TBD"
+    },
+    "state": "BOOKED",
+    "evidence_coverage": {
+      "shipper": "HIGH",
+      "consignee": "HIGH",
+      "notify_party": "MEDIUM",
+      "forwarder": "HIGH",
+      "cargo": "MEDIUM",
+      "charges": "HIGH",
+      "timeline": "LOW"
+    },
+    "unknowns": [
+      "carrier",
+      "flight_number",
+      "actual_weight",
+      "actual_value"
+    ],
+    "conflicts": [],
+    "confidence": 0.75
+  },
+  {
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "route_code": "SIN-DWC",
+    "origin": "SIN",
+    "destination": "DWC",
+    "date": "2025-06-19",
+    "shipper": {
+      "name": "EPOCH OFFSHORE ENGINEERING CO.,LTD",
+      "role": "SHIPPER",
+      "country": "Hong Kong / China"
+    },
+    "consignee": {
+      "name": "PAC OCEAN SOLUTIONS DMCC",
+      "role": "CONSIGNEE",
+      "country": "UAE"
+    },
+    "notify_party": {
+      "name": "United Fuel Treatment Co.",
+      "role": "NOTIFY_PARTY",
+      "country": "Taiwan"
+    },
+    "forwarder": {
+      "name": "Xiamen Transworld Logistics Co., Ltd",
+      "role": "FORWARDER",
+      "country": "China"
+    },
+    "cargo": {
+      "description": "Offshore engineering equipment / General cargo",
+      "package_count": "Multiple",
+      "gross_weight_kg": "Variable",
+      "chargeable_weight_kg": "Variable"
+    },
+    "service_type": "Air Freight",
+    "documents": [
+      "Proforma Invoice",
+      "Commercial Invoice",
+      "Master Air Waybill",
+      "Air Freight Quotation",
+      "Booking Form"
+    ],
+    "charges": [
+      "AF Rate",
+      "THC",
+      "AWC Filing"
+    ],
+    "timeline": {
+      "booking_date": "2025-06-19",
+      "departure_date": "TBD",
+      "arrival_date": "TBD"
+    },
+    "state": "BOOKED",
+    "evidence_coverage": {
+      "shipper": "HIGH",
+      "consignee": "HIGH",
+      "notify_party": "MEDIUM",
+      "forwarder": "HIGH",
+      "cargo": "MEDIUM",
+      "charges": "HIGH",
+      "timeline": "LOW"
+    },
+    "unknowns": [
+      "carrier",
+      "flight_number",
+      "actual_weight",
+      "actual_value"
+    ],
+    "conflicts": [],
+    "confidence": 0.75
+  },
+  {
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "route_code": "HAM-DMM",
+    "origin": "HAM",
+    "destination": "DMM",
+    "date": "2025-06-20",
+    "shipper": {
+      "name": "EPOCH OFFSHORE ENGINEERING CO.,LTD",
+      "role": "SHIPPER",
+      "country": "Hong Kong / China"
+    },
+    "consignee": {
+      "name": "SINO CRAFTS FZE",
+      "role": "CONSIGNEE",
+      "country": "Hong Kong"
+    },
+    "notify_party": {
+      "name": "United Fuel Treatment Co.",
+      "role": "NOTIFY_PARTY",
+      "country": "Taiwan"
+    },
+    "forwarder": {
+      "name": "Xiamen Transworld Logistics Co., Ltd",
+      "role": "FORWARDER",
+      "country": "China"
+    },
+    "cargo": {
+      "description": "Offshore engineering equipment / General cargo",
+      "package_count": "Multiple",
+      "gross_weight_kg": "Variable",
+      "chargeable_weight_kg": "Variable"
+    },
+    "service_type": "Air Freight",
+    "documents": [
+      "Proforma Invoice",
+      "Commercial Invoice",
+      "Master Air Waybill",
+      "Air Freight Quotation",
+      "Booking Form"
+    ],
+    "charges": [
+      "AF Rate",
+      "THC",
+      "AWC Filing"
+    ],
+    "timeline": {
+      "booking_date": "2025-06-20",
+      "departure_date": "TBD",
+      "arrival_date": "TBD"
+    },
+    "state": "BOOKED",
+    "evidence_coverage": {
+      "shipper": "HIGH",
+      "consignee": "HIGH",
+      "notify_party": "MEDIUM",
+      "forwarder": "HIGH",
+      "cargo": "MEDIUM",
+      "charges": "HIGH",
+      "timeline": "LOW"
+    },
+    "unknowns": [
+      "carrier",
+      "flight_number",
+      "actual_weight",
+      "actual_value"
+    ],
+    "conflicts": [],
+    "confidence": 0.75
+  },
+  {
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "route_code": "ROT-DXB",
+    "origin": "ROT",
+    "destination": "DXB",
+    "date": "2025-09-28",
+    "shipper": {
+      "name": "EPOCH OFFSHORE ENGINEERING (SHANGHAI) CO.,LTD",
+      "role": "SHIPPER",
+      "country": "Hong Kong / China"
+    },
+    "consignee": {
+      "name": "PAC OCEAN SOLUTIONS DMCC",
+      "role": "CONSIGNEE",
+      "country": "UAE"
+    },
+    "notify_party": {
+      "name": "United Fuel Treatment Co.",
+      "role": "NOTIFY_PARTY",
+      "country": "Taiwan"
+    },
+    "forwarder": {
+      "name": "Xiamen Transworld Logistics Co., Ltd",
+      "role": "FORWARDER",
+      "country": "China"
+    },
+    "cargo": {
+      "description": "Offshore engineering equipment / General cargo",
+      "package_count": "Multiple",
+      "gross_weight_kg": "Variable",
+      "chargeable_weight_kg": "Variable"
+    },
+    "service_type": "Air Freight",
+    "documents": [
+      "Proforma Invoice",
+      "Commercial Invoice",
+      "Master Air Waybill",
+      "Air Freight Quotation",
+      "Booking Form"
+    ],
+    "charges": [
+      "AF Rate",
+      "THC",
+      "AWC Filing"
+    ],
+    "timeline": {
+      "booking_date": "2025-09-28",
+      "departure_date": "TBD",
+      "arrival_date": "TBD"
+    },
+    "state": "BOOKED",
+    "evidence_coverage": {
+      "shipper": "HIGH",
+      "consignee": "HIGH",
+      "notify_party": "MEDIUM",
+      "forwarder": "HIGH",
+      "cargo": "MEDIUM",
+      "charges": "HIGH",
+      "timeline": "LOW"
+    },
+    "unknowns": [
+      "carrier",
+      "flight_number",
+      "actual_weight",
+      "actual_value"
+    ],
+    "conflicts": [],
+    "confidence": 0.75
+  },
+  {
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "route_code": "HAM-HKG",
+    "origin": "HAM",
+    "destination": "HKG",
+    "date": "2026-02-27",
+    "shipper": {
+      "name": "EPOCH OFFSHORE ENGINEERING CO.,LTD",
+      "role": "SHIPPER",
+      "country": "Hong Kong / China"
+    },
+    "consignee": {
+      "name": "SINO CRAFTS FZE",
+      "role": "CONSIGNEE",
+      "country": "Hong Kong"
+    },
+    "notify_party": {
+      "name": "United Fuel Treatment Co.",
+      "role": "NOTIFY_PARTY",
+      "country": "Taiwan"
+    },
+    "forwarder": {
+      "name": "Xiamen Transworld Logistics Co., Ltd",
+      "role": "FORWARDER",
+      "country": "China"
+    },
+    "cargo": {
+      "description": "Offshore engineering equipment / General cargo",
+      "package_count": "Multiple",
+      "gross_weight_kg": "Variable",
+      "chargeable_weight_kg": "Variable"
+    },
+    "service_type": "Air Freight",
+    "documents": [
+      "Proforma Invoice",
+      "Commercial Invoice",
+      "Master Air Waybill",
+      "Air Freight Quotation",
+      "Booking Form"
+    ],
+    "charges": [
+      "AF Rate",
+      "THC",
+      "AWC Filing"
+    ],
+    "timeline": {
+      "booking_date": "2026-02-27",
+      "departure_date": "TBD",
+      "arrival_date": "TBD"
+    },
+    "state": "BOOKED",
+    "evidence_coverage": {
+      "shipper": "HIGH",
+      "consignee": "HIGH",
+      "notify_party": "MEDIUM",
+      "forwarder": "HIGH",
+      "cargo": "MEDIUM",
+      "charges": "HIGH",
+      "timeline": "LOW"
+    },
+    "unknowns": [
+      "carrier",
+      "flight_number",
+      "actual_weight",
+      "actual_value"
+    ],
+    "conflicts": [],
+    "confidence": 0.75
+  },
+  {
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "route_code": "ROT-HKG",
+    "origin": "ROT",
+    "destination": "HKG",
+    "date": "2026-02-27",
+    "shipper": {
+      "name": "EPOCH OFFSHORE ENGINEERING (SHANGHAI) CO.,LTD",
+      "role": "SHIPPER",
+      "country": "Hong Kong / China"
+    },
+    "consignee": {
+      "name": "SINO CRAFTS FZE",
+      "role": "CONSIGNEE",
+      "country": "Hong Kong"
+    },
+    "notify_party": {
+      "name": "United Fuel Treatment Co.",
+      "role": "NOTIFY_PARTY",
+      "country": "Taiwan"
+    },
+    "forwarder": {
+      "name": "Xiamen Transworld Logistics Co., Ltd",
+      "role": "FORWARDER",
+      "country": "China"
+    },
+    "cargo": {
+      "description": "Offshore engineering equipment / General cargo",
+      "package_count": "Multiple",
+      "gross_weight_kg": "Variable",
+      "chargeable_weight_kg": "Variable"
+    },
+    "service_type": "Air Freight",
+    "documents": [
+      "Proforma Invoice",
+      "Commercial Invoice",
+      "Master Air Waybill",
+      "Air Freight Quotation",
+      "Booking Form"
+    ],
+    "charges": [
+      "AF Rate",
+      "THC",
+      "AWC Filing"
+    ],
+    "timeline": {
+      "booking_date": "2026-02-27",
+      "departure_date": "TBD",
+      "arrival_date": "TBD"
+    },
+    "state": "BOOKED",
+    "evidence_coverage": {
+      "shipper": "HIGH",
+      "consignee": "HIGH",
+      "notify_party": "MEDIUM",
+      "forwarder": "HIGH",
+      "cargo": "MEDIUM",
+      "charges": "HIGH",
+      "timeline": "LOW"
+    },
+    "unknowns": [
+      "carrier",
+      "flight_number",
+      "actual_weight",
+      "actual_value"
+    ],
+    "conflicts": [],
+    "confidence": 0.75
+  }
+]

@@ -1,0 +1,236 @@
+# Semantica-AKOS Logistics Ontology v0.2 - Shadow Knowledge Graph
+# Generated: 2026-09-17T11:28:06.131861
+# Baseline: semantica-report-20260917-yiboke.md
+# Specification: SPEC-20260917-YIBOKE-AIR-FREIGHT-ONTOLOGY
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix ybk: <http://example.org/yiboke#> .
+@prefix logis: <http://example.org/logistics#> .
+
+# ===== Ontology Definition =====
+
+logis:Shipment a owl:Class ;
+    rdfs:label "Shipment"@en ;
+    rdfs:comment "一次具体货运业务/Job，是核心业务上下文"@zh ;
+    rdfs:subClassOf logis:BusinessEntity .
+
+logis:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:comment "公司、承运人、货代、客户、代理等法人或组织"@zh .
+
+logis:Person a owl:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:comment "真实联系人或业务经办人"@zh .
+
+logis:PartyRole a owl:Class ;
+    rdfs:label "PartyRole"@en ;
+    rdfs:comment "Organization/Person 在特定 Shipment 中承担的角色"@zh .
+
+logis:Cargo a owl:Class ;
+    rdfs:label "Cargo"@en ;
+    rdfs:comment "Shipment 所运输货物"@zh .
+
+logis:Route a owl:Class ;
+    rdfs:label "Route"@en ;
+    rdfs:comment "Shipment 的完整运输路径"@zh .
+
+logis:RouteLeg a owl:Class ;
+    rdfs:label "RouteLeg"@en ;
+    rdfs:comment "Route 中单段运输"@zh .
+
+logis:TransportNode a owl:Class ;
+    rdfs:label "TransportNode"@en ;
+    rdfs:comment "机场、港口、仓库等运输节点"@zh .
+
+logis:Location a owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:comment "国家、城市、地区等地理实体"@zh .
+
+logis:Service a owl:Class ;
+    rdfs:label "Service"@en ;
+    rdfs:comment "实际提供的物流服务"@zh .
+
+logis:Incoterm a owl:Class ;
+    rdfs:label "Incoterm"@en ;
+    rdfs:comment "EXW / FOB / CIF / DAP / DDP 等贸易术语"@zh ;
+    rdfs:subClassOf logis:CommercialTerm .
+
+logis:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:comment "与 Shipment 相关的业务文件"@zh .
+
+logis:Charge a owl:Class ;
+    rdfs:label "Charge"@en ;
+    rdfs:comment "一个实际收费项目"@zh .
+
+logis:MonetaryAmount a owl:Class ;
+    rdfs:label "MonetaryAmount"@en ;
+    rdfs:comment "金额值对象"@zh .
+
+logis:WeightMeasurement a owl:Class ;
+    rdfs:label "WeightMeasurement"@en ;
+    rdfs:comment "重量值对象"@zh .
+
+logis:Evidence a owl:Class ;
+    rdfs:label "Evidence"@en ;
+    rdfs:comment "支撑实体、关系或状态判断的现实证据"@zh .
+
+# ===== Object Properties =====
+
+logis:hasPartyRole a owl:ObjectProperty ;
+    rdfs:domain logis:Organization ;
+    rdfs:range logis:PartyRole .
+
+logis:playsRole a owl:ObjectProperty ;
+    rdfs:domain logis:PartyRole ;
+    rdfs:range logis:Organization .
+
+logis:hasShipment a owl:ObjectProperty ;
+    rdfs:domain logis:PartyRole ;
+    rdfs:range logis:Shipment .
+
+logis:hasOrigin a owl:ObjectProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range logis:TransportNode .
+
+logis:hasDestination a owl:ObjectProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range logis:TransportNode .
+
+logis:hasCargo a owl:ObjectProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range logis:Cargo .
+
+logis:hasServiceType a owl:ObjectProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range logis:Service .
+
+logis:hasIncoterm a owl:ObjectProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range logis:Incoterm .
+
+logis:hasCharge a owl:ObjectProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range logis:Charge .
+
+logis:hasEvidence a owl:ObjectProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range logis:Evidence .
+
+logis:hasWeight a owl:ObjectProperty ;
+    rdfs:domain logis:Cargo ;
+    rdfs:range logis:WeightMeasurement .
+
+logis:hasValue a owl:ObjectProperty ;
+    rdfs:domain logis:Cargo ;
+    rdfs:range logis:MonetaryAmount .
+
+# ===== Data Properties =====
+
+logis:hasShipmentId a owl:DatatypeProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range xsd:string .
+
+logis:hasRouteCode a owl:DatatypeProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range xsd:string .
+
+logis:hasDate a owl:DatatypeProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range xsd:date .
+
+logis:hasState a owl:DatatypeProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range xsd:string .
+
+logis:hasConfidence a owl:DatatypeProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range xsd:decimal .
+
+# ===== Instances =====
+
+ybk:Shipment-HAM-DXB-20250507 a logis:Shipment ;
+    logis:hasShipmentId "YBK-HAM-DXB-20250507" ;
+    logis:hasRouteCode "HAM-DXB" ;
+    logis:hasDate "2025-05-07" ;
+    logis:hasOrigin ybk:Airport-HAM ;
+    logis:hasDestination ybk:Airport-DXB ;
+    logis:hasServiceType logis:AirFreight ;
+    logis:hasState "BOOKED" ;
+    logis:hasConfidence 0.75 .
+
+ybk:Airport-HAM a logis:TransportNode ;
+    logis:hasIataCode "HAM" ;
+    logis:hasName "Hamburg Airport" ;
+    logis:hasCity "Hamburg" ;
+    logis:hasCountry "Germany" .
+
+ybk:Airport-DXB a logis:TransportNode ;
+    logis:hasIataCode "DXB" ;
+    logis:hasName "Dubai International Airport" ;
+    logis:hasCity "Dubai" ;
+    logis:hasCountry "UAE" .
+
+ybk:DWC a logis:TransportNode ;
+    logis:hasIataCode "DWC" ;
+    logis:hasName "Dubai World Central" ;
+    logis:hasCity "Dubai" ;
+    logis:hasCountry "UAE" .
+
+ybk:Airport-HKG a logis:TransportNode ;
+    logis:hasIataCode "HKG" ;
+    logis:hasName "Hong Kong International Airport" ;
+    logis:hasCity "Hong Kong" ;
+    logis:hasCountry "China" .
+
+ybk:Airport-SIN a logis:TransportNode ;
+    logis:hasIataCode "SIN" ;
+    logis:hasName "Singapore Changi Airport" ;
+    logis:hasCity "Singapore" ;
+    logis:hasCountry "Singapore" .
+
+ybk:Airport-DMM a logis:TransportNode ;
+    logis:hasIataCode "DMM" ;
+    logis:hasName "King Fahd International Airport" ;
+    logis:hasCity "Dammam" ;
+    logis:hasCountry "Saudi Arabia" .
+
+ybk:Airport-ROT a logis:TransportNode ;
+    logis:hasIataCode "RTM" ;
+    logis:hasName "Rotterdam The Hague Airport" ;
+    logis:hasCity "Rotterdam" ;
+    logis:hasCountry "Netherlands" .
+
+ybk:EpochOffshoreHK a logis:Organization ;
+    logis:hasName "Epoch Offshore Engineering Co.,Ltd (HK)" .
+
+ybk:EpochOffshoreSH a logis:Organization ;
+    logis:hasName "Epoch Offshore Engineering (Shanghai) Co.,Ltd" .
+
+ybk:PacOcean a logis:Organization ;
+    logis:hasName "PAC OCEAN SOLUTIONS DMCC" .
+
+ybk:SinoCrafts a logis:Organization ;
+    logis:hasName "SINO CRAFTS FZE" .
+
+ybk:UnitedFuel a logis:Organization ;
+    logis:hasName "United Fuel Treatment Co." .
+
+ybk:XiamenTransworld a logis:Organization ;
+    logis:hasName "Xiamen Transworld Logistics Co., Ltd" .
+
+# ===== Void Statistics =====
+
+[] a void:Dataset ;
+    void:uriRegexPattern "http://example.org/yiboke#" ;
+    void:entityCount "230"^^xsd:integer ;
+    void:triplesCount "15"^^xsd:integer ;
+    void:distinctSubjects 6 ;
+    void:distinctObjects 12 .
+
+# ===== End of Shadow Knowledge Graph =====

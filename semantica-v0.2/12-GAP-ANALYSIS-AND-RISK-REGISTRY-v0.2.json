@@ -1,0 +1,100 @@
+{
+  "analysis_timestamp": "2026-09-17T11:28:06.058244",
+  "critical_gaps": [
+    {
+      "gap_id": "GAP-001",
+      "category": "MISSING_DATA",
+      "description": "No Incoterm found in any of 6 shipments",
+      "impact": "HIGH",
+      "source": "Quotation documents should contain trade terms",
+      "remediation": "Search quotation PDFs for FOB/CIF/DDP patterns",
+      "owner": "AKOS-Data-Ingestion",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "GAP-002",
+      "category": "MISSING_DATA",
+      "description": "Carrier name missing from all shipments",
+      "impact": "HIGH",
+      "source": "MAWB documents",
+      "remediation": "Extract from MAWB or airline booking confirmation",
+      "owner": "AKOS-Knowledge-Engine",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "GAP-003",
+      "category": "MISSING_DATA",
+      "description": "Actual weight not captured (only quoted)",
+      "impact": "MEDIUM",
+      "source": "Booking forms vs actual weight declarations",
+      "remediation": "Extract actual weight from shipping documents",
+      "owner": "AKOS-Data-Ingestion",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "GAP-004",
+      "category": "MISSING_DATA",
+      "description": "MAWB numbers not captured",
+      "impact": "MEDIUM",
+      "source": "Master Air Waybill documents",
+      "remediation": "Parse MAWB format (usually 3-digit airline + 8-digit number)",
+      "owner": "AKOS-Data-Ingestion",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "GAP-005",
+      "category": "QUALITY",
+      "description": "Incoterm collision resolved but evidence sparse",
+      "impact": "LOW",
+      "source": "Quotation extraction",
+      "remediation": "Confirm EXW classification with business users",
+      "owner": "AKOS-Data-Quality",
+      "status": "OPEN"
+    }
+  ],
+  "known_unknowns": [
+    "carrier_name",
+    "flight_number",
+    "actual_weight",
+    "chargeable_weight",
+    "cargo_value",
+    "booking_reference",
+    "mawb_number",
+    "hawb_number",
+    "hs_code",
+    "cargo_dimensions"
+  ],
+  "assumptions": [
+    "All 6 routes represent completed bookings",
+    "Shipper is Epoch Offshore Engineering (various legal entities)",
+    "Consignee is PAC Ocean Solutions or Sino Crafts (Dubai)",
+    "Forwarder is Xiamen Transworld Logistics",
+    "Notify party is United Fuel Treatment (Taiwan)"
+  ],
+  "risk_registry": [
+    {
+      "risk_id": "RISK-001",
+      "description": "Data completeness insufficient for production use",
+      "likelihood": "HIGH",
+      "impact": "MEDIUM",
+      "mitigation": "Expand corpus to include additional 167 COSW emails",
+      "owner": "AKOS-Data-Ingestion"
+    },
+    {
+      "risk_id": "RISK-002",
+      "description": "Entity canonicalization may miss variants",
+      "likelihood": "MEDIUM",
+      "impact": "LOW",
+      "mitigation": "Human review of top-20 high-frequency entities",
+      "owner": "AKOS-Data-Quality"
+    },
+    {
+      "risk_id": "RISK-003",
+      "description": "Evidence binding incomplete for some relations",
+      "likelihood": "MEDIUM",
+      "impact": "MEDIUM",
+      "mitigation": "Enhance PDF text extraction with OCR fallback",
+      "owner": "AKOS-Knowledge-Engine"
+    }
+  ]
+}
