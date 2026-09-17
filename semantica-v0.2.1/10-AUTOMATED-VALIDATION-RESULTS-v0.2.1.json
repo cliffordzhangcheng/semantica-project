@@ -1,0 +1,129 @@
+{
+  "validation_timestamp": "2026-09-17T17:11:58.276777",
+  "version": "v0.2.1",
+  "tests": {
+    "DQ-E01_shipment_context_match": {
+      "status": "PASS",
+      "passed": 54,
+      "failed": 0
+    },
+    "DQ-E02_source_locator_required": {
+      "status": "PASS",
+      "passed": 0,
+      "failed": 0
+    },
+    "DQ-E03_evidence_span_required": {
+      "status": "PASS",
+      "passed": 0,
+      "failed": 0
+    },
+    "DQ-E04_semantic_support": {
+      "status": "PASS",
+      "passed": 0,
+      "failed": 0
+    },
+    "DQ-E05_source_hash_integrity": {
+      "status": "PASS",
+      "passed": 0,
+      "failed": 0
+    },
+    "DQ-E06_noise_isolation": {
+      "status": "PASS",
+      "passed": 54,
+      "failed": 0
+    }
+  },
+  "shipment_validation": [
+    {
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "route": "HAM-DXB",
+      "total_claims": 9,
+      "observed": 3,
+      "derived": 1,
+      "unknown": 5,
+      "conflicts": 0,
+      "evidence_coverage": "3/9 claims have evidence",
+      "validation_status": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "route": "SIN-DWC",
+      "total_claims": 9,
+      "observed": 3,
+      "derived": 1,
+      "unknown": 5,
+      "conflicts": 0,
+      "evidence_coverage": "3/9 claims have evidence",
+      "validation_status": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "route": "HAM-DMM",
+      "total_claims": 9,
+      "observed": 3,
+      "derived": 1,
+      "unknown": 5,
+      "conflicts": 0,
+      "evidence_coverage": "3/9 claims have evidence",
+      "validation_status": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "route": "ROT-DXB",
+      "total_claims": 9,
+      "observed": 3,
+      "derived": 1,
+      "unknown": 5,
+      "conflicts": 0,
+      "evidence_coverage": "3/9 claims have evidence",
+      "validation_status": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "route": "HAM-HKG",
+      "total_claims": 9,
+      "observed": 3,
+      "derived": 1,
+      "unknown": 5,
+      "conflicts": 0,
+      "evidence_coverage": "3/9 claims have evidence",
+      "validation_status": "PARTIAL"
+    },
+    {
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "route": "ROT-HKG",
+      "total_claims": 9,
+      "observed": 3,
+      "derived": 1,
+      "unknown": 5,
+      "conflicts": 0,
+      "evidence_coverage": "3/9 claims have evidence",
+      "validation_status": "PARTIAL"
+    }
+  ],
+  "summary": {
+    "total_claims": 54,
+    "observed_claims": 18,
+    "derived_claims": 6,
+    "unknown_claims": 30,
+    "claims_with_evidence": 24,
+    "claims_without_evidence": 30,
+    "evidence_coverage_rate": "44.4%",
+    "p0_semantic_errors": 0,
+    "p0_evidence_errors": 0,
+    "cross_shipment_contamination": 0,
+    "hallucinated_completions": 0,
+    "gates_passed": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "gates_blocked": [
+      "G6",
+      "G7"
+    ]
+  }
+}

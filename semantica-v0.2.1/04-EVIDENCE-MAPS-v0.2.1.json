@@ -1,0 +1,251 @@
+[
+  {
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "route": "HAM-DXB",
+    "evidence_items": [],
+    "cross_contamination_flags": []
+  },
+  {
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "route": "SIN-DWC",
+    "evidence_items": [],
+    "cross_contamination_flags": []
+  },
+  {
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "route": "HAM-DMM",
+    "evidence_items": [],
+    "cross_contamination_flags": []
+  },
+  {
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "route": "ROT-DXB",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-842788D6",
+        "shipment_id": "YBK-ROT-DXB-20250928",
+        "source_filename": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-CF46BDFF",
+        "shipment_id": "YBK-ROT-DXB-20250928",
+        "source_filename": "Quotation  ROT-HKG 2026.02.27.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-B4AE6EC1",
+        "shipment_id": "YBK-ROT-DXB-20250928",
+        "source_filename": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-08478EDA",
+        "shipment_id": "YBK-ROT-DXB-20250928",
+        "source_filename": "Quotation  ROT-DXB 2025.10.08.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      }
+    ],
+    "cross_contamination_flags": []
+  },
+  {
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "route": "HAM-HKG",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-DDF3D07C",
+        "shipment_id": "YBK-HAM-HKG-20260227",
+        "source_filename": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-1D29D2F9",
+        "shipment_id": "YBK-HAM-HKG-20260227",
+        "source_filename": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-AA932210",
+        "shipment_id": "YBK-HAM-HKG-20260227",
+        "source_filename": "Quotation  HAM-HKG 2026.02.27.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-98244E08",
+        "shipment_id": "YBK-HAM-HKG-20260227",
+        "source_filename": "Quotation  ROT-HKG 2026.02.27.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      }
+    ],
+    "cross_contamination_flags": []
+  },
+  {
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "route": "ROT-HKG",
+    "evidence_items": [
+      {
+        "evidence_id": "EVD-AA60DD25",
+        "shipment_id": "YBK-ROT-HKG-20260227",
+        "source_filename": "Quotation  ROT-HKG 2026.03.03.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-3476C426",
+        "shipment_id": "YBK-ROT-HKG-20260227",
+        "source_filename": "Quotation  HAM-HKG 2026.03.03.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-7800B020",
+        "shipment_id": "YBK-ROT-HKG-20260227",
+        "source_filename": "Quotation  HAM-HKG 2026.02.27.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-A504144E",
+        "shipment_id": "YBK-ROT-HKG-20260227",
+        "source_filename": "Quotation  ROT-HKG 2026.02.27.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-53CAC9BE",
+        "shipment_id": "YBK-ROT-HKG-20260227",
+        "source_filename": "Quotation  ROT-DXB 2025.10.09.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      },
+      {
+        "evidence_id": "EVD-6A726BE3",
+        "shipment_id": "YBK-ROT-HKG-20260227",
+        "source_filename": "Quotation  ROT-DXB 2025.10.08.pdf",
+        "source_type": "Organization",
+        "extracted_text": "DOC Inc",
+        "claim_type": "ENTITY_EXTRACTION",
+        "confidence": 0.6,
+        "validity_tests": {
+          "DQ-E01_context_match": true,
+          "DQ-E02_locator_required": false,
+          "DQ-E03_span_required": false,
+          "DQ-E04_semantic_support": "PENDING"
+        }
+      }
+    ],
+    "cross_contamination_flags": []
+  }
+]

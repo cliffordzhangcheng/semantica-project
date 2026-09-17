@@ -1,0 +1,108 @@
+{
+  "ledger_version": "v0.2.1",
+  "generated_at": "2026-09-17T17:11:58.341529",
+  "project": "Semantica-AKOS Logistics Reality Ontology",
+  "baseline": "semantica-v0.2/",
+  "remediation": "semantica-v0.2.1/",
+  "gates": {
+    "G0": {
+      "name": "Baseline Freeze",
+      "description": "Verify v0.2 files preserved, hash manifest created",
+      "status": "PASS",
+      "evidence_refs": [
+        "baseline-manifest.json"
+      ],
+      "passed_at": "2026-09-17T17:11:58.341537",
+      "validator": "automated"
+    },
+    "G1": {
+      "name": "Validator Repair",
+      "description": "Fix has_conflicts=false logic, add conflict_validation",
+      "status": "PASS",
+      "evidence_refs": [
+        "11-AUTOMATED-VALIDATION-RESULTS-v0.2.1.json"
+      ],
+      "passed_at": "2026-09-17T17:11:58.341540",
+      "corrections": [
+        "v0.2: has_conflicts=false → FAIL (incorrect)",
+        "v0.2.1: conflict_count=0 AND unresolved=0 → PASS (corrected)"
+      ]
+    },
+    "G2": {
+      "name": "Evidence Isolation",
+      "description": "Remove cross-shipment contamination, enforce shipment_context",
+      "status": "PASS",
+      "evidence_refs": [
+        "04-EVIDENCE-MAPS-v0.2.1.json"
+      ],
+      "passed_at": "2026-09-17T17:11:58.341542",
+      "metrics": {
+        "cross_shipment_contamination": 0,
+        "unsupported_observed_claims": 0
+      }
+    },
+    "G3": {
+      "name": "RealityClaim Reconstruction",
+      "description": "Rebuild 6 shipments from validated claims",
+      "status": "PASS",
+      "evidence_refs": [
+        "03-VALIDATED-REALITY-CLAIMS-v0.2.1.json"
+      ],
+      "passed_at": "2026-09-17T17:11:58.341545",
+      "metrics": {
+        "shipments_rebuilt": 6,
+        "template_completions": 0,
+        "observed_claims": 24,
+        "unknown_claims": 30
+      }
+    },
+    "G4": {
+      "name": "Ontology Instance Completeness",
+      "description": "PartyRole, Route, RouteLeg, Evidence instances",
+      "status": "PASS",
+      "evidence_refs": [
+        "07-PARTY-ROLE-INSTANCES-v0.2.1.json"
+      ],
+      "passed_at": "2026-09-17T17:11:58.341548",
+      "metrics": {
+        "party_role_instances": 24,
+        "route_instances": 6,
+        "route_leg_instances": 6,
+        "business_event_instances": 6
+      }
+    },
+    "G5": {
+      "name": "Automated Semantic Validation",
+      "description": "Run DQ-E01 through DQ-E06 tests",
+      "status": "PASS",
+      "evidence_refs": [
+        "10-AUTOMATED-VALIDATION-RESULTS-v0.2.1.json"
+      ],
+      "passed_at": "2026-09-17T17:11:58.341550",
+      "metrics": {
+        "p0_semantic_errors": 0,
+        "p0_evidence_errors": 0,
+        "cross_shipment_contamination": 0,
+        "hallucinated_completions": 0
+      }
+    },
+    "G6": {
+      "name": "Shadow Knowledge Graph",
+      "description": "Generate TTL with instances, not just schema",
+      "status": "PENDING",
+      "evidence_refs": [],
+      "passed_at": null
+    },
+    "G7": {
+      "name": "Founder Review",
+      "description": "Await founder decision: PASS/CR/STOP",
+      "status": "BLOCKED",
+      "block_reason": "G6 not yet passed",
+      "evidence_refs": [],
+      "passed_at": null
+    }
+  },
+  "single_source_of_truth": true,
+  "production_write": false,
+  "corpus_expansion": false
+}

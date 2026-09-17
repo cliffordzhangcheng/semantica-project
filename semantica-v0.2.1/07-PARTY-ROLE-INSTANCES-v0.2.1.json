@@ -1,0 +1,375 @@
+{
+  "party_roles": [
+    {
+      "role_id": "ROLE-YBK-HAM-DXB-20250507-SHIPPER",
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "organization_ref": "ORG-EPOCH-HK",
+      "role_type": "SHIPPER",
+      "evidence_refs": [
+        "EVD-ybk-ham-dxb-20250507-shipper"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-DXB-20250507-CONSIGNEE",
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "organization_ref": "ORG-PAC-OCEAN",
+      "role_type": "CONSIGNEE",
+      "evidence_refs": [
+        "EVD-ybk-ham-dxb-20250507-consignee"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-DXB-20250507-NOTIFY",
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "organization_ref": "ORG-UNITED-FUEL",
+      "role_type": "NOTIFY_PARTY",
+      "evidence_refs": [
+        "EVD-ybk-ham-dxb-20250507-notify"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-DXB-20250507-FORWARDER",
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "organization_ref": "ORG-XIAMEN-TRANSWORLD",
+      "role_type": "FORWARDER",
+      "evidence_refs": [
+        "EVD-ybk-ham-dxb-20250507-forwarder"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-SIN-DWC-20250619-SHIPPER",
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "organization_ref": "ORG-EPOCH-HK",
+      "role_type": "SHIPPER",
+      "evidence_refs": [
+        "EVD-ybk-sin-dwc-20250619-shipper"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-SIN-DWC-20250619-CONSIGNEE",
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "organization_ref": "ORG-PAC-OCEAN",
+      "role_type": "CONSIGNEE",
+      "evidence_refs": [
+        "EVD-ybk-sin-dwc-20250619-consignee"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-SIN-DWC-20250619-NOTIFY",
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "organization_ref": "ORG-UNITED-FUEL",
+      "role_type": "NOTIFY_PARTY",
+      "evidence_refs": [
+        "EVD-ybk-sin-dwc-20250619-notify"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-SIN-DWC-20250619-FORWARDER",
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "organization_ref": "ORG-XIAMEN-TRANSWORLD",
+      "role_type": "FORWARDER",
+      "evidence_refs": [
+        "EVD-ybk-sin-dwc-20250619-forwarder"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-DMM-20250620-SHIPPER",
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "organization_ref": "ORG-EPOCH-HK",
+      "role_type": "SHIPPER",
+      "evidence_refs": [
+        "EVD-ybk-ham-dmm-20250620-shipper"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-DMM-20250620-CONSIGNEE",
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "organization_ref": "ORG-SINO-CRAFTS",
+      "role_type": "CONSIGNEE",
+      "evidence_refs": [
+        "EVD-ybk-ham-dmm-20250620-consignee"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-DMM-20250620-NOTIFY",
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "organization_ref": "ORG-UNITED-FUEL",
+      "role_type": "NOTIFY_PARTY",
+      "evidence_refs": [
+        "EVD-ybk-ham-dmm-20250620-notify"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-DMM-20250620-FORWARDER",
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "organization_ref": "ORG-XIAMEN-TRANSWORLD",
+      "role_type": "FORWARDER",
+      "evidence_refs": [
+        "EVD-ybk-ham-dmm-20250620-forwarder"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-ROT-DXB-20250928-SHIPPER",
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "organization_ref": "ORG-EPOCH-SH",
+      "role_type": "SHIPPER",
+      "evidence_refs": [
+        "EVD-ybk-rot-dxb-20250928-shipper"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-ROT-DXB-20250928-CONSIGNEE",
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "organization_ref": "ORG-PAC-OCEAN",
+      "role_type": "CONSIGNEE",
+      "evidence_refs": [
+        "EVD-ybk-rot-dxb-20250928-consignee"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-ROT-DXB-20250928-NOTIFY",
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "organization_ref": "ORG-UNITED-FUEL",
+      "role_type": "NOTIFY_PARTY",
+      "evidence_refs": [
+        "EVD-ybk-rot-dxb-20250928-notify"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-ROT-DXB-20250928-FORWARDER",
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "organization_ref": "ORG-XIAMEN-TRANSWORLD",
+      "role_type": "FORWARDER",
+      "evidence_refs": [
+        "EVD-ybk-rot-dxb-20250928-forwarder"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-HKG-20260227-SHIPPER",
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "organization_ref": "ORG-EPOCH-HK",
+      "role_type": "SHIPPER",
+      "evidence_refs": [
+        "EVD-ybk-ham-hkg-20260227-shipper"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-HKG-20260227-CONSIGNEE",
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "organization_ref": "ORG-SINO-CRAFTS",
+      "role_type": "CONSIGNEE",
+      "evidence_refs": [
+        "EVD-ybk-ham-hkg-20260227-consignee"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-HKG-20260227-NOTIFY",
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "organization_ref": "ORG-UNITED-FUEL",
+      "role_type": "NOTIFY_PARTY",
+      "evidence_refs": [
+        "EVD-ybk-ham-hkg-20260227-notify"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-HAM-HKG-20260227-FORWARDER",
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "organization_ref": "ORG-XIAMEN-TRANSWORLD",
+      "role_type": "FORWARDER",
+      "evidence_refs": [
+        "EVD-ybk-ham-hkg-20260227-forwarder"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-ROT-HKG-20260227-SHIPPER",
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "organization_ref": "ORG-EPOCH-SH",
+      "role_type": "SHIPPER",
+      "evidence_refs": [
+        "EVD-ybk-rot-hkg-20260227-shipper"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-ROT-HKG-20260227-CONSIGNEE",
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "organization_ref": "ORG-SINO-CRAFTS",
+      "role_type": "CONSIGNEE",
+      "evidence_refs": [
+        "EVD-ybk-rot-hkg-20260227-consignee"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-ROT-HKG-20260227-NOTIFY",
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "organization_ref": "ORG-UNITED-FUEL",
+      "role_type": "NOTIFY_PARTY",
+      "evidence_refs": [
+        "EVD-ybk-rot-hkg-20260227-notify"
+      ]
+    },
+    {
+      "role_id": "ROLE-YBK-ROT-HKG-20260227-FORWARDER",
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "organization_ref": "ORG-XIAMEN-TRANSWORLD",
+      "role_type": "FORWARDER",
+      "evidence_refs": [
+        "EVD-ybk-rot-hkg-20260227-forwarder"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "ROUTE-YBK-HAM-DXB-20250507",
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "origin": "HAM",
+      "destination": "DXB",
+      "legs": [
+        {
+          "leg_id": "LEG-YBK-HAM-DXB-20250507-001",
+          "origin": "HAM",
+          "destination": "DXB",
+          "mode": "AIR"
+        }
+      ]
+    },
+    {
+      "route_id": "ROUTE-YBK-SIN-DWC-20250619",
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "origin": "SIN",
+      "destination": "DWC",
+      "legs": [
+        {
+          "leg_id": "LEG-YBK-SIN-DWC-20250619-001",
+          "origin": "SIN",
+          "destination": "DWC",
+          "mode": "AIR"
+        }
+      ]
+    },
+    {
+      "route_id": "ROUTE-YBK-HAM-DMM-20250620",
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "origin": "HAM",
+      "destination": "DMM",
+      "legs": [
+        {
+          "leg_id": "LEG-YBK-HAM-DMM-20250620-001",
+          "origin": "HAM",
+          "destination": "DMM",
+          "mode": "AIR"
+        }
+      ]
+    },
+    {
+      "route_id": "ROUTE-YBK-ROT-DXB-20250928",
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "origin": "ROT",
+      "destination": "DXB",
+      "legs": [
+        {
+          "leg_id": "LEG-YBK-ROT-DXB-20250928-001",
+          "origin": "ROT",
+          "destination": "DXB",
+          "mode": "AIR"
+        }
+      ]
+    },
+    {
+      "route_id": "ROUTE-YBK-HAM-HKG-20260227",
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "origin": "HAM",
+      "destination": "HKG",
+      "legs": [
+        {
+          "leg_id": "LEG-YBK-HAM-HKG-20260227-001",
+          "origin": "HAM",
+          "destination": "HKG",
+          "mode": "AIR"
+        }
+      ]
+    },
+    {
+      "route_id": "ROUTE-YBK-ROT-HKG-20260227",
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "origin": "ROT",
+      "destination": "HKG",
+      "legs": [
+        {
+          "leg_id": "LEG-YBK-ROT-HKG-20260227-001",
+          "origin": "ROT",
+          "destination": "HKG",
+          "mode": "AIR"
+        }
+      ]
+    }
+  ],
+  "business_events": [
+    {
+      "event_id": "EVT-YBK-HAM-DXB-20250507-QUOTED",
+      "shipment_id": "YBK-HAM-DXB-20250507",
+      "event_type": "QUOTATION_ISSUED",
+      "event_date": "2025-05-07",
+      "event_status": "OBSERVED",
+      "evidence_refs": [
+        "EVD-ybk-ham-dxb-20250507-quotation"
+      ]
+    },
+    {
+      "event_id": "EVT-YBK-SIN-DWC-20250619-QUOTED",
+      "shipment_id": "YBK-SIN-DWC-20250619",
+      "event_type": "QUOTATION_ISSUED",
+      "event_date": "2025-06-19",
+      "event_status": "OBSERVED",
+      "evidence_refs": [
+        "EVD-ybk-sin-dwc-20250619-quotation"
+      ]
+    },
+    {
+      "event_id": "EVT-YBK-HAM-DMM-20250620-QUOTED",
+      "shipment_id": "YBK-HAM-DMM-20250620",
+      "event_type": "QUOTATION_ISSUED",
+      "event_date": "2025-06-20",
+      "event_status": "OBSERVED",
+      "evidence_refs": [
+        "EVD-ybk-ham-dmm-20250620-quotation"
+      ]
+    },
+    {
+      "event_id": "EVT-YBK-ROT-DXB-20250928-QUOTED",
+      "shipment_id": "YBK-ROT-DXB-20250928",
+      "event_type": "QUOTATION_ISSUED",
+      "event_date": "2025-09-28",
+      "event_status": "OBSERVED",
+      "evidence_refs": [
+        "EVD-ybk-rot-dxb-20250928-quotation"
+      ]
+    },
+    {
+      "event_id": "EVT-YBK-HAM-HKG-20260227-QUOTED",
+      "shipment_id": "YBK-HAM-HKG-20260227",
+      "event_type": "QUOTATION_ISSUED",
+      "event_date": "2026-02-27",
+      "event_status": "OBSERVED",
+      "evidence_refs": [
+        "EVD-ybk-ham-hkg-20260227-quotation"
+      ]
+    },
+    {
+      "event_id": "EVT-YBK-ROT-HKG-20260227-QUOTED",
+      "shipment_id": "YBK-ROT-HKG-20260227",
+      "event_type": "QUOTATION_ISSUED",
+      "event_date": "2026-02-27",
+      "event_status": "OBSERVED",
+      "evidence_refs": [
+        "EVD-ybk-rot-hkg-20260227-quotation"
+      ]
+    }
+  ],
+  "metadata": {
+    "created_at": "2026-09-17T17:11:58.214553",
+    "version": "v0.2.1",
+    "total_party_roles": 24,
+    "total_routes": 6,
+    "total_business_events": 6
+  }
+}

@@ -1,0 +1,1940 @@
+[
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-SHIPPER",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "ORG-EPOCH",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasShipper",
+    "object": {
+      "value": "EPOCH OFFSHORE ENGINEERING CO.,LTD",
+      "entity_id": "ORG-EPOCH OFFSHORE ENGIN",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-BB6C3D7B"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.8,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.8
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-CONSIGNEE",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "ORG-PAC",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasConsignee",
+    "object": {
+      "value": "PAC OCEAN SOLUTIONS DMCC",
+      "entity_id": "ORG-PAC OCEAN SOLUTIONS ",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-8787DC64"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.75,
+      "semantic_typing": 0.85,
+      "relation": 0.8,
+      "reality": 0.75
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-ROUTE",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "NODE-HAM",
+      "entity_type": "TransportNode"
+    },
+    "predicate": "hasRoute",
+    "object": {
+      "value": "HAM-DXB",
+      "entity_id": "ROUTE-HAM-DXB",
+      "value_type": "Route"
+    },
+    "claim_status": "DERIVED",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "route_from_document_filename",
+      "inputs": [
+        "Quotation HAM-DXB"
+      ]
+    },
+    "confidence": {
+      "source_extraction": 0.9,
+      "semantic_typing": 0.95,
+      "relation": 0.9,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-FORWARDER",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "ORG-XIAMEN",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasForwarder",
+    "object": {
+      "value": "Xiamen Transworld Logistics Co., Ltd",
+      "entity_id": "ORG-XIAMEN-TRANSWORLD",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-927CDEBE"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.85,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-CARRIER",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "YBK-HAM-DXB-20250507",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasCarrier",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-MAWB_NUMBER",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "YBK-HAM-DXB-20250507",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasMawb_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-FLIGHT_NUMBER",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "YBK-HAM-DXB-20250507",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasFlight_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-ACTUAL_WEIGHT",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "YBK-HAM-DXB-20250507",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasActual_weight",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DXB-20250507-INCOTERM",
+    "shipment_id": "YBK-HAM-DXB-20250507",
+    "subject": {
+      "entity_id": "YBK-HAM-DXB-20250507",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasIncoterm",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-SHIPPER",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "ORG-EPOCH",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasShipper",
+    "object": {
+      "value": "EPOCH OFFSHORE ENGINEERING CO.,LTD",
+      "entity_id": "ORG-EPOCH OFFSHORE ENGIN",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-BB6C3D7B"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.8,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.8
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-CONSIGNEE",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "ORG-PAC",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasConsignee",
+    "object": {
+      "value": "PAC OCEAN SOLUTIONS DMCC",
+      "entity_id": "ORG-PAC OCEAN SOLUTIONS ",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-8787DC64"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.75,
+      "semantic_typing": 0.85,
+      "relation": 0.8,
+      "reality": 0.75
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-ROUTE",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "NODE-SIN",
+      "entity_type": "TransportNode"
+    },
+    "predicate": "hasRoute",
+    "object": {
+      "value": "SIN-DWC",
+      "entity_id": "ROUTE-SIN-DWC",
+      "value_type": "Route"
+    },
+    "claim_status": "DERIVED",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "route_from_document_filename",
+      "inputs": [
+        "Quotation SIN-DWC"
+      ]
+    },
+    "confidence": {
+      "source_extraction": 0.9,
+      "semantic_typing": 0.95,
+      "relation": 0.9,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-FORWARDER",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "ORG-XIAMEN",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasForwarder",
+    "object": {
+      "value": "Xiamen Transworld Logistics Co., Ltd",
+      "entity_id": "ORG-XIAMEN-TRANSWORLD",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-927CDEBE"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.85,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-CARRIER",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "YBK-SIN-DWC-20250619",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasCarrier",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-MAWB_NUMBER",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "YBK-SIN-DWC-20250619",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasMawb_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-FLIGHT_NUMBER",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "YBK-SIN-DWC-20250619",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasFlight_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-ACTUAL_WEIGHT",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "YBK-SIN-DWC-20250619",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasActual_weight",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-SIN-DWC-20250619-INCOTERM",
+    "shipment_id": "YBK-SIN-DWC-20250619",
+    "subject": {
+      "entity_id": "YBK-SIN-DWC-20250619",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasIncoterm",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-SHIPPER",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "ORG-EPOCH",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasShipper",
+    "object": {
+      "value": "EPOCH OFFSHORE ENGINEERING CO.,LTD",
+      "entity_id": "ORG-EPOCH OFFSHORE ENGIN",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-BB6C3D7B"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.8,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.8
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-CONSIGNEE",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "ORG-PAC",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasConsignee",
+    "object": {
+      "value": "SINO CRAFTS FZE",
+      "entity_id": "ORG-SINO CRAFTS FZE",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-ABD45D1B"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.75,
+      "semantic_typing": 0.85,
+      "relation": 0.8,
+      "reality": 0.75
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-ROUTE",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "NODE-HAM",
+      "entity_type": "TransportNode"
+    },
+    "predicate": "hasRoute",
+    "object": {
+      "value": "HAM-DMM",
+      "entity_id": "ROUTE-HAM-DMM",
+      "value_type": "Route"
+    },
+    "claim_status": "DERIVED",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "route_from_document_filename",
+      "inputs": [
+        "Quotation HAM-DMM"
+      ]
+    },
+    "confidence": {
+      "source_extraction": 0.9,
+      "semantic_typing": 0.95,
+      "relation": 0.9,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-FORWARDER",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "ORG-XIAMEN",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasForwarder",
+    "object": {
+      "value": "Xiamen Transworld Logistics Co., Ltd",
+      "entity_id": "ORG-XIAMEN-TRANSWORLD",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-927CDEBE"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.85,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-CARRIER",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "YBK-HAM-DMM-20250620",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasCarrier",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-MAWB_NUMBER",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "YBK-HAM-DMM-20250620",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasMawb_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-FLIGHT_NUMBER",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "YBK-HAM-DMM-20250620",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasFlight_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-ACTUAL_WEIGHT",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "YBK-HAM-DMM-20250620",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasActual_weight",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-DMM-20250620-INCOTERM",
+    "shipment_id": "YBK-HAM-DMM-20250620",
+    "subject": {
+      "entity_id": "YBK-HAM-DMM-20250620",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasIncoterm",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-SHIPPER",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "ORG-EPOCH",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasShipper",
+    "object": {
+      "value": "EPOCH OFFSHORE ENGINEERING (SHANGHAI) CO.,LTD",
+      "entity_id": "ORG-EPOCH OFFSHORE ENGIN",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-299F6464"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.8,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.8
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-CONSIGNEE",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "ORG-PAC",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasConsignee",
+    "object": {
+      "value": "PAC OCEAN SOLUTIONS DMCC",
+      "entity_id": "ORG-PAC OCEAN SOLUTIONS ",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-8787DC64"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.75,
+      "semantic_typing": 0.85,
+      "relation": 0.8,
+      "reality": 0.75
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-ROUTE",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "NODE-ROT",
+      "entity_type": "TransportNode"
+    },
+    "predicate": "hasRoute",
+    "object": {
+      "value": "ROT-DXB",
+      "entity_id": "ROUTE-ROT-DXB",
+      "value_type": "Route"
+    },
+    "claim_status": "DERIVED",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "route_from_document_filename",
+      "inputs": [
+        "Quotation ROT-DXB"
+      ]
+    },
+    "confidence": {
+      "source_extraction": 0.9,
+      "semantic_typing": 0.95,
+      "relation": 0.9,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-FORWARDER",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "ORG-XIAMEN",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasForwarder",
+    "object": {
+      "value": "Xiamen Transworld Logistics Co., Ltd",
+      "entity_id": "ORG-XIAMEN-TRANSWORLD",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-927CDEBE"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.85,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-CARRIER",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "YBK-ROT-DXB-20250928",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasCarrier",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-MAWB_NUMBER",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "YBK-ROT-DXB-20250928",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasMawb_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-FLIGHT_NUMBER",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "YBK-ROT-DXB-20250928",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasFlight_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-ACTUAL_WEIGHT",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "YBK-ROT-DXB-20250928",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasActual_weight",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-DXB-20250928-INCOTERM",
+    "shipment_id": "YBK-ROT-DXB-20250928",
+    "subject": {
+      "entity_id": "YBK-ROT-DXB-20250928",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasIncoterm",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-SHIPPER",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "ORG-EPOCH",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasShipper",
+    "object": {
+      "value": "EPOCH OFFSHORE ENGINEERING CO.,LTD",
+      "entity_id": "ORG-EPOCH OFFSHORE ENGIN",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-BB6C3D7B"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.8,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.8
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-CONSIGNEE",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "ORG-PAC",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasConsignee",
+    "object": {
+      "value": "SINO CRAFTS FZE",
+      "entity_id": "ORG-SINO CRAFTS FZE",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-ABD45D1B"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.75,
+      "semantic_typing": 0.85,
+      "relation": 0.8,
+      "reality": 0.75
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-ROUTE",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "NODE-HAM",
+      "entity_type": "TransportNode"
+    },
+    "predicate": "hasRoute",
+    "object": {
+      "value": "HAM-HKG",
+      "entity_id": "ROUTE-HAM-HKG",
+      "value_type": "Route"
+    },
+    "claim_status": "DERIVED",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "route_from_document_filename",
+      "inputs": [
+        "Quotation HAM-HKG"
+      ]
+    },
+    "confidence": {
+      "source_extraction": 0.9,
+      "semantic_typing": 0.95,
+      "relation": 0.9,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-FORWARDER",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "ORG-XIAMEN",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasForwarder",
+    "object": {
+      "value": "Xiamen Transworld Logistics Co., Ltd",
+      "entity_id": "ORG-XIAMEN-TRANSWORLD",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-927CDEBE"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.85,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-CARRIER",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-HAM-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasCarrier",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-MAWB_NUMBER",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-HAM-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasMawb_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-FLIGHT_NUMBER",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-HAM-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasFlight_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-ACTUAL_WEIGHT",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-HAM-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasActual_weight",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-HAM-HKG-20260227-INCOTERM",
+    "shipment_id": "YBK-HAM-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-HAM-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasIncoterm",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-SHIPPER",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "ORG-EPOCH",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasShipper",
+    "object": {
+      "value": "EPOCH OFFSHORE ENGINEERING (SHANGHAI) CO.,LTD",
+      "entity_id": "ORG-EPOCH OFFSHORE ENGIN",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-299F6464"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.8,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.8
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-CONSIGNEE",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "ORG-PAC",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasConsignee",
+    "object": {
+      "value": "SINO CRAFTS FZE",
+      "entity_id": "ORG-SINO CRAFTS FZE",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-ABD45D1B"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.75,
+      "semantic_typing": 0.85,
+      "relation": 0.8,
+      "reality": 0.75
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-ROUTE",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "NODE-ROT",
+      "entity_type": "TransportNode"
+    },
+    "predicate": "hasRoute",
+    "object": {
+      "value": "ROT-HKG",
+      "entity_id": "ROUTE-ROT-HKG",
+      "value_type": "Route"
+    },
+    "claim_status": "DERIVED",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "route_from_document_filename",
+      "inputs": [
+        "Quotation ROT-HKG"
+      ]
+    },
+    "confidence": {
+      "source_extraction": 0.9,
+      "semantic_typing": 0.95,
+      "relation": 0.9,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-FORWARDER",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "ORG-XIAMEN",
+      "entity_type": "Organization"
+    },
+    "predicate": "hasForwarder",
+    "object": {
+      "value": "Xiamen Transworld Logistics Co., Ltd",
+      "entity_id": "ORG-XIAMEN-TRANSWORLD",
+      "value_type": "Organization"
+    },
+    "claim_status": "OBSERVED",
+    "evidence_refs": [
+      "EVD-927CDEBE"
+    ],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0.85,
+      "semantic_typing": 0.9,
+      "relation": 0.85,
+      "reality": 0.85
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-CARRIER",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-ROT-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasCarrier",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-MAWB_NUMBER",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-ROT-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasMawb_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-FLIGHT_NUMBER",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-ROT-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasFlight_number",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-ACTUAL_WEIGHT",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-ROT-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasActual_weight",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  },
+  {
+    "claim_id": "CLM-YBK-ROT-HKG-20260227-INCOTERM",
+    "shipment_id": "YBK-ROT-HKG-20260227",
+    "subject": {
+      "entity_id": "YBK-ROT-HKG-20260227",
+      "entity_type": "Shipment"
+    },
+    "predicate": "hasIncoterm",
+    "object": {
+      "value": null,
+      "entity_id": "",
+      "value_type": "UNKNOWN"
+    },
+    "claim_status": "UNKNOWN",
+    "evidence_refs": [],
+    "derivation": {
+      "rule": "",
+      "inputs": []
+    },
+    "confidence": {
+      "source_extraction": 0,
+      "semantic_typing": 0,
+      "relation": 0,
+      "reality": 0
+    },
+    "validation": {
+      "status": "UNKNOWN_MISSING",
+      "validator": "",
+      "validated_at": "2026-09-17T17:11:58.155437"
+    },
+    "provenance": {
+      "created_at": "",
+      "source_pipeline_version": "v0.2.1"
+    }
+  }
+]

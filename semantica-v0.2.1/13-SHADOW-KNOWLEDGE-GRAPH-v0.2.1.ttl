@@ -1,0 +1,449 @@
+# Semantica-AKOS Logistics Reality Ontology v0.2.1 - Shadow Knowledge Graph
+# Generated: 2026-09-17T17:14:36.614195
+# Remediation of v0.2 defects
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
+@prefix ybk: <http://example.org/yiboke#> .
+@prefix logis: <http://example.org/logistics#> .
+
+# ===== Schema Definition =====
+
+logis:Shipment a owl:Class ;
+    rdfs:label "Shipment"@en ;
+    rdfs:comment "Core business context for a freight job"@en .
+
+logis:Organization a owl:Class ;
+    rdfs:label "Organization"@en .
+
+logis:Person a owl:Class ;
+    rdfs:label "Person"@en .
+
+logis:PartyRole a owl:Class ;
+    rdfs:label "PartyRole"@en ;
+    rdfs:comment "Role played by Organization/Person in a Shipment"@en .
+
+logis:Cargo a owl:Class ;
+    rdfs:label "Cargo"@en .
+
+logis:Route a owl:Class ;
+    rdfs:label "Route"@en .
+
+logis:RouteLeg a owl:Class ;
+    rdfs:label "RouteLeg"@en .
+
+logis:TransportNode a owl:Class ;
+    rdfs:label "TransportNode"@en .
+
+logis:BusinessEvent a owl:Class ;
+    rdfs:label "BusinessEvent"@en .
+
+logis:Evidence a owl:Class ;
+    rdfs:label "Evidence"@en ;
+    rdfs:comment "Reality evidence supporting a claim"@en .
+
+logis:RealityClaim a owl:Class ;
+    rdfs:label "RealityClaim"@en ;
+    rdfs:comment "A validated assertion about reality"@en .
+
+# ===== Object Properties =====
+
+logis:hasPartyRole a owl:ObjectProperty ;
+    rdfs:domain logis:Organization ;
+    rdfs:range logis:PartyRole .
+
+logis:playsRole a owl:ObjectProperty ;
+    rdfs:domain logis:PartyRole ;
+    rdfs:range logis:Organization .
+
+logis:hasShipment a owl:ObjectProperty ;
+    rdfs:domain logis:PartyRole ;
+    rdfs:range logis:Shipment .
+
+logis:hasRoute a owl:ObjectProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range logis:Route .
+
+logis:hasOrigin a owl:ObjectProperty ;
+    rdfs:domain logis:Route ;
+    rdfs:range logis:TransportNode .
+
+logis:hasDestination a owl:ObjectProperty ;
+    rdfs:domain logis:Route ;
+    rdfs:range logis:TransportNode .
+
+logis:hasEvidence a owl:ObjectProperty ;
+    rdfs:domain logis:RealityClaim ;
+    rdfs:range logis:Evidence .
+
+logis:supportsClaim a owl:ObjectProperty ;
+    rdfs:domain logis:Evidence ;
+    rdfs:range logis:RealityClaim .
+
+# ===== Data Properties =====
+
+logis:hasShipmentId a owl:DatatypeProperty ;
+    rdfs:domain logis:Shipment ;
+    rdfs:range xsd:string .
+
+logis:hasClaimId a owl:DatatypeProperty ;
+    rdfs:domain logis:RealityClaim ;
+    rdfs:range xsd:string .
+
+logis:hasEvidenceId a owl:DatatypeProperty ;
+    rdfs:domain logis:Evidence ;
+    rdfs:range xsd:string .
+
+logis:hasStatus a owl:DatatypeProperty ;
+    rdfs:domain logis:RealityClaim ;
+    rdfs:range xsd:string .
+
+# ===== Instances =====
+
+ybk:Shipment-YBK_HAM_DXB_20250507 a logis:Shipment ;
+    logis:hasShipmentId "YBK-HAM-DXB-20250507" ;
+    logis:hasRoute ybk:Route-YBK_HAM_DXB_20250507 ;
+    logis:hasState "BOOKED" ;
+    logis:hasDate "2025-05-07"^^xsd:date .
+
+ybk:Shipment-YBK_SIN_DWC_20250619 a logis:Shipment ;
+    logis:hasShipmentId "YBK-SIN-DWC-20250619" ;
+    logis:hasRoute ybk:Route-YBK_SIN_DWC_20250619 ;
+    logis:hasState "BOOKED" ;
+    logis:hasDate "2025-06-19"^^xsd:date .
+
+ybk:Shipment-YBK_HAM_DMM_20250620 a logis:Shipment ;
+    logis:hasShipmentId "YBK-HAM-DMM-20250620" ;
+    logis:hasRoute ybk:Route-YBK_HAM_DMM_20250620 ;
+    logis:hasState "BOOKED" ;
+    logis:hasDate "2025-06-20"^^xsd:date .
+
+ybk:Shipment-YBK_ROT_DXB_20250928 a logis:Shipment ;
+    logis:hasShipmentId "YBK-ROT-DXB-20250928" ;
+    logis:hasRoute ybk:Route-YBK_ROT_DXB_20250928 ;
+    logis:hasState "BOOKED" ;
+    logis:hasDate "2025-09-28"^^xsd:date .
+
+ybk:Shipment-YBK_HAM_HKG_20260227 a logis:Shipment ;
+    logis:hasShipmentId "YBK-HAM-HKG-20260227" ;
+    logis:hasRoute ybk:Route-YBK_HAM_HKG_20260227 ;
+    logis:hasState "BOOKED" ;
+    logis:hasDate "2026-02-27"^^xsd:date .
+
+ybk:Shipment-YBK_ROT_HKG_20260227 a logis:Shipment ;
+    logis:hasShipmentId "YBK-ROT-HKG-20260227" ;
+    logis:hasRoute ybk:Route-YBK_ROT_HKG_20260227 ;
+    logis:hasState "BOOKED" ;
+    logis:hasDate "2026-02-27"^^xsd:date .
+
+ybk:Route-YBK_HAM_DXB_20250507 a logis:Route ;
+    logis:hasLeg ybk:Leg-YBK_HAM_DXB_20250507 ;
+    logis:hasOrigin ybk:Airport-HAM ;
+    logis:hasDestination ybk:Airport-DXB .
+
+ybk:Leg-YBK_HAM_DXB_20250507 a logis:RouteLeg ;
+    logis:legOrder 1 ;
+    logis:origin ybk:Airport-HAM ;
+    logis:destination ybk:Airport-DXB .
+
+ybk:Route-YBK_SIN_DWC_20250619 a logis:Route ;
+    logis:hasLeg ybk:Leg-YBK_SIN_DWC_20250619 ;
+    logis:hasOrigin ybk:Airport-SIN ;
+    logis:hasDestination ybk:Airport-DWC .
+
+ybk:Leg-YBK_SIN_DWC_20250619 a logis:RouteLeg ;
+    logis:legOrder 1 ;
+    logis:origin ybk:Airport-SIN ;
+    logis:destination ybk:Airport-DWC .
+
+ybk:Route-YBK_HAM_DMM_20250620 a logis:Route ;
+    logis:hasLeg ybk:Leg-YBK_HAM_DMM_20250620 ;
+    logis:hasOrigin ybk:Airport-HAM ;
+    logis:hasDestination ybk:Airport-DMM .
+
+ybk:Leg-YBK_HAM_DMM_20250620 a logis:RouteLeg ;
+    logis:legOrder 1 ;
+    logis:origin ybk:Airport-HAM ;
+    logis:destination ybk:Airport-DMM .
+
+ybk:Route-YBK_ROT_DXB_20250928 a logis:Route ;
+    logis:hasLeg ybk:Leg-YBK_ROT_DXB_20250928 ;
+    logis:hasOrigin ybk:Airport-ROT ;
+    logis:hasDestination ybk:Airport-DXB .
+
+ybk:Leg-YBK_ROT_DXB_20250928 a logis:RouteLeg ;
+    logis:legOrder 1 ;
+    logis:origin ybk:Airport-ROT ;
+    logis:destination ybk:Airport-DXB .
+
+ybk:Route-YBK_HAM_HKG_20260227 a logis:Route ;
+    logis:hasLeg ybk:Leg-YBK_HAM_HKG_20260227 ;
+    logis:hasOrigin ybk:Airport-HAM ;
+    logis:hasDestination ybk:Airport-HKG .
+
+ybk:Leg-YBK_HAM_HKG_20260227 a logis:RouteLeg ;
+    logis:legOrder 1 ;
+    logis:origin ybk:Airport-HAM ;
+    logis:destination ybk:Airport-HKG .
+
+ybk:Route-YBK_ROT_HKG_20260227 a logis:Route ;
+    logis:hasLeg ybk:Leg-YBK_ROT_HKG_20260227 ;
+    logis:hasOrigin ybk:Airport-ROT ;
+    logis:hasDestination ybk:Airport-HKG .
+
+ybk:Leg-YBK_ROT_HKG_20260227 a logis:RouteLeg ;
+    logis:legOrder 1 ;
+    logis:origin ybk:Airport-ROT ;
+    logis:destination ybk:Airport-HKG .
+
+ybk:Airport-ROT a logis:TransportNode ;
+    logis:hasIataCode "ROT" ;
+    logis:hasName "ROT Airport" ;
+    logis:hasCity "ROT" ;
+    logis:hasCountry "Unknown" .
+
+ybk:Airport-HAM a logis:TransportNode ;
+    logis:hasIataCode "HAM" ;
+    logis:hasName "Hamburg Airport" ;
+    logis:hasCity "Hamburg" ;
+    logis:hasCountry "Germany" .
+
+ybk:Airport-HKG a logis:TransportNode ;
+    logis:hasIataCode "HKG" ;
+    logis:hasName "Hong Kong International Airport" ;
+    logis:hasCity "Hong Kong" ;
+    logis:hasCountry "China" .
+
+ybk:Airport-DXB a logis:TransportNode ;
+    logis:hasIataCode "DXB" ;
+    logis:hasName "Dubai International Airport" ;
+    logis:hasCity "Dubai" ;
+    logis:hasCountry "UAE" .
+
+ybk:Airport-DWC a logis:TransportNode ;
+    logis:hasIataCode "DWC" ;
+    logis:hasName "Dubai World Central" ;
+    logis:hasCity "Dubai" ;
+    logis:hasCountry "UAE" .
+
+ybk:Airport-SIN a logis:TransportNode ;
+    logis:hasIataCode "SIN" ;
+    logis:hasName "Singapore Changi Airport" ;
+    logis:hasCity "Singapore" ;
+    logis:hasCountry "Singapore" .
+
+ybk:Airport-DMM a logis:TransportNode ;
+    logis:hasIataCode "DMM" ;
+    logis:hasName "King Fahd International Airport" ;
+    logis:hasCity "Dammam" ;
+    logis:hasCountry "Saudi Arabia" .
+
+ybk:ORG-EPOCH-HK a logis:Organization ;
+    logis:hasName "Epoch Offshore Engineering Co.,Ltd (HK)" .
+
+ybk:ORG-EPOCH-SH a logis:Organization ;
+    logis:hasName "Epoch Offshore Engineering (Shanghai) Co.,Ltd" .
+
+ybk:ORG-PAC-OCEAN a logis:Organization ;
+    logis:hasName "PAC OCEAN SOLUTIONS DMCC" .
+
+ybk:ORG-SINO-CRAFTS a logis:Organization ;
+    logis:hasName "SINO CRAFTS FZE" .
+
+ybk:ORG-UNITED-FUEL a logis:Organization ;
+    logis:hasName "United Fuel Treatment Co." .
+
+ybk:ORG-XIAMEN-TRANSWORLD a logis:Organization ;
+    logis:hasName "Xiamen Transworld Logistics Co., Ltd" .
+
+ybk:Role_YBK_HAM_DXB_20250507_SHIPPER a logis:PartyRole ;
+    logis:hasRoleType "SHIPPER" ;
+    logis:hasOrganization ybk:ORG-EPOCH-HK ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_DXB_20250507 ;
+    logis:hasEvidenceRef EVD-ybk-ham-dxb-20250507-shipper .
+
+ybk:Role_YBK_HAM_DXB_20250507_CONSIGNEE a logis:PartyRole ;
+    logis:hasRoleType "CONSIGNEE" ;
+    logis:hasOrganization ybk:ORG-PAC-OCEAN ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_DXB_20250507 ;
+    logis:hasEvidenceRef EVD-ybk-ham-dxb-20250507-consignee .
+
+ybk:Role_YBK_HAM_DXB_20250507_NOTIFY a logis:PartyRole ;
+    logis:hasRoleType "NOTIFY_PARTY" ;
+    logis:hasOrganization ybk:ORG-UNITED-FUEL ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_DXB_20250507 ;
+    logis:hasEvidenceRef EVD-ybk-ham-dxb-20250507-notify .
+
+ybk:Role_YBK_HAM_DXB_20250507_FORWARDER a logis:PartyRole ;
+    logis:hasRoleType "FORWARDER" ;
+    logis:hasOrganization ybk:ORG-XIAMEN-TRANSWORLD ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_DXB_20250507 ;
+    logis:hasEvidenceRef EVD-ybk-ham-dxb-20250507-forwarder .
+
+ybk:Role_YBK_SIN_DWC_20250619_SHIPPER a logis:PartyRole ;
+    logis:hasRoleType "SHIPPER" ;
+    logis:hasOrganization ybk:ORG-EPOCH-HK ;
+    logis:hasShipment ybk:Shipment-YBK_SIN_DWC_20250619 ;
+    logis:hasEvidenceRef EVD-ybk-sin-dwc-20250619-shipper .
+
+ybk:Role_YBK_SIN_DWC_20250619_CONSIGNEE a logis:PartyRole ;
+    logis:hasRoleType "CONSIGNEE" ;
+    logis:hasOrganization ybk:ORG-PAC-OCEAN ;
+    logis:hasShipment ybk:Shipment-YBK_SIN_DWC_20250619 ;
+    logis:hasEvidenceRef EVD-ybk-sin-dwc-20250619-consignee .
+
+ybk:Role_YBK_SIN_DWC_20250619_NOTIFY a logis:PartyRole ;
+    logis:hasRoleType "NOTIFY_PARTY" ;
+    logis:hasOrganization ybk:ORG-UNITED-FUEL ;
+    logis:hasShipment ybk:Shipment-YBK_SIN_DWC_20250619 ;
+    logis:hasEvidenceRef EVD-ybk-sin-dwc-20250619-notify .
+
+ybk:Role_YBK_SIN_DWC_20250619_FORWARDER a logis:PartyRole ;
+    logis:hasRoleType "FORWARDER" ;
+    logis:hasOrganization ybk:ORG-XIAMEN-TRANSWORLD ;
+    logis:hasShipment ybk:Shipment-YBK_SIN_DWC_20250619 ;
+    logis:hasEvidenceRef EVD-ybk-sin-dwc-20250619-forwarder .
+
+ybk:Role_YBK_HAM_DMM_20250620_SHIPPER a logis:PartyRole ;
+    logis:hasRoleType "SHIPPER" ;
+    logis:hasOrganization ybk:ORG-EPOCH-HK ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_DMM_20250620 ;
+    logis:hasEvidenceRef EVD-ybk-ham-dmm-20250620-shipper .
+
+ybk:Role_YBK_HAM_DMM_20250620_CONSIGNEE a logis:PartyRole ;
+    logis:hasRoleType "CONSIGNEE" ;
+    logis:hasOrganization ybk:ORG-SINO-CRAFTS ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_DMM_20250620 ;
+    logis:hasEvidenceRef EVD-ybk-ham-dmm-20250620-consignee .
+
+ybk:Role_YBK_HAM_DMM_20250620_NOTIFY a logis:PartyRole ;
+    logis:hasRoleType "NOTIFY_PARTY" ;
+    logis:hasOrganization ybk:ORG-UNITED-FUEL ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_DMM_20250620 ;
+    logis:hasEvidenceRef EVD-ybk-ham-dmm-20250620-notify .
+
+ybk:Role_YBK_HAM_DMM_20250620_FORWARDER a logis:PartyRole ;
+    logis:hasRoleType "FORWARDER" ;
+    logis:hasOrganization ybk:ORG-XIAMEN-TRANSWORLD ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_DMM_20250620 ;
+    logis:hasEvidenceRef EVD-ybk-ham-dmm-20250620-forwarder .
+
+ybk:Role_YBK_ROT_DXB_20250928_SHIPPER a logis:PartyRole ;
+    logis:hasRoleType "SHIPPER" ;
+    logis:hasOrganization ybk:ORG-EPOCH-SH ;
+    logis:hasShipment ybk:Shipment-YBK_ROT_DXB_20250928 ;
+    logis:hasEvidenceRef EVD-ybk-rot-dxb-20250928-shipper .
+
+ybk:Role_YBK_ROT_DXB_20250928_CONSIGNEE a logis:PartyRole ;
+    logis:hasRoleType "CONSIGNEE" ;
+    logis:hasOrganization ybk:ORG-PAC-OCEAN ;
+    logis:hasShipment ybk:Shipment-YBK_ROT_DXB_20250928 ;
+    logis:hasEvidenceRef EVD-ybk-rot-dxb-20250928-consignee .
+
+ybk:Role_YBK_ROT_DXB_20250928_NOTIFY a logis:PartyRole ;
+    logis:hasRoleType "NOTIFY_PARTY" ;
+    logis:hasOrganization ybk:ORG-UNITED-FUEL ;
+    logis:hasShipment ybk:Shipment-YBK_ROT_DXB_20250928 ;
+    logis:hasEvidenceRef EVD-ybk-rot-dxb-20250928-notify .
+
+ybk:Role_YBK_ROT_DXB_20250928_FORWARDER a logis:PartyRole ;
+    logis:hasRoleType "FORWARDER" ;
+    logis:hasOrganization ybk:ORG-XIAMEN-TRANSWORLD ;
+    logis:hasShipment ybk:Shipment-YBK_ROT_DXB_20250928 ;
+    logis:hasEvidenceRef EVD-ybk-rot-dxb-20250928-forwarder .
+
+ybk:Role_YBK_HAM_HKG_20260227_SHIPPER a logis:PartyRole ;
+    logis:hasRoleType "SHIPPER" ;
+    logis:hasOrganization ybk:ORG-EPOCH-HK ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_HKG_20260227 ;
+    logis:hasEvidenceRef EVD-ybk-ham-hkg-20260227-shipper .
+
+ybk:Role_YBK_HAM_HKG_20260227_CONSIGNEE a logis:PartyRole ;
+    logis:hasRoleType "CONSIGNEE" ;
+    logis:hasOrganization ybk:ORG-SINO-CRAFTS ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_HKG_20260227 ;
+    logis:hasEvidenceRef EVD-ybk-ham-hkg-20260227-consignee .
+
+ybk:Role_YBK_HAM_HKG_20260227_NOTIFY a logis:PartyRole ;
+    logis:hasRoleType "NOTIFY_PARTY" ;
+    logis:hasOrganization ybk:ORG-UNITED-FUEL ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_HKG_20260227 ;
+    logis:hasEvidenceRef EVD-ybk-ham-hkg-20260227-notify .
+
+ybk:Role_YBK_HAM_HKG_20260227_FORWARDER a logis:PartyRole ;
+    logis:hasRoleType "FORWARDER" ;
+    logis:hasOrganization ybk:ORG-XIAMEN-TRANSWORLD ;
+    logis:hasShipment ybk:Shipment-YBK_HAM_HKG_20260227 ;
+    logis:hasEvidenceRef EVD-ybk-ham-hkg-20260227-forwarder .
+
+ybk:Role_YBK_ROT_HKG_20260227_SHIPPER a logis:PartyRole ;
+    logis:hasRoleType "SHIPPER" ;
+    logis:hasOrganization ybk:ORG-EPOCH-SH ;
+    logis:hasShipment ybk:Shipment-YBK_ROT_HKG_20260227 ;
+    logis:hasEvidenceRef EVD-ybk-rot-hkg-20260227-shipper .
+
+ybk:Role_YBK_ROT_HKG_20260227_CONSIGNEE a logis:PartyRole ;
+    logis:hasRoleType "CONSIGNEE" ;
+    logis:hasOrganization ybk:ORG-SINO-CRAFTS ;
+    logis:hasShipment ybk:Shipment-YBK_ROT_HKG_20260227 ;
+    logis:hasEvidenceRef EVD-ybk-rot-hkg-20260227-consignee .
+
+ybk:Role_YBK_ROT_HKG_20260227_NOTIFY a logis:PartyRole ;
+    logis:hasRoleType "NOTIFY_PARTY" ;
+    logis:hasOrganization ybk:ORG-UNITED-FUEL ;
+    logis:hasShipment ybk:Shipment-YBK_ROT_HKG_20260227 ;
+    logis:hasEvidenceRef EVD-ybk-rot-hkg-20260227-notify .
+
+ybk:Role_YBK_ROT_HKG_20260227_FORWARDER a logis:PartyRole ;
+    logis:hasRoleType "FORWARDER" ;
+    logis:hasOrganization ybk:ORG-XIAMEN-TRANSWORLD ;
+    logis:hasShipment ybk:Shipment-YBK_ROT_HKG_20260227 ;
+    logis:hasEvidenceRef EVD-ybk-rot-hkg-20260227-forwarder .
+
+ybk:Event_YBK_HAM_DXB_20250507_QUOTED a logis:BusinessEvent ;
+    logis:hasEventType "QUOTATION_ISSUED" ;
+    logis:hasEventDate "2025-05-07"^^xsd:date ;
+    logis:hasEventStatus "OBSERVED" ;
+    logis:relatedToShipment ybk:Shipment-YBK_HAM_DXB_20250507 .
+
+ybk:Event_YBK_SIN_DWC_20250619_QUOTED a logis:BusinessEvent ;
+    logis:hasEventType "QUOTATION_ISSUED" ;
+    logis:hasEventDate "2025-06-19"^^xsd:date ;
+    logis:hasEventStatus "OBSERVED" ;
+    logis:relatedToShipment ybk:Shipment-YBK_SIN_DWC_20250619 .
+
+ybk:Event_YBK_HAM_DMM_20250620_QUOTED a logis:BusinessEvent ;
+    logis:hasEventType "QUOTATION_ISSUED" ;
+    logis:hasEventDate "2025-06-20"^^xsd:date ;
+    logis:hasEventStatus "OBSERVED" ;
+    logis:relatedToShipment ybk:Shipment-YBK_HAM_DMM_20250620 .
+
+ybk:Event_YBK_ROT_DXB_20250928_QUOTED a logis:BusinessEvent ;
+    logis:hasEventType "QUOTATION_ISSUED" ;
+    logis:hasEventDate "2025-09-28"^^xsd:date ;
+    logis:hasEventStatus "OBSERVED" ;
+    logis:relatedToShipment ybk:Shipment-YBK_ROT_DXB_20250928 .
+
+ybk:Event_YBK_HAM_HKG_20260227_QUOTED a logis:BusinessEvent ;
+    logis:hasEventType "QUOTATION_ISSUED" ;
+    logis:hasEventDate "2026-02-27"^^xsd:date ;
+    logis:hasEventStatus "OBSERVED" ;
+    logis:relatedToShipment ybk:Shipment-YBK_HAM_HKG_20260227 .
+
+ybk:Event_YBK_ROT_HKG_20260227_QUOTED a logis:BusinessEvent ;
+    logis:hasEventType "QUOTATION_ISSUED" ;
+    logis:hasEventDate "2026-02-27"^^xsd:date ;
+    logis:hasEventStatus "OBSERVED" ;
+    logis:relatedToShipment ybk:Shipment-YBK_ROT_HKG_20260227 .
+
+# ===== Void Statistics =====
+
+[] a void:Dataset ;
+    void:entityCount "61"^^xsd:integer ;
+    void:triplesCount "estimated" ;
+    void:distinctSubjects 6 .
+
+# ===== End of Shadow Knowledge Graph v0.2.1 =====

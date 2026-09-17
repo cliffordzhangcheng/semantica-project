@@ -1,0 +1,713 @@
+{
+  "baseline_timestamp": "2026-09-17T17:11:57.683552",
+  "baseline_version": "v0.2",
+  "baseline_directory": "semantica-v0.2",
+  "files": [
+    {
+      "path": "qdrant_config.yaml",
+      "size": 1299,
+      "hash": "26be39536ddc18d1"
+    },
+    {
+      "path": "README.md",
+      "size": 6753,
+      "hash": "732b1250607eb339"
+    },
+    {
+      "path": "deliverable1_capability_inventory.md",
+      "size": 7461,
+      "hash": "debf8b7096e4e398"
+    },
+    {
+      "path": "deliverable2_semantica_on_minis.md",
+      "size": 11170,
+      "hash": "59c8278f1dec35ed"
+    },
+    {
+      "path": "semantica_ui_guide.md",
+      "size": 7088,
+      "hash": "ce6a991875a5f228"
+    },
+    {
+      "path": "RESEARCH-Semantica-ONTOLOGY-WORKBENCH-FOR-AKOS-v0.1-2026.08.31.md",
+      "size": 13286,
+      "hash": "90a7e086bd5fc779"
+    },
+    {
+      "path": "container-leasing-investment-feasibility.md",
+      "size": 13524,
+      "hash": "edb5451238145b90"
+    },
+    {
+      "path": "container-leasing-feasibility-v2.md",
+      "size": 10468,
+      "hash": "47f81f7547d0530d"
+    },
+    {
+      "path": "CONTAINER-INVESTMENT-ONT_Core_v0.1.md",
+      "size": 27821,
+      "hash": "25791baed3273813"
+    },
+    {
+      "path": "MARKET-TRUTH-TABLE-v0.1.md",
+      "size": 5987,
+      "hash": "b0f5110a8ec5aa6f"
+    },
+    {
+      "path": "CONTAINER-INVESTMENT-ONT_runtime.yaml",
+      "size": 9137,
+      "hash": "9cd614920b3fd325"
+    },
+    {
+      "path": "CONTAINER-INVESTMENT-ONT_agents.md",
+      "size": 3777,
+      "hash": "8f7ffd3c52f59ec1"
+    },
+    {
+      "path": "REPORT-2026-09-04-CONTAINER-ONTOLOGY-SUITE.md",
+      "size": 3081,
+      "hash": "97d8d058f1a0b3fd"
+    },
+    {
+      "path": "semantica-report-20260915.md",
+      "size": 7089,
+      "hash": "8810e9b5710a0290"
+    },
+    {
+      "path": "yiboke_pdf_extract.json",
+      "size": 60985,
+      "hash": "59277f5a64b46c38"
+    },
+    {
+      "path": "yiboke_all_pdf_extract.json",
+      "size": 221499,
+      "hash": "ce9a617b56d3356c"
+    },
+    {
+      "path": "yiboke_air_freight_ontology_corpus.json",
+      "size": 36273,
+      "hash": "94b9687a5a1baefd"
+    },
+    {
+      "path": "semantica-report-20260917-yiboke.md",
+      "size": 10840,
+      "hash": "b5f584687c9df344"
+    },
+    {
+      "path": "field_evidence/field_evidence_config.yaml",
+      "size": 905,
+      "hash": "de5fc81e86b94c70"
+    },
+    {
+      "path": "field_evidence/README.md",
+      "size": 5930,
+      "hash": "7611103aa6d156f1"
+    },
+    {
+      "path": "field_evidence/data/sync_state.json",
+      "size": 111,
+      "hash": "d6f065160378912e"
+    },
+    {
+      "path": "akos-ontology-portal/README_DEPLOY.md",
+      "size": 7265,
+      "hash": "b199295d9d86e5cb"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/base.html",
+      "size": 10582,
+      "hash": "29b9239799adbd17"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/dashboard.html",
+      "size": 7120,
+      "hash": "75c7848dbc71cf23"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/concepts.html",
+      "size": 5287,
+      "hash": "064b9cce7624cb85"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/concept_form.html",
+      "size": 3870,
+      "hash": "6ce7b3b98d2d2930"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/concept_detail.html",
+      "size": 8930,
+      "hash": "ced15afebd1d40b6"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/graph.html",
+      "size": 11256,
+      "hash": "519d8395e2089fa1"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/relations.html",
+      "size": 4180,
+      "hash": "038db0792286b96e"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/import_export.html",
+      "size": 4040,
+      "hash": "0c630a19af81d98e"
+    },
+    {
+      "path": "akos-ontology-portal/backend/app/templates/versions.html",
+      "size": 4988,
+      "hash": "c9a9eab8a74b1c87"
+    },
+    {
+      "path": "akos-ontology-portal/backend/.pytest_cache/README.md",
+      "size": 302,
+      "hash": "73fd6fccdd802c41"
+    },
+    {
+      "path": "semantica-project-clean/README.md",
+      "size": 4495,
+      "hash": "fec0d3dca2908a67"
+    },
+    {
+      "path": "semantica-project-clean/P0-COMPLETION-REPORT.md",
+      "size": 3373,
+      "hash": "b14919ad7a4e487f"
+    },
+    {
+      "path": "semantica-project-clean/review_queue.json",
+      "size": 4412,
+      "hash": "43f7099e2c9af0c8"
+    },
+    {
+      "path": "semantica-project-clean/viz.html",
+      "size": 35500,
+      "hash": "6731d4e27a8eea86"
+    },
+    {
+      "path": "semantica-project-clean/GITHUB_UPDATE.md",
+      "size": 3058,
+      "hash": "710749dd3318ad1d"
+    },
+    {
+      "path": "semantica-project-clean/config/backend.yaml",
+      "size": 592,
+      "hash": "91313c98ef10f86a"
+    },
+    {
+      "path": "semantica-project-clean/config/ontology.yaml",
+      "size": 1199,
+      "hash": "3a7b6f5a6b330839"
+    },
+    {
+      "path": "semantica-project-clean/config/akos_domain_ontology.yaml",
+      "size": 10117,
+      "hash": "70e3051232ec158c"
+    },
+    {
+      "path": "semantica-project-clean/config/ontology_aliases.yaml",
+      "size": 6087,
+      "hash": "60364be11ca7bf20"
+    },
+    {
+      "path": "semantica-project-clean/outputs/01_raw.json",
+      "size": 424,
+      "hash": "738fc43bc1fc3f37"
+    },
+    {
+      "path": "semantica-project-clean/outputs/02_normalized.json",
+      "size": 444,
+      "hash": "14093993b203531a"
+    },
+    {
+      "path": "semantica-project-clean/outputs/03_entities.json",
+      "size": 263,
+      "hash": "b4eb4faeb109127d"
+    },
+    {
+      "path": "semantica-project-clean/outputs/04_relations.json",
+      "size": 2,
+      "hash": "4f53cda18c2baa0c"
+    },
+    {
+      "path": "semantica-project-clean/outputs/06_graph.json",
+      "size": 449916,
+      "hash": "2981c0e4b767380a"
+    },
+    {
+      "path": "semantica-project-clean/outputs/eval_results.json",
+      "size": 2066,
+      "hash": "ae6bfe21adc4126f"
+    },
+    {
+      "path": "semantica-project-clean/outputs/entity_resolution.json",
+      "size": 965,
+      "hash": "d02a57e08131d164"
+    },
+    {
+      "path": "semantica-project-clean/data/ai-depot-ontology-mapping.md",
+      "size": 3688,
+      "hash": "161d4eeafa6c2d13"
+    },
+    {
+      "path": "semantica-project-clean/data/cfs-ont-core.md",
+      "size": 9362,
+      "hash": "3f77264f72f01c29"
+    },
+    {
+      "path": "semantica-project-clean/data/container-invest-ont-core.md",
+      "size": 5874,
+      "hash": "504f368a9ccdf31f"
+    },
+    {
+      "path": "semantica-project-clean/data/logistics-ont-core.md",
+      "size": 8019,
+      "hash": "4e6617cb808171ec"
+    },
+    {
+      "path": "semantica-project-clean/data/oneway-corpus.md",
+      "size": 2113,
+      "hash": "d5e500a0cceedc86"
+    },
+    {
+      "path": "semantica-project-clean/data/market-quotes.md",
+      "size": 1042,
+      "hash": "e918467d1069f2c2"
+    },
+    {
+      "path": "semantica-project-clean/webui/index.html",
+      "size": 9829,
+      "hash": "ec99db3a190b0de4"
+    },
+    {
+      "path": "semantica-project-clean/akos_projection/manifest.yaml",
+      "size": 611,
+      "hash": "19f1b83b2652a748"
+    },
+    {
+      "path": "semantica-project-clean/akos_projection/ontology.yaml",
+      "size": 10117,
+      "hash": "70e3051232ec158c"
+    },
+    {
+      "path": "semantica-project-clean/akos_projection/ontology_aliases.yaml",
+      "size": 6087,
+      "hash": "60364be11ca7bf20"
+    },
+    {
+      "path": "semantica-project-clean/akos_projection/metrics.json",
+      "size": 174,
+      "hash": "c6cd13401b08fc02"
+    },
+    {
+      "path": "semantica-project-clean/akos_projection/graph_projection.json",
+      "size": 355404,
+      "hash": "372d7b0111470ab0"
+    },
+    {
+      "path": "semantica-project-clean/corpus/corpus_summary.json",
+      "size": 114,
+      "hash": "a6feddcc14410007"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/corpus_register.json",
+      "size": 1660,
+      "hash": "02b0cc786c503d50"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/provenance_map.yaml",
+      "size": 2716,
+      "hash": "e314678532367b39"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/pattern_catalog.json",
+      "size": 4643,
+      "hash": "08a2d6d94a6e06e3"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/gap_matrix.json",
+      "size": 2611,
+      "hash": "1504192b62fa7c80"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/README.md",
+      "size": 2430,
+      "hash": "9c1de48a09e9ac25"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/REPORT.md",
+      "size": 7089,
+      "hash": "8810e9b5710a0290"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/EXECUTIVE_SUMMARY.md",
+      "size": 4038,
+      "hash": "1537c4eba89d9120"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/yiboke_corpus.json",
+      "size": 36273,
+      "hash": "94b9687a5a1baefd"
+    },
+    {
+      "path": "semantica-project-clean/semantica-akos-ingestion/semantica-report-20260917-yiboke.md",
+      "size": 10840,
+      "hash": "b5f584687c9df344"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/02-ONTOLOGY-CANONICAL-SCHEMA-v0.2.yaml",
+      "size": 2514,
+      "hash": "ed03a462b52ff3f6"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/03-ENTITY-CANONICALIZATION-MAP-v0.2.json",
+      "size": 11981,
+      "hash": "570b38a01edb8efc"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/07-PARTY-ROLE-RESOLUTION-v0.2.md",
+      "size": 1954,
+      "hash": "52da609c3e79dbe5"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/08-SHIPMENT-REALITY-RECORDS-v0.2.json",
+      "size": 9969,
+      "hash": "86a2cd150acb5124"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/09-EVIDENCE-MAPS-v0.2.json",
+      "size": 87567,
+      "hash": "71ed221c94f71f8f"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/10-SIX-SHIPMENT-RECONSTRUCTION-v0.2.json",
+      "size": 2827,
+      "hash": "5aaae6f052763292"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/11-AUTOMATED-VALIDATION-RESULTS-v0.2.json",
+      "size": 4526,
+      "hash": "b0c970d32cb0e790"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/12-GAP-ANALYSIS-AND-RISK-REGISTRY-v0.2.json",
+      "size": 3202,
+      "hash": "0f0a00e93f55aec8"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/13-SHADOW-KNOWLEDGE-GRAPH-v0.2.ttl",
+      "size": 7099,
+      "hash": "b7727fe6183071bd"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/15-FOUNDER-REVIEW-PACKET-v0.2.md",
+      "size": 6547,
+      "hash": "50e3104e7683fa72"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/SPEC-Semantica-AKOS-Logistics-Reality-Ontology-v0.2.md",
+      "size": 21496,
+      "hash": "b8b01c66a0e27960"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/_v01_data.json",
+      "size": 35960,
+      "hash": "658847265f501e89"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/canonical_vocab.json",
+      "size": 2888,
+      "hash": "80e1feb5aee871f3"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/01-SPEC-IMPLEMENTATION-REPORT-v0.2.md",
+      "size": 2803,
+      "hash": "db6d61d11e9cc85c"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/04-RELATION-NORMALIZATION-REPORT-v0.2.md",
+      "size": 2210,
+      "hash": "63466f4c3cc808ea"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/05-KNOWLEDGE-GRANULARITY-ANALYSIS-v0.2.md",
+      "size": 1665,
+      "hash": "430de261967b12ac"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/06-INCOTERM-INDEPENDENT-MODEL-v0.2.md",
+      "size": 2634,
+      "hash": "878ff1e6879c31b0"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/14-VOCABULARY-CHANGE-LOG-v0.2.csv",
+      "size": 1532,
+      "hash": "b84277615fe2fc38"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/knowledge-graph.html",
+      "size": 19937,
+      "hash": "9a38b60a5f5d9772"
+    },
+    {
+      "path": "semantica-project-clean/semantica-v0.2/README.md",
+      "size": 2837,
+      "hash": "d7556c21e601386d"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/00-EXECUTIVE-BRIEF.md",
+      "size": 3446,
+      "hash": "e4bbcd1dfb489858"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/01-EVIDENCE-LEDGER.md",
+      "size": 8318,
+      "hash": "7970e114968432a1"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/02-UI-PATTERN-CARDS.md",
+      "size": 14205,
+      "hash": "a70095466f26d6e4"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/03-AKOS-DELTA-MATRIX.md",
+      "size": 9580,
+      "hash": "f9c574851536c1c9"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/04-RISK-AND-UNKNOWNS.md",
+      "size": 9550,
+      "hash": "a14331d9ef050280"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/manifest.json",
+      "size": 3344,
+      "hash": "f72517c189f59656"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/fixtures/README.md",
+      "size": 3422,
+      "hash": "26b25b0607976937"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/fixtures/input/ai_depot_fixture.json",
+      "size": 14875,
+      "hash": "0e1c6cde4f380818"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/fixtures/expected/ai_depot_graph_contract_v1.json",
+      "size": 2639,
+      "hash": "1735f50a96549f65"
+    },
+    {
+      "path": "SEMANTICA-AKOS-RESEARCH-PACKET-2026.09.01-v0.1/handoff/HANDOFF-OPENMINIS-TO-CHATGPT-OPENCODE.md",
+      "size": 10749,
+      "hash": "fe4186f46c81ade9"
+    },
+    {
+      "path": "semantica-v0.2/SPEC-Semantica-AKOS-Logistics-Reality-Ontology-v0.2.md",
+      "size": 21496,
+      "hash": "b8b01c66a0e27960"
+    },
+    {
+      "path": "semantica-v0.2/_v01_data.json",
+      "size": 35960,
+      "hash": "658847265f501e89"
+    },
+    {
+      "path": "semantica-v0.2/02-ONTOLOGY-CANONICAL-SCHEMA-v0.2.yaml",
+      "size": 2514,
+      "hash": "ed03a462b52ff3f6"
+    },
+    {
+      "path": "semantica-v0.2/canonical_vocab.json",
+      "size": 2888,
+      "hash": "80e1feb5aee871f3"
+    },
+    {
+      "path": "semantica-v0.2/03-ENTITY-CANONICALIZATION-MAP-v0.2.json",
+      "size": 11981,
+      "hash": "570b38a01edb8efc"
+    },
+    {
+      "path": "semantica-v0.2/08-SHIPMENT-REALITY-RECORDS-v0.2.json",
+      "size": 9969,
+      "hash": "86a2cd150acb5124"
+    },
+    {
+      "path": "semantica-v0.2/09-EVIDENCE-MAPS-v0.2.json",
+      "size": 87567,
+      "hash": "71ed221c94f71f8f"
+    },
+    {
+      "path": "semantica-v0.2/10-SIX-SHIPMENT-RECONSTRUCTION-v0.2.json",
+      "size": 2827,
+      "hash": "5aaae6f052763292"
+    },
+    {
+      "path": "semantica-v0.2/07-PARTY-ROLE-RESOLUTION-v0.2.md",
+      "size": 1954,
+      "hash": "52da609c3e79dbe5"
+    },
+    {
+      "path": "semantica-v0.2/11-AUTOMATED-VALIDATION-RESULTS-v0.2.json",
+      "size": 4526,
+      "hash": "b0c970d32cb0e790"
+    },
+    {
+      "path": "semantica-v0.2/12-GAP-ANALYSIS-AND-RISK-REGISTRY-v0.2.json",
+      "size": 3202,
+      "hash": "0f0a00e93f55aec8"
+    },
+    {
+      "path": "semantica-v0.2/13-SHADOW-KNOWLEDGE-GRAPH-v0.2.ttl",
+      "size": 7099,
+      "hash": "b7727fe6183071bd"
+    },
+    {
+      "path": "semantica-v0.2/15-FOUNDER-REVIEW-PACKET-v0.2.md",
+      "size": 6547,
+      "hash": "50e3104e7683fa72"
+    },
+    {
+      "path": "semantica-v0.2/01-SPEC-IMPLEMENTATION-REPORT-v0.2.md",
+      "size": 2803,
+      "hash": "db6d61d11e9cc85c"
+    },
+    {
+      "path": "semantica-v0.2/14-VOCABULARY-CHANGE-LOG-v0.2.csv",
+      "size": 1532,
+      "hash": "b84277615fe2fc38"
+    },
+    {
+      "path": "semantica-v0.2/04-RELATION-NORMALIZATION-REPORT-v0.2.md",
+      "size": 2210,
+      "hash": "63466f4c3cc808ea"
+    },
+    {
+      "path": "semantica-v0.2/05-KNOWLEDGE-GRANULARITY-ANALYSIS-v0.2.md",
+      "size": 1665,
+      "hash": "430de261967b12ac"
+    },
+    {
+      "path": "semantica-v0.2/06-INCOTERM-INDEPENDENT-MODEL-v0.2.md",
+      "size": 2634,
+      "hash": "878ff1e6879c31b0"
+    },
+    {
+      "path": "semantica-v0.2/knowledge-graph.html",
+      "size": 19937,
+      "hash": "9a38b60a5f5d9772"
+    },
+    {
+      "path": "semantica-v0.2/README.md",
+      "size": 2837,
+      "hash": "d7556c21e601386d"
+    },
+    {
+      "path": "semantica-v0.2.1/01-SPEC-IMPLEMENTATION-REPORT-v0.2.md",
+      "size": 2803,
+      "hash": "db6d61d11e9cc85c"
+    },
+    {
+      "path": "semantica-v0.2.1/02-ONTOLOGY-CANONICAL-SCHEMA-v0.2.yaml",
+      "size": 2514,
+      "hash": "ed03a462b52ff3f6"
+    },
+    {
+      "path": "semantica-v0.2.1/03-ENTITY-CANONICALIZATION-MAP-v0.2.json",
+      "size": 11981,
+      "hash": "570b38a01edb8efc"
+    },
+    {
+      "path": "semantica-v0.2.1/04-RELATION-NORMALIZATION-REPORT-v0.2.md",
+      "size": 2210,
+      "hash": "63466f4c3cc808ea"
+    },
+    {
+      "path": "semantica-v0.2.1/05-KNOWLEDGE-GRANULARITY-ANALYSIS-v0.2.md",
+      "size": 1665,
+      "hash": "430de261967b12ac"
+    },
+    {
+      "path": "semantica-v0.2.1/06-INCOTERM-INDEPENDENT-MODEL-v0.2.md",
+      "size": 2634,
+      "hash": "878ff1e6879c31b0"
+    },
+    {
+      "path": "semantica-v0.2.1/07-PARTY-ROLE-RESOLUTION-v0.2.md",
+      "size": 1954,
+      "hash": "52da609c3e79dbe5"
+    },
+    {
+      "path": "semantica-v0.2.1/08-SHIPMENT-REALITY-RECORDS-v0.2.json",
+      "size": 9969,
+      "hash": "86a2cd150acb5124"
+    },
+    {
+      "path": "semantica-v0.2.1/09-EVIDENCE-MAPS-v0.2.json",
+      "size": 87567,
+      "hash": "71ed221c94f71f8f"
+    },
+    {
+      "path": "semantica-v0.2.1/10-SIX-SHIPMENT-RECONSTRUCTION-v0.2.json",
+      "size": 2827,
+      "hash": "5aaae6f052763292"
+    },
+    {
+      "path": "semantica-v0.2.1/11-AUTOMATED-VALIDATION-RESULTS-v0.2.json",
+      "size": 4526,
+      "hash": "b0c970d32cb0e790"
+    },
+    {
+      "path": "semantica-v0.2.1/12-GAP-ANALYSIS-AND-RISK-REGISTRY-v0.2.json",
+      "size": 3202,
+      "hash": "0f0a00e93f55aec8"
+    },
+    {
+      "path": "semantica-v0.2.1/13-SHADOW-KNOWLEDGE-GRAPH-v0.2.ttl",
+      "size": 7099,
+      "hash": "b7727fe6183071bd"
+    },
+    {
+      "path": "semantica-v0.2.1/14-VOCABULARY-CHANGE-LOG-v0.2.csv",
+      "size": 1532,
+      "hash": "b84277615fe2fc38"
+    },
+    {
+      "path": "semantica-v0.2.1/15-FOUNDER-REVIEW-PACKET-v0.2.md",
+      "size": 6547,
+      "hash": "50e3104e7683fa72"
+    },
+    {
+      "path": "semantica-v0.2.1/README.md",
+      "size": 2837,
+      "hash": "d7556c21e601386d"
+    },
+    {
+      "path": "semantica-v0.2.1/SPEC-Semantica-AKOS-Logistics-Reality-Ontology-v0.2.md",
+      "size": 21496,
+      "hash": "b8b01c66a0e27960"
+    },
+    {
+      "path": "semantica-v0.2.1/_v01_data.json",
+      "size": 35960,
+      "hash": "658847265f501e89"
+    },
+    {
+      "path": "semantica-v0.2.1/canonical_vocab.json",
+      "size": 2888,
+      "hash": "80e1feb5aee871f3"
+    },
+    {
+      "path": "semantica-v0.2.1/knowledge-graph.html",
+      "size": 19937,
+      "hash": "9a38b60a5f5d9772"
+    },
+    {
+      "path": "shared-attachments/\udcde\udcfc\udce8\udcd5\udcf1\udcae\u07ab\udca6\u0562\udcf2\udcd5\udce5\udce0\udcfe\udcdc\udce4\udcd5\udcf8\udca5\udcfe\udceb\udce7\udcd2\udcc7\udcfc\u07ba\udce5\udcda\udcf3\udce6\udcd5\udcc6\udcee\udcb5\udcfb\udce7\udcf5+\udcc2/semantica-report-20260917-yiboke.md",
+      "size": 10840,
+      "hash": "b5f584687c9df344"
+    }
+  ],
+  "integrity_check": "PASS"
+}
