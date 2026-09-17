@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantica-AKOS 货代知识图谱 v0.2</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+        .header h1 { font-size: 24px; margin-bottom: 10px; }
+        .header .badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            height: calc(100vh - 80px);
+        }
+        .sidebar {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #333;
+        }
+        .main {
+            position: relative;
+        }
+        #graph-container {
+            width: 100%;
+            height: 100%;
+        }
+        .panel {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .panel h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #4FC3F7;
+        }
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat:last-child { border-bottom: none; }
+        .route-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .route-card:hover { background: rgba(255,255,255,0.1); }
+        .route-card.active { background: rgba(79,195,247,0.3); }
+        .route-code {
+            font-weight: bold;
+            font-size: 16px;
+            color: #4FC3F7;
+        }
+        .route-dates {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+        .legend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .node-label {
+            font-size: 10px;
+            fill: #fff;
+            pointer-events: none;
+        }
+        .link {
+            stroke: #666;
+            stroke-opacity: 0.6;
+        }
+        .node {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .node:hover circle {
+            stroke-width: 3px;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+        }
+        .detail-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        .detail-panel.show { display: block; }
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .tab-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #eee;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .tab-btn.active { background: #4FC3F7; color: #000; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th { color: #4FC3F7; }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            margin-right: 5px;
+        }
+        .tag-high { background: #f44336; }
+        .tag-medium { background: #ff9800; }
+        .tag-low { background: #4CAF50; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚢 Semantica-AKOS 货代知识图谱 <span class="badge">v0.2</span></h1>
+        <p>意保克空运货代业务实体关系可视化 | 6条航线 | 230+实体 | 15+关系</p>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="showTab('routes')">航线</button>
+                <button class="tab-btn" onclick="showTab('stats')">统计</button>
+                <button class="tab-btn" onclick="showTab('gaps')">GAP</button>
+            </div>
+            
+            <div id="tab-routes" class="tab-content active">
+                <div class="panel">
+                    <h3>📍 6条核心航线</h3>
+                    <div id="route-list"></div>
+                </div>
+            </div>
+            
+            <div id="tab-stats" class="tab-content">
+                <div class="panel">
+                    <h3>📊 实体统计</h3>
+                    <div class="stat"><span>总实体数</span><span>230</span></div>
+                    <div class="stat"><span>组织类型</span><span>24</span></div>
+                    <div class="stat"><span>人员类型</span><span>30</span></div>
+                    <div class="stat"><span>机场代码</span><span>7</span></div>
+                    <div class="stat"><span>金额实体</span><span>43</span></div>
+                    <div class="stat"><span>重量实体</span><span>77</span></div>
+                </div>
+                <div class="panel">
+                    <h3>🔗 关系统计</h3>
+                    <div class="stat"><span>总关系数</span><span>15</span></div>
+                    <div class="stat"><span>航线关系</span><span>6</span></div>
+                    <div class="stat"><span>证据绑定</span><span>235+</span></div>
+                </div>
+            </div>
+            
+            <div id="tab-gaps" class="tab-content">
+                <div class="panel">
+                    <h3>⚠️ 关键GAP</h3>
+                    <div class="stat">
+                        <span><span class="tag tag-high">HIGH</span> GAP-001: Incoterm缺失</span>
+                    </div>
+                    <div class="stat">
+                        <span><span class="tag tag-high">HIGH</span> GAP-002: 承运人名称缺失</span>
+                    </div>
+                    <div class="stat">
+                        <span><span class="tag tag-medium">MED</span> GAP-003: 实际重量缺失</span>
+                    </div>
+                    <div class="stat">
+                        <span><span class="tag tag-medium">MED</span> GAP-004: MAWB编号缺失</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main">
+            <div id="graph-container"></div>
+            
+            <div class="legend">
+                <div class="legend-item"><div class="legend-dot" style="background:#4FC3F7"></div>Shipment（航线）</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#FF9800"></div>Organization（公司）</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#4CAF50"></div>TransportNode（机场）</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#9C27B0"></div>Person（人员）</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#F44336"></div>Evidence（证据）</div>
+            </div>
+            
+            <div class="detail-panel" id="detail-panel">
+                <h3 id="detail-title">节点详情</h3>
+                <div id="detail-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 数据定义
+        const data = {
+            nodes: [
+                // Shipments (Routes)
+                { id: 'HAM-DXB', group: 'shipment', label: 'HAM-DXB', date: '2025-05-07' },
+                { id: 'SIN-DWC', group: 'shipment', label: 'SIN-DWC', date: '2025-06-19' },
+                { id: 'HAM-DMM', group: 'shipment', label: 'HAM-DMM', date: '2025-06-20' },
+                { id: 'ROT-DXB', group: 'shipment', label: 'ROT-DXB', date: '2025-09-28' },
+                { id: 'HAM-HKG', group: 'shipment', label: 'HAM-HKG', date: '2026-02-27' },
+                { id: 'ROT-HKG', group: 'shipment', label: 'ROT-HKG', date: '2026-02-27' },
+                
+                // Organizations
+                { id: 'Epoch-HK', group: 'org', label: 'Epoch (HK)', type: 'Shipper' },
+                { id: 'Epoch-SH', group: 'org', label: 'Epoch (SH)', type: 'Shipper' },
+                { id: 'PacOcean', group: 'org', label: 'PAC Ocean', type: 'Consignee' },
+                { id: 'SinoCrafts', group: 'org', label: 'Sino Crafts', type: 'Consignee' },
+                { id: 'UnitedFuel', group: 'org', label: 'United Fuel', type: 'Notify' },
+                { id: 'XiamenTransworld', group: 'org', label: 'Xiamen Transworld', type: 'Forwarder' },
+                
+                // Transport Nodes (Airports)
+                { id: 'HAM', group: 'airport', label: 'Hamburg (HAM)' },
+                { id: 'DXB', group: 'airport', label: 'Dubai (DXB)' },
+                { id: 'DWC', group: 'airport', label: 'Dubai WTC (DWC)' },
+                { id: 'DMM', group: 'airport', label: 'Dammam (DMM)' },
+                { id: 'HKG', group: 'airport', label: 'Hong Kong (HKG)' },
+                { id: 'SIN', group: 'airport', label: 'Singapore (SIN)' },
+                { id: 'ROT', group: 'airport', label: 'Rotterdam (RTM)' },
+                
+                // Persons
+                { id: 'Daisy', group: 'person', label: 'Daisy Shi' },
+                { id: 'Steven', group: 'person', label: 'Steven Lu' },
+            ],
+            links: [
+                // Route connections
+                { source: 'HAM', target: 'HAM-DXB', relation: 'origin' },
+                { source: 'HAM-DXB', target: 'DXB', relation: 'destination' },
+                { source: 'SIN', target: 'SIN-DWC', relation: 'origin' },
+                { source: 'SIN-DWC', target: 'DWC', relation: 'destination' },
+                { source: 'HAM', target: 'HAM-DMM', relation: 'origin' },
+                { source: 'HAM-DMM', target: 'DMM', relation: 'destination' },
+                { source: 'ROT', target: 'ROT-DXB', relation: 'origin' },
+                { source: 'ROT-DXB', target: 'DXB', relation: 'destination' },
+                { source: 'HAM', target: 'HAM-HKG', relation: 'origin' },
+                { source: 'HAM-HKG', target: 'HKG', relation: 'destination' },
+                { source: 'ROT', target: 'ROT-HKG', relation: 'origin' },
+                { source: 'ROT-HKG', target: 'HKG', relation: 'destination' },
+                
+                // Party relationships
+                { source: 'Epoch-HK', target: 'HAM-DXB', relation: 'shipper' },
+                { source: 'Epoch-HK', target: 'SIN-DWC', relation: 'shipper' },
+                { source: 'Epoch-HK', target: 'HAM-DMM', relation: 'shipper' },
+                { source: 'Epoch-SH', target: 'HAM-HKG', relation: 'shipper' },
+                { source: 'Epoch-SH', target: 'ROT-HKG', relation: 'shipper' },
+                { source: 'PacOcean', target: 'HAM-DXB', relation: 'consignee' },
+                { source: 'PacOcean', target: 'SIN-DWC', relation: 'consignee' },
+                { source: 'PacOcean', target: 'HAM-DMM', relation: 'consignee' },
+                { source: 'SinoCrafts', target: 'ROT-DXB', relation: 'consignee' },
+                { source: 'UnitedFuel', target: 'HAM-DXB', relation: 'notify' },
+                { source: 'UnitedFuel', target: 'SIN-DWC', relation: 'notify' },
+                { source: 'UnitedFuel', target: 'HAM-DMM', relation: 'notify' },
+                { source: 'XiamenTransworld', target: 'HAM-DXB', relation: 'forwarder' },
+                { source: 'XiamenTransworld', target: 'SIN-DWC', relation: 'forwarder' },
+                { source: 'XiamenTransworld', target: 'HAM-DMM', relation: 'forwarder' },
+                { source: 'XiamenTransworld', target: 'ROT-DXB', relation: 'forwarder' },
+                { source: 'XiamenTransworld', target: 'HAM-HKG', relation: 'forwarder' },
+                { source: 'XiamenTransworld', target: 'ROT-HKG', relation: 'forwarder' },
+                { source: 'Daisy', target: 'XiamenTransworld', relation: 'contact' },
+                { source: 'Steven', target: 'XiamenTransworld', relation: 'contact' },
+            ]
+        };
+
+        const width = document.getElementById('graph-container').clientWidth;
+        const height = document.getElementById('graph-container').clientHeight;
+
+        // 创建SVG
+        const svg = d3.select('#graph-container')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height);
+
+        // 创建力导向模拟
+        const simulation = d3.forceSimulation(data.nodes)
+            .force('link', d3.forceLink(data.links).id(d => d.id).distance(120))
+            .force('charge', d3.forceManyBody().strength(-400))
+            .force('center', d3.forceCenter(width / 2, height / 2))
+            .force('collision', d3.forceCollide().radius(40));
+
+        // 创建箭头标记
+        svg.append('defs').append('marker')
+            .attr('id', 'arrow')
+            .attr('viewBox', '0 -5 10 10')
+            .attr('refX', 25)
+            .attr('refY', 0)
+            .attr('markerWidth', 6)
+            .attr('markerHeight', 6)
+            .attr('orient', 'auto')
+            .append('path')
+            .attr('d', 'M0,-5L10,0L0,5')
+            .attr('fill', '#666');
+
+        // 创建连线
+        const link = svg.append('g')
+            .selectAll('line')
+            .data(data.links)
+            .enter()
+            .append('line')
+            .attr('class', 'link')
+            .attr('marker-end', 'url(#arrow)');
+
+        // 创建节点组
+        const node = svg.append('g')
+            .selectAll('g')
+            .data(data.nodes)
+            .enter()
+            .append('g')
+            .attr('class', 'node')
+            .call(d3.drag()
+                .on('start', dragstarted)
+                .on('drag', dragged)
+                .on('end', dragended));
+
+        // 节点圆圈
+        node.append('circle')
+            .attr('r', d => d.group === 'shipment' ? 20 : 15)
+            .attr('fill', d => {
+                const colors = {
+                    'shipment': '#4FC3F7',
+                    'org': '#FF9800',
+                    'airport': '#4CAF50',
+                    'person': '#9C27B0'
+                };
+                return colors[d.group] || '#888';
+            })
+            .attr('stroke', '#fff')
+            .attr('stroke-width', 2);
+
+        // 节点标签
+        node.append('text')
+            .attr('class', 'node-label')
+            .attr('text-anchor', 'middle')
+            .attr('dy', 30)
+            .text(d => d.label);
+
+        // 节点点击事件
+        node.on('click', function(event, d) {
+            showDetail(d);
+        });
+
+        // 模拟tick
+        simulation.on('tick', () => {
+            link
+                .attr('x1', d => d.source.x)
+                .attr('y1', d => d.source.y)
+                .attr('x2', d => d.target.x)
+                .attr('y2', d => d.target.y);
+
+            node.attr('transform', d => `translate(${d.x},${d.y})`);
+        });
+
+        // 拖拽函数
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // 显示详情面板
+        function showDetail(d) {
+            const panel = document.getElementById('detail-panel');
+            const title = document.getElementById('detail-title');
+            const content = document.getElementById('detail-content');
+            
+            title.textContent = d.label;
+            
+            let html = `<p><strong>类型:</strong> ${d.group}</p>`;
+            if (d.date) html += `<p><strong>日期:</strong> ${d.date}</p>`;
+            if (d.type) html += `<p><strong>角色:</strong> ${d.type}</p>`;
+            
+            const relatedLinks = data.links.filter(l => l.source.id === d.id || l.target.id === d.id);
+            html += `<p><strong>关联关系:</strong> ${relatedLinks.length} 条</p>`;
+            
+            content.innerHTML = html;
+            panel.classList.add('show');
+        }
+
+        // Tab切换
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // 初始化航线列表
+        const routes = [
+            { code: 'HAM-DXB', origin: 'Hamburg', dest: 'Dubai', date: '2025-05-07' },
+            { code: 'SIN-DWC', origin: 'Singapore', dest: 'Dubai WTC', date: '2025-06-19' },
+            { code: 'HAM-DMM', origin: 'Hamburg', dest: 'Dammam', date: '2025-06-20' },
+            { code: 'ROT-DXB', origin: 'Rotterdam', dest: 'Dubai', date: '2025-09-28' },
+            { code: 'HAM-HKG', origin: 'Hamburg', dest: 'Hong Kong', date: '2026-02-27' },
+            { code: 'ROT-HKG', origin: 'Rotterdam', dest: 'Hong Kong', date: '2026-02-27' },
+        ];
+
+        const routeList = document.getElementById('route-list');
+        routes.forEach(route => {
+            const card = document.createElement('div');
+            card.className = 'route-card';
+            card.innerHTML = `
+                <div class="route-code">${route.code}</div>
+                <div class="route-dates">${route.origin} → ${route.dest} | ${route.date}</div>
+            `;
+            card.onclick = () => highlightRoute(route.code);
+            routeList.appendChild(card);
+        });
+
+        // 高亮航线
+        function highlightRoute(routeCode) {
+            const routeNode = data.nodes.find(n => n.id === routeCode);
+            if (routeNode) {
+                node.selectAll('circle')
+                    .attr('opacity', d => (d.id === routeCode || 
+                        data.links.some(l => (l.source.id === routeCode && l.target.id === d.id) || 
+                                           (l.target.id === routeCode && l.source.id === d.id))) ? 1 : 0.2);
+            }
+        }
+    </script>
+</body>
+</html>
