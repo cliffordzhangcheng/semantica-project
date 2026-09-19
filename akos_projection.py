@@ -55,6 +55,25 @@ def load_gate_result() -> str:
     return "UNKNOWN"  # R02: 无闸门数据时报告UNKNOWN而非假PASS
 
 
+def validate_evidence_binding(graph: dict) -> tuple:
+    """R04: 验证证据绑定完整性，返回(是否通过, 失败列表)"""
+    failures = []
+    entities = graph.get("entities", [])
+    
+    for entity in entities:
+        provenance = entity.get("provenance", {})
+        if not provenance.get("source_document_id"):
+            failures.append(f"Entity {entity.get('id', 'unknown')} missing source_document_id")
+    
+    relationships = graph.get("relationships", [])
+    for rel in relationships:
+        provenance = rel.get("provenance", {})
+        if not provenance.get("source_document_id"):
+            failures.append(f"Relationship {rel.get('id', 'unknown')} missing source_document_id")
+    
+    return (len(failures) == 0, failures)
+
+
 def generate_manifest(
     entity_count: int,
     relation_count: int,
@@ -96,10 +115,20 @@ def build_projection_package(graph_path: str = "outputs/06_graph.json") -> str:
     # R02: 从闸门结果获取gate_result，不再硬编码
     gate_result = load_gate_result()
 
+    # R04: 验证证据绑定
+    evidence_valid, evidence_failures = validate_evidence_binding(g)
+    if not evidence_valid and gate_result == "PASS":
+        print("⚠️ Evidence binding incomplete, downgrading gate_result to FAIL")
+        gate_result = "FAIL"
+
+    # R03: 统一契约 - 使用entities/relationships而非nodes/edges
+    entity_count = len(g.get("entities", []))
+    relation_count = len(g.get("relationships", []))
+
     # Manifest
     manifest = generate_manifest(
-        entity_count=len(g.get("nodes", [])),
-        relation_count=len(g.get("edges", [])),
+        entity_count=entity_count,
+        relation_count=relation_count,
         ontology_version="1.0",
         gate_result=gate_result,
         projection_status="candidate",
@@ -112,34 +141,34 @@ def build_projection_package(graph_path: str = "outputs/06_graph.json") -> str:
         json.dumps(manifest, ensure_ascii=False, indent=2)
     )
 
-    # Write entities.jsonl
+    # R03: Write entities.jsonl from entities (not nodes)
     with open(PROJECTION_DIR / "entities.jsonl", "w") as f:
-        for n in g.get("nodes", []):
+        for entity in g.get("entities", []):
             entry = {
-                "id": n.get("id", ""),
-                "canonical_type": n.get("label", "UNKNOWN"),
-                "text": n.get("text", ""),
-                "source_id": n.get("source_id", ""),
-                "intake_id": n.get("intake_id", ""),
-                "provenance": n.get("provenance", {}),
+                "id": entity.get("id", ""),
+                "canonical_type": entity.get("label", "UNKNOWN"),
+                "text": entity.get("text", ""),
+                "source_id": entity.get("source_id", ""),
+                "intake_id": entity.get("intake_id", ""),
+                "provenance": entity.get("provenance", {}),
                 "projection_status": "candidate",
                 "source_of_truth": False,
             }
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-    # Write relations.jsonl
+    # R03: Write relations.jsonl from relationships (not edges)
     with open(PROJECTION_DIR / "relations.jsonl", "w") as f:
-        for e in g.get("edges", []):
+        for rel in g.get("relationships", []):
             entry = {
-                "id": hashlib.sha1(json.dumps(e, sort_keys=True).encode()).hexdigest()[:16],
-                "source": e.get("source", ""),
-                "target": e.get("target", ""),
-                "type": e.get("type", "related_to"),
-                "confidence": e.get("confidence", 0),
-                "source_id": e.get("source_id", ""),
+                "id": hashlib.sha1(json.dumps(rel, sort_keys=True).encode()).hexdigest()[:16],
+                "source": rel.get("source", ""),
+                "target": rel.get("target", ""),
+                "type": rel.get("predicate", "related_to"),
+                "confidence": rel.get("confidence", 0),
+                "source_id": rel.get("source_id", ""),
                 "projection_status": "candidate",
                 "source_of_truth": False,
-                "evidence_required": e.get("type") in {
+                "evidence_required": rel.get("predicate") in {
                     "funds", "owns", "commits", "purchased_under",
                     "leased_under", "charters_under", "intermediates",
                     "earns", "sells_to", "guarantees", "generates",
@@ -167,8 +196,8 @@ def build_projection_package(graph_path: str = "outputs/06_graph.json") -> str:
     # R01: metrics.json使用实际指标
     actual_metrics = load_actual_metrics()
     metrics = {
-        "entity_count": len(g.get("nodes", [])),
-        "relation_count": len(g.get("edges", [])),
+        "entity_count": entity_count,
+        "relation_count": relation_count,
         "ner_f1": actual_metrics["ner_f1"],
         "re_f1": actual_metrics["re_f1"],
         "gate_result": gate_result,
