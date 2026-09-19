@@ -1,15 +1,25 @@
-# R06: 依赖锁定 - 固定版本防止漂移
-python-semantica==0.6.0
-networkx==3.1
-rdflib==7.0.0
-pandas==2.1.4
+# Semantica Knowledge Graph Platform
+semantica>=0.1.0
+networkx==3.4.2
+rdflib==7.6.0
+pandas==2.2.3
 numpy==1.26.2
 pyyaml==6.0.1
 requests==2.31.0
 python-dotenv==1.0.0
+click==8.1.7
 
-# R05: 模块化依赖 - 明确声明
-# semantica-core: 核心图构建
-# semantica-ingest: 文档摄入
-# semantica-export: 导出模块
-# semantica-validation: 验证模块
+# Vector storage and retrieval
+faiss-cpu
+weaviate-client
+
+# NLP processing
+spacy
+transformers
+
+# Web frameworks
+flask>=2.0
+
+# Dev dependencies
+pytest>=7.0
+pytest-cov>=4.0

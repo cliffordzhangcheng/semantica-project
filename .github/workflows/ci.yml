@@ -1,12 +1,5 @@
-[context]
+# R07: CI - 真实自动化验证
 name: Semantica Validation
-description: Automated validation gates for Semantica project
-version: 1.0
-[/context]
-
-# Semantica Validation Workflow
-
-This workflow runs automated validation gates (G0-G6) on push/PR.
 
 on:
   push:
@@ -35,23 +28,27 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
           
-      - name: Run gate validation
-        run: python scripts/run_gates.py
+      - name: Run schema validation
+        run: python tests/test_schema.py
+        
+      - name: Run gate tests
+        run: python tests/test_gates.py
+        
+      - name: Run export tests
+        run: python tests/test_export.py
         
       - name: Check gate ledger
         run: |
+          python scripts/run_gates.py
           python -c "
           import json
           with open('artifacts/runs/latest/gate_ledger.json') as f:
               ledger = json.load(f)
           overall = ledger.get('overall', 'FAIL')
-          print(f'Overall status: {overall}')
-          for gate_id, gate in ledger.get('gates', {}).items():
-              print(f'{gate_id}: {gate[\"status\"]}')
           if overall != 'PASS':
-              print('ERROR: Gate validation failed!')
+              print(f'❌ Gate validation failed: {overall}')
               exit(1)
-          print('SUCCESS: All gates passed!')
+          print('✅ All gates passed')
           "
           
       - name: Upload results

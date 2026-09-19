@@ -1,0 +1,95 @@
+{
+  "version": "1.0",
+  "run_id": "a2edec3adfca",
+  "generated_at": "2026-09-19T12:41:04.768766+00:00",
+  "gates": {
+    "G0": {
+      "gate_id": "G0",
+      "status": "FAIL",
+      "details": [
+        "Corpus directory not found"
+      ],
+      "errors": [],
+      "timestamp": "2026-09-19T12:40:54.609247+00:00",
+      "run_id": "a2edec3adfca",
+      "graph_hash": "51329dcfa3a91bae",
+      "corpus_hash": null
+    },
+    "G1": {
+      "gate_id": "G1",
+      "status": "PASS",
+      "details": {
+        "terms": 0
+      },
+      "errors": [],
+      "timestamp": "2026-09-19T12:40:54.640865+00:00",
+      "run_id": "a2edec3adfca",
+      "graph_hash": "51329dcfa3a91bae",
+      "corpus_hash": null
+    },
+    "G2": {
+      "gate_id": "G2",
+      "status": "FAIL",
+      "details": [
+        "Ontology normalization file missing"
+      ],
+      "errors": [],
+      "timestamp": "2026-09-19T12:40:54.640983+00:00",
+      "run_id": "a2edec3adfca",
+      "graph_hash": "51329dcfa3a91bae",
+      "corpus_hash": null
+    },
+    "G3": {
+      "gate_id": "G3",
+      "status": "FAIL",
+      "details": [
+        "Evidence provenance index missing"
+      ],
+      "errors": [],
+      "timestamp": "2026-09-19T12:40:54.641064+00:00",
+      "run_id": "a2edec3adfca",
+      "graph_hash": "51329dcfa3a91bae",
+      "corpus_hash": null
+    },
+    "G4": {
+      "gate_id": "G4",
+      "status": "PASS",
+      "details": {
+        "shipments": 6,
+        "claims": 18
+      },
+      "errors": [],
+      "timestamp": "2026-09-19T12:40:54.642038+00:00",
+      "run_id": "a2edec3adfca",
+      "graph_hash": "51329dcfa3a91bae",
+      "corpus_hash": null
+    },
+    "G5": {
+      "gate_id": "G5",
+      "status": "FAIL",
+      "details": [
+        "Tests failed with exit code 1",
+        ""
+      ],
+      "errors": [],
+      "timestamp": "2026-09-19T12:41:04.768183+00:00",
+      "run_id": "a2edec3adfca",
+      "graph_hash": "51329dcfa3a91bae",
+      "corpus_hash": null
+    },
+    "G6": {
+      "gate_id": "G6",
+      "status": "FAIL",
+      "details": [
+        "Found BOOKED state in graph"
+      ],
+      "errors": [],
+      "timestamp": "2026-09-19T12:41:04.768747+00:00",
+      "run_id": "a2edec3adfca",
+      "graph_hash": "51329dcfa3a91bae",
+      "corpus_hash": null
+    }
+  },
+  "overall": "FAIL",
+  "code_revision": "51329dcfa3a91bae"
+}
