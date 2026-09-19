@@ -14,6 +14,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 PROJECTION_DIR = Path("akos_projection")
+METRICS_FILE = Path("akos_metrics.json")  # R01: 从文件读取真实指标
 
 
 def compute_hash(data) -> str:
@@ -21,6 +22,37 @@ def compute_hash(data) -> str:
     if isinstance(data, (dict, list)):
         data = json.dumps(data, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(data.encode()).hexdigest()[:16]
+
+
+def load_actual_metrics() -> dict:
+    """R01: 加载实际计算的指标，而非硬编码"""
+    if METRICS_FILE.exists():
+        with open(METRICS_FILE) as f:
+            metrics = json.load(f)
+        return {
+            "ner_f1": metrics.get("ner_f1", 0.0),
+            "re_f1": metrics.get("re_f1", 0.0),
+            "duplicate_rate": metrics.get("duplicate_rate", "pending"),
+            "unresolved_rate": metrics.get("unresolved_rate", "pending"),
+            "evidence_coverage": metrics.get("evidence_coverage", "pending"),
+        }
+    return {"ner_f1": 0.0, "re_f1": 0.0, "duplicate_rate": "pending",
+            "unresolved_rate": "pending", "evidence_coverage": "pending"}
+
+
+def load_gate_result() -> str:
+    """R02: 从闸门验证结果加载，而非硬编码"""
+    gate_ledger = Path("11-GATE-LEDGER-v0.2.1.json")
+    if gate_ledger.exists():
+        with open(gate_ledger) as f:
+            ledger = json.load(f)
+        all_pass = all(
+            info['status'] == 'PASS'
+            for gate, info in ledger.get('gates', {}).items()
+            if gate.startswith('G') and int(gate[1:]) <= 6
+        )
+        return "PASS" if all_pass else "FAIL"
+    return "UNKNOWN"  # R02: 无闸门数据时报告UNKNOWN而非假PASS
 
 
 def generate_manifest(
@@ -31,6 +63,7 @@ def generate_manifest(
     projection_status: str = "candidate",
 ) -> dict:
     """Generate projection manifest."""
+    actual_metrics = load_actual_metrics()
     return {
         "package_id": "AKOS-PROJ-SEMANTICA-001",
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -40,13 +73,7 @@ def generate_manifest(
         "corpus_hash": "pending",
         "entity_count": entity_count,
         "relation_count": relation_count,
-        "quality_metrics": {
-            "ner_f1": 0.9091,
-            "re_f1": 0.8000,
-            "duplicate_rate": "pending",
-            "unresolved_rate": "pending",
-            "evidence_coverage": "pending",
-        },
+        "quality_metrics": actual_metrics,
         "gate_result": gate_result,
         "projection_status": projection_status,
         "source_of_truth": False,
@@ -66,12 +93,15 @@ def build_projection_package(graph_path: str = "outputs/06_graph.json") -> str:
     ontology_hash = compute_hash(open("config/akos_domain_ontology.yaml").read())
     corpus_hash = compute_hash(g)
 
+    # R02: 从闸门结果获取gate_result，不再硬编码
+    gate_result = load_gate_result()
+
     # Manifest
     manifest = generate_manifest(
         entity_count=len(g.get("nodes", [])),
         relation_count=len(g.get("edges", [])),
         ontology_version="1.0",
-        gate_result="PASS",
+        gate_result=gate_result,
         projection_status="candidate",
     )
     manifest["ontology_hash"] = ontology_hash
@@ -134,13 +164,14 @@ def build_projection_package(graph_path: str = "outputs/06_graph.json") -> str:
     if os.path.exists("audit_log.jsonl"):
         shutil.copy("audit_log.jsonl", PROJECTION_DIR / "lineage.jsonl")
 
-    # Write metrics.json
+    # R01: metrics.json使用实际指标
+    actual_metrics = load_actual_metrics()
     metrics = {
         "entity_count": len(g.get("nodes", [])),
         "relation_count": len(g.get("edges", [])),
-        "ner_f1": 0.9091,
-        "re_f1": 0.8000,
-        "gate_result": "PASS",
+        "ner_f1": actual_metrics["ner_f1"],
+        "re_f1": actual_metrics["re_f1"],
+        "gate_result": gate_result,
         "projection_status": "candidate",
         "source_of_truth": False,
     }
