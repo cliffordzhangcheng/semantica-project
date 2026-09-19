@@ -1,8 +1,11 @@
 Metadata-Version: 2.4
 Name: semantica-workbench
 Version: 0.6.0
-Summary: Semantica Ontology Construction Workbench
+Summary: Semantica Knowledge Graph Platform for Logistics Reality Ontology
+Author: Semantica Team
 License: MIT
+Project-URL: Homepage, https://github.com/cliffordzhangcheng/semantica-project
+Project-URL: Repository, https://github.com/cliffordzhangcheng/semantica-project.git
 Requires-Python: >=3.11
 Requires-Dist: networkx>=3.1
 Requires-Dist: rdflib>=7.0.0
@@ -15,4 +18,9 @@ Requires-Dist: python-dotenv>=1.0.0
 Provides-Extra: dev
 Requires-Dist: pytest>=7.0; extra == "dev"
 Requires-Dist: pytest-cov>=4.0; extra == "dev"
-Requires-Dist: ruff>=0.1.0; extra == "dev"
+Provides-Extra: research
+Requires-Dist: faiss-cpu; extra == "research"
+Requires-Dist: weaviate-client; extra == "research"
+Requires-Dist: spacy; extra == "research"
+Requires-Dist: transformers; extra == "research"
+Requires-Dist: torch; extra == "research"

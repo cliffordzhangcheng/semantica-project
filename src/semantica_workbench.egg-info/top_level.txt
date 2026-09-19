@@ -1,1 +1,2 @@
+outputs
 semantica_workbench

@@ -1,2 +1,2 @@
 [console_scripts]
-semantica-cli = semantica_workbench.cli:main
+semantica = semantica_workbench.cli:main
