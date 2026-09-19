@@ -1,14 +1,14 @@
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.build_meta"
+build-backend = "setuptools.backends._legacy:_Backend"
 
 [project]
 name = "semantica-workbench"
 version = "0.6.0"
-description = "Semantica Ontology Construction Workbench"
+description = "Semantica Knowledge Graph Platform for Logistics Reality Ontology"
 requires-python = ">=3.11"
 license = {text = "MIT"}
-
+authors = [{name = "Semantica Team"}]
 dependencies = [
     "networkx>=3.1",
     "rdflib>=7.0.0",
@@ -24,18 +24,25 @@ dependencies = [
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
-    "ruff>=0.1.0",
+]
+research = [
+    "faiss-cpu",
+    "weaviate-client",
+    "spacy",
+    "transformers",
+    "torch",
 ]
 
 [project.scripts]
-semantica-cli = "semantica_workbench.cli:main"
+semantica = "semantica_workbench.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cliffordzhangcheng/semantica-project"
+Repository = "https://github.com/cliffordzhangcheng/semantica-project.git"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-v --tb=short"
-
-[tool.ruff]
-target-version = "py311"
+python_files = ["test_*.py"]

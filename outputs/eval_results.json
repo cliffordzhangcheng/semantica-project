@@ -1,0 +1,136 @@
+{
+  "ner": {
+    "tp": 10,
+    "fp": 2,
+    "fn": 0,
+    "precision": 0.8333,
+    "recall": 1.0,
+    "f1": 0.9091,
+    "extracted": [
+      [
+        "3年",
+        "LeaseTerm"
+      ],
+      [
+        "40HC",
+        "ContainerType"
+      ],
+      [
+        "Forwarder",
+        "FreightForwarder"
+      ],
+      [
+        "IRR",
+        "Metric"
+      ],
+      [
+        "Maersk",
+        "ShippingLine"
+      ],
+      [
+        "利用率",
+        "Metric"
+      ],
+      [
+        "厦门",
+        "Port"
+      ],
+      [
+        "日租金",
+        "RentRate"
+      ],
+      [
+        "租期",
+        "LeaseTerm"
+      ],
+      [
+        "美元",
+        "Currency"
+      ],
+      [
+        "货代",
+        "FreightForwarder"
+      ],
+      [
+        "马士基",
+        "ShippingLine"
+      ]
+    ],
+    "missed": [],
+    "false_positives": [
+      [
+        "3年",
+        "LeaseTerm"
+      ],
+      [
+        "日租金",
+        "RentRate"
+      ]
+    ]
+  },
+  "re": {
+    "tp": 4,
+    "fp": 2,
+    "fn": 0,
+    "precision": 0.6667,
+    "recall": 1.0,
+    "f1": 0.8,
+    "extracted": [
+      [
+        "40HC",
+        "IRR",
+        "has_metric"
+      ],
+      [
+        "40HC",
+        "利用率",
+        "has_metric"
+      ],
+      [
+        "马士基",
+        "40HC",
+        "deploys"
+      ],
+      [
+        "马士基",
+        "Forwarder",
+        "leases_to"
+      ],
+      [
+        "马士基",
+        "厦门",
+        "operates_at"
+      ],
+      [
+        "马士基",
+        "货代",
+        "leases_to"
+      ]
+    ],
+    "missed": [],
+    "false_positives": [
+      [
+        "40HC",
+        "IRR",
+        "has_metric"
+      ],
+      [
+        "马士基",
+        "Forwarder",
+        "leases_to"
+      ]
+    ]
+  },
+  "contract_checks": {
+    "source_id injected": true,
+    "intake_id injected": true,
+    "tenant_id injected": true,
+    "provenance present": true,
+    "audit log exists": true,
+    "review queue exists": true
+  },
+  "gate_pass": true,
+  "entity_count": 493,
+  "relation_count": 93,
+  "doc_count": 6
+}

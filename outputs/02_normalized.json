@@ -1,0 +1,17 @@
+[
+  {
+    "id": "b68a6c43678e868f",
+    "text": "Semantica is a knowledge graph framework.",
+    "metadata": {
+      "extension": "txt",
+      "parent": "/var/minis/workspace/semantica-project/data",
+      "is_supported": true,
+      "read_content": true,
+      "path": "/var/minis/workspace/semantica-project/data/sample.txt",
+      "name": "sample.txt",
+      "size": 42,
+      "modified": 1787758726.1314814
+    },
+    "language": "en"
+  }
+]
