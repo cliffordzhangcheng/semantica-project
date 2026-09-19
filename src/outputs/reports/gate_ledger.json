@@ -1,0 +1,72 @@
+{
+  "run_id": "auto-20260919-224810",
+  "graph_hash": "test-hash",
+  "corpus_hash": "test-corpus-hash",
+  "timestamp": "2026-09-19T14:48:11.430004+00:00",
+  "gates": {
+    "G0": {
+      "gate": "G0",
+      "status": "FAIL",
+      "reason": "Corpus directory missing or empty",
+      "binding": {
+        "run_id": "auto-20260919-224810"
+      },
+      "timestamp": "2026-09-19T14:48:10.727474+00:00"
+    },
+    "G1": {
+      "gate": "G1",
+      "status": "FAIL",
+      "reason": "Schema file missing",
+      "binding": {
+        "run_id": "auto-20260919-224810"
+      },
+      "timestamp": "2026-09-19T14:48:10.727580+00:00"
+    },
+    "G2": {
+      "gate": "G2",
+      "status": "FAIL",
+      "reason": "Ontology file missing",
+      "binding": {
+        "run_id": "auto-20260919-224810"
+      },
+      "timestamp": "2026-09-19T14:48:10.727829+00:00"
+    },
+    "G3": {
+      "gate": "G3",
+      "status": "FAIL",
+      "reason": "Evidence file missing",
+      "binding": {
+        "run_id": "auto-20260919-224810"
+      },
+      "timestamp": "2026-09-19T14:48:10.727937+00:00"
+    },
+    "G4": {
+      "gate": "G4",
+      "status": "FAIL",
+      "reason": "Claims file missing",
+      "binding": {
+        "run_id": "auto-20260919-224810"
+      },
+      "timestamp": "2026-09-19T14:48:10.728039+00:00"
+    },
+    "G5": {
+      "gate": "G5",
+      "status": "FAIL",
+      "reason": "Tests failed",
+      "binding": {
+        "run_id": "auto-20260919-224810"
+      },
+      "timestamp": "2026-09-19T14:48:11.429792+00:00"
+    },
+    "G6": {
+      "gate": "G6",
+      "status": "PASS",
+      "reason": "",
+      "binding": {
+        "run_id": "auto-20260919-224810"
+      },
+      "timestamp": "2026-09-19T14:48:11.429993+00:00"
+    }
+  },
+  "overall": "FAIL"
+}
