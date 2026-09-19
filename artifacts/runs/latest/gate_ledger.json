@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "run_id": "a2edec3adfca",
-  "generated_at": "2026-09-19T12:41:04.768766+00:00",
+  "run_id": "04a69e5861ea",
+  "generated_at": "2026-09-19T12:44:53.920384+00:00",
   "gates": {
     "G0": {
       "gate_id": "G0",
@@ -10,8 +10,8 @@
         "Corpus directory not found"
       ],
       "errors": [],
-      "timestamp": "2026-09-19T12:40:54.609247+00:00",
-      "run_id": "a2edec3adfca",
+      "timestamp": "2026-09-19T12:44:44.724159+00:00",
+      "run_id": "04a69e5861ea",
       "graph_hash": "51329dcfa3a91bae",
       "corpus_hash": null
     },
@@ -22,8 +22,8 @@
         "terms": 0
       },
       "errors": [],
-      "timestamp": "2026-09-19T12:40:54.640865+00:00",
-      "run_id": "a2edec3adfca",
+      "timestamp": "2026-09-19T12:44:44.756768+00:00",
+      "run_id": "04a69e5861ea",
       "graph_hash": "51329dcfa3a91bae",
       "corpus_hash": null
     },
@@ -34,8 +34,8 @@
         "Ontology normalization file missing"
       ],
       "errors": [],
-      "timestamp": "2026-09-19T12:40:54.640983+00:00",
-      "run_id": "a2edec3adfca",
+      "timestamp": "2026-09-19T12:44:44.756912+00:00",
+      "run_id": "04a69e5861ea",
       "graph_hash": "51329dcfa3a91bae",
       "corpus_hash": null
     },
@@ -46,8 +46,8 @@
         "Evidence provenance index missing"
       ],
       "errors": [],
-      "timestamp": "2026-09-19T12:40:54.641064+00:00",
-      "run_id": "a2edec3adfca",
+      "timestamp": "2026-09-19T12:44:44.756998+00:00",
+      "run_id": "04a69e5861ea",
       "graph_hash": "51329dcfa3a91bae",
       "corpus_hash": null
     },
@@ -59,21 +59,20 @@
         "claims": 18
       },
       "errors": [],
-      "timestamp": "2026-09-19T12:40:54.642038+00:00",
-      "run_id": "a2edec3adfca",
+      "timestamp": "2026-09-19T12:44:44.758006+00:00",
+      "run_id": "04a69e5861ea",
       "graph_hash": "51329dcfa3a91bae",
       "corpus_hash": null
     },
     "G5": {
       "gate_id": "G5",
-      "status": "FAIL",
-      "details": [
-        "Tests failed with exit code 1",
-        ""
-      ],
+      "status": "PASS",
+      "details": {
+        "passed": 41
+      },
       "errors": [],
-      "timestamp": "2026-09-19T12:41:04.768183+00:00",
-      "run_id": "a2edec3adfca",
+      "timestamp": "2026-09-19T12:44:53.919837+00:00",
+      "run_id": "04a69e5861ea",
       "graph_hash": "51329dcfa3a91bae",
       "corpus_hash": null
     },
@@ -84,8 +83,8 @@
         "Found BOOKED state in graph"
       ],
       "errors": [],
-      "timestamp": "2026-09-19T12:41:04.768747+00:00",
-      "run_id": "a2edec3adfca",
+      "timestamp": "2026-09-19T12:44:53.920365+00:00",
+      "run_id": "04a69e5861ea",
       "graph_hash": "51329dcfa3a91bae",
       "corpus_hash": null
     }
