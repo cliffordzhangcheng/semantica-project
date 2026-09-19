@@ -1,5 +1,5 @@
 # Semantica Validation Workflow
-# R07: CI - 真实自动化验证，JSON解析而非grep
+# R07: CI - 真实自动化验证
 
 name: Semantica Validation
 
@@ -12,38 +12,19 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.11']
-    
     steps:
       - uses: actions/checkout@v4
       
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
-          
-      - name: Install setuptools and pip
-        run: |
-          python -m pip install --upgrade pip==24.3.1 setuptools==70.0.0 wheel
+          python-version: '3.11'
           
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -e .
           pip install -e ".[dev]"
           
-      - name: Run all tests
-        run: python -m pytest tests/ -v --tb=short
-        
-      - name: Check gate validation (expected FAIL in test env)
-        run: |
-          python scripts/run_gates.py || true
-          echo "Gate validation completed (FAIL is expected when corpus is missing)"
-          
-      - name: Verify project structure
-        run: |
-          test -f pyproject.toml
-          test -d src/semantica_workbench
-          test -d tests
-          echo "Project structure verified"
+      - name: Run tests
+        run: python -m pytest tests/ -v
