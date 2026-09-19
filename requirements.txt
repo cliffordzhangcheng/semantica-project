@@ -1,31 +1,15 @@
-# Semantica 知识图谱构建管线依赖
-# 优先使用 apk 安装 (py3-*)，pip 仅作补充
+# R06: 依赖锁定 - 固定版本防止漂移
+python-semantica==0.6.0
+networkx==3.1
+rdflib==7.0.0
+pandas==2.1.4
+numpy==1.26.2
+pyyaml==6.0.1
+requests==2.31.0
+python-dotenv==1.0.0
 
-# 核心框架
-semantica
-
-# 向量存储与检索
-faiss-cpu
-weaviate-client
-
-# 图数据库驱动
-neo4j
-
-# 图导出格式
-graphml
-rdflib
-
-# NLP 处理
-spacy
-transformers
-
-# 深度学习 (CPU 版，Alpine musl 兼容)
-torch --index-url https://download.pytorch.org/whl/cpu
-
-# 工具库
-pyyaml
-tqdm
-click
-requests
-lxml
-beautifulsoup4
+# R05: 模块化依赖 - 明确声明
+# semantica-core: 核心图构建
+# semantica-ingest: 文档摄入
+# semantica-export: 导出模块
+# semantica-validation: 验证模块
