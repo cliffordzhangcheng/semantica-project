@@ -1,163 +1,88 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8">
-<title>AKOS Ontology Workbench</title>
-<script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:system-ui,sans-serif;background:#0d1117;color:#c9d1d9;height:100vh;display:flex;flex-direction:column}
-#topbar{padding:10px 16px;background:#161b22;border-bottom:1px solid #30363d;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-#topbar h1{font-size:16px;white-space:nowrap}
-#topbar .stats{font-size:11px;color:#8b949e;display:flex;gap:12px}
-#topbar .stats b{color:#58a6ff}
-#mode-toggle{display:flex;background:#0d1117;border:1px solid #30363d;border-radius:4px;overflow:hidden}
-#mode-toggle button{background:transparent;border:none;color:#8b949e;padding:6px 14px;font-size:12px;cursor:pointer}
-#mode-toggle button.active{background:#238636;color:#fff}
-#search-wrap{display:flex;gap:6px;align-items:center;margin-left:auto}
-#search{background:#0d1117;border:1px solid #30363d;border-radius:4px;color:#c9d1d9;padding:6px 10px;font-size:12px;width:200px;outline:none}
-#search:focus{border-color:#58a6ff}
-#toolbar{padding:8px 16px;background:#161b22;border-bottom:1px solid #21262d;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-#toolbar button{background:#21262d;color:#c9d1d9;border:1px solid #30363d;border-radius:4px;padding:5px 12px;font-size:12px;cursor:pointer;transition:all .15s}
-#toolbar button:hover{background:#30363d;border-color:#58a6ff}
-#toolbar select{background:#21262d;color:#c9d1d9;border:1px solid #30363d;border-radius:4px;padding:5px;font-size:12px;outline:none}
-.tabbar{display:flex;background:#161b22;border-bottom:1px solid #30363d}
-.tabbar button{background:transparent;border:none;color:#8b949e;padding:10px 16px;font-size:12px;cursor:pointer;border-bottom:2px solid transparent}
-.tabbar button.active{color:#58a6ff;border-bottom-color:#58a6ff}
-.main{flex:1;display:flex;overflow:hidden}
-#cy{flex:1;background:#0d1117}
-#sidepanel{width:380px;background:#161b22;border-left:1px solid #30363d;overflow-y:auto;padding:14px}
-#sidepanel h2{font-size:13px;color:#58a6ff;margin-bottom:10px;border-bottom:1px solid #21262d;padding-bottom:6px;display:flex;justify-content:space-between;align-items:center}
-#sidepanel h2 .badge{font-size:10px;padding:2px 8px;border-radius:10px;background:#21262d;color:#8b949e}
-#sidepanel .field{margin:8px 0;font-size:12px}
-#sidepanel .field .k{color:#8b949e;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
-#sidepanel .field .v{color:#c9d1d9;margin-top:2px;word-break:break-word}
-#sidepanel .field .v.risk-high{color:#f85149}
-#sidepanel .field .v.risk-amber{color:#d29922}
-#sidepanel .field .v.risk-green{color:#3fb950}
-#sidepanel .rel-list{margin-top:6px}
-#sidepanel .rel-item{background:#21262d;border-radius:4px;padding:6px 10px;margin:4px 0;font-size:11px;display:flex;justify-content:space-between;align-items:center}
-#sidepanel .rel-item .rt{color:#58a6ff}
-#sidepanel .rel-item .rd{color:#8b949e}
-.legend{position:absolute;bottom:10px;left:16px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:10px 12px;font-size:10px;max-width:220px;max-height:140px;overflow-y:auto;z-index:10}
-.legend .lg{display:flex;align-items:center;gap:5px;margin:2px 0}
-.legend .dot{width:9px;height:9px;border-radius:2px;flex-shrink:0}
-#tooltip{position:fixed;background:#161b22;border:1px solid #58a6ff;border-radius:6px;padding:8px 12px;font-size:11px;z-index:100;pointer-events:none;max-width:260px;display:none;box-shadow:0 4px 12px rgba(0,0,0,.5)}
-.hidden{display:none!important}
-.mode-explorer .candidate{display:block}
-.mode-governed .candidate{display:none}
-.mode-governed .validated{display:block}
-.mode-explorer .validated{display:block}
-</style></head><body>
-<div id="topbar">
-<h1>AKOS Ontology Workbench</h1>
-<div class="stats"><span><b id="c-entities">0</b> Entities</span><span><b id="c-relations">0</b> Relations</span><span><b id="c-canonical">0</b> Canonical</span><span style="color:#238636">Gate: PASS</span></div>
-<div class="mode-toggle">
-<button id="btn-explorer" class="active" onclick="setMode('explorer')">Explorer</button>
-<button id="btn-governed" onclick="setMode('governed')">Governed</button>
-</div>
-<div class="search-wrap">
-<input id="search" placeholder="Search entities, relations, provenance...">
-</div>
-</div>
-<div id="toolbar">
-<button onclick="fit()">Fit</button>
-<button onclick="zoom(1.2)">Zoom+</button>
-<button onclick="zoom(0.8)">Zoom-</button>
-<button onclick="toggleLabels()">Hide Labels</button>
-<select id="groupFilter" onchange="filterByGroup(this.value)"><option value="">All Groups</option></select>
-<select id="confFilter" onchange="filterByConf(this.value)">
-<option value="">All Confidence</option>
-<option value="0.9">≥0.9</option>
-<option value="0.7">≥0.7</option>
-<option value="0.5">≥0.5</option>
-</select>
-<button onclick="resetFilter()">Reset</button>
-</div>
-<div class="tabbar">
-<button class="active" onclick="switchTab('graph',this)">Knowledge Graph</button>
-<button onclick="switchTab('ontology',this)">Ontology Classes</button>
-<button onclick="switchTab('review',this)">Review Queue</button>
-<button onclick="switchTab('timeline',this)">Change History</button>
-</div>
-<div class="main">
-<div id="cy"></div>
-<div id="sidepanel">
-<h2>Entity Details <span class="badge" id="entity-badge">—</span></h2>
-<div id="detail"></div>
-</div>
-</div>
-<div class="legend" id="legend"></div>
-<div id="tooltip"></div>
-<script>
-echo "__MINIS_DONE_587f5e3d_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-cd /var/minis/workspace/semantica-project-clean && python3 -m http.server 8765 > /dev/null 2>&1 & sleep 1 && curl -s -o /dev/null -w '%{http_code}' http://localhost:8765/webui/index.html
-echo "__MINIS_DONE_bddab0f8_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-cd /var/minis/workspace/semantica-project-clean && python3 review_queue.py 2>&1 | tail -10
-echo "__MINIS_DONE_55c4a3d6_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-find /var/minis/mounts/NewEra/ -type d -iname '*cosmos*' -o -type d -iname '*whale*' 2>/dev/null | grep -v node_modules | head -10
-echo "__MINIS_DONE_576d53bb_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-find /var/minis/mounts/NewEra/ -type d -iname '*cosmos*' -o -type d -iname '*whale*' 2>/dev/null | grep -v node_modules | head -10
-echo "__MINIS_DONE_222786bc_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-find /var/minis/mounts/NewEra/ -type d -iname '*cosmos*' -o -type d -iname '*whale*' 2>/dev/null | grep -v node_modules | head -10
-echo "__MINIS_DONE_aa5c69d4_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-ls /var/minis/mounts/NewEra/ 2>/dev/null
-echo "__MINIS_DONE_4bbb7fd0_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-timeout 10 ls /var/minis/mounts/NewEra/ 2>&1 | head -20
-echo "__MINIS_DONE_0af8a67a_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-find /var/minis/mounts/ObsidianVault/ -name 'psw*' -o -name '*password*' -o -name '*psw*' 2>/dev/null | head -10
-echo "__MINIS_DONE_79859a13_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-ls /var/minis/mounts/ObsidianVault/ | head -5
-echo "__MINIS_DONE_9e78254f_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-ls /var/minis/mounts/ObsidianVault/
-echo "__MINIS_DONE_3190ce6b_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-ls /var/minis/mounts/ObsidianVault/ 2>&1 | head -20
-echo "__MINIS_DONE_2230a89b_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-echo test && timeout 5 ls /var/minis/mounts/ObsidianVault/ 2>&1 | head -5
-echo "__MINIS_DONE_6a4e4226_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-ls /var/minis/mounts/ObsidianVault/ 2>&1 | head -20
-echo "__MINIS_DONE_2d1fffe6_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-mount 2>&1 | grep -i 'obsidian\|newera\|vault' | head -10; echo "---"; df -h /var/minis/mounts/ 2>&1 | tail -3; echo "---"; ls -la /var/minis/mounts/ 2>&1 | head -10
-echo "__MINIS_DONE_5772356b_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-mount 2>&1 | grep -i 'obsidian\|newera\|vault' | head -10
-echo "__MINIS_DONE_a0ffcc66_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-ls /var/minis/mounts/ObsidianVault/ 2>&1 | head -5
-echo "__MINIS_DONE_0d7c204b_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-which openssl s_client 2>/dev/null; echo "---"; timeout 10 bash -c 'echo | openssl s_client -connect imap.freehosting.com:993 -starttls imap 2>&1 | head -5' || echo "IMAP TLS failed, try direct"; timeout 10 bash -c 'echo | openssl s_client -connect imap.freehosting.com:143 2>&1 | head -5' || echo "IMAP 143 failed"
-echo "__MINIS_DONE_419e7a70_EXIT_$?__"
-export OPENAI_API_KEY='sk-placeholder-REDACTED'
-export AGNES_AI_API_KEY='sk-placeholder-REDACTED'
-curl -s --connect-timeout 5 https://panel.freehosting.com/roundcube/ 2>&1 | head -30
-echo "__MINIS_DONE_31686c72_EXIT_$?__"
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantica AKOS Portal</title>
+  <script src="graph_data.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .header { background: #24292e; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+    .stats { display: flex; gap: 20px; margin-top: 10px; }
+    .stat { background: #f6f8fa; padding: 10px 20px; border-radius: 4px; }
+    .gate-status { margin-top: 20px; padding: 15px; border-radius: 4px; }
+    .gate-pass { background: #dafbe1; border: 1px solid #155724; }
+    .gate-fail { background: #ffebe9; border: 1px solid #82071e; }
+    .gate-unknown { background: #fff9c4; border: 1px solid #827b00; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Semantica AKOS Portal</h1>
+      <p>意保克空运货代 Ontology v0.2.1</p>
+      <div class="stats">
+        <div class="stat"><span id="c-entities">0</span> Entities</div>
+        <div class="stat"><span id="c-relations">0</span> Relations</div>
+        <div class="stat"><span id="c-canonical">0</span> Canonical</div>
+      </div>
+      <!-- R09: 动态显示闸门状态，不再硬编码 -->
+      <div id="gate-status" class="gate-status gate-unknown">
+        Gate: <b id="gate-result">LOADING</b>
+      </div>
+    </div>
+    <div id="graph-container" style="height: 600px; background: white; border-radius: 8px;"></div>
+  </div>
+  <script>
+    // R09: 从闸门结果文件动态加载状态
+    async function loadGateStatus() {
+      try {
+        const response = await fetch('../11-GATE-LEDGER-v0.2.1.json');
+        const ledger = await response.json();
+        const gates = ledger.gates || {};
+        
+        let allPass = true;
+        let allPassCount = 0;
+        let totalGates = 0;
+        
+        for (const [gate, info] of Object.entries(gates)) {
+          if (gate.startsWith('G') && parseInt(gate[1]) <= 6) {
+            totalGates++;
+            if (info.status === 'PASS') {
+              allPassCount++;
+            } else {
+              allPass = false;
+            }
+          }
+        }
+        
+        const statusEl = document.getElementById('gate-result');
+        const statusDiv = document.getElementById('gate-status');
+        
+        if (allPass && allPassCount === totalGates && totalGates > 0) {
+          statusEl.textContent = 'PASS';
+          statusDiv.className = 'gate-status gate-pass';
+        } else if (totalGates === 0) {
+          statusEl.textContent = 'UNKNOWN';
+          statusDiv.className = 'gate-status gate-unknown';
+        } else {
+          statusEl.textContent = 'FAIL';
+          statusDiv.className = 'gate-status gate-fail';
+        }
+      } catch (e) {
+        document.getElementById('gate-result').textContent = 'UNKNOWN';
+      }
+    }
+    
+    // 加载图表数据
+    const graphData = window.graphData || { nodes: [], edges: [] };
+    document.getElementById('c-entities').textContent = graphData.nodes?.length || 0;
+    document.getElementById('c-relations').textContent = graphData.edges?.length || 0;
+    document.getElementById('c-canonical').textContent = graphData.nodes?.filter(n => n.canonical).length || 0;
+    
+    // 加载闸门状态
+    loadGateStatus();
+  </script>
+</body>
+</html>
