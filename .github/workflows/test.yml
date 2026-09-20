@@ -15,7 +15,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install
+      - name: Install dependencies
         run: pip install -e . pytest
-      - name: Test
-        run: pytest tests/ --collect-only && pytest tests/ -v --tb=short
+      - name: Run smoke tests
+        run: pytest tests/test_smoke.py -v
+      - name: Run full test suite
+        run: pytest tests/ -v --tb=short
