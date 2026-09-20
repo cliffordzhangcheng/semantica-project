@@ -1,4 +1,5 @@
 name: CI
+
 on:
   push:
     branches: [main, '**']
@@ -22,6 +23,6 @@ jobs:
           rm -rf outputs/
           python -m semantica_workbench.cli run
       - name: Validate gates
-        run: python scripts/run_gates.py
+        run: python scripts/run_gates.py --project-root . --run-id ci-$(date +%Y%m%d-%H%M%S)
       - name: Check gate ledger
         run: cat outputs/reports/gate_ledger.json

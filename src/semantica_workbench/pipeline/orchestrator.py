@@ -76,6 +76,10 @@ class PipelineOrchestrator:
             return result.returncode
         print("Error: scripts/run_gates.py not found", file=sys.stderr)
         return 1
+    
+    def run_all(self, run_id: Optional[str] = None) -> int:
+        """Run complete pipeline - entry point"""
+        return self.run(run_id=run_id)
 
 def main():
     orchestrator = PipelineOrchestrator()

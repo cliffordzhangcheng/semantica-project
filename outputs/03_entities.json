@@ -1,14 +1,1 @@
-[
-  {
-    "text": "Semantica",
-    "label": "UNKNOWN",
-    "start_char": 0,
-    "end_char": 9,
-    "confidence": 0.5,
-    "metadata": {
-      "extraction_method": "last_resort_pattern"
-    },
-    "id": "b68a6c43678e868f:e0",
-    "doc_id": "b68a6c43678e868f"
-  }
-]
+{}

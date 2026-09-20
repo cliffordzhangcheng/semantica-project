@@ -1,6 +1,6 @@
 {
-  "run_id": "ci-20260920-221831",
-  "timestamp": "2026-09-20T22:18:31.458022",
+  "run_id": "e2e-20260920-224257",
+  "timestamp": "2026-09-20T22:42:58.035717",
   "gates": {
     "G0": {
       "name": "Corpus exists",
@@ -13,8 +13,7 @@
     },
     "G2": {
       "name": "Graph artifact",
-      "status": "PASS",
-      "graph_hash": "2981c0e4b767380a"
+      "status": "FAIL"
     },
     "G3": {
       "name": "Evidence file",
@@ -32,8 +31,8 @@
     },
     "G6": {
       "name": "Booking state",
-      "status": "FAIL",
-      "details": "Booking status file missing"
+      "status": "PASS",
+      "details": "No illegal bookings"
     }
   }
 }
