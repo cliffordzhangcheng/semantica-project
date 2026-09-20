@@ -1,2 +1,9 @@
-[CONTEXT OFFLOADED] Content (~139 tokens, 348 bytes) saved to: /var/minis/offloads/tools/file_write_40106a8a9c29.txt
-Use file_read tool to retrieve if needed.
+name: Test
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Hello"
