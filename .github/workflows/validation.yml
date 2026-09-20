@@ -20,19 +20,8 @@ jobs:
           python -m pip install --upgrade pip==24.3.1
           python -m pip install setuptools==70.0.0 wheel
           python -m pip install -e .
-      - name: Debug environment
-        run: |
-          echo "Python version:"
-          python --version
-          echo "Working directory:"
-          pwd
-          echo "Installed packages:"
-          pip list
-          echo "Test files:"
-          ls -la tests/
       - name: Run tests
         run: |
-          cd tests
-          python test_smoke.py
+          python -m pytest tests/ -v --tb=short
       - name: Run gate validation
-        run: python scripts/run_gates.py || echo "Gate validation failed as expected"
+        run: python scripts/run_gates.py || echo "Gate validation expected to FAIL"
