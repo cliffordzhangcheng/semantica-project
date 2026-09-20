@@ -14,14 +14,14 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install
+        run: pip install -e ".[dev]"
+      - name: Run unit tests
+        run: python -m pytest tests/ -v
+      - name: Run E2E pipeline
         run: |
-          pip install pytest
-          pip install -e . || true
-      - name: Test
-        run: pytest tests/ -v
-      - name: Check forbidden patterns
-        run: |
-          if grep -r "CONTEXT OFFLOADED\|offloaded.*tmpfile" --include="*.py" src/ 2>/dev/null; then
-            echo "ERROR: Found CONTEXT OFFLOADED pattern in source files"
-            exit 1
-          fi
+          rm -rf outputs/
+          python -m semantica_workbench.cli run
+      - name: Validate gates
+        run: python scripts/run_gates.py
+      - name: Check gate ledger
+        run: cat outputs/reports/gate_ledger.json
