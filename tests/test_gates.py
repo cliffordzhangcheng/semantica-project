@@ -27,7 +27,7 @@ class TestGateValidation(unittest.TestCase):
         corpus_dir.rmdir()
         
         engine = GateEngine(self.project_root)
-        result = engine.validate_all("run123", "hash1", "hash2")
+        result = engine.validate_all()
         
         self.assertEqual(result["gates"]["G0"]["status"], "FAIL")
         self.assertEqual(result["overall"], "FAIL")
@@ -37,7 +37,7 @@ class TestGateValidation(unittest.TestCase):
         from semantica_workbench.evaluation.gate_validator import GateEngine
         
         engine = GateEngine(self.project_root)
-        result = engine.validate_all("run123", "hash1", "hash2")
+        result = engine.validate_all()
         
         self.assertEqual(result["gates"]["G3"]["status"], "FAIL")
         self.assertNotEqual(result["overall"], "PASS")
@@ -47,7 +47,7 @@ class TestGateValidation(unittest.TestCase):
         from semantica_workbench.evaluation.gate_validator import GateEngine
         
         engine = GateEngine(self.project_root)
-        result = engine.validate_all("run123", "hash1", "hash2")
+        result = engine.validate_all()
         
         # 空账本应失败
         self.assertEqual(result["overall"], "FAIL")
@@ -57,7 +57,7 @@ class TestGateValidation(unittest.TestCase):
         from semantica_workbench.evaluation.gate_validator import GateEngine
         
         engine = GateEngine(self.project_root)
-        result = engine.validate_all("run123", "hash1", "hash2")
+        result = engine.validate_all()
         
         # 不完整的账本应失败
         self.assertEqual(result["overall"], "FAIL")
@@ -68,7 +68,7 @@ class TestGateValidation(unittest.TestCase):
         from semantica_workbench.projection.admission import ProjectionAdmission
         
         engine = GateEngine(self.project_root)
-        result = engine.validate_all("run123", "hash1", "hash2")
+        result = engine.validate_all()
         
         admission = ProjectionAdmission()
         is_admitted = admission.is_admitted(result)
@@ -201,7 +201,7 @@ class TestGateValidation(unittest.TestCase):
             engine = GateEngine(project_root)
             
             # 所有其他gate需要满足条件，但graph hash不匹配应导致失败
-            result = engine.validate_all("run123", "wrong-hash", "corpus-hash")
+            result = engine.validate_all()
             
             # 由于其他gate的依赖不存在，整体应为FAIL
             self.assertEqual(result["overall"], "FAIL")
@@ -217,7 +217,7 @@ class TestGateValidation(unittest.TestCase):
         # Mock测试结果失败
         with patch('subprocess.run') as mock_run:
             mock_run.return_value = MagicMock(returncode=1)
-            result = engine.validate_all("run123", "hash1", "hash2")
+            result = engine.validate_all()
             
             self.assertEqual(result["gates"]["G5"]["status"], "FAIL")
     
@@ -324,7 +324,7 @@ class TestGateValidation(unittest.TestCase):
             
             # 验证通过（所有gate应通过）
             engine = GateEngine(project_root)
-            result = engine.validate_all("run123", "expected_hash", "corpus_hash")
+            result = engine.validate_all()
             # 注意：由于缺少文档，某些gate可能会失败，这是预期行为
             self.assertIn(result["overall"], ["PASS", "FAIL"])
     
@@ -436,7 +436,7 @@ class TestGateValidation(unittest.TestCase):
             (project_root / "research" / "archive" / "test" / "06_graph.json").write_text("{}")
             
             engine = GateEngine(project_root)
-            result = engine.validate_all("run123", "hash1", "corpus_hash")
+            result = engine.validate_all()
             
             # G0应该通过因为有文档
             self.assertEqual(result["gates"]["G0"]["status"], "PASS")
