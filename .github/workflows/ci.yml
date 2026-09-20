@@ -1,2 +1,18 @@
-[CONTEXT OFFLOADED] Content (~235 tokens, 581 bytes) saved to: /var/minis/offloads/tools/file_write_4065d27e5741.txt
-Use file_read tool to retrieve if needed.
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check Python
+        run: python --version && pip --version
+      - name: Install pytest
+        run: pip install pytest==7.4.0
+      - name: Test
+        run: python -m pytest tests/test_smoke.py -v --tb=short
