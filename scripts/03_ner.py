@@ -7,7 +7,7 @@ Step 3: 实体抽取 (NER)
 from pathlib import Path
 import json
 import os
-from pipeline_compat import serialize_records
+from scripts.pipeline_compat import serialize_records
 
 INPUT_FILE = Path(__file__).parent.parent / "outputs" / "02_normalized.json"
 OUTPUT_FILE = Path(__file__).parent.parent / "outputs" / "03_entities.json"

@@ -7,7 +7,7 @@ Step 4: 关系抽取
 from pathlib import Path
 import json
 import os
-from pipeline_compat import serialize_records
+from scripts.pipeline_compat import serialize_records
 
 ENTITIES_FILE = Path(__file__).parent.parent / "outputs" / "03_entities.json"
 NORMALIZED_FILE = Path(__file__).parent.parent / "outputs" / "02_normalized.json"

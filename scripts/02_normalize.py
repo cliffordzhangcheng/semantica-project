@@ -5,7 +5,7 @@ Step 2: 数据规范化
 """
 from pathlib import Path
 import json
-from pipeline_compat import normalize_documents
+from scripts.pipeline_compat import normalize_documents
 
 INPUT_FILE = Path(__file__).parent.parent / "outputs" / "01_raw.json"
 OUTPUT_FILE = Path(__file__).parent.parent / "outputs" / "02_normalized.json"
