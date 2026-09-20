@@ -21,7 +21,7 @@ class PipelineOrchestrator:
         self.manifest_path = self.run_dir / "run_manifest.json"
         self.run_dir.mkdir(parents=True, exist_ok=True)
 
-    def run_all(self) -> int:
+    def run_all(self, run_id: str = None) -> int:
         """Run complete pipeline with run isolation"""
         manifest = self._init_manifest()
         for stage in self.STAGES:

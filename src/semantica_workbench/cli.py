@@ -33,7 +33,7 @@ def main():
             stage_map = {
                 "ingest": orchestrator.ingest,
                 "normalize": orchestrator.normalize,
-                "build": orchestrator.build,
+                "build": orchestrator.build_and_store,
                 "export": orchestrator.export,
             }
             exit_code = stage_map[args.command]()
