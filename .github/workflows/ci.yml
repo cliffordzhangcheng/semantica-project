@@ -11,8 +11,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install
-        run: pip install -e . pytest
-      - name: List data files
-        run: ls -la data/ data/raw/ 2>/dev/null || echo "No data"
+        run: pip install pytest
       - name: Test
-        run: python -m pytest tests/test_smoke.py -v --tb=long
+        run: PYTHONPATH=src python -m pytest tests/test_smoke.py -v --tb=long
