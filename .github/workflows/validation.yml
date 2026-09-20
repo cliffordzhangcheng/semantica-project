@@ -15,15 +15,24 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install pip
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip==24.3.1
-      - name: Install project
-        run: |
           python -m pip install setuptools==70.0.0 wheel
           python -m pip install -e .
+      - name: Debug environment
+        run: |
+          echo "Python version:"
+          python --version
+          echo "Working directory:"
+          pwd
+          echo "Installed packages:"
+          pip list
+          echo "Test files:"
+          ls -la tests/
       - name: Run tests
         run: |
-          python -m pytest tests/test_smoke.py -v --tb=long
+          cd tests
+          python test_smoke.py
       - name: Run gate validation
         run: python scripts/run_gates.py || echo "Gate validation failed as expected"
