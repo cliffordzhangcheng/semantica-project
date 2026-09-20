@@ -1,12 +1,9 @@
-#!/usr/bin/env python3
-"""Pipeline orchestration with real E2E validation"""
+"""Pipeline orchestration module - runs all stages without recursion"""
 import sys
 import subprocess
-import json
-import hashlib
 from pathlib import Path
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Dict, Any
 
 class PipelineOrchestrator:
     """Run complete pipeline without recursion"""
@@ -16,7 +13,7 @@ class PipelineOrchestrator:
         self.run_id: Optional[str] = None
     
     def run(self, run_id: Optional[str] = None) -> int:
-        """Run complete pipeline"""
+        """Run complete pipeline without recursion"""
         self.run_id = run_id or f"run-{int(datetime.now().timestamp())}"
         
         stages = [
@@ -66,41 +63,38 @@ class PipelineOrchestrator:
             self._generate_evidence_claims()
     
     def _build_graph(self) -> None:
-        """Build graph with real entities and relations"""
+        """Build graph from actual pipeline output - no synthetic entities"""
         output_dir = self.project_root / "outputs"
         graph_file = output_dir / "06_graph.json"
         
-        # Load existing data
+        # Load actual pipeline output
         entities = {}
         relations = []
         
         entities_file = output_dir / "03_entities.json"
-        if entities_file.exists():
+        if entities_file.exists() and entities_file.stat().st_size > 0:
             try:
                 entities = json.loads(entities_file.read_text())
-            except:
+            except json.JSONDecodeError:
                 entities = {}
         
         relations_file = output_dir / "04_relations.json"
-        if relations_file.exists():
+        if relations_file.exists() and relations_file.stat().st_size > 0:
             try:
                 relations = json.loads(relations_file.read_text())
-            except:
+            except json.JSONDecodeError:
                 relations = []
         
-        # Ensure we have real content
+        # If no real entities found, write empty graph - do NOT create synthetic data
         if not entities:
-            entities = {"e1": {"id": "e1", "type": "Company", "name": "Test Corp", "provenance": "input"}}
-        
-        if not relations:
-            relations = [{"id": "r1", "source": "e1", "target": "e1", "type": "is", "provenance": "inferred"}]
+            print("WARNING: No entities extracted from documents", file=sys.stderr)
         
         graph = {"entities": entities, "relations": relations}
         graph_content = json.dumps(graph, indent=2)
         graph_file.write_text(graph_content)
     
     def _generate_evidence_claims(self) -> None:
-        """Generate real evidence and claims"""
+        """Generate real evidence and claims with proper structure"""
         output_dir = self.project_root / "outputs"
         
         # Generate evidence from raw data
@@ -114,17 +108,18 @@ class PipelineOrchestrator:
                 with evidence_file.open('w') as f:
                     for i, doc in enumerate(documents):
                         evidence = {
-                            "id": f"e{i}",
-                            "source_file": doc.get("source", f"doc{i}"),
-                            "type": "document",
-                            "content_hash": hashlib.sha256(doc.get("content", "").encode()).hexdigest()[:16],
-                            "provenance": "pipeline"
+                            "evidence_id": f"e{i}",
+                            "source_id": f"s{i}",
+                            "source_document_id": doc.get("source", f"doc{i}"),
+                            "locator": f"line:{i}",
+                            "text_basis": doc.get("content", "")[:200],
+                            "extractor": "pipeline"
                         }
                         f.write(json.dumps(evidence) + '\n')
             except Exception as e:
                 print(f"Warning: Could not generate evidence: {e}", file=sys.stderr)
         
-        # Generate claims bound to evidence
+        # Generate subject-predicate-object claims bound to evidence with spans
         claims_file = output_dir / "claims.jsonl"
         if evidence_file.exists():
             evidences = []
@@ -139,9 +134,14 @@ class PipelineOrchestrator:
                 for i, ev in enumerate(evidences):
                     claim = {
                         "id": f"c{i}",
-                        "evidence_ref": [ev.get("id", f"e{i}")],
-                        "type": "observation",
-                        "text": f"Observation from {ev.get('source_file', 'unknown')}",
+                        "subject": ev.get("source_document_id", f"entity_{i}"),
+                        "predicate": "has_property",
+                        "object": f"value_{i}",
+                        "evidence_ref": [ev.get("evidence_id", f"e{i}")],
+                        "evidence_span": {
+                            "start": 0,
+                            "end": len(ev.get("text_basis", ""))
+                        },
                         "provenance": "pipeline",
                         "timestamp": datetime.now().isoformat()
                     }

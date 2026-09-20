@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789938443",
-  "timestamp": "2026-09-21T05:07:23.246937",
+  "run_id": "run-1789939032",
+  "timestamp": "2026-09-21T05:17:12.729620",
   "gates": {
     "G0": {
       "name": "Corpus exists",
@@ -13,34 +13,30 @@
     },
     "G2": {
       "name": "Graph artifact",
-      "status": "PASS",
-      "graph_hash": "95e9c65d330f8531",
-      "entity_count": 1,
-      "relation_count": 1
+      "status": "FAIL",
+      "details": "Graph validation failed"
     },
     "G3": {
       "name": "Evidence file",
-      "status": "PASS",
-      "count": 6,
-      "valid_count": 6,
-      "validation_rate": "100.0%"
+      "status": "FAIL",
+      "details": "Evidence validation failed"
     },
     "G4": {
       "name": "Claims file",
-      "status": "PASS",
-      "count": 6,
-      "coverage": "100.0%"
+      "status": "FAIL",
+      "details": "Claims validation failed"
     },
     "G5": {
       "name": "All tests pass",
       "status": "PASS",
-      "details": "51 tests passed"
+      "details": "51 tests passed",
+      "commit": "b1c9c18"
     },
     "G6": {
       "name": "Booking state",
-      "status": "PASS",
-      "details": "No illegal bookings"
+      "status": "FAIL",
+      "details": "Illegal bookings found"
     }
   },
-  "overall": "PASS"
+  "overall": "FAIL"
 }

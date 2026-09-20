@@ -7,68 +7,12 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any, Optional, List, Tuple
 
-class EvidenceValidator:
-    """Validate evidence against contract"""
-    
-    REQUIRED_FIELDS = {'id', 'source_file', 'type'}
-    
-    def validate(self, evidence_path: Path) -> Tuple[int, int]:
-        """Returns (count, valid_count)"""
-        if not evidence_path.exists():
-            return 0, 0
-        
-        count = 0
-        valid = 0
-        for line in evidence_path.read_text().strip().split('\n'):
-            if not line.strip():
-                continue
-            try:
-                e = json.loads(line)
-                count += 1
-                if self._is_valid(e):
-                    valid += 1
-            except json.JSONDecodeError:
-                count += 1
-        return count, valid
-    
-    def _is_valid(self, evidence: dict) -> bool:
-        """Check evidence contract"""
-        return all(field in evidence for field in self.REQUIRED_FIELDS)
-
-
-class RealityClaim:
-    """Generate real reality claims from evidence"""
-    
-    def __init__(self, evidence_file: Path):
-        self.evidence_file = evidence_file
-    
-    def generate_claims(self) -> List[dict]:
-        """Generate claims bound to evidence refs"""
-        claims = []
-        if not self.evidence_file.exists():
-            return claims
-        
-        evidences = []
-        for line in self.evidence_file.read_text().strip().split('\n'):
-            if line.strip():
-                try:
-                    evidences.append(json.loads(line))
-                except:
-                    pass
-        
-        for i, ev in enumerate(evidences):
-            claims.append({
-                "id": f"c{i+1}",
-                "evidence_ref": [ev.get("id", f"e{i}")],
-                "type": "observation",
-                "text": f"Observation from {ev.get('source_file', 'unknown')}",
-                "timestamp": datetime.now().isoformat()
-            })
-        return claims
+# Import official EvidenceValidator - do NOT redefine here
+from semantica_workbench.evaluation.evidence_validator import EvidenceValidator
 
 
 class GateEngine:
-    """Single source of truth for gate validation"""
+    """Single source of truth for gate validation - no archive fallback, fail-closed"""
     
     def __init__(self, project_root: Path):
         self.project_root = project_root
@@ -76,69 +20,112 @@ class GateEngine:
         self.evidence_validator = EvidenceValidator()
     
     def validate_all(self) -> dict:
-        """Run all gates and return results dict"""
+        """Run all gates and return results - FAIL on any issue, never PASS silently"""
         ledger_path = self.project_root / "outputs" / "reports" / "gate_ledger.json"
         ledger_path.parent.mkdir(parents=True, exist_ok=True)
         
-        results = {"run_id": self.run_id, "timestamp": datetime.now().isoformat(), "gates": {}, "overall": "PASS"}
+        results = {
+            "run_id": self.run_id,
+            "timestamp": datetime.now().isoformat(),
+            "gates": {},
+            "overall": "FAIL"
+        }
         
         # G0: Corpus exists
         data_raw = self.project_root / "data" / "raw"
         if data_raw.exists() and any(data_raw.iterdir()):
-            results["gates"]["G0"] = {"name": "Corpus exists", "status": "PASS",
-                "details": f"{len(list(data_raw.iterdir()))} files"}
+            results["gates"]["G0"] = {
+                "name": "Corpus exists",
+                "status": "PASS",
+                "details": f"{len(list(data_raw.iterdir()))} files"
+            }
         else:
-            results["gates"]["G0"] = {"name": "Corpus exists", "status": "FAIL"}
+            results["gates"]["G0"] = {
+                "name": "Corpus exists",
+                "status": "FAIL",
+                "details": "No corpus data found"
+            }
         
         # G1: Schema files
         schema_file = self.project_root / "schemas" / "canonical_graph.json"
         if schema_file.exists() and schema_file.stat().st_size > 0:
-            results["gates"]["G1"] = {"name": "Schema files", "status": "PASS"}
+            results["gates"]["G1"] = {
+                "name": "Schema files",
+                "status": "PASS"
+            }
         else:
-            results["gates"]["G1"] = {"name": "Schema files", "status": "FAIL"}
+            results["gates"]["G1"] = {
+                "name": "Schema files",
+                "status": "FAIL"
+            }
         
-        # G2: Graph with real validation
+        # G2: Graph with real validation against canonical schema
         graph_file = self.project_root / "outputs" / "06_graph.json"
-        self._validate_graph(results, graph_file)
+        g2_result = self._validate_graph(results, graph_file)
+        if not g2_result:
+            results["gates"]["G2"] = {
+                "name": "Graph artifact",
+                "status": "FAIL",
+                "details": "Graph validation failed"
+            }
         
-        # G3: Evidence validation
+        # G3: Evidence validation using OFFICIAL EvidenceValidator
         evidence_file = self.project_root / "outputs" / "evidence.jsonl"
-        self._validate_evidence(results, evidence_file)
+        g3_result = self._validate_evidence(results, evidence_file)
+        if not g3_result:
+            results["gates"]["G3"] = {
+                "name": "Evidence file",
+                "status": "FAIL",
+                "details": "Evidence validation failed"
+            }
         
-        # G4: Claims with evidence refs
+        # G4: Claims with subject-predicate-object structure and evidence binding
         claims_file = self.project_root / "outputs" / "claims.jsonl"
-        self._validate_claims(results, claims_file, evidence_file)
+        g4_result = self._validate_claims(results, claims_file, evidence_file)
+        if not g4_result:
+            results["gates"]["G4"] = {
+                "name": "Claims file",
+                "status": "FAIL",
+                "details": "Claims validation failed"
+            }
         
-        # G5: Tests pass (check git status + pytest)
-        self._validate_tests(results)
+        # G5: Tests pass - run pytest and capture actual results
+        g5_result = self._validate_tests(results)
+        if not g5_result:
+            results["gates"]["G5"] = {
+                "name": "All tests pass",
+                "status": "FAIL",
+                "details": "Tests failed or could not be run"
+            }
         
-        # G6: Booking state check
-        results["gates"]["G6"] = {"name": "Booking state", "status": "PASS",
-            "details": "No illegal bookings"}
+        # G6: Booking state check - scan actual semantic state
+        g6_result = self._validate_booking_state(results)
+        if not g6_result:
+            results["gates"]["G6"] = {
+                "name": "Booking state",
+                "status": "FAIL",
+                "details": "Illegal bookings found"
+            }
         
         # Calculate overall
-        failures = [g for g, v in results["gates"].items() if v.get("status") == "FAIL"]
-        results["overall"] = "FAIL" if failures else "PASS"
+        all_pass = all(
+            v.get("status") == "PASS" 
+            for v in results["gates"].values()
+        )
+        results["overall"] = "PASS" if all_pass else "FAIL"
         
-        # Write ledger
         ledger_path.write_text(json.dumps(results, indent=2))
-        
         return results
     
-    def run(self) -> int:
-        """Run validation and return exit code"""
-        result = self.validate_all()
-        failures = [g for g, v in result["gates"].items() if v.get("status") == "FAIL"]
-        if failures:
-            print(f"FAILED gates: {failures}", file=sys.stderr)
-            return 4
-        return 0
-    
-    def _validate_graph(self, results: dict, graph_file: Path) -> None:
-        """G2: Validate graph against canonical schema"""
+    def _validate_graph(self, results: dict, graph_file: Path) -> bool:
+        """G2: Validate graph against canonical schema - must have entities > 0, valid hash"""
         if not graph_file.exists() or graph_file.stat().st_size == 0:
-            results["gates"]["G2"] = {"name": "Graph artifact", "status": "FAIL"}
-            return
+            results["gates"]["G2"] = {
+                "name": "Graph artifact",
+                "status": "FAIL",
+                "details": "Graph file missing or empty"
+            }
+            return False
         
         try:
             content = graph_file.read_text()
@@ -146,10 +133,25 @@ class GateEngine:
             entities = graph.get("entities", {})
             relations = graph.get("relations", [])
             
+            # CRITICAL: Must have real entities, no placeholders
             if len(entities) <= 0:
-                results["gates"]["G2"] = {"name": "Graph artifact", "status": "FAIL",
-                    "details": "No entities in graph"}
-                return
+                results["gates"]["G2"] = {
+                    "name": "Graph artifact",
+                    "status": "FAIL",
+                    "details": "No entities in graph - cannot PASS without real data"
+                }
+                return False
+            
+            # Verify provenance is valid (not placeholder)
+            for entity_id, entity in entities.items():
+                provenance = entity.get("provenance", {})
+                if not provenance.get("source_id") or provenance.get("extractor") == "placeholder":
+                    results["gates"]["G2"] = {
+                        "name": "Graph artifact",
+                        "status": "FAIL",
+                        "details": f"Invalid provenance for entity {entity_id}"
+                    }
+                    return False
             
             graph_hash = hashlib.sha256(content.encode()).hexdigest()[:16]
             results["gates"]["G2"] = {
@@ -159,38 +161,79 @@ class GateEngine:
                 "entity_count": len(entities),
                 "relation_count": len(relations)
             }
+            return True
         except Exception as e:
-            results["gates"]["G2"] = {"name": "Graph artifact", "status": "FAIL",
-                "details": str(e)}
+            results["gates"]["G2"] = {
+                "name": "Graph artifact",
+                "status": "FAIL",
+                "details": str(e)
+            }
+            return False
     
-    def _validate_evidence(self, results: dict, evidence_file: Path) -> None:
-        """G3: Validate evidence using EvidenceValidator"""
-        count, valid = self.evidence_validator.validate(evidence_file)
+    def _validate_evidence(self, results: dict, evidence_file: Path) -> bool:
+        """G3: Use OFFICIAL EvidenceValidator from evaluation module"""
+        if not evidence_file.exists():
+            results["gates"]["G3"] = {
+                "name": "Evidence file",
+                "status": "FAIL",
+                "details": "Evidence file missing"
+            }
+            return False
+        
+        # Validate each evidence record using official validator
+        count = 0
+        valid_count = 0
+        errors = []
+        
+        for line in evidence_file.read_text().strip().split('\n'):
+            if not line.strip():
+                continue
+            try:
+                evidence = json.loads(line)
+                count += 1
+                record_errors = self.evidence_validator.validate_evidence(evidence)
+                if not record_errors:
+                    valid_count += 1
+                else:
+                    errors.extend(record_errors)
+            except json.JSONDecodeError:
+                count += 1
+                errors.append("Invalid JSON in evidence line")
         
         if count == 0:
-            results["gates"]["G3"] = {"name": "Evidence file", "status": "FAIL",
-                "details": "No evidence found"}
-            return
+            results["gates"]["G3"] = {
+                "name": "Evidence file",
+                "status": "FAIL",
+                "details": "No evidence records found"
+            }
+            return False
         
-        rate = (valid / count * 100) if count > 0 else 0
+        rate = (valid_count / count * 100) if count > 0 else 0
         if rate < 100:
-            results["gates"]["G3"] = {"name": "Evidence file", "status": "FAIL",
-                "details": f"Only {rate:.1f}% evidence valid"}
-            return
+            results["gates"]["G3"] = {
+                "name": "Evidence file",
+                "status": "FAIL",
+                "details": f"Only {rate:.1f}% evidence valid: {'; '.join(errors[:3])}"
+            }
+            return False
         
         results["gates"]["G3"] = {
             "name": "Evidence file",
             "status": "PASS",
             "count": count,
-            "valid_count": valid,
+            "valid_count": valid_count,
             "validation_rate": f"{rate:.1f}%"
         }
+        return True
     
-    def _validate_claims(self, results: dict, claims_file: Path, evidence_file: Path) -> None:
-        """G4: Validate claims have evidence references"""
+    def _validate_claims(self, results: dict, claims_file: Path, evidence_file: Path) -> bool:
+        """G4: Validate claims have subject-predicate-object + evidence binding"""
         if not claims_file.exists() or claims_file.stat().st_size == 0:
-            results["gates"]["G4"] = {"name": "Claims file", "status": "FAIL"}
-            return
+            results["gates"]["G4"] = {
+                "name": "Claims file",
+                "status": "FAIL"
+            }
+            return False
         
         claims = []
         for line in claims_file.read_text().strip().split('\n'):
@@ -201,16 +244,29 @@ class GateEngine:
                     pass
         
         if len(claims) == 0:
-            results["gates"]["G4"] = {"name": "Claims file", "status": "FAIL"}
-            return
+            results["gates"]["G4"] = {
+                "name": "Claims file",
+                "status": "FAIL"
+            }
+            return False
         
-        claims_with_refs = sum(1 for c in claims if c.get("evidence_ref"))
-        coverage = (claims_with_refs / len(claims) * 100) if claims else 0
+        # Validate each claim has SPO structure and evidence binding
+        valid_claims = 0
+        for claim in claims:
+            has_spo = all(k in claim for k in ['subject', 'predicate', 'object'])
+            has_evidence_ref = claim.get('evidence_ref') and len(claim['evidence_ref']) > 0
+            has_span = 'evidence_span' in claim
+            if has_spo and has_evidence_ref and has_span:
+                valid_claims += 1
         
+        coverage = (valid_claims / len(claims) * 100) if claims else 0
         if coverage < 100:
-            results["gates"]["G4"] = {"name": "Claims file", "status": "FAIL",
-                "details": f"Only {coverage:.1f}% claims have evidence_ref"}
-            return
+            results["gates"]["G4"] = {
+                "name": "Claims file",
+                "status": "FAIL",
+                "details": f"Only {coverage:.1f}% claims have proper SPO + evidence binding"
+            }
+            return False
         
         results["gates"]["G4"] = {
             "name": "Claims file",
@@ -218,31 +274,139 @@ class GateEngine:
             "count": len(claims),
             "coverage": f"{coverage:.1f}%"
         }
+        return True
     
-    def _validate_tests(self, results: dict) -> None:
-        """G5: Verify tests pass"""
+    def _validate_tests(self, results: dict) -> bool:
+        """G5: Run pytest and validate actual results - fail-closed"""
         try:
-            result = subprocess.run([sys.executable, "-m", "pytest", "tests/", "-q"],
-                                   capture_output=True, text=True, cwd=self.project_root, timeout=120)
-            if result.returncode == 0:
-                # Parse test count
+            result = subprocess.run(
+                [sys.executable, "-m", "pytest", "tests/", "-q"],
+                cwd=self.project_root,
+                capture_output=True,
+                text=True,
+                timeout=120
+            )
+            
+            if result.returncode != 0:
+                results["gates"]["G5"] = {
+                    "name": "All tests pass",
+                    "status": "FAIL",
+                    "details": f"Tests failed: {result.stdout[-200:] if result.stdout else 'unknown'}"
+                }
+                return False
+            
+            # Parse test count from output
+            output = result.stdout
+            if "passed" in output:
                 import re
-                match = re.search(r'(\d+) passed', result.stdout)
-                count = match.group(1) if match else "?"
-                results["gates"]["G5"] = {"name": "All tests pass", "status": "PASS",
-                    "details": f"{count} tests passed"}
-            else:
-                results["gates"]["G5"] = {"name": "All tests pass", "status": "FAIL",
-                    "details": "Tests failed"}
-        except Exception:
-            results["gates"]["G5"] = {"name": "All tests pass", "status": "PASS",
-                "details": "Test check skipped"}
+                match = re.search(r'(\d+) passed', output)
+                if match:
+                    passed = match.group(1)
+                    results["gates"]["G5"] = {
+                        "name": "All tests pass",
+                        "status": "PASS",
+                        "details": f"{passed} tests passed",
+                        "commit": self._get_current_commit()
+                    }
+                    return True
+            
+            results["gates"]["G5"] = {
+                "name": "All tests pass",
+                "status": "FAIL",
+                "details": "Could not parse test results"
+            }
+            return False
+            
+        except subprocess.TimeoutExpired:
+            results["gates"]["G5"] = {
+                "name": "All tests pass",
+                "status": "FAIL",
+                "details": "Test execution timed out"
+            }
+            return False
+        except Exception as e:
+            # Fail-closed: any exception = FAIL
+            results["gates"]["G5"] = {
+                "name": "All tests pass",
+                "status": "FAIL",
+                "details": str(e)
+            }
+            return False
+    
+    def _validate_booking_state(self, results: dict) -> bool:
+        """G6: Scan current-run semantic state for illegal bookings"""
+        try:
+            # Check for shipment/state/booking data
+            booking_file = self.project_root / "outputs" / "booking_state.json"
+            state_file = self.project_root / "outputs" / "state.json"
+            
+            # If no booking data exists, this is a BLOCKED condition
+            if not booking_file.exists() and not state_file.exists():
+                results["gates"]["G6"] = {
+                    "name": "Booking state",
+                    "status": "BLOCKED",
+                    "details": "No booking/state data found for validation"
+                }
+                return False
+            
+            # Scan actual booking data
+            illegal_count = 0
+            if booking_file.exists():
+                try:
+                    bookings = json.loads(booking_file.read_text())
+                    for b in bookings:
+                        if b.get("status") == "BOOKED" and b.get("unsupported", False):
+                            illegal_count += 1
+                except:
+                    pass
+            
+            if illegal_count > 0:
+                results["gates"]["G6"] = {
+                    "name": "Booking state",
+                    "status": "FAIL",
+                    "details": f"Found {illegal_count} unsupported BOOKED items"
+                }
+                return False
+            
+            results["gates"]["G6"] = {
+                "name": "Booking state",
+                "status": "PASS",
+                "details": f"No illegal bookings (unsupported=0)"
+            }
+            return True
+            
+        except Exception as e:
+            results["gates"]["G6"] = {
+                "name": "Booking state",
+                "status": "FAIL",
+                "details": str(e)
+            }
+            return False
+    
+    def _get_current_commit(self) -> str:
+        """Get current git commit for traceability"""
+        try:
+            result = subprocess.run(
+                ["git", "rev-parse", "--short=7", "HEAD"],
+                cwd=self.project_root,
+                capture_output=True,
+                text=True
+            )
+            return result.stdout.strip()
+        except:
+            return "unknown"
 
 
 def main():
-    project_root = Path(__file__).resolve().parents[3]
+    project_root = Path(__file__).resolve().parents[2]
     engine = GateEngine(project_root)
-    sys.exit(engine.run())
+    results = engine.validate_all()
+    
+    failures = [g for g, v in results["gates"].items() if v.get("status") == "FAIL"]
+    if failures:
+        print(f"FAILED gates: {failures}", file=sys.stderr)
+        sys.exit(4)
+    sys.exit(0)
 
 
 if __name__ == "__main__":
