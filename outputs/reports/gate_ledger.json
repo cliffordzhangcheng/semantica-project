@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789921500",
-  "timestamp": "2026-09-21T00:25:00.938099",
+  "run_id": "run-1789937558",
+  "timestamp": "2026-09-21T04:52:38.835333",
   "gates": {
     "G0": {
       "name": "Corpus exists",
@@ -41,5 +41,6 @@
       "status": "PASS",
       "details": "No illegal bookings"
     }
-  }
+  },
+  "overall": "PASS"
 }

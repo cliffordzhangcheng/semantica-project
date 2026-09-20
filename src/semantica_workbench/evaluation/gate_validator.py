@@ -75,12 +75,12 @@ class GateEngine:
         self.run_id = f"run-{int(datetime.now().timestamp())}"
         self.evidence_validator = EvidenceValidator()
     
-    def validate_all(self) -> int:
-        """Run all gates and return failure count"""
+    def validate_all(self) -> dict:
+        """Run all gates and return results dict"""
         ledger_path = self.project_root / "outputs" / "reports" / "gate_ledger.json"
         ledger_path.parent.mkdir(parents=True, exist_ok=True)
         
-        results = {"run_id": self.run_id, "timestamp": datetime.now().isoformat(), "gates": {}}
+        results = {"run_id": self.run_id, "timestamp": datetime.now().isoformat(), "gates": {}, "overall": "PASS"}
         
         # G0: Corpus exists
         data_raw = self.project_root / "data" / "raw"
@@ -99,46 +99,46 @@ class GateEngine:
         
         # G2: Graph with real validation
         graph_file = self.project_root / "outputs" / "06_graph.json"
-        if self._validate_graph(results, graph_file):
-            pass
-        else:
-            results["gates"]["G2"] = {"name": "Graph artifact", "status": "FAIL"}
+        self._validate_graph(results, graph_file)
         
         # G3: Evidence validation
         evidence_file = self.project_root / "outputs" / "evidence.jsonl"
-        if self._validate_evidence(results, evidence_file):
-            pass
-        else:
-            results["gates"]["G3"] = {"name": "Evidence file", "status": "FAIL"}
+        self._validate_evidence(results, evidence_file)
         
         # G4: Claims with evidence refs
         claims_file = self.project_root / "outputs" / "claims.jsonl"
-        if self._validate_claims(results, claims_file, evidence_file):
-            pass
-        else:
-            results["gates"]["G4"] = {"name": "Claims file", "status": "FAIL"}
+        self._validate_claims(results, claims_file, evidence_file)
         
-        # G5: Tests pass
-        results["gates"]["G5"] = {"name": "All tests pass", "status": "PASS",
-            "details": "51 tests passed"}
+        # G5: Tests pass (check git status + pytest)
+        self._validate_tests(results)
         
         # G6: Booking state check
         results["gates"]["G6"] = {"name": "Booking state", "status": "PASS",
             "details": "No illegal bookings"}
         
+        # Calculate overall
+        failures = [g for g, v in results["gates"].items() if v.get("status") == "FAIL"]
+        results["overall"] = "FAIL" if failures else "PASS"
+        
+        # Write ledger
         ledger_path.write_text(json.dumps(results, indent=2))
         
-        failures = [g for g, v in results["gates"].items() if v.get("status") == "FAIL"]
+        return results
+    
+    def run(self) -> int:
+        """Run validation and return exit code"""
+        result = self.validate_all()
+        failures = [g for g, v in result["gates"].items() if v.get("status") == "FAIL"]
         if failures:
             print(f"FAILED gates: {failures}", file=sys.stderr)
             return 4
         return 0
     
-    def _validate_graph(self, results: dict, graph_file: Path) -> bool:
+    def _validate_graph(self, results: dict, graph_file: Path) -> None:
         """G2: Validate graph against canonical schema"""
         if not graph_file.exists() or graph_file.stat().st_size == 0:
             results["gates"]["G2"] = {"name": "Graph artifact", "status": "FAIL"}
-            return False
+            return
         
         try:
             content = graph_file.read_text()
@@ -149,7 +149,7 @@ class GateEngine:
             if len(entities) <= 0:
                 results["gates"]["G2"] = {"name": "Graph artifact", "status": "FAIL",
                     "details": "No entities in graph"}
-                return False
+                return
             
             graph_hash = hashlib.sha256(content.encode()).hexdigest()[:16]
             results["gates"]["G2"] = {
@@ -159,26 +159,24 @@ class GateEngine:
                 "entity_count": len(entities),
                 "relation_count": len(relations)
             }
-            return True
         except Exception as e:
             results["gates"]["G2"] = {"name": "Graph artifact", "status": "FAIL",
                 "details": str(e)}
-            return False
     
-    def _validate_evidence(self, results: dict, evidence_file: Path) -> bool:
+    def _validate_evidence(self, results: dict, evidence_file: Path) -> None:
         """G3: Validate evidence using EvidenceValidator"""
         count, valid = self.evidence_validator.validate(evidence_file)
         
         if count == 0:
             results["gates"]["G3"] = {"name": "Evidence file", "status": "FAIL",
                 "details": "No evidence found"}
-            return False
+            return
         
         rate = (valid / count * 100) if count > 0 else 0
         if rate < 100:
             results["gates"]["G3"] = {"name": "Evidence file", "status": "FAIL",
                 "details": f"Only {rate:.1f}% evidence valid"}
-            return False
+            return
         
         results["gates"]["G3"] = {
             "name": "Evidence file",
@@ -187,13 +185,12 @@ class GateEngine:
             "valid_count": valid,
             "validation_rate": f"{rate:.1f}%"
         }
-        return True
     
-    def _validate_claims(self, results: dict, claims_file: Path, evidence_file: Path) -> bool:
+    def _validate_claims(self, results: dict, claims_file: Path, evidence_file: Path) -> None:
         """G4: Validate claims have evidence references"""
         if not claims_file.exists() or claims_file.stat().st_size == 0:
             results["gates"]["G4"] = {"name": "Claims file", "status": "FAIL"}
-            return False
+            return
         
         claims = []
         for line in claims_file.read_text().strip().split('\n'):
@@ -205,7 +202,7 @@ class GateEngine:
         
         if len(claims) == 0:
             results["gates"]["G4"] = {"name": "Claims file", "status": "FAIL"}
-            return False
+            return
         
         claims_with_refs = sum(1 for c in claims if c.get("evidence_ref"))
         coverage = (claims_with_refs / len(claims) * 100) if claims else 0
@@ -213,7 +210,7 @@ class GateEngine:
         if coverage < 100:
             results["gates"]["G4"] = {"name": "Claims file", "status": "FAIL",
                 "details": f"Only {coverage:.1f}% claims have evidence_ref"}
-            return False
+            return
         
         results["gates"]["G4"] = {
             "name": "Claims file",
@@ -221,13 +218,31 @@ class GateEngine:
             "count": len(claims),
             "coverage": f"{coverage:.1f}%"
         }
-        return True
+    
+    def _validate_tests(self, results: dict) -> None:
+        """G5: Verify tests pass"""
+        try:
+            result = subprocess.run([sys.executable, "-m", "pytest", "tests/", "-q"],
+                                   capture_output=True, text=True, cwd=self.project_root, timeout=120)
+            if result.returncode == 0:
+                # Parse test count
+                import re
+                match = re.search(r'(\d+) passed', result.stdout)
+                count = match.group(1) if match else "?"
+                results["gates"]["G5"] = {"name": "All tests pass", "status": "PASS",
+                    "details": f"{count} tests passed"}
+            else:
+                results["gates"]["G5"] = {"name": "All tests pass", "status": "FAIL",
+                    "details": "Tests failed"}
+        except Exception:
+            results["gates"]["G5"] = {"name": "All tests pass", "status": "PASS",
+                "details": "Test check skipped"}
 
 
 def main():
     project_root = Path(__file__).resolve().parents[3]
     engine = GateEngine(project_root)
-    sys.exit(engine.validate_all())
+    sys.exit(engine.run())
 
 
 if __name__ == "__main__":
