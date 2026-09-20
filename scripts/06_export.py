@@ -6,7 +6,7 @@ Step 6: 导出闭环
 """
 from pathlib import Path
 import pickle
-from pipeline_compat import export_graph
+from scripts.pipeline_compat import export_graph
 
 GRAPH_PKL = Path(__file__).parent.parent / "outputs" / "05_graph.pkl"
 OUTPUT_DIR = Path(__file__).parent.parent / "outputs"

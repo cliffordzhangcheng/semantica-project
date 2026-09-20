@@ -7,7 +7,7 @@ Step 5: 构建知识图谱 & 统一存储后端
 from pathlib import Path
 import json
 import pickle
-from pipeline_compat import build_graph
+from scripts.pipeline_compat import build_graph
 
 ENTITIES_FILE = Path(__file__).parent.parent / "outputs" / "03_entities.json"
 RELATIONS_FILE = Path(__file__).parent.parent / "outputs" / "04_relations.json"
