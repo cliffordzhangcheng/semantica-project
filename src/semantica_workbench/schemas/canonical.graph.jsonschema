@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Semantica Canonical Graph Schema",
+  "description": "Canonical entity-relation graph format for Semantica ontology",
+  "type": "object",
+  "required": ["entities", "relationships", "graph_hash", "metadata"],
+  "properties": {
+    "entities": {
+      "type": "array",
+      "description": "Collection of entities with provenance",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "provenance"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^e[0-9]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "enum": ["PERSON", "ORGANIZATION", "LOCATION", "EVENT", "PRODUCT", "DOCUMENT", "MONEY", "TIME"]
+          },
+          "properties": {
+            "type": "object"
+          },
+          "provenance": {
+            "type": "object",
+            "required": ["evidence_id", "source_id", "source_document_id", "locator", "text_basis", "extractor"],
+            "properties": {
+              "evidence_id": {"type": "string", "minLength": 1},
+              "source_id": {"type": "string", "minLength": 1},
+              "source_document_id": {"type": "string", "minLength": 1},
+              "source_revision": {"type": "string"},
+              "content_hash": {"type": "string"},
+              "locator": {"type": "string", "minLength": 1},
+              "text_basis": {"type": "string", "minLength": 1},
+              "extractor": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "description": "Collection of relationships with provenance",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "source", "target", "provenance"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^r[0-9]+$"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "description": "Source entity ID, must reference an existing entity"
+          },
+          "target": {
+            "type": "string",
+            "description": "Target entity ID, must reference an existing entity"
+          },
+          "properties": {
+            "type": "object"
+          },
+          "provenance": {
+            "type": "object",
+            "required": ["evidence_id", "source_id", "source_document_id", "locator", "text_basis", "extractor"],
+            "properties": {
+              "evidence_id": {"type": "string", "minLength": 1},
+              "source_id": {"type": "string", "minLength": 1},
+              "source_document_id": {"type": "string", "minLength": 1},
+              "source_revision": {"type": "string"},
+              "content_hash": {"type": "string"},
+              "locator": {"type": "string", "minLength": 1},
+              "text_basis": {"type": "string", "minLength": 1},
+              "extractor": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "graph_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of the canonical graph content"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "created_at", "generator"],
+      "properties": {
+        "version": {"type": "string"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "generator": {"type": "string"},
+        "source_count": {"type": "integer"}
+      }
+    }
+  }
+}
