@@ -1,5 +1,7 @@
 """Pipeline orchestration module - runs all stages without recursion"""
 import sys
+import json
+import hashlib
 import subprocess
 from pathlib import Path
 from datetime import datetime
