@@ -10,6 +10,7 @@ requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [{name = "Semantica Team"}]
 dependencies = [
+    "semantica>=0.6.0",
     "networkx>=3.1",
     "rdflib>=7.0.0",
     "pandas>=2.0.0",
@@ -21,17 +22,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-]
-research = [
-    "faiss-cpu",
-    "weaviate-client",
-    "spacy",
-    "transformers",
-    "torch",
-]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+research = ["faiss-cpu", "weaviate-client", "spacy", "transformers", "torch"]
 
 [project.scripts]
 semantica = "semantica_workbench.cli:main"
