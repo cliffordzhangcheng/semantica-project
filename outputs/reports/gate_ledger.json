@@ -1,0 +1,39 @@
+{
+  "run_id": "ci-20260920-221223",
+  "timestamp": "2026-09-20T22:12:23.070705",
+  "gates": {
+    "G0": {
+      "name": "Corpus exists",
+      "status": "PASS",
+      "details": "Found 6 files"
+    },
+    "G1": {
+      "name": "Schema files",
+      "status": "PASS"
+    },
+    "G2": {
+      "name": "Graph artifact",
+      "status": "PASS",
+      "graph_hash": "2981c0e4b767380a"
+    },
+    "G3": {
+      "name": "Evidence file",
+      "status": "FAIL",
+      "details": "Evidence file missing or empty"
+    },
+    "G4": {
+      "name": "Claims file",
+      "status": "FAIL",
+      "details": "Claims file missing or empty"
+    },
+    "G5": {
+      "name": "All tests pass",
+      "status": "PASS"
+    },
+    "G6": {
+      "name": "Booking state",
+      "status": "FAIL",
+      "details": "Booking status file missing"
+    }
+  }
+}
