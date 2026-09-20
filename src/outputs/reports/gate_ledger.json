@@ -1,71 +1,71 @@
 {
-  "run_id": "auto-20260920-065129",
+  "run_id": "auto-20260920-070054",
   "graph_hash": "test-hash",
   "corpus_hash": "test-corpus-hash",
-  "timestamp": "2026-09-19T22:51:30.046699+00:00",
+  "timestamp": "2026-09-19T23:00:55.518533+00:00",
   "gates": {
     "G0": {
       "gate": "G0",
       "status": "FAIL",
       "reason": "Corpus directory missing or empty",
       "binding": {
-        "run_id": "auto-20260920-065129"
+        "run_id": "auto-20260920-070054"
       },
-      "timestamp": "2026-09-19T22:51:29.409967+00:00"
+      "timestamp": "2026-09-19T23:00:54.844751+00:00"
     },
     "G1": {
       "gate": "G1",
       "status": "FAIL",
       "reason": "Schema file missing",
       "binding": {
-        "run_id": "auto-20260920-065129"
+        "run_id": "auto-20260920-070054"
       },
-      "timestamp": "2026-09-19T22:51:29.410057+00:00"
+      "timestamp": "2026-09-19T23:00:54.844878+00:00"
     },
     "G2": {
       "gate": "G2",
       "status": "FAIL",
       "reason": "Ontology file missing",
       "binding": {
-        "run_id": "auto-20260920-065129"
+        "run_id": "auto-20260920-070054"
       },
-      "timestamp": "2026-09-19T22:51:29.410319+00:00"
+      "timestamp": "2026-09-19T23:00:54.845123+00:00"
     },
     "G3": {
       "gate": "G3",
       "status": "FAIL",
       "reason": "Evidence file missing",
       "binding": {
-        "run_id": "auto-20260920-065129"
+        "run_id": "auto-20260920-070054"
       },
-      "timestamp": "2026-09-19T22:51:29.410414+00:00"
+      "timestamp": "2026-09-19T23:00:54.845279+00:00"
     },
     "G4": {
       "gate": "G4",
       "status": "FAIL",
       "reason": "Claims file missing",
       "binding": {
-        "run_id": "auto-20260920-065129"
+        "run_id": "auto-20260920-070054"
       },
-      "timestamp": "2026-09-19T22:51:29.410499+00:00"
+      "timestamp": "2026-09-19T23:00:54.845374+00:00"
     },
     "G5": {
       "gate": "G5",
       "status": "FAIL",
       "reason": "Tests failed",
       "binding": {
-        "run_id": "auto-20260920-065129"
+        "run_id": "auto-20260920-070054"
       },
-      "timestamp": "2026-09-19T22:51:30.046475+00:00"
+      "timestamp": "2026-09-19T23:00:55.518145+00:00"
     },
     "G6": {
       "gate": "G6",
       "status": "PASS",
       "reason": "",
       "binding": {
-        "run_id": "auto-20260920-065129"
+        "run_id": "auto-20260920-070054"
       },
-      "timestamp": "2026-09-19T22:51:30.046690+00:00"
+      "timestamp": "2026-09-19T23:00:55.518508+00:00"
     }
   },
   "overall": "FAIL"
