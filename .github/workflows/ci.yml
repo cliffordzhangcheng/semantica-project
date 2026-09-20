@@ -1,2 +1,30 @@
-[CONTEXT OFFLOADED] Content (~379 tokens, 962 bytes) saved to: /var/minis/offloads/tools/file_write_48f6b38e32a1.txt
-Use file_read tool to retrieve if needed.
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: pip install pytest
+      - name: Test smoke
+        run: python -m pytest tests/test_smoke.py -v --tb=short
+      - name: Test gates
+        run: python -m pytest tests/test_gates.py -v --tb=short
+      - name: Test evidence
+        run: python -m pytest tests/test_evidence.py -v --tb=short
+      - name: Test export
+        run: python -m pytest tests/test_export.py -v --tb=short
+      - name: Test schema
+        run: python -m pytest tests/test_schema.py -v --tb=short
+      - name: Test webui
+        run: python -m pytest tests/test_webui.py -v --tb=short
+      - name: Test pipeline compat
+        run: python -m pytest tests/test_pipeline_compat.py -v --tb=short
+      - name: Test run isolation
+        run: python -m pytest tests/test_run_isolation.py -v --tb=short
