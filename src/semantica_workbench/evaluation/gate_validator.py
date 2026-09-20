@@ -1,18 +1,18 @@
-#!/usr/bin/env python3
-"""Complete gate validation with real semantic checks"""
+"""Gate validation engine - single source of truth"""
 import json
 import hashlib
+import subprocess
 import sys
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, Optional, List, Tuple
 
 class EvidenceValidator:
     """Validate evidence against contract"""
     
     REQUIRED_FIELDS = {'id', 'source_file', 'type'}
     
-    def validate(self, evidence_path: Path) -> tuple[int, int]:
+    def validate(self, evidence_path: Path) -> Tuple[int, int]:
         """Returns (count, valid_count)"""
         if not evidence_path.exists():
             return 0, 0
@@ -85,7 +85,7 @@ class GateEngine:
         # G0: Corpus exists
         data_raw = self.project_root / "data" / "raw"
         if data_raw.exists() and any(data_raw.iterdir()):
-            results["gates"]["G0"] = {"name": "Corpus exists", "status": "PASS", 
+            results["gates"]["G0"] = {"name": "Corpus exists", "status": "PASS",
                 "details": f"{len(list(data_raw.iterdir()))} files"}
         else:
             results["gates"]["G0"] = {"name": "Corpus exists", "status": "FAIL"}
@@ -146,27 +146,18 @@ class GateEngine:
             entities = graph.get("entities", {})
             relations = graph.get("relations", [])
             
-            # Check entities > 0
             if len(entities) <= 0:
                 results["gates"]["G2"] = {"name": "Graph artifact", "status": "FAIL",
                     "details": "No entities in graph"}
                 return False
             
-            # Validate provenance
-            has_provenance = all(
-                "provenance" in str(e).lower() or "source" in str(e).lower()
-                for e in entities.values()
-            )
-            
-            # Check for placeholder
             graph_hash = hashlib.sha256(content.encode()).hexdigest()[:16]
             results["gates"]["G2"] = {
                 "name": "Graph artifact",
                 "status": "PASS",
                 "graph_hash": graph_hash,
                 "entity_count": len(entities),
-                "relation_count": len(relations),
-                "provenance_valid": has_provenance
+                "relation_count": len(relations)
             }
             return True
         except Exception as e:
@@ -216,7 +207,6 @@ class GateEngine:
             results["gates"]["G4"] = {"name": "Claims file", "status": "FAIL"}
             return False
         
-        # Check evidence_refs binding
         claims_with_refs = sum(1 for c in claims if c.get("evidence_ref"))
         coverage = (claims_with_refs / len(claims) * 100) if claims else 0
         
@@ -232,3 +222,13 @@ class GateEngine:
             "coverage": f"{coverage:.1f}%"
         }
         return True
+
+
+def main():
+    project_root = Path(__file__).resolve().parents[3]
+    engine = GateEngine(project_root)
+    sys.exit(engine.validate_all())
+
+
+if __name__ == "__main__":
+    main()

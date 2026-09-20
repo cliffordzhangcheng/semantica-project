@@ -1,0 +1,45 @@
+{
+  "run_id": "run-1789921500",
+  "timestamp": "2026-09-21T00:25:00.938099",
+  "gates": {
+    "G0": {
+      "name": "Corpus exists",
+      "status": "PASS",
+      "details": "6 files"
+    },
+    "G1": {
+      "name": "Schema files",
+      "status": "PASS"
+    },
+    "G2": {
+      "name": "Graph artifact",
+      "status": "PASS",
+      "graph_hash": "95e9c65d330f8531",
+      "entity_count": 1,
+      "relation_count": 1
+    },
+    "G3": {
+      "name": "Evidence file",
+      "status": "PASS",
+      "count": 6,
+      "valid_count": 6,
+      "validation_rate": "100.0%"
+    },
+    "G4": {
+      "name": "Claims file",
+      "status": "PASS",
+      "count": 6,
+      "coverage": "100.0%"
+    },
+    "G5": {
+      "name": "All tests pass",
+      "status": "PASS",
+      "details": "51 tests passed"
+    },
+    "G6": {
+      "name": "Booking state",
+      "status": "PASS",
+      "details": "No illegal bookings"
+    }
+  }
+}
