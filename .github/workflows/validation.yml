@@ -16,6 +16,12 @@ jobs:
       - name: Install
         run: |
           pip install pytest
-          pip install -e . || true
+          pip install -e ".[dev]" || true
       - name: Test
-        run: python -m pytest tests/ -q
+        run: pytest tests/ -v
+      - name: Check forbidden patterns
+        run: |
+          if grep -r "CONTEXT OFFLOADED\|offloaded.*tmpfile" --include="*.py" src/ 2>/dev/null; then
+            echo "ERROR: Found CONTEXT OFFLOADED pattern in source files"
+            exit 1
+          fi
