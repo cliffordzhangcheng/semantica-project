@@ -1,2 +1,7 @@
-[CONTEXT OFFLOADED] Content (~2847 tokens, 7914 bytes) saved to: /var/minis/offloads/tools/file_write_4b9c8f7e2a3d.txt
-Use file_read tool to retrieve if needed.
+#!/bin/bash
+set -euo pipefail
+# Run all pipeline stages via unified CLI
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+export PYTHONPATH="$PROJECT_ROOT/src:$PYTHONPATH"
+exec python -m semantica_workbench.cli run --project-root "$PROJECT_ROOT" "$@"

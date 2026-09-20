@@ -20,15 +20,15 @@ jobs:
           python -m pip install --upgrade pip==24.3.1
           python -m pip install setuptools==70.0.0 wheel
           python -m pip install -e .
-      - name: Debug test environment
+          python -m pip install pytest pytest-cov
+      - name: Compile check
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Python version:"
-          python --version
-          echo "Test files:"
-          ls -la tests/
-          echo "Running pytest directly:"
-          python -m pytest tests/test_smoke.py -v --tb=short
-      - name: Run gate validation
-        run: python scripts/run_gates.py || echo "Gate validation expected to FAIL"
+          python -m compileall -q scripts src tests
+      - name: Shell syntax check
+        run: bash -n scripts/run_all.sh
+      - name: CLI help check
+        run: PYTHONPATH=src python -m semantica_workbench.cli --help
+      - name: Run all tests
+        run: |
+          cd tests
+          python -m pytest -q test_smoke.py test_gates.py test_pipeline_compat.py test_run_isolation.py
