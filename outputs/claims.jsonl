@@ -1,6 +1,6 @@
-{"id": "c0", "evidence_ref": ["e0"], "type": "observation", "text": "Observation from ai-depot-ontology-mapping.md", "provenance": "pipeline", "timestamp": "2026-09-21T04:57:21.587325"}
-{"id": "c1", "evidence_ref": ["e1"], "type": "observation", "text": "Observation from cfs-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-21T04:57:21.587347"}
-{"id": "c2", "evidence_ref": ["e2"], "type": "observation", "text": "Observation from container-invest-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-21T04:57:21.587356"}
-{"id": "c3", "evidence_ref": ["e3"], "type": "observation", "text": "Observation from logistics-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-21T04:57:21.587364"}
-{"id": "c4", "evidence_ref": ["e4"], "type": "observation", "text": "Observation from market-quotes.md", "provenance": "pipeline", "timestamp": "2026-09-21T04:57:21.587371"}
-{"id": "c5", "evidence_ref": ["e5"], "type": "observation", "text": "Observation from oneway-corpus.md", "provenance": "pipeline", "timestamp": "2026-09-21T04:57:21.587377"}
+{"id": "c0", "evidence_ref": ["e0"], "type": "observation", "text": "Observation from ai-depot-ontology-mapping.md", "provenance": "pipeline", "timestamp": "2026-09-21T05:07:22.921580"}
+{"id": "c1", "evidence_ref": ["e1"], "type": "observation", "text": "Observation from cfs-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-21T05:07:22.921619"}
+{"id": "c2", "evidence_ref": ["e2"], "type": "observation", "text": "Observation from container-invest-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-21T05:07:22.921635"}
+{"id": "c3", "evidence_ref": ["e3"], "type": "observation", "text": "Observation from logistics-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-21T05:07:22.921646"}
+{"id": "c4", "evidence_ref": ["e4"], "type": "observation", "text": "Observation from market-quotes.md", "provenance": "pipeline", "timestamp": "2026-09-21T05:07:22.921657"}
+{"id": "c5", "evidence_ref": ["e5"], "type": "observation", "text": "Observation from oneway-corpus.md", "provenance": "pipeline", "timestamp": "2026-09-21T05:07:22.921668"}
