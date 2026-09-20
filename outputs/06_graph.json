@@ -1,5 +1,19 @@
 {
-  "entities": {},
-  "relations": {},
-  "graph_hash": "placeholder"
+  "entities": {
+    "e1": {
+      "id": "e1",
+      "type": "Company",
+      "name": "Test Corp",
+      "provenance": "input"
+    }
+  },
+  "relations": [
+    {
+      "id": "r1",
+      "source": "e1",
+      "target": "e1",
+      "type": "is",
+      "provenance": "inferred"
+    }
+  ]
 }

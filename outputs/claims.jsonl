@@ -1,1 +1,6 @@
-{"id": "c1", "type": "observation", "text": "Test claim"}
+{"id": "c0", "evidence_ref": ["e0"], "type": "observation", "text": "Observation from ai-depot-ontology-mapping.md", "provenance": "pipeline", "timestamp": "2026-09-20T23:09:45.214794"}
+{"id": "c1", "evidence_ref": ["e1"], "type": "observation", "text": "Observation from cfs-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-20T23:09:45.214811"}
+{"id": "c2", "evidence_ref": ["e2"], "type": "observation", "text": "Observation from container-invest-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-20T23:09:45.214820"}
+{"id": "c3", "evidence_ref": ["e3"], "type": "observation", "text": "Observation from logistics-ont-core.md", "provenance": "pipeline", "timestamp": "2026-09-20T23:09:45.214827"}
+{"id": "c4", "evidence_ref": ["e4"], "type": "observation", "text": "Observation from market-quotes.md", "provenance": "pipeline", "timestamp": "2026-09-20T23:09:45.214833"}
+{"id": "c5", "evidence_ref": ["e5"], "type": "observation", "text": "Observation from oneway-corpus.md", "provenance": "pipeline", "timestamp": "2026-09-20T23:09:45.214840"}

@@ -1,5 +1,6 @@
-{"id": "e0", "source": "ai-depot-ontology-mapping.md", "type": "raw"}
-{"id": "e1", "source": "cfs-ont-core.md", "type": "raw"}
-{"id": "e2", "source": "container-invest-ont-core.md", "type": "raw"}
-{"id": "e3", "source": "logistics-ont-core.md", "type": "raw"}
-{"id": "e4", "source": "market-quotes.md", "type": "raw"}
+{"id": "e0", "source_file": "ai-depot-ontology-mapping.md", "type": "document", "content_hash": "f89f087b1011e257", "provenance": "pipeline"}
+{"id": "e1", "source_file": "cfs-ont-core.md", "type": "document", "content_hash": "0c2519c7e6304fc1", "provenance": "pipeline"}
+{"id": "e2", "source_file": "container-invest-ont-core.md", "type": "document", "content_hash": "c2f324c338b20d8d", "provenance": "pipeline"}
+{"id": "e3", "source_file": "logistics-ont-core.md", "type": "document", "content_hash": "aaea1ade6e37f1d0", "provenance": "pipeline"}
+{"id": "e4", "source_file": "market-quotes.md", "type": "document", "content_hash": "e918467d1069f2c2", "provenance": "pipeline"}
+{"id": "e5", "source_file": "oneway-corpus.md", "type": "document", "content_hash": "21d54a075a6bd4be", "provenance": "pipeline"}
