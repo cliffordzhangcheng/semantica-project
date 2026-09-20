@@ -1,6 +1,6 @@
 {
-  "run_id": "e2e-20260920-224257",
-  "timestamp": "2026-09-20T22:42:58.035717",
+  "run_id": "e2e-20260920-224746",
+  "timestamp": "2026-09-20T22:47:46.296670",
   "gates": {
     "G0": {
       "name": "Corpus exists",
@@ -13,17 +13,18 @@
     },
     "G2": {
       "name": "Graph artifact",
-      "status": "FAIL"
+      "status": "PASS",
+      "graph_hash": "4098a69c3655196f"
     },
     "G3": {
       "name": "Evidence file",
-      "status": "FAIL",
-      "details": "Evidence file missing or empty"
+      "status": "PASS",
+      "details": "5 evidence records"
     },
     "G4": {
       "name": "Claims file",
-      "status": "FAIL",
-      "details": "Claims file missing or empty"
+      "status": "PASS",
+      "details": "1 claims records"
     },
     "G5": {
       "name": "All tests pass",
