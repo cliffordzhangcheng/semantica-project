@@ -1,195 +1,99 @@
-"""Gate validation engine - fail-closed logic"""
-import json
-from pathlib import Path
-from datetime import datetime, timezone
+"""Fail-closed validation gates for generated pipeline artifacts."""
 
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
 
 EXIT_SUCCESS = 0
-EXIT_INPUT_ERROR = 2
-EXIT_EXECUTION_ERROR = 3
 EXIT_SCHEMA_ERROR = 4
 
 
 class GateResult:
-    """Single gate result"""
-    def __init__(self, gate_id: str, status: str, reason: str = "", binding: dict = None):
+    def __init__(self, gate_id: str, status: str, reason: str = "", binding: dict | None = None):
         self.gate_id = gate_id
         self.status = status
         self.reason = reason
         self.binding = binding or {}
         self.timestamp = datetime.now(timezone.utc).isoformat()
-    
+
     def to_dict(self) -> dict:
-        return {
-            "gate": self.gate_id,
-            "status": self.status,
-            "reason": self.reason,
-            "binding": self.binding,
-            "timestamp": self.timestamp
-        }
+        return {"gate": self.gate_id, "status": self.status, "reason": self.reason, "binding": self.binding, "timestamp": self.timestamp}
 
 
 class GateEngine:
-    """Fail-closed gate validation engine"""
-    
     REQUIRED_GATES = ["G0", "G1", "G2", "G3", "G4", "G5", "G6"]
-    
+
     def __init__(self, project_root: Path):
-        self.project_root = project_root
-    
+        self.project_root = Path(project_root).resolve()
+
     def validate_all(self, run_id: str, graph_hash: str, corpus_hash: str) -> dict:
-        """Validate all gates - fail closed"""
         results = {}
-        
         for gate in self.REQUIRED_GATES:
             validator = getattr(self, f"_validate_{gate.lower()}", self._default_fail)
             results[gate] = validator(run_id, graph_hash, corpus_hash)
-        
-        overall = self._calculate_overall(results)
-        
         return {
             "run_id": run_id,
             "graph_hash": graph_hash,
             "corpus_hash": corpus_hash,
             "timestamp": datetime.now(timezone.utc).isoformat(),
-            "gates": {k: v.to_dict() for k, v in results.items()},
-            "overall": overall
+            "gates": {key: value.to_dict() for key, value in results.items()},
+            "overall": "PASS" if all(value.status == "PASS" for value in results.values()) else "FAIL",
         }
-    
-    def _calculate_overall(self, results: dict) -> str:
-        """Overall FAIL if any gate fails"""
-        for gate_id, result in results.items():
-            if gate_id == "G7":
-                continue
-            if result.status not in ("PASS",):
-                return "FAIL"
-        return "PASS"
-    
-    def _default_fail(self, run_id, graph_hash, corpus_hash) -> GateResult:
-        return GateResult(
-            gate_id="UNKNOWN",
-            status="FAIL",
-            reason="Gate not implemented",
-            binding={"run_id": run_id}
-        )
-    
-    def _validate_g0(self, run_id, graph_hash, corpus_hash) -> GateResult:
-        """G0: Corpus validation"""
-        corpus_dir = self.project_root / "data" / "raw"
-        if not corpus_dir.exists() or not any(corpus_dir.iterdir()):
-            return GateResult(
-                gate_id="G0",
-                status="FAIL",
-                reason="Corpus directory missing or empty",
-                binding={"run_id": run_id}
-            )
-        return GateResult(gate_id="G0", status="PASS", binding={"run_id": run_id})
-    
-    def _validate_g1(self, run_id, graph_hash, corpus_hash) -> GateResult:
-        """G1: Schema validation"""
-        schema_file = self.project_root / "schemas" / "canonical_graph.json"
-        if not schema_file.exists():
-            return GateResult(
-                gate_id="G1",
-                status="FAIL",
-                reason="Schema file missing",
-                binding={"run_id": run_id}
-            )
-        return GateResult(gate_id="G1", status="PASS", binding={"run_id": run_id})
-    
-    def _validate_g2(self, run_id, graph_hash, corpus_hash) -> GateResult:
-        """G2: Ontology validation"""
-        ontology_files = list((self.project_root / "research" / "archive").glob("*/06_graph.json"))
-        if not ontology_files:
-            return GateResult(
-                gate_id="G2",
-                status="FAIL",
-                reason="Ontology file missing",
-                binding={"run_id": run_id}
-            )
-        return GateResult(gate_id="G2", status="PASS", binding={"run_id": run_id})
-    
-    def _validate_g3(self, run_id, graph_hash, corpus_hash) -> GateResult:
-        """G3: Evidence validation"""
-        evidence_file = self.project_root / "outputs" / "reports" / "evidence.jsonl"
-        if not evidence_file.exists():
-            return GateResult(
-                gate_id="G3",
-                status="FAIL",
-                reason="Evidence file missing",
-                binding={"run_id": run_id}
-            )
-        return GateResult(gate_id="G3", status="PASS", binding={"run_id": run_id})
-    
-    def _validate_g4(self, run_id, graph_hash, corpus_hash) -> GateResult:
-        """G4: Claims validation"""
-        claims_file = self.project_root / "outputs" / "reports" / "claims.jsonl"
-        if not claims_file.exists():
-            return GateResult(
-                gate_id="G4",
-                status="FAIL",
-                reason="Claims file missing",
-                binding={"run_id": run_id}
-            )
-        return GateResult(gate_id="G4", status="PASS", binding={"run_id": run_id})
-    
-    def _validate_g5(self, run_id, graph_hash, corpus_hash) -> GateResult:
-        """G5: Test validation"""
-        # Check if tests pass
-        import subprocess
-        result = subprocess.run(
-            ["python3", "-m", "pytest", "tests/", "-q"],
-            cwd=self.project_root,
-            capture_output=True
-        )
-        if result.returncode != 0:
-            return GateResult(
-                gate_id="G5",
-                status="FAIL",
-                reason="Tests failed",
-                binding={"run_id": run_id}
-            )
-        return GateResult(gate_id="G5", status="PASS", binding={"run_id": run_id})
-    
-    def _validate_g6(self, run_id, graph_hash, corpus_hash) -> GateResult:
-        """G6: Booking validation"""
-        # Check for BOOKED status (should not exist)
-        booking_file = self.project_root / "outputs" / "reports" / "booking_status.json"
-        if booking_file.exists():
-            with open(booking_file) as f:
-                status = json.load(f).get("status", "")
-            if status == "BOOKED":
-                return GateResult(
-                    gate_id="G6",
-                    status="FAIL",
-                    reason="Booking status present (should not exist)",
-                    binding={"run_id": run_id}
-                )
-        return GateResult(gate_id="G6", status="PASS", binding={"run_id": run_id})
+
+    def _default_fail(self, run_id, *_):
+        return GateResult("UNKNOWN", "FAIL", "Gate not implemented", {"run_id": run_id})
+
+    def _exists(self, relative: str) -> bool:
+        return (self.project_root / relative).exists()
+
+    def _validate_g0(self, run_id, *_):
+        ok = self._exists("data/raw") and any((self.project_root / "data/raw").iterdir())
+        return GateResult("G0", "PASS" if ok else "FAIL", "" if ok else "Corpus directory missing or empty", {"run_id": run_id})
+
+    def _validate_g1(self, run_id, *_):
+        ok = self._exists("schemas/canonical_graph.json")
+        return GateResult("G1", "PASS" if ok else "FAIL", "" if ok else "Schema file missing", {"run_id": run_id})
+
+    def _validate_g2(self, run_id, *_):
+        ok = self._exists("outputs/06_graph.json") or bool(list((self.project_root / "research/archive").glob("*/06_graph.json")))
+        return GateResult("G2", "PASS" if ok else "FAIL", "" if ok else "Ontology/graph artifact missing", {"run_id": run_id})
+
+    def _validate_artifact(self, gate, relative, run_id, reason):
+        ok = self._exists(relative)
+        return GateResult(gate, "PASS" if ok else "FAIL", "" if ok else reason, {"run_id": run_id})
+
+    def _validate_g3(self, run_id, *_):
+        return self._validate_artifact("G3", "outputs/reports/evidence.jsonl", run_id, "Evidence file missing")
+
+    def _validate_g4(self, run_id, *_):
+        return self._validate_artifact("G4", "outputs/reports/claims.jsonl", run_id, "Claims file missing")
+
+    def _validate_g5(self, run_id, *_):
+        result = subprocess.run([sys.executable, "-m", "pytest", "tests", "-q"], cwd=self.project_root, capture_output=True)
+        return GateResult("G5", "PASS" if result.returncode == 0 else "FAIL", "" if result.returncode == 0 else "Tests failed", {"run_id": run_id})
+
+    def _validate_g6(self, run_id, *_):
+        booking = self.project_root / "outputs/reports/booking_status.json"
+        booked = booking.exists() and json.loads(booking.read_text()).get("status") == "BOOKED"
+        return GateResult("G6", "FAIL" if booked else "PASS", "Booking status present (should not exist)" if booked else "", {"run_id": run_id})
 
 
-def run_gates():
-    """Main entry point for gate validation"""
-    project_root = Path(__file__).parent.parent.parent
+def run_gates(project_root: Path | str | None = None) -> int:
+    root = Path(project_root or Path(__file__).resolve().parents[3]).resolve()
     run_id = "auto-" + datetime.now().strftime("%Y%m%d-%H%M%S")
-    
-    engine = GateEngine(project_root)
-    result = engine.validate_all(run_id, "test-hash", "test-corpus-hash")
-    
-    # Write to artifacts
-    artifacts_dir = project_root / "outputs" / "reports"
-    artifacts_dir.mkdir(parents=True, exist_ok=True)
-    
-    ledger_file = artifacts_dir / "gate_ledger.json"
-    with open(ledger_file, "w") as f:
-        json.dump(result, f, indent=2)
-    
-    overall = result.get("overall", "FAIL")
-    print(f"Gate validation complete: {overall}")
-    print(f"Ledger written to: {ledger_file}")
-    
-    return EXIT_SCHEMA_ERROR if overall == "FAIL" else EXIT_SUCCESS
+    result = GateEngine(root).validate_all(run_id, "generated", "generated")
+    report_dir = root / "outputs/reports"
+    report_dir.mkdir(parents=True, exist_ok=True)
+    ledger = report_dir / "gate_ledger.json"
+    ledger.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    print(f"Gate validation complete: {result['overall']}")
+    print(f"Ledger written to: {ledger}")
+    return EXIT_SUCCESS if result["overall"] == "PASS" else EXIT_SCHEMA_ERROR
 
 
 if __name__ == "__main__":
-    exit(run_gates())
+    raise SystemExit(run_gates())
