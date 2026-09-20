@@ -33,12 +33,17 @@ class GraphSchemaValidator:
         errors = []
         
         # Check top-level required fields
-        for field in ["entities", "relationships", "graph_hash", "metadata"]:
-            if field not in graph:
-                errors.append({
-                    "path": field,
-                    "message": f"Missing required field: {field}"
-                })
+        # Note: metadata is optional for early-stage graphs
+        if "entities" not in graph:
+            errors.append({
+                "path": "entities",
+                "message": "Missing required field: entities"
+            })
+        if "graph_hash" not in graph:
+            errors.append({
+                "path": "graph_hash",
+                "message": "Missing required field: graph_hash"
+            })
         
         if not errors:
             # Validate entities
