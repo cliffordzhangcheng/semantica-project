@@ -62,50 +62,20 @@ class GateEngine:
         # G2: Graph with real validation against canonical schema
         graph_file = self.project_root / "outputs" / "06_graph.json"
         g2_result = self._validate_graph(results, graph_file)
-        if not g2_result:
-            results["gates"]["G2"] = {
-                "name": "Graph artifact",
-                "status": "FAIL",
-                "details": "Graph validation failed"
-            }
         
         # G3: Evidence validation using OFFICIAL EvidenceValidator
         evidence_file = self.project_root / "outputs" / "evidence.jsonl"
         g3_result = self._validate_evidence(results, evidence_file)
-        if not g3_result:
-            results["gates"]["G3"] = {
-                "name": "Evidence file",
-                "status": "FAIL",
-                "details": "Evidence validation failed"
-            }
         
         # G4: Claims with subject-predicate-object structure and evidence binding
         claims_file = self.project_root / "outputs" / "claims.jsonl"
         g4_result = self._validate_claims(results, claims_file, evidence_file)
-        if not g4_result:
-            results["gates"]["G4"] = {
-                "name": "Claims file",
-                "status": "FAIL",
-                "details": "Claims validation failed"
-            }
         
         # G5: Tests pass - run pytest and capture actual results
         g5_result = self._validate_tests(results)
-        if not g5_result:
-            results["gates"]["G5"] = {
-                "name": "All tests pass",
-                "status": "FAIL",
-                "details": "Tests failed or could not be run"
-            }
         
         # G6: Booking state check - scan actual semantic state
         g6_result = self._validate_booking_state(results)
-        if not g6_result:
-            results["gates"]["G6"] = {
-                "name": "Booking state",
-                "status": "FAIL",
-                "details": "Illegal bookings found"
-            }
         
         # Calculate overall
         all_pass = all(
@@ -340,23 +310,36 @@ class GateEngine:
             booking_file = self.project_root / "outputs" / "booking_state.json"
             state_file = self.project_root / "outputs" / "state.json"
             
-            # If no booking data exists, this is a BLOCKED condition
+            # If no booking data exists, this is a BLOCKED condition (not PASS)
             if not booking_file.exists() and not state_file.exists():
                 results["gates"]["G6"] = {
                     "name": "Booking state",
                     "status": "BLOCKED",
                     "details": "No booking/state data found for validation"
                 }
-                return False
+                return False  # BLOCKED means not validated yet
             
-            # Scan actual booking data
+            # Scan actual booking data for unsupported=BOOKED items
             illegal_count = 0
+            total_checked = 0
+            
             if booking_file.exists():
                 try:
                     bookings = json.loads(booking_file.read_text())
                     for b in bookings:
                         if b.get("status") == "BOOKED" and b.get("unsupported", False):
                             illegal_count += 1
+                        total_checked += 1
+                except:
+                    pass
+            
+            if state_file.exists():
+                try:
+                    states = json.loads(state_file.read_text())
+                    for s in states:
+                        if s.get("status") == "BOOKED" and s.get("unsupported", False):
+                            illegal_count += 1
+                        total_checked += 1
                 except:
                     pass
             
@@ -364,14 +347,14 @@ class GateEngine:
                 results["gates"]["G6"] = {
                     "name": "Booking state",
                     "status": "FAIL",
-                    "details": f"Found {illegal_count} unsupported BOOKED items"
+                    "details": f"Found {illegal_count} unsupported BOOKED items out of {total_checked}"
                 }
                 return False
             
             results["gates"]["G6"] = {
                 "name": "Booking state",
                 "status": "PASS",
-                "details": f"No illegal bookings (unsupported=0)"
+                "details": f"No illegal bookings ({total_checked} checked)"
             }
             return True
             

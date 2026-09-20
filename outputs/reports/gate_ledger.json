@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789939151",
-  "timestamp": "2026-09-21T05:19:11.847544",
+  "run_id": "run-1789939356",
+  "timestamp": "2026-09-21T05:22:36.860668",
   "gates": {
     "G0": {
       "name": "Corpus exists",
@@ -14,7 +14,7 @@
     "G2": {
       "name": "Graph artifact",
       "status": "FAIL",
-      "details": "Graph validation failed"
+      "details": "No entities in graph - cannot PASS without real data"
     },
     "G3": {
       "name": "Evidence file",
@@ -33,12 +33,12 @@
       "name": "All tests pass",
       "status": "PASS",
       "details": "51 tests passed",
-      "commit": "b5379f7"
+      "commit": "e0b27d9"
     },
     "G6": {
       "name": "Booking state",
-      "status": "FAIL",
-      "details": "Illegal bookings found"
+      "status": "BLOCKED",
+      "details": "No booking/state data found for validation"
     }
   },
   "overall": "FAIL"
