@@ -1,2 +1,32 @@
-[CONTEXT OFFLOADED] Content (~829 tokens, 2186 bytes) saved to: /var/minis/offloads/tools/file_write_4a3d5c8b7e92.txt
-Use file_read tool to retrieve if needed.
+name: Semantica Validation
+
+on:
+  push:
+    branches: [main, openminis/*]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest
+          
+      - name: Run tests
+        run: |
+          python -m pytest tests/ -v --tb=short
+          
+      - name: Verify no placeholders
+        run: |
+          git grep -nE '\[CONTEXT OFFLOADED\]' || echo "No placeholders found"
