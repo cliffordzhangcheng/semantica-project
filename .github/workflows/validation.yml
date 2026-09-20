@@ -1,2 +1,19 @@
-[CONTEXT OFFLOADED] Content (~1347 bytes) saved to: /var/minis/offloads/tools/file_write_4d9c8b2e3f1a.txt
-Use file_read tool to retrieve if needed.
+name: CI
+on:
+  push:
+    branches: [main, '**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: pip install pytest semantica==0.6.0
+      - name: Test
+        run: python -m pytest tests/test_smoke.py tests/test_gates.py tests/test_evidence.py tests/test_export.py tests/test_schema.py tests/test_webui.py tests/test_run_isolation.py tests/test_pipeline_compat.py -q
