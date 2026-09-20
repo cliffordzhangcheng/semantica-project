@@ -1,2 +1,20 @@
-[CONTEXT OFFLOADED] Content (~721 bytes, 29 lines) saved to: /var/minis/offloads/tools/file_write_4a4e1c76d3b2.txt
-Use file_read tool to retrieve if needed.
+name: Validation
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -e . pytest
+      - name: Run tests
+        run: pytest tests/ -v
