@@ -1,4 +1,5 @@
 """Official EvidenceValidator - strict contract validation"""
+import json
 import hashlib
 from pathlib import Path
 from typing import Dict, Any, Tuple, Optional
