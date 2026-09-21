@@ -189,6 +189,16 @@
         "ev_19"
       ],
       "confidence": 0.95
+    },
+    "e20": {
+      "id": "e20",
+      "name": "ContainerAgent",
+      "type": "BusinessActor",
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_20"
+      ],
+      "confidence": 0.95
     }
   },
   "relations": [],
