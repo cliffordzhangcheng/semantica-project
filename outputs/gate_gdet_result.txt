@@ -1,0 +1,13 @@
+============================================================
+GATE GDET: Determinism
+============================================================
+
+Results:
+  Status: PASS
+  Runs: 2
+  ✓ entity_registry: match
+  ✓ golden_relations: match
+  ✓ golden_claims: match
+  ✓ graph: match
+
+✅ GDET PASS: Double-run hashes match

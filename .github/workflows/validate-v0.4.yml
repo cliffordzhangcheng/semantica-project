@@ -1,0 +1,68 @@
+name: Semantica Validation v0.4
+
+on:
+  push:
+    branches: [ main, openminis/semantica-* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          pip install -e ".[dev]" || true
+          pip install pyyaml pytest pytest-cov
+      
+      - name: Clean rebuild
+        run: |
+          rm -rf outputs/
+          python -m semantica_workbench.cli run
+          python scripts/build_golden_relations.py
+          python scripts/determinism_validator.py
+      
+      - name: Run gates
+        run: |
+          python scripts/run_all_gates_v04.py
+      
+      - name: Run tests
+        run: |
+          python -m pytest tests/ -q
+      
+      - name: Generate report
+        run: |
+          python scripts/generate_golden_report.py
+      
+      - name: Verify main unchanged
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "Not main branch, skipping check"
+            exit 0
+          fi
+          MAIN_SHA=$(cat .main_sha_start.txt 2>/dev/null || git rev-parse HEAD)
+          CURRENT_SHA=$(git rev-parse HEAD)
+          if [ "$MAIN_SHA" != "$CURRENT_SHA" ]; then
+            echo "ERROR: Main branch changed during execution"
+            exit 1
+          fi
+          echo "Main branch unchanged: $MAIN_SHA"
+      
+      - name: Artifact integrity check
+        run: |
+          python scripts/check_artifact_integrity.py --project-root .
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: semantica-v0.4-outputs
+          path: |
+            outputs/
+            reports/

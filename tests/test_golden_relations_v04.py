@@ -276,7 +276,7 @@ class TestArtifactIntegrity:
             assert "/tmp/" not in content, f"{f.name} contains temp path"
             assert "/var/tmp/" not in content, f"{f.name} contains temp path"
     
-    def test_no_criitical_truncation(self):
+    def test_no_critical_truncation(self):
         """AC-GA: No critical truncation markers"""
         for f in OUTPUT_DIR.glob("*"):
             content = f.read_text()

@@ -1,0 +1,26 @@
+{
+  "run_timestamp": "2026-09-21T21:15:57.524994+00:00",
+  "gates": {
+    "GR": {
+      "status": "PASS",
+      "details": "{'golden_relation_count': 5, 'canonical_subject_count': 5, 'valid_object_count': 5, 'exact_or_supported_grounding': 5, 'invalid_predicates': 0, 'dangling_entities': 0, 'dangling_evidence': 0, 'semantic_pollution': 0, 'issues': []}"
+    },
+    "GC": {
+      "status": "PASS",
+      "details": "{'golden_claim_count': 5, 'all_canonical_entities': 5, 'all_controlled_predicates': 5, 'all_exact_supported_evidence': 5, 'all_claim_statuses_valid': 5, 'issues': []}"
+    },
+    "GA": {
+      "status": "PASS",
+      "details": "{'offload_markers': 0, 'temp_paths': 0, 'critical_truncations': 0, 'runtime_report_mismatches': 0, 'issues': []}"
+    },
+    "GDET": {
+      "status": "PASS",
+      "details": "{'status': 'PASS', 'runs': 2, 'comparison': {'entity_registry': True, 'golden_relations': True, 'golden_claims': True, 'graph': True}, 'all_hash_consistent': True}"
+    },
+    "GSYNC": {
+      "status": "PASS",
+      "details": "{'snapshot_consistent': True, 'issues': []}"
+    }
+  },
+  "overall": "PASS"
+}

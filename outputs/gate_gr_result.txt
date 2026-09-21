@@ -1,0 +1,15 @@
+============================================================
+GATE GR: Golden Relation Integrity
+============================================================
+
+Results:
+  Golden Relations: 5/5
+  Canonical Subjects: 5/5
+  Valid Objects: 5/5
+  EXACT/SUPPORTED Grounding: 5/5
+  Invalid Predicates: 0
+  Dangling Entities: 0
+  Dangling Evidence: 0
+  Semantic Pollution: 0
+
+✅ GR PASS: 5/5 Golden Relations validated
