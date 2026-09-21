@@ -39,6 +39,156 @@
         "ev_4"
       ],
       "confidence": 0.9
+    },
+    "e5": {
+      "id": "e5",
+      "name": "ContainerOwner",
+      "type": "BusinessActor",
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_5"
+      ],
+      "confidence": 0.95
+    },
+    "e6": {
+      "id": "e6",
+      "name": "FreightForwarder",
+      "type": "BusinessActor",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_6"
+      ],
+      "confidence": 0.95
+    },
+    "e7": {
+      "id": "e7",
+      "name": "Depot",
+      "type": "Resource",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_7"
+      ],
+      "confidence": 0.95
+    },
+    "e8": {
+      "id": "e8",
+      "name": "Customer",
+      "type": "BusinessActor",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_8"
+      ],
+      "confidence": 0.95
+    },
+    "e9": {
+      "id": "e9",
+      "name": "Container",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_9"
+      ],
+      "confidence": 0.95
+    },
+    "e10": {
+      "id": "e10",
+      "name": "SOCContainer",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_10"
+      ],
+      "confidence": 0.95
+    },
+    "e11": {
+      "id": "e11",
+      "name": "Truck",
+      "type": "Resource",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_11"
+      ],
+      "confidence": 0.95
+    },
+    "e12": {
+      "id": "e12",
+      "name": "PLAContract",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_12"
+      ],
+      "confidence": 0.95
+    },
+    "e13": {
+      "id": "e13",
+      "name": "WishList",
+      "type": "Resource",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_13"
+      ],
+      "confidence": 0.95
+    },
+    "e14": {
+      "id": "e14",
+      "name": "Booking",
+      "type": "Resource",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_14"
+      ],
+      "confidence": 0.95
+    },
+    "e15": {
+      "id": "e15",
+      "name": "Equipment",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_15"
+      ],
+      "confidence": 0.95
+    },
+    "e16": {
+      "id": "e16",
+      "name": "Hapag-Lloyd",
+      "type": "BusinessActor",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_16"
+      ],
+      "confidence": 0.95
+    },
+    "e17": {
+      "id": "e17",
+      "name": "Maersk",
+      "type": "BusinessActor",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_17"
+      ],
+      "confidence": 0.95
+    },
+    "e18": {
+      "id": "e18",
+      "name": "Cosmos Whales",
+      "type": "BusinessActor",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_18"
+      ],
+      "confidence": 0.95
+    },
+    "e19": {
+      "id": "e19",
+      "name": "ONE",
+      "type": "BusinessActor",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_19"
+      ],
+      "confidence": 0.95
     }
   },
   "relations": [],
