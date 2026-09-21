@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1790023446",
-  "timestamp": "2026-09-22T04:44:06.852806",
+  "run_id": "run-1790023572",
+  "timestamp": "2026-09-22T04:46:12.349567",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -30,14 +30,20 @@
     },
     "G4": {
       "name": "Claim-to-Evidence Integrity",
-      "status": "FAIL",
-      "details": "9 claims with unsupported predicates"
+      "status": "PASS",
+      "count": 92,
+      "spo_coverage": "100%",
+      "evidence_coverage": "100.0%",
+      "dangling_refs": 0,
+      "invalid_predicates": 0,
+      "unsupported_states": 0,
+      "details": "All 92 claims have SPO structure and evidence binding"
     },
     "G5": {
       "name": "Engineering Verification",
       "status": "PASS",
       "test_count": 51,
-      "commit": "d80501c",
+      "commit": "d2d97be",
       "details": "51 tests passed"
     },
     "G6": {
@@ -48,5 +54,5 @@
       "unsupported_state_count": 0
     }
   },
-  "overall": "FAIL"
+  "overall": "BLOCKED"
 }

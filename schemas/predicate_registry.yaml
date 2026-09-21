@@ -54,3 +54,6 @@ predicates:
   集装箱（拼箱后装入）: Consolidation operation
   叉车/安检机/地磅: Equipment handling
   设备/IoT: Equipment type
+  箱（20/40/45，干/冷/危，箱况状态机）: Container type specification
+  拖车: Truck operation
+  stored_at: Storage location
