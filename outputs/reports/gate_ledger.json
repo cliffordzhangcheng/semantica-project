@@ -1,0 +1,57 @@
+{
+  "run_id": "run-1789954364",
+  "timestamp": "2026-09-21T09:32:44.115265",
+  "gates": {
+    "G0": {
+      "name": "Corpus Integrity",
+      "status": "PASS",
+      "details": "6 corpus files"
+    },
+    "G1": {
+      "name": "Schema Integrity",
+      "status": "PASS",
+      "details": "Canonical schema present"
+    },
+    "G2": {
+      "name": "Reality Graph Integrity",
+      "status": "FAIL",
+      "details": "No real entities in graph - NER failed or data incomplete"
+    },
+    "G3": {
+      "name": "Evidence Integrity",
+      "status": "FAIL",
+      "details": "Only 0/6 evidence records valid",
+      "errors": [
+        "Line 1: missing {'provenance'}",
+        "Line 2: missing {'provenance'}",
+        "Line 3: missing {'provenance'}",
+        "Line 4: missing {'provenance'}",
+        "Line 5: missing {'provenance'}"
+      ]
+    },
+    "G4": {
+      "name": "Claim-to-Evidence Integrity",
+      "status": "PASS",
+      "count": 6,
+      "spo_coverage": "100%",
+      "evidence_coverage": "100.0%",
+      "dangling_refs": 0,
+      "details": "All 6 claims have SPO structure and evidence binding"
+    },
+    "G5": {
+      "name": "Engineering Verification",
+      "status": "FAIL",
+      "details": "Tests failed",
+      "commit": "58d4480",
+      "output": ""
+    },
+    "G6": {
+      "name": "Business State Semantic Integrity",
+      "status": "BLOCKED",
+      "details": "No booking/state data found in current run",
+      "state_claim_count": 0,
+      "unsupported_state_count": 0
+    }
+  },
+  "overall": "FAIL"
+}
