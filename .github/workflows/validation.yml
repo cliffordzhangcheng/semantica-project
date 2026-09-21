@@ -19,7 +19,7 @@ jobs:
       - name: Run unit tests
         run: python -m pytest tests/ -v
       - name: Static artifact integrity scan
-        run: python scripts/check_artifact_integrity.py --project-root . || true
+        run: python scripts/check_artifact_integrity.py --project-root .
       - name: Run E2E pipeline
         run: |
           rm -rf outputs/

@@ -84,41 +84,71 @@ class PipelineOrchestrator:
             content = doc.get("content", "")
             
             # Extract entities from markdown headers (## Entity Name)
-            header_pattern = r'##\s+([A-Z][A-Za-z0-9\s]+)'
+            # Accept broader pattern but filter to known types
+            header_pattern = r'##\s+([A-Z][A-Za-z0-9\s\-]+)'
             headers = re.findall(header_pattern, content)
+            
+            # Known entity patterns (case-insensitive)
+            known_entity_patterns = [
+                'containerowner', 'carrier', 'freightforwarder', 'depot',
+                'container', 'soccontainer', 'truck', 'onewaycontract',
+                'placontract', 'puc', 'wishlist', 'booking', 'customer',
+                'hapag-lloyd', 'maersk', 'cosmos', 'workbuddy', 'one'
+            ]
+            
             for header in headers:
                 entity_name = header.strip()
-                if entity_name not in entities:
-                    entity_id_counter += 1
-                    entities[f"e{entity_id_counter}"] = {
-                        "id": f"e{entity_id_counter}",
-                        "name": entity_name,
-                        "type": "Concept",
-                        "source_document_id": source,
-                        "evidence_ref": [f"ev_{entity_id_counter}"],
-                        "confidence": 0.8
-                    }
-            
-            # Extract bulleted items
-            bullet_pattern = r'^\s*-\s+(.+)$'
-            bullets = re.findall(bullet_pattern, content, re.MULTILINE)
-            for bullet in bullets[:5]:  # Limit to first 5 bullets per doc
-                text = bullet.strip()
-                if len(text) > 10 and len(text) < 100:
-                    # Check if it's a new entity-like item
-                    if not any(e in text for e in ["from", "to", "and", "the", "for"]):
+                entity_lower = entity_name.lower()
+                
+                # Check if it matches known entity types
+                is_known = any(k in entity_lower for k in known_entity_patterns)
+                
+                if is_known:
+                    # Map to canonical name
+                    canonical = entity_name
+                    if 'hapag' in entity_lower:
+                        canonical = 'Carrier'
+                    elif 'maersk' in entity_lower:
+                        canonical = 'Carrier'
+                    elif 'cosmos' in entity_lower:
+                        canonical = 'ContainerOwner'
+                    elif 'one' in entity_lower and len(entity_lower) <= 3:
+                        canonical = 'Carrier'
+                    
+                    if entity_name not in entities:
                         entity_id_counter += 1
-                        if entity_id_counter not in entities or not any(
-                            entities[e]["name"] == text for e in entities
-                        ):
-                            entities[f"e{entity_id_counter}"] = {
-                                "id": f"e{entity_id_counter}",
-                                "name": text[:50],
-                                "type": "Entity",
-                                "source_document_id": source,
-                                "evidence_ref": [f"ev_{entity_id_counter}"],
-                                "confidence": 0.6
-                            }
+                        entities[f"e{entity_id_counter}"] = {
+                            "id": f"e{entity_id_counter}",
+                            "name": canonical,
+                            "type": "BusinessActor" if canonical in ['ContainerOwner', 'Carrier', 'Customer'] else "Resource",
+                            "source_document_id": source,
+                            "evidence_ref": [f"ev_{entity_id_counter}"],
+                            "confidence": 0.8
+                        }
+            
+            # Extract bulleted items - only known business entity names
+            # Match specific patterns like "- Container", "- Truck", etc.
+            bullet_pattern = r'^\s*-\s+(\w+)$'
+            bullets = re.findall(bullet_pattern, content, re.MULTILINE)
+            for bullet in bullets:
+                text = bullet.strip()
+                # Only accept known entity types
+                known_entities = [
+                    'Container', 'SOCContainer', 'Truck', 'Depot', 'OneWayContract',
+                    'PLAContract', 'PUC', 'WishList', 'Booking', 'Customer',
+                    'Hapag-Lloyd', 'Maersk', 'Cosmos', 'ONE', 'WorkBuddy'
+                ]
+                if text in known_entities:
+                    entity_id_counter += 1
+                    if not any(entities[e]["name"] == text for e in entities):
+                        entities[f"e{entity_id_counter}"] = {
+                            "id": f"e{entity_id_counter}",
+                            "name": text,
+                            "type": "BusinessActor" if text in ['Customer', 'Hapag-Lloyd', 'Maersk', 'Cosmos'] else "Resource",
+                            "source_document_id": source,
+                            "evidence_ref": [f"ev_{entity_id_counter}"],
+                            "confidence": 0.9
+                        }
         
         output = {"entities": entities, "count": len(entities)}
         entities_file.write_text(json.dumps(output, indent=2, ensure_ascii=False))

@@ -2,8 +2,8 @@
   "entities": {
     "e1": {
       "id": "e1",
-      "name": "Objective",
-      "type": "Concept",
+      "name": "Business Actors\n\n  Entity              Description\n  ------------------- -------------\n  Depot",
+      "type": "Resource",
       "source_document_id": "ai-depot-ontology-mapping.md",
       "evidence_ref": [
         "ev_1"
@@ -12,8 +12,8 @@
     },
     "e2": {
       "id": "e2",
-      "name": "Business Actors\n\n  Entity              Description",
-      "type": "Concept",
+      "name": "Physical Resources\n\n  Entity           Description\n  ---------------- -------------\n  Container",
+      "type": "Resource",
       "source_document_id": "ai-depot-ontology-mapping.md",
       "evidence_ref": [
         "ev_2"
@@ -22,9 +22,9 @@
     },
     "e3": {
       "id": "e3",
-      "name": "Physical Resources\n\n  Entity           Description",
-      "type": "Concept",
-      "source_document_id": "ai-depot-ontology-mapping.md",
+      "name": "ONEWAY",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
       "evidence_ref": [
         "ev_3"
       ],
@@ -33,7 +33,7 @@
     "e4": {
       "id": "e4",
       "name": "ONEWAY",
-      "type": "Concept",
+      "type": "Resource",
       "source_document_id": "container-invest-ont-core.md",
       "evidence_ref": [
         "ev_4"
@@ -42,9 +42,9 @@
     },
     "e5": {
       "id": "e5",
-      "name": "ONEWAY",
-      "type": "Concept",
-      "source_document_id": "container-invest-ont-core.md",
+      "name": "PUC\n-",
+      "type": "Resource",
+      "source_document_id": "market-quotes.md",
       "evidence_ref": [
         "ev_5"
       ],
@@ -52,9 +52,9 @@
     },
     "e6": {
       "id": "e6",
-      "name": "PUC",
-      "type": "Concept",
-      "source_document_id": "market-quotes.md",
+      "name": "ONEWAY Project 2022\n- SOC",
+      "type": "Resource",
+      "source_document_id": "oneway-corpus.md",
       "evidence_ref": [
         "ev_6"
       ],
@@ -62,9 +62,9 @@
     },
     "e7": {
       "id": "e7",
-      "name": "P0",
-      "type": "Concept",
-      "source_document_id": "market-quotes.md",
+      "name": "Carrier",
+      "type": "BusinessActor",
+      "source_document_id": "oneway-corpus.md",
       "evidence_ref": [
         "ev_7"
       ],
@@ -72,432 +72,15 @@
     },
     "e8": {
       "id": "e8",
-      "name": "P1",
-      "type": "Concept",
-      "source_document_id": "market-quotes.md",
+      "name": "WorkBuddy",
+      "type": "Resource",
+      "source_document_id": "oneway-corpus.md",
       "evidence_ref": [
         "ev_8"
       ],
       "confidence": 0.8
-    },
-    "e9": {
-      "id": "e9",
-      "name": "40HC: $3,200（COST_REVENUE_FOR_LEASING.xlsx + 权威PDF",
-      "type": "Entity",
-      "source_document_id": "market-quotes.md",
-      "evidence_ref": [
-        "ev_9"
-      ],
-      "confidence": 0.6
-    },
-    "e10": {
-      "id": "e10",
-      "name": "20GP: $1,750（COST_REVENUE_FOR_LEASING.xlsx）",
-      "type": "Entity",
-      "source_document_id": "market-quotes.md",
-      "evidence_ref": [
-        "ev_10"
-      ],
-      "confidence": 0.6
-    },
-    "e11": {
-      "id": "e11",
-      "name": "40HC: $3,000（Chris 案例，权威PDF）",
-      "type": "Entity",
-      "source_document_id": "market-quotes.md",
-      "evidence_ref": [
-        "ev_11"
-      ],
-      "confidence": 0.6
-    },
-    "e12": {
-      "id": "e12",
-      "name": "40HC 大客户长租: $0.70/day（权威PDF）",
-      "type": "Entity",
-      "source_document_id": "market-quotes.md",
-      "evidence_ref": [
-        "ev_12"
-      ],
-      "confidence": 0.6
-    },
-    "e13": {
-      "id": "e13",
-      "name": "20GP 大客户长租: $0.412/day（权威PDF）",
-      "type": "Entity",
-      "source_document_id": "market-quotes.md",
-      "evidence_ref": [
-        "ev_13"
-      ],
-      "confidence": 0.6
-    },
-    "e14": {
-      "id": "e14",
-      "name": "ONEWAY Project 2022",
-      "type": "Concept",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_14"
-      ],
-      "confidence": 0.8
-    },
-    "e15": {
-      "id": "e15",
-      "name": "Hapag",
-      "type": "Concept",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_15"
-      ],
-      "confidence": 0.8
-    },
-    "e16": {
-      "id": "e16",
-      "name": "WorkBuddy",
-      "type": "Concept",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_16"
-      ],
-      "confidence": 0.8
-    },
-    "e17": {
-      "id": "e17",
-      "name": "SOC 箱回运：利用船东舱位优惠价格，安排 SOC 箱从境外装货调回国内",
-      "type": "Entity",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_17"
-      ],
-      "confidence": 0.6
-    },
-    "e18": {
-      "id": "e18",
-      "name": "满足船东租箱需求：利用船东租箱需求，配合船东运营",
-      "type": "Entity",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_18"
-      ],
-      "confidence": 0.6
-    },
-    "e19": {
-      "id": "e19",
-      "name": "内贸 PLA 业务：利用船东 PLA（协议）需求，用船东箱做内贸业务",
-      "type": "Entity",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_19"
-      ],
-      "confidence": 0.6
-    },
-    "e20": {
-      "id": "e20",
-      "name": "美国接收条件：仅 Chicago 收 40' oneway，不收 20'",
-      "type": "Entity",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_20"
-      ],
-      "confidence": 0.6
-    },
-    "e21": {
-      "id": "e21",
-      "name": "Cosmos Whales 向 Hapag-Lloyd 提供集装箱单向租赁（One-Way Leas",
-      "type": "Entity",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_21"
-      ],
-      "confidence": 0.6
     }
   },
-  "relations": [
-    {
-      "relation_id": "r1",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "Container"
-      },
-      "predicate": "located_at",
-      "object": {
-        "entity_id": "literal",
-        "value": "Depot"
-      },
-      "source_document_id": "ai-depot-ontology-mapping.md",
-      "evidence_ref": [
-        "ev_1"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:ai-depot-ontology-mapping.md"
-    },
-    {
-      "relation_id": "r2",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "Truck"
-      },
-      "predicate": "transports",
-      "object": {
-        "entity_id": "literal",
-        "value": "Container"
-      },
-      "source_document_id": "ai-depot-ontology-mapping.md",
-      "evidence_ref": [
-        "ev_2"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:ai-depot-ontology-mapping.md"
-    },
-    {
-      "relation_id": "r3",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "Customer"
-      },
-      "predicate": "owns",
-      "object": {
-        "entity_id": "literal",
-        "value": "Container"
-      },
-      "source_document_id": "ai-depot-ontology-mapping.md",
-      "evidence_ref": [
-        "ev_3"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:ai-depot-ontology-mapping.md"
-    },
-    {
-      "relation_id": "r4",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "Package"
-      },
-      "predicate": "belongs_to",
-      "object": {
-        "entity_id": "literal",
-        "value": "CargoLot"
-      },
-      "source_document_id": "cfs-ont-core.md",
-      "evidence_ref": [
-        "ev_4"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:cfs-ont-core.md"
-    },
-    {
-      "relation_id": "r5",
-      "subject": {
-        "entity_id": "e5",
-        "value": "OneWayContract"
-      },
-      "predicate": "has_free_days",
-      "object": {
-        "entity_id": "literal",
-        "value": "90-100 days"
-      },
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_5"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
-    },
-    {
-      "relation_id": "r6",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "ContainerAgent"
-      },
-      "predicate": "intermediates",
-      "object": {
-        "entity_id": "e5",
-        "value": "OneWayContract"
-      },
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_6"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
-    },
-    {
-      "relation_id": "r7",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "ContainerOwner"
-      },
-      "predicate": "provides",
-      "object": {
-        "entity_id": "literal",
-        "value": "SOCContainer"
-      },
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_7"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
-    },
-    {
-      "relation_id": "r8",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "Carrier"
-      },
-      "predicate": "publishes",
-      "object": {
-        "entity_id": "literal",
-        "value": "WishList"
-      },
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_8"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
-    },
-    {
-      "relation_id": "r9",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "ContainerAsset"
-      },
-      "predicate": "off_hires_at",
-      "object": {
-        "entity_id": "literal",
-        "value": "Depot"
-      },
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_9"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
-    },
-    {
-      "relation_id": "r10",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "Container"
-      },
-      "predicate": "located_at",
-      "object": {
-        "entity_id": "literal",
-        "value": "Depot"
-      },
-      "source_document_id": "logistics-ont-core.md",
-      "evidence_ref": [
-        "ev_10"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:logistics-ont-core.md"
-    },
-    {
-      "relation_id": "r11",
-      "subject": {
-        "entity_id": "e21",
-        "value": "Cosmos Whales"
-      },
-      "predicate": "intermediates",
-      "object": {
-        "entity_id": "e21",
-        "value": "Hapag-Lloyd"
-      },
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_11"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
-    },
-    {
-      "relation_id": "r12",
-      "subject": {
-        "entity_id": "unknown",
-        "value": "Maersk"
-      },
-      "predicate": "has_contract_with",
-      "object": {
-        "entity_id": "e21",
-        "value": "Cosmos Whales"
-      },
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_12"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
-    },
-    {
-      "relation_id": "r13",
-      "subject": {
-        "entity_id": "e5",
-        "value": "OneWayContract"
-      },
-      "predicate": "has_puc_rate",
-      "object": {
-        "entity_id": "literal",
-        "value": "USD150/container"
-      },
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_13"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
-    },
-    {
-      "relation_id": "r14",
-      "subject": {
-        "entity_id": "e5",
-        "value": "OneWayContract"
-      },
-      "predicate": "has_free_days",
-      "object": {
-        "entity_id": "literal",
-        "value": "90-100 days"
-      },
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_14"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
-    },
-    {
-      "relation_id": "r15",
-      "subject": {
-        "entity_id": "e5",
-        "value": "OneWayContract"
-      },
-      "predicate": "has_daily_rate",
-      "object": {
-        "entity_id": "literal",
-        "value": "USD1.0/container"
-      },
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_15"
-      ],
-      "confidence": 0.85,
-      "extractor": "pattern:v2.0",
-      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
-    }
-  ],
-  "graph_hash": "8cdf5070dad4d328",
-  "relation_count": 15
+  "relations": [],
+  "graph_hash": "5e6706072b35bf8f"
 }

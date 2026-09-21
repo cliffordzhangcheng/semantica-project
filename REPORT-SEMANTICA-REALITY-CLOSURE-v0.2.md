@@ -3,7 +3,7 @@
 title: "Semantica Reality Closure Correction - v0.2"
 type: report
 tags: [semantica, reality-closure, correction, akos]
-created: 2026-09-21T20:44:27.538494
+created: 2026-09-21T22:08:58.623873
 verified: true
 status: PENDING
 ---
@@ -19,8 +19,8 @@ status: PENDING
 - **Founder G7 promotion boundary**:  Founder 审批边界清晰
 
 **整体状态**: SEMANTICA_REALITY_CLOSURE_BLOCKED
-**分支**: openminis/semantica-reality-closure-v0.2
-**提交**: 4c5ca0f
+**分支**: openminis/semantica-reality-validation-v0.3
+**提交**: fac928c
 
 | Gate | 状态 |
 |------|------|
@@ -48,9 +48,9 @@ status: PENDING
 
 ## 二、图谱完整性
 
-**实体数量**: 21
-**关系数量**: 15
-**图谱哈希**: `8cdf5070dad4d328`
+**实体数量**: 8
+**关系数量**: 0
+**图谱哈希**: `5e6706072b35bf8f`
 
 **✅ 无合成实体**
 
@@ -61,13 +61,13 @@ status: PENDING
 
 ## 四、主张完整性
 
-**总主张数**: 36
-**业务SPO数**: 15
-**证据绑定率**: 21/30
+**总主张数**: 8
+**业务SPO数**: 0
+**证据绑定率**: 8/30
 **悬空实体引用**: 0
 **悬空证据引用**: 0
 **无效谓词**: 0
-**主张哈希**: `def1e97d034c5d02`
+**主张哈希**: `7028558ad244e1bb`
 
 ## 五、工件完整性检查
 
@@ -75,10 +75,10 @@ status: PENDING
 $ python3 scripts/check_artifact_integrity.py
 
 === Artifact Integrity Check ===
-Graph: 21 entities, 15 relations
+Graph: 8 entities, 0 relations
   ✅ No synthetic entities
 Evidence: 30/30 valid
-Claims: 36/36 with SPO, 0 dangling refs
+Claims: 8/8 with SPO, 0 dangling refs
 
 ✅ ARTIFACT INTEGRITY VERIFIED
 ```
