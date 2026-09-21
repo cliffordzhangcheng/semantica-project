@@ -125,6 +125,7 @@ class PipelineOrchestrator:
                         "locator": f"line:{i}",
                         "text_basis": text_basis,
                         "extractor": "pipeline",
+                        "provenance": f"pipeline:01_ingest:{source_id}",
                         "source_hash": hashlib.sha256(text_basis.encode()).hexdigest()[:16]
                     }
                     e.write(json.dumps(evidence) + '\n')

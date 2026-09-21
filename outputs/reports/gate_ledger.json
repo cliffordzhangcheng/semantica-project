@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789954364",
-  "timestamp": "2026-09-21T09:32:44.115265",
+  "run_id": "run-1789954561",
+  "timestamp": "2026-09-21T09:36:01.215668",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -19,15 +19,11 @@
     },
     "G3": {
       "name": "Evidence Integrity",
-      "status": "FAIL",
-      "details": "Only 0/6 evidence records valid",
-      "errors": [
-        "Line 1: missing {'provenance'}",
-        "Line 2: missing {'provenance'}",
-        "Line 3: missing {'provenance'}",
-        "Line 4: missing {'provenance'}",
-        "Line 5: missing {'provenance'}"
-      ]
+      "status": "PASS",
+      "count": 6,
+      "valid_count": 6,
+      "validation_rate": "100.0%",
+      "details": "All 6 evidence records pass full contract"
     },
     "G4": {
       "name": "Claim-to-Evidence Integrity",
@@ -42,7 +38,7 @@
       "name": "Engineering Verification",
       "status": "FAIL",
       "details": "Tests failed",
-      "commit": "58d4480",
+      "commit": "bd30e4b",
       "output": ""
     },
     "G6": {
