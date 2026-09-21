@@ -14,6 +14,7 @@ predicates:
   has_pricing: Monetary value assignment
   has_property: Attribute assignment
   has_puc_rate: 'Auto-discovered: has_puc_rate'
+  has_relationship: Generic business relationship
   has_type: Entity type classification
   intermediates: Brokerage/matchmaking
   is_a: Entity type classification
@@ -36,3 +37,6 @@ predicates:
   transitions_to: State transition
   transports: Physical movement
   works_for: 'Auto-discovered: works_for'
+  叉车/安检机/地磅: Equipment handling
+  设备/IoT: Equipment type
+  集装箱（拼箱后装入）: Consolidation operation
