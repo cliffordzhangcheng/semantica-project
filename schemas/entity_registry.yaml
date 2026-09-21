@@ -1,0 +1,140 @@
+# Semantic Schema - Entity Registry
+# v0.4: Strict canonical IDs for Golden Relations
+
+entities:
+  # Organizations
+  org_cosmos_whales:
+    canonical_name: Cosmos Whales
+    aliases:
+      - 源海通/Cosmos Whales
+      - 源海通
+    type: Organization
+    domain: logistics
+
+  org_hapag_lloyd:
+    canonical_name: Hapag-Lloyd
+    aliases:
+      - Hapag Lloyd
+      - HL
+    type: Organization
+    domain: shipping
+
+  org_maersk:
+    canonical_name: Maersk
+    aliases:
+      - 马士基
+    type: Organization
+    domain: shipping
+
+  org_one:
+    canonical_name: ONE (Ocean Network Express)
+    aliases:
+      - ONE
+      - Ocean Network Express
+    type: Organization
+    domain: shipping
+
+  # Locations
+  loc_shanghai:
+    canonical_name: Shanghai
+    aliases:
+      - 上海
+      - CNSGHMJ1
+    type: Location
+    domain: port
+
+  loc_gdansk:
+    canonical_name: Gdansk
+    aliases:
+      - 格但斯克
+      - PLGDN
+    type: Location
+    domain: port
+
+  loc_gdansk_tuchom:
+    canonical_name: Gdansk/Tuchom Depot
+    aliases:
+      - Tuchom
+    type: Location
+    domain: depot
+
+  # Resources
+  resource_container_20hc:
+    canonical_name: 20' HC Container
+    aliases:
+      - 20'HC
+      - 20ft High Cube
+    type: Resource
+    domain: container
+
+  resource_container_40hc:
+    canonical_name: 40' HC Container
+    aliases:
+      - 40'HC
+      - 40ft High Cube
+    type: Resource
+    domain: container
+
+  resource_depot:
+    canonical_name: Depot
+    aliases:
+      - 堆场
+    type: Resource
+    domain: facility
+
+  # Contracts
+  concept_oneway_contract:
+    canonical_name: One-Way Container Lease
+    aliases:
+      - OneWayContract
+      - 单程租赁
+      - ONEWAY
+    type: Concept
+    domain: contract
+
+  concept_wishlist:
+    canonical_name: Container Wishlist
+    aliases:
+      - WishList
+      - 需求清单
+    type: Concept
+    domain: business_doc
+
+  # PUC/Charges
+  concept_puc:
+    canonical_name: Pick-Up Charge
+    aliases:
+      - PUC
+      - 提箱费
+    type: Concept
+    domain: finance
+
+  # People
+  person_mrk_phen_lak:
+    canonical_name: Mr. Phen Lak
+    aliases:
+      - Phen Lak
+    type: Person
+    domain: contact
+    company: org_maersk
+    location: Copenhagen HQ
+
+  person_christian_halgmann:
+    canonical_name: Christian Halgmann
+    aliases:
+      - CH
+    type: Person
+    domain: contact
+    company: org_hapag_lloyd
+
+  # Aggregators
+  aggregator_real_logistics:
+    canonical_name: REAL Logistics
+    aliases:
+      - Tradecon
+    type: Organization
+    domain: logistics
+
+entity_count: 17
+version: "v0.4"
+last_updated: "2026-09-22"

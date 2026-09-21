@@ -1,206 +1,357 @@
 {
+  "run_id": "20260921211144",
+  "semantic_snapshot_id": "snapshot-20260921211144",
   "entities": {
-    "e1": {
-      "id": "e1",
-      "name": "Carrier",
-      "type": "BusinessActor",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_1"
-      ],
-      "confidence": 0.9
+    "org_cosmos_whales": {
+      "entity_id": "org_cosmos_whales",
+      "name": "Cosmos Whales",
+      "type": "Organization",
+      "domain": "logistics",
+      "canonical": true
     },
-    "e2": {
-      "id": "e2",
-      "name": "OneWayContract",
+    "org_hapag_lloyd": {
+      "entity_id": "org_hapag_lloyd",
+      "name": "Hapag-Lloyd",
+      "type": "Organization",
+      "domain": "shipping",
+      "canonical": true
+    },
+    "org_maersk": {
+      "entity_id": "org_maersk",
+      "name": "Maersk",
+      "type": "Organization",
+      "domain": "shipping",
+      "canonical": true
+    },
+    "org_one": {
+      "entity_id": "org_one",
+      "name": "ONE (Ocean Network Express)",
+      "type": "Organization",
+      "domain": "shipping",
+      "canonical": true
+    },
+    "loc_shanghai": {
+      "entity_id": "loc_shanghai",
+      "name": "Shanghai",
+      "type": "Location",
+      "domain": "port",
+      "canonical": true
+    },
+    "loc_gdansk": {
+      "entity_id": "loc_gdansk",
+      "name": "Gdansk",
+      "type": "Location",
+      "domain": "port",
+      "canonical": true
+    },
+    "loc_gdansk_tuchom": {
+      "entity_id": "loc_gdansk_tuchom",
+      "name": "Gdansk/Tuchom Depot",
+      "type": "Location",
+      "domain": "depot",
+      "canonical": true
+    },
+    "resource_container_20hc": {
+      "entity_id": "resource_container_20hc",
+      "name": "20' HC Container",
       "type": "Resource",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_2"
-      ],
-      "confidence": 0.9
+      "domain": "container",
+      "canonical": true
     },
-    "e3": {
-      "id": "e3",
-      "name": "PUC",
+    "resource_container_40hc": {
+      "entity_id": "resource_container_40hc",
+      "name": "40' HC Container",
       "type": "Resource",
-      "source_document_id": "market-quotes.md",
-      "evidence_ref": [
-        "ev_3"
-      ],
-      "confidence": 0.9
+      "domain": "container",
+      "canonical": true
     },
-    "e4": {
-      "id": "e4",
-      "name": "WorkBuddy",
-      "type": "Resource",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_4"
-      ],
-      "confidence": 0.9
-    },
-    "e5": {
-      "id": "e5",
-      "name": "ContainerOwner",
-      "type": "BusinessActor",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_5"
-      ],
-      "confidence": 0.95
-    },
-    "e6": {
-      "id": "e6",
-      "name": "FreightForwarder",
-      "type": "BusinessActor",
-      "source_document_id": "ai-depot-ontology-mapping.md",
-      "evidence_ref": [
-        "ev_6"
-      ],
-      "confidence": 0.95
-    },
-    "e7": {
-      "id": "e7",
+    "resource_depot": {
+      "entity_id": "resource_depot",
       "name": "Depot",
       "type": "Resource",
-      "source_document_id": "ai-depot-ontology-mapping.md",
-      "evidence_ref": [
-        "ev_7"
-      ],
-      "confidence": 0.95
+      "domain": "facility",
+      "canonical": true
     },
-    "e8": {
-      "id": "e8",
-      "name": "Customer",
-      "type": "BusinessActor",
-      "source_document_id": "ai-depot-ontology-mapping.md",
-      "evidence_ref": [
-        "ev_8"
-      ],
-      "confidence": 0.95
+    "concept_oneway_contract": {
+      "entity_id": "concept_oneway_contract",
+      "name": "One-Way Container Lease",
+      "type": "Concept",
+      "domain": "contract",
+      "canonical": true
     },
-    "e9": {
-      "id": "e9",
-      "name": "Container",
-      "type": "Resource",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_9"
-      ],
-      "confidence": 0.95
+    "concept_wishlist": {
+      "entity_id": "concept_wishlist",
+      "name": "Container Wishlist",
+      "type": "Concept",
+      "domain": "business_doc",
+      "canonical": true
     },
-    "e10": {
-      "id": "e10",
-      "name": "SOCContainer",
-      "type": "Resource",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_10"
-      ],
-      "confidence": 0.95
+    "concept_puc": {
+      "entity_id": "concept_puc",
+      "name": "Pick-Up Charge",
+      "type": "Concept",
+      "domain": "finance",
+      "canonical": true
     },
-    "e11": {
-      "id": "e11",
-      "name": "Truck",
-      "type": "Resource",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_11"
-      ],
-      "confidence": 0.95
+    "person_mrk_phen_lak": {
+      "entity_id": "person_mrk_phen_lak",
+      "name": "Mr. Phen Lak",
+      "type": "Person",
+      "domain": "contact",
+      "canonical": true
     },
-    "e12": {
-      "id": "e12",
-      "name": "PLAContract",
-      "type": "Resource",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_12"
-      ],
-      "confidence": 0.95
+    "person_christian_halgmann": {
+      "entity_id": "person_christian_halgmann",
+      "name": "Christian Halgmann",
+      "type": "Person",
+      "domain": "contact",
+      "canonical": true
     },
-    "e13": {
-      "id": "e13",
-      "name": "WishList",
-      "type": "Resource",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_13"
-      ],
-      "confidence": 0.95
-    },
-    "e14": {
-      "id": "e14",
-      "name": "Booking",
-      "type": "Resource",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_14"
-      ],
-      "confidence": 0.95
-    },
-    "e15": {
-      "id": "e15",
-      "name": "Equipment",
-      "type": "Resource",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_15"
-      ],
-      "confidence": 0.95
-    },
-    "e16": {
-      "id": "e16",
-      "name": "Hapag-Lloyd",
-      "type": "BusinessActor",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_16"
-      ],
-      "confidence": 0.95
-    },
-    "e17": {
-      "id": "e17",
-      "name": "Maersk",
-      "type": "BusinessActor",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_17"
-      ],
-      "confidence": 0.95
-    },
-    "e18": {
-      "id": "e18",
-      "name": "Cosmos Whales",
-      "type": "BusinessActor",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_18"
-      ],
-      "confidence": 0.95
-    },
-    "e19": {
-      "id": "e19",
-      "name": "ONE",
-      "type": "BusinessActor",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_19"
-      ],
-      "confidence": 0.95
-    },
-    "e20": {
-      "id": "e20",
-      "name": "ContainerAgent",
-      "type": "BusinessActor",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_20"
-      ],
-      "confidence": 0.95
+    "aggregator_real_logistics": {
+      "entity_id": "aggregator_real_logistics",
+      "name": "REAL Logistics",
+      "type": "Organization",
+      "domain": "logistics",
+      "canonical": true
     }
   },
-  "relations": [],
-  "graph_hash": "adbb8d7330c8bcc7"
+  "relations": [
+    {
+      "relation_id": "GR-001",
+      "subject": {
+        "entity_id": "org_cosmos_whales"
+      },
+      "predicate": "provides_service_to",
+      "object": {
+        "entity_id": "org_hapag_lloyd"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "EV-GR-001"
+      ],
+      "grounding_status": "EXACT",
+      "confidence": 1.0,
+      "provenance": "golden-relation:v0.4"
+    },
+    {
+      "relation_id": "GR-002",
+      "subject": {
+        "entity_id": "concept_oneway_contract"
+      },
+      "predicate": "has_puc_rate",
+      "object": {
+        "type": "MoneyPerUnit",
+        "value": 150,
+        "currency": "USD",
+        "unit": "container"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "EV-GR-002"
+      ],
+      "grounding_status": "EXACT",
+      "confidence": 1.0,
+      "provenance": "golden-relation:v0.4"
+    },
+    {
+      "relation_id": "GR-003",
+      "subject": {
+        "entity_id": "concept_oneway_contract"
+      },
+      "predicate": "has_free_days",
+      "object": {
+        "type": "DurationRange",
+        "value": "90-100",
+        "unit": "days"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "EV-GR-003"
+      ],
+      "grounding_status": "EXACT",
+      "confidence": 1.0,
+      "provenance": "golden-relation:v0.4"
+    },
+    {
+      "relation_id": "GR-004",
+      "subject": {
+        "entity_id": "resource_container_20hc"
+      },
+      "predicate": "off_hire_at",
+      "object": {
+        "entity_id": "loc_gdansk_tuchom"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "EV-GR-004"
+      ],
+      "grounding_status": "EXACT",
+      "confidence": 1.0,
+      "provenance": "golden-relation:v0.4"
+    },
+    {
+      "relation_id": "GR-005",
+      "subject": {
+        "entity_id": "org_maersk"
+      },
+      "predicate": "publishes",
+      "object": {
+        "entity_id": "concept_wishlist"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "EV-GR-005"
+      ],
+      "grounding_status": "SUPPORTED",
+      "confidence": 0.95,
+      "provenance": "golden-relation:v0.4"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "GC-001",
+      "subject": {
+        "entity_id": "org_cosmos_whales"
+      },
+      "predicate": "provides_service_to",
+      "object": {
+        "entity_id": "org_hapag_lloyd"
+      },
+      "claim_status": "OBSERVED",
+      "evidence_ref": [
+        "EV-GR-001"
+      ],
+      "grounding_status": "EXACT"
+    },
+    {
+      "claim_id": "GC-002",
+      "subject": {
+        "entity_id": "concept_oneway_contract"
+      },
+      "predicate": "has_puc_rate",
+      "object": {
+        "type": "MoneyPerUnit",
+        "value": 150,
+        "currency": "USD",
+        "unit": "container"
+      },
+      "claim_status": "OBSERVED",
+      "evidence_ref": [
+        "EV-GR-002"
+      ],
+      "grounding_status": "EXACT"
+    },
+    {
+      "claim_id": "GC-003",
+      "subject": {
+        "entity_id": "concept_oneway_contract"
+      },
+      "predicate": "has_free_days",
+      "object": {
+        "type": "DurationRange",
+        "value": "90-100",
+        "unit": "days"
+      },
+      "claim_status": "OBSERVED",
+      "evidence_ref": [
+        "EV-GR-003"
+      ],
+      "grounding_status": "EXACT"
+    },
+    {
+      "claim_id": "GC-004",
+      "subject": {
+        "entity_id": "resource_container_20hc"
+      },
+      "predicate": "off_hire_at",
+      "object": {
+        "entity_id": "loc_gdansk_tuchom"
+      },
+      "claim_status": "OBSERVED",
+      "evidence_ref": [
+        "EV-GR-004"
+      ],
+      "grounding_status": "EXACT"
+    },
+    {
+      "claim_id": "GC-005",
+      "subject": {
+        "entity_id": "org_maersk"
+      },
+      "predicate": "publishes",
+      "object": {
+        "entity_id": "concept_wishlist"
+      },
+      "claim_status": "OBSERVED",
+      "evidence_ref": [
+        "EV-GR-005"
+      ],
+      "grounding_status": "SUPPORTED"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EV-GR-001",
+      "source_document_id": "oneway-corpus.md",
+      "locator": {
+        "line_start": 6,
+        "line_end": 6
+      },
+      "text_basis": "Cosmos Whales \u5411 Hapag-Lloyd \u63d0\u4f9b\u96c6\u88c5\u7bb1\u5355\u5411\u79df\u8d41\uff08One-Way Lease\uff09\u670d\u52a1",
+      "extractor": "golden-grounding:v0.4",
+      "provenance": "source-span:v0.4"
+    },
+    {
+      "evidence_id": "EV-GR-002",
+      "source_document_id": "oneway-corpus.md",
+      "locator": {
+        "line_start": 16,
+        "line_end": 16
+      },
+      "text_basis": "PUC \u4e3a USD 150/\u7bb1\uff08\u7565\u9ad8\u4e8e\u901a\u5e38\u884c\u60c5\uff09",
+      "extractor": "golden-grounding:v0.4",
+      "provenance": "source-span:v0.4"
+    },
+    {
+      "evidence_id": "EV-GR-003",
+      "source_document_id": "oneway-corpus.md",
+      "locator": {
+        "line_start": 9,
+        "line_end": 9
+      },
+      "text_basis": "\u5df2\u62a5\u5546\u4e1a\u6761\u6b3e\uff1a\u514d\u7bb1 90-100 \u5929\u3001per diem $1.0/$1.8\u3001Net 60",
+      "extractor": "golden-grounding:v0.4",
+      "provenance": "source-span:v0.4"
+    },
+    {
+      "evidence_id": "EV-GR-004",
+      "source_document_id": "oneway-corpus.md",
+      "locator": {
+        "line_start": 14,
+        "line_end": 14
+      },
+      "text_basis": "\u5df2\u5b8c\u6210\u6848\u4f8b\uff1a26x20'HC \u4ece\u4e0a\u6d77\uff08CNSGHMJ1\uff09\u5230\u6ce2\u5170\u683c\u4f46\u65af\u514b\uff08PLGDN\uff09\uff0c\u8fd8\u7bb1\u70b9 Gdansk/Tuchom \u5806\u573a\uff08REAL Logistics / Tradecon\uff09",
+      "extractor": "golden-grounding:v0.4",
+      "provenance": "source-span:v0.4"
+    },
+    {
+      "evidence_id": "EV-GR-005",
+      "source_document_id": "oneway-corpus.md",
+      "locator": {
+        "line_start": 12,
+        "line_end": 12
+      },
+      "text_basis": "\u9a6c\u58eb\u57fa\u8054\u7cfb\u4eba\uff1aMr. Phen Lak\uff08\u54e5\u672c\u54c8\u6839\u603b\u90e8\uff0c\u6bcf\u6708\u53d1 wish list\uff09",
+      "extractor": "golden-grounding:v0.4",
+      "provenance": "source-span:v0.4"
+    }
+  ],
+  "metadata": {
+    "total_entities": 16,
+    "total_relations": 5,
+    "total_claims": 5,
+    "total_evidence": 5,
+    "golden_relation_count": 5,
+    "golden_claim_count": 5
+  }
 }

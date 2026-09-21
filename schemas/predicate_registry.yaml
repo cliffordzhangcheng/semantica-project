@@ -57,3 +57,4 @@ predicates:
   箱（20/40/45，干/冷/危，箱况状态机）: Container type specification
   拖车: Truck operation
   stored_at: Storage location
+  off_hire_at: Off-hire/return location (exact predicate)

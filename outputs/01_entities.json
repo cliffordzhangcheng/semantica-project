@@ -1,0 +1,118 @@
+{
+  "run_id": "20260921211144",
+  "entities": {
+    "org_cosmos_whales": {
+      "entity_id": "org_cosmos_whales",
+      "name": "Cosmos Whales",
+      "type": "Organization",
+      "domain": "logistics",
+      "canonical": true
+    },
+    "org_hapag_lloyd": {
+      "entity_id": "org_hapag_lloyd",
+      "name": "Hapag-Lloyd",
+      "type": "Organization",
+      "domain": "shipping",
+      "canonical": true
+    },
+    "org_maersk": {
+      "entity_id": "org_maersk",
+      "name": "Maersk",
+      "type": "Organization",
+      "domain": "shipping",
+      "canonical": true
+    },
+    "org_one": {
+      "entity_id": "org_one",
+      "name": "ONE (Ocean Network Express)",
+      "type": "Organization",
+      "domain": "shipping",
+      "canonical": true
+    },
+    "loc_shanghai": {
+      "entity_id": "loc_shanghai",
+      "name": "Shanghai",
+      "type": "Location",
+      "domain": "port",
+      "canonical": true
+    },
+    "loc_gdansk": {
+      "entity_id": "loc_gdansk",
+      "name": "Gdansk",
+      "type": "Location",
+      "domain": "port",
+      "canonical": true
+    },
+    "loc_gdansk_tuchom": {
+      "entity_id": "loc_gdansk_tuchom",
+      "name": "Gdansk/Tuchom Depot",
+      "type": "Location",
+      "domain": "depot",
+      "canonical": true
+    },
+    "resource_container_20hc": {
+      "entity_id": "resource_container_20hc",
+      "name": "20' HC Container",
+      "type": "Resource",
+      "domain": "container",
+      "canonical": true
+    },
+    "resource_container_40hc": {
+      "entity_id": "resource_container_40hc",
+      "name": "40' HC Container",
+      "type": "Resource",
+      "domain": "container",
+      "canonical": true
+    },
+    "resource_depot": {
+      "entity_id": "resource_depot",
+      "name": "Depot",
+      "type": "Resource",
+      "domain": "facility",
+      "canonical": true
+    },
+    "concept_oneway_contract": {
+      "entity_id": "concept_oneway_contract",
+      "name": "One-Way Container Lease",
+      "type": "Concept",
+      "domain": "contract",
+      "canonical": true
+    },
+    "concept_wishlist": {
+      "entity_id": "concept_wishlist",
+      "name": "Container Wishlist",
+      "type": "Concept",
+      "domain": "business_doc",
+      "canonical": true
+    },
+    "concept_puc": {
+      "entity_id": "concept_puc",
+      "name": "Pick-Up Charge",
+      "type": "Concept",
+      "domain": "finance",
+      "canonical": true
+    },
+    "person_mrk_phen_lak": {
+      "entity_id": "person_mrk_phen_lak",
+      "name": "Mr. Phen Lak",
+      "type": "Person",
+      "domain": "contact",
+      "canonical": true
+    },
+    "person_christian_halgmann": {
+      "entity_id": "person_christian_halgmann",
+      "name": "Christian Halgmann",
+      "type": "Person",
+      "domain": "contact",
+      "canonical": true
+    },
+    "aggregator_real_logistics": {
+      "entity_id": "aggregator_real_logistics",
+      "name": "REAL Logistics",
+      "type": "Organization",
+      "domain": "logistics",
+      "canonical": true
+    }
+  },
+  "count": 16
+}

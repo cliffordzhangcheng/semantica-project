@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "runs": 2,
+  "comparison": {
+    "entity_registry": true,
+    "golden_relations": true,
+    "golden_claims": true,
+    "graph": true
+  },
+  "all_hash_consistent": true
+}
