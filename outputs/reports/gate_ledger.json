@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1790000097",
-  "timestamp": "2026-09-21T22:14:57.329211",
+  "run_id": "run-1790000352",
+  "timestamp": "2026-09-21T22:19:12.687171",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -15,10 +15,10 @@
     "G2": {
       "name": "Reality Graph Integrity",
       "status": "PASS",
-      "graph_hash": "c6eb07cead35cb4a",
-      "entity_count": 15,
+      "graph_hash": "16d4aa081bf90de3",
+      "entity_count": 4,
       "relation_count": 0,
-      "details": "15 entities, 0 relations"
+      "details": "4 entities, 0 relations"
     },
     "G3": {
       "name": "Evidence Integrity",
@@ -43,7 +43,7 @@
       "name": "Engineering Verification",
       "status": "PASS",
       "test_count": 51,
-      "commit": "b03e82a",
+      "commit": "dc83b1d",
       "details": "51 tests passed"
     },
     "G6": {
