@@ -305,8 +305,8 @@ status: {'APPROVED' if overall == 'PASS' else 'PENDING'}
 **Main Directly Modified**: NO
 **Production Changed**: NO
 **Founder Action Required**: YES
-**Final Status**: SEMANTICA_REALITY_CLOSURE_PASS_CANDIDATE
-""".format(overall=overall, hashes=hashes)
+**Final Status**: SEMANTICA_REALITY_CLOSURE_{overall}
+"""
     
     # Write report
     output_path = Path("REPORT-SEMANTICA-REALITY-CLOSURE-v0.2.md")
