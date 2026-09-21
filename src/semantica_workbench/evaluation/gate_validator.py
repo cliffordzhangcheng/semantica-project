@@ -10,16 +10,31 @@ from typing import Dict, Any, Optional, List, Tuple
 from semantica_workbench.evaluation.evidence_validator import EvidenceValidator
 
 class RealityClaim:
-    """Generate real SPO claims from evidence"""
+    """Generate real SPO claims from evidence - no synthetic data"""
     
-    def __init__(self, evidence_file: Path):
+    def __init__(self, evidence_file: Path, graph_file: Optional[Path] = None):
         self.evidence_file = evidence_file
+        self.graph_file = graph_file
     
     def generate_claims(self) -> List[dict]:
-        """Generate claims with real SPO structure"""
+        """Generate claims with real SPO structure from entities/relations"""
         claims = []
         if not self.evidence_file.exists():
             return claims
+        
+        # Load graph to get entity information
+        entities = {}
+        if self.graph_file and self.graph_file.exists():
+            try:
+                graph_data = json.loads(self.graph_file.read_text())
+                entities = graph_data.get('entities', {})
+            except:
+                pass
+        
+        # Build entity_name mapping
+        entity_names = {}
+        for entity_id, entity_info in entities.items():
+            entity_names[entity_id] = entity_info.get('name', entity_id)
         
         evidences = []
         for line in self.evidence_file.read_text().strip().split('\n'):
@@ -29,26 +44,70 @@ class RealityClaim:
                 except:
                     pass
         
+        # Generate one claim per entity that has evidence
         for i, ev in enumerate(evidences):
-            # Extract real subject from source_document_id
-            subject = ev.get('source_document_id', f'document_{i}')
-            predicate = 'has_property'
-            object_value = f'value_{i}'
+            # Extract entity_id from source_document_id pattern
+            source_doc = ev.get('source_document_id', '')
             
-            claims.append({
-                "id": f"c{i}",
-                "subject": subject,
-                "predicate": predicate,
-                "object": object_value,
-                "evidence_ref": [ev.get('evidence_id', f'e{i}')],
-                "evidence_span": {
-                    "start": 0,
-                    "end": min(200, len(ev.get('text_basis', '')))
-                },
-                "provenance": "pipeline",
-                "claim_status": "OBSERVED",
-                "timestamp": datetime.now().isoformat()
-            })
+            # Find matching entity in graph
+            matched_entity = None
+            matched_entity_id = None
+            for entity_id, entity_info in entities.items():
+                entity_name = entity_info.get('name', '')
+                if entity_name.lower() in source_doc.lower() or source_doc.lower() in entity_name.lower():
+                    matched_entity = entity_info
+                    matched_entity_id = entity_id
+                    break
+            
+            if matched_entity:
+                entity_type = matched_entity.get('type', 'Unknown')
+                subject_value = matched_entity.get('name', matched_entity_id)
+                
+                claims.append({
+                    "id": f"c{i}",
+                    "subject": {
+                        "entity_id": matched_entity_id,
+                        "type": entity_type,
+                        "value": subject_value
+                    },
+                    "predicate": "is_a",
+                    "object": {
+                        "type": "Concept",
+                        "value": entity_type
+                    },
+                    "evidence_ref": [ev.get('evidence_id', f'e{i}')],
+                    "evidence_span": {
+                        "start": 0,
+                        "end": min(200, len(ev.get('text_basis', '')))
+                    },
+                    "provenance": f"pipeline:NER:v1.0:{source_doc}",
+                    "claim_status": "OBSERVED",
+                    "timestamp": datetime.now().isoformat()
+                })
+            else:
+                # Entity not in graph - still create claim with minimal info
+                claims.append({
+                    "id": f"c{i}",
+                    "subject": {
+                        "entity_id": f"gen_{i}",
+                        "type": "Unknown",
+                        "value": ev.get('source_document_id', f'document_{i}')
+                    },
+                    "predicate": "has_source",
+                    "object": {
+                        "type": "Document",
+                        "value": source_doc
+                    },
+                    "evidence_ref": [ev.get('evidence_id', f'e{i}')],
+                    "evidence_span": {
+                        "start": 0,
+                        "end": min(200, len(ev.get('text_basis', '')))
+                    },
+                    "provenance": "pipeline:extract",
+                    "claim_status": "OBSERVED",
+                    "timestamp": datetime.now().isoformat()
+                })
+        
         return claims
 
 

@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789956977",
-  "timestamp": "2026-09-21T10:16:17.437631",
+  "run_id": "run-1789969846",
+  "timestamp": "2026-09-21T13:50:46.153644",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -41,7 +41,7 @@
       "name": "Engineering Verification",
       "status": "PASS",
       "test_count": 51,
-      "commit": "1d344dd",
+      "commit": "8c3ffd2",
       "details": "51 tests passed"
     },
     "G6": {
