@@ -187,7 +187,7 @@ class PipelineOrchestrator:
             try:
                 with entities_file.open() as f:
                     entities = json.load(f).get("entities", {})
-            except:
+            except (ValueError, TypeError):
                 pass
         
         relations_file = output_dir / "04_relations.json"
@@ -195,7 +195,7 @@ class PipelineOrchestrator:
             try:
                 with relations_file.open() as f:
                     relations = json.load(f).get("relations", [])
-            except:
+            except (ValueError, TypeError):
                 pass
         
         # Build graph - real data only, no fallback!

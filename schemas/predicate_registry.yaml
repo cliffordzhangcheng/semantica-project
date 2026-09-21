@@ -1,0 +1,9 @@
+# Predicate Registry - Canonical semantic predicates
+# Only these predicates are allowed in production claims
+predicates:
+  - is_a: "Entity type classification"
+  - has_property: "Attribute assignment"
+  - located_at: "Spatial relationship"
+  - belongs_to: "Ownership/assignment"
+  - provides: "Service/provision relationship"
+  - to_counterparty: "Counterparty relationship"

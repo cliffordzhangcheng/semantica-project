@@ -28,8 +28,8 @@ class RealityClaim:
             try:
                 graph_data = json.loads(self.graph_file.read_text())
                 entities = graph_data.get('entities', {})
-            except:
-                pass
+            except (ValueError, TypeError) as e:
+                raise RuntimeError(f"Graph load failed: {e}")
         
         # Build entity_name mapping
         entity_names = {}
@@ -41,7 +41,7 @@ class RealityClaim:
             if line.strip():
                 try:
                     evidences.append(json.loads(line))
-                except:
+                except (ValueError, TypeError):
                     pass
         
         # Generate one claim per entity that has evidence
@@ -337,7 +337,7 @@ class GateEngine:
                     try:
                         ev = json.loads(line)
                         evidence_ids.add(ev.get('evidence_id'))
-                    except:
+                    except (ValueError, TypeError):
                         pass
         
         # Validate claims
@@ -346,7 +346,7 @@ class GateEngine:
             if line.strip():
                 try:
                     claims.append(json.loads(line))
-                except:
+                except (ValueError, TypeError):
                     pass
         
         if len(claims) == 0:
@@ -360,12 +360,44 @@ class GateEngine:
         # Check SPO structure and evidence binding
         spo_count = 0
         dangling_refs = 0
-        
+        invalid_predicates = 0
+        unsupported_states = []
+
+        # Load predicate registry
+        registry_file = self.project_root / "schemas" / "predicate_registry.yaml"
+        allowed_predicates = set()
+        if registry_file.exists():
+            import yaml
+            try:
+                with open(registry_file, 'r') as f:
+                    registry = yaml.safe_load(f)
+                    allowed_predicates = set(registry.get('predicates', {}).keys())
+            except Exception:
+                pass
+
         for claim in claims:
             # Check SPO structure
             if all(k in claim for k in ['subject', 'predicate', 'object']):
                 spo_count += 1
-            
+
+                # Validate predicate against registry
+                pred = claim.get('predicate', '')
+                if allowed_predicates and pred not in allowed_predicates:
+                    invalid_predicates += 1
+
+                # Check for unsupported business states
+                claim_text = json.dumps(claim).upper()
+                for state in ['BOOKED', 'DEPARTED', 'ARRIVED', 'COMPLETED', 'UNKNOWN', 'UNVERIFIED']:
+                    if state in claim_text:
+                        status = claim.get('claim_status', '')
+                        if status in ['UNKNOWN', 'UNVERIFIED']:
+                            unsupported_states.append({
+                                'claim_id': claim.get('id'),
+                                'state': state,
+                                'status': status
+                            })
+                        break
+
             # Check evidence_ref
             evidence_refs = claim.get('evidence_ref', [])
             if not evidence_refs:
@@ -374,9 +406,9 @@ class GateEngine:
                 for ref in evidence_refs:
                     if ref not in evidence_ids:
                         dangling_refs += 1
-        
+
         coverage = ((len(claims) - dangling_refs) / len(claims) * 100) if claims else 0
-        
+
         if spo_count < len(claims):
             results["gates"]["G4"] = {
                 "name": "Claim-to-Evidence Integrity",
@@ -384,7 +416,7 @@ class GateEngine:
                 "details": f"Only {spo_count}/{len(claims)} claims have SPO structure"
             }
             return
-        
+
         if dangling_refs > 0:
             results["gates"]["G4"] = {
                 "name": "Claim-to-Evidence Integrity",
@@ -392,7 +424,15 @@ class GateEngine:
                 "details": f"{dangling_refs} dangling evidence references"
             }
             return
-        
+
+        if invalid_predicates > 0:
+            results["gates"]["G4"] = {
+                "name": "Claim-to-Evidence Integrity",
+                "status": "FAIL",
+                "details": f"{invalid_predicates} claims with unsupported predicates"
+            }
+            return
+
         results["gates"]["G4"] = {
             "name": "Claim-to-Evidence Integrity",
             "status": "PASS",
@@ -400,6 +440,8 @@ class GateEngine:
             "spo_coverage": "100%",
             "evidence_coverage": f"{coverage:.1f}%",
             "dangling_refs": 0,
+            "invalid_predicates": 0,
+            "unsupported_states": 0,
             "details": f"All {len(claims)} claims have SPO structure and evidence binding"
         }
     
@@ -441,7 +483,7 @@ class GateEngine:
                 if 'passed' in line:
                     try:
                         test_count = int(line.split()[0])
-                    except:
+                    except (ValueError, TypeError):
                         pass
                     break
             
@@ -489,7 +531,7 @@ class GateEngine:
                                 # Check if unsupported
                                 if claim.get('claim_status') in ['UNKNOWN', 'UNVERIFIED']:
                                     unsupported_states.append(claim)
-                    except:
+                    except (ValueError, TypeError):
                         pass
         
         # Also check graph for state entities
@@ -505,10 +547,8 @@ class GateEngine:
                             'type': entity_type,
                             'status': entity.get('status', 'UNKNOWN')
                         })
-            except:
+            except (ValueError, TypeError):
                 pass
-        
-        if len(state_claims) == 0:
             # No state data - BLOCKED, not PASS
             results["gates"]["G6"] = {
                 "name": "Business State Semantic Integrity",

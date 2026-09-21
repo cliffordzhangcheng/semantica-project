@@ -1,0 +1,14 @@
+# State Registry - Allowed business states
+# States outside this registry are considered unsupported
+states:
+  # Shipment states
+  - BOOKED: "Shipment booked"
+  - DEPARTED: "Shipment departed origin"
+  - IN_TRANSIT: "Shipment in transit"
+  - ARRIVED: "Shipment arrived at destination"
+  - COMPLETED: "Shipment completed"
+  # Incident states
+  - OPEN: "Incident open"
+  - INVESTIGATING: "Incident under investigation"
+  - RESOLVED: "Incident resolved"
+  - CLOSED: "Incident closed"
