@@ -123,6 +123,8 @@ class PipelineOrchestrator:
             'plc contract': 'PLAContract',
             'pick up charge': 'PUC',
             'wish list': 'WishList',
+            'one way': 'OneWayContract',
+            'oneway lease': 'OneWayContract',
         }
         
         for doc in data.get("documents", []):

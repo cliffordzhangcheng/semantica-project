@@ -1,7 +1,86 @@
 {
-  "relations": [],
-  "count": 0,
+  "relations": [
+    {
+      "relation_id": "r1",
+      "subject": {
+        "entity_id": "e16",
+        "value": "Container",
+        "type": "Resource"
+      },
+      "predicate": "located_at",
+      "object": {
+        "entity_id": "e17",
+        "value": "Depot",
+        "type": "Resource"
+      },
+      "evidence_ref": [
+        "ev_1",
+        "ev_2",
+        "ev_3",
+        "ev_4"
+      ],
+      "evidence_span": {
+        "start": 65,
+        "end": 66
+      },
+      "provenance": "pattern:ai-depot-ontology-mapping.md:65",
+      "relation_status": "EXTRACTED"
+    },
+    {
+      "relation_id": "r2",
+      "subject": {
+        "entity_id": "e24",
+        "value": "Truck",
+        "type": "Resource"
+      },
+      "predicate": "transports",
+      "object": {
+        "entity_id": "e16",
+        "value": "Container",
+        "type": "Resource"
+      },
+      "evidence_ref": [
+        "ev_1",
+        "ev_2",
+        "ev_3",
+        "ev_4"
+      ],
+      "evidence_span": {
+        "start": 69,
+        "end": 70
+      },
+      "provenance": "pattern:ai-depot-ontology-mapping.md:69",
+      "relation_status": "EXTRACTED"
+    },
+    {
+      "relation_id": "r3",
+      "subject": {
+        "entity_id": "e19",
+        "value": "Customer",
+        "type": "BusinessActor"
+      },
+      "predicate": "owns",
+      "object": {
+        "entity_id": "e16",
+        "value": "Container",
+        "type": "Resource"
+      },
+      "evidence_ref": [
+        "ev_1",
+        "ev_2",
+        "ev_3",
+        "ev_4"
+      ],
+      "evidence_span": {
+        "start": 71,
+        "end": 72
+      },
+      "provenance": "pattern:ai-depot-ontology-mapping.md:71",
+      "relation_status": "EXTRACTED"
+    }
+  ],
+  "count": 3,
   "unknown_entity_count": 0,
-  "resolution_rate": "0%",
-  "extraction_timestamp": "2026-09-21T14:11:03.473696+00:00"
+  "resolution_rate": "100.0%",
+  "extraction_timestamp": "2026-09-21T14:14:57.083593+00:00"
 }

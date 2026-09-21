@@ -3,7 +3,7 @@
 title: "Semantica Reality Closure Correction - v0.2"
 type: report
 tags: [semantica, reality-closure, correction, akos]
-created: 2026-09-21T22:09:53.284341
+created: 2026-09-21T22:15:24.073291
 verified: true
 status: PENDING
 ---
@@ -20,7 +20,7 @@ status: PENDING
 
 **整体状态**: SEMANTICA_REALITY_CLOSURE_BLOCKED
 **分支**: openminis/semantica-reality-validation-v0.3
-**提交**: 20f3a79
+**提交**: b03e82a
 
 | Gate | 状态 |
 |------|------|
@@ -48,9 +48,9 @@ status: PENDING
 
 ## 二、图谱完整性
 
-**实体数量**: 4
+**实体数量**: 15
 **关系数量**: 0
-**图谱哈希**: `adbb8d7330c8bcc7`
+**图谱哈希**: `5c02bfd27f330ff8`
 
 **✅ 无合成实体**
 
@@ -75,7 +75,7 @@ status: PENDING
 $ python3 scripts/check_artifact_integrity.py
 
 === Artifact Integrity Check ===
-Graph: 4 entities, 0 relations
+Graph: 15 entities, 0 relations
   ✅ No synthetic entities
 Evidence: 30/30 valid
 Claims: 4/4 with SPO, 0 dangling refs

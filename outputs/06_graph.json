@@ -39,6 +39,83 @@
         "ev_4"
       ],
       "confidence": 0.9
+    },
+    "e15": {
+      "id": "e15",
+      "name": "ContainerOwner",
+      "type": "BusinessActor",
+      "source_document_id": "container-invest-ont-core.md",
+      "confidence": 0.9
+    },
+    "e16": {
+      "id": "e16",
+      "name": "Container",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
+      "confidence": 0.9
+    },
+    "e17": {
+      "id": "e17",
+      "name": "Depot",
+      "type": "Resource",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "confidence": 0.9
+    },
+    "e18": {
+      "id": "e18",
+      "name": "SOCContainer",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
+      "confidence": 0.9
+    },
+    "e19": {
+      "id": "e19",
+      "name": "Customer",
+      "type": "BusinessActor",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "confidence": 0.9
+    },
+    "e20": {
+      "id": "e20",
+      "name": "FreightForwarder",
+      "type": "BusinessActor",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "confidence": 0.9
+    },
+    "e21": {
+      "id": "e21",
+      "name": "PLAContract",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
+      "confidence": 0.9
+    },
+    "e22": {
+      "id": "e22",
+      "name": "WishList",
+      "type": "Resource",
+      "source_document_id": "oneway-corpus.md",
+      "confidence": 0.9
+    },
+    "e23": {
+      "id": "e23",
+      "name": "Booking",
+      "type": "Resource",
+      "source_document_id": "oneway-corpus.md",
+      "confidence": 0.9
+    },
+    "e24": {
+      "id": "e24",
+      "name": "Truck",
+      "type": "Resource",
+      "source_document_id": "oneway-corpus.md",
+      "confidence": 0.9
+    },
+    "e25": {
+      "id": "e25",
+      "name": "Equipment",
+      "type": "Resource",
+      "source_document_id": "container-invest-ont-core.md",
+      "confidence": 0.9
     }
   },
   "relations": [],
