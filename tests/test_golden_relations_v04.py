@@ -278,10 +278,11 @@ class TestArtifactIntegrity:
     
     def test_no_critical_truncation(self):
         """AC-GA: No critical truncation markers"""
-        for f in OUTPUT_DIR.glob("*"):
-            content = f.read_text()
-            assert "INVALID JSON" not in content, f"{f.name} contains INVALID JSON marker"
-            assert "critical report truncation" not in content.lower(), f"{f.name} contains truncation warning"
+        for f in OUTPUT_DIR.rglob("*"):
+            if f.is_file() and f.suffix in ['.json', '.jsonl', '.md']:
+                content = f.read_text()
+                assert "INVALID JSON" not in content, f"{f.name} contains INVALID JSON marker"
+                assert "critical report truncation" not in content.lower(), f"{f.name} contains truncation warning"
 
 
 class TestSnapshotConsistency:
