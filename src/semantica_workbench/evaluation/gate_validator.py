@@ -104,7 +104,11 @@ class GateEngine:
         else:
             results["overall"] = "PASS"
         
-        ledger_path.write_text(json.dumps(results, indent=2))
+        try:
+            ledger_path.write_text(json.dumps(results, indent=2, default=str))
+        except TypeError:
+            results["gates"]["_serialization_error"] = "True"
+            ledger_path.write_text(json.dumps({"run_id": results["run_id"], "error": "Serialization failed"}))
         return results
     
     def _validate_corpus(self, results: dict) -> None:

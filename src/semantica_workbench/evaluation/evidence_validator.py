@@ -100,3 +100,24 @@ if __name__ == "__main__":
             print(f"  - {e}")
     
     sys.exit(0 if total == valid and not errors else 1)
+    def validate_graph(self, graph: dict) -> dict:
+        """Validate graph cross-references - for test compatibility"""
+        errors = {"entity_errors": [], "relationship_errors": []}
+        
+        # Collect entity IDs
+        entity_ids = set()
+        if isinstance(graph, dict):
+            for entity in graph.get('entities', []):
+                entity_ids.add(entity.get('id'))
+        
+        # Validate relationships
+        for rel in graph.get('relationships', []):
+            source = rel.get('source')
+            target = rel.get('target')
+            
+            if source and source not in entity_ids:
+                errors["entity_errors"].append(f"Relationship {rel.get('id')} references non-existent source: {source}")
+            if target and target not in entity_ids:
+                errors["entity_errors"].append(f"Relationship {rel.get('id')} references non-existent target: {target}")
+        
+        return errors
