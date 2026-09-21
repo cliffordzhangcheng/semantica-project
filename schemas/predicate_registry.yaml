@@ -1,42 +1,56 @@
 predicates:
   belongs_to: Ownership/assignment
+  consolidated_into: Consolidation into larger unit
+  deconsolidated_from: Deconsolidation from larger unit
   consolidates: Consolidation operation
   derived_from: Derivation relationship
-  has_business_agreement: Business agreement
-  has_contract_term: Contractual condition
-  has_contract_with: Business agreement
-  has_daily_rate: Daily rental rate
-  has_destination_port: Destination port specification
-  has_free_days: Grace period specification
-  has_payment_term: 'Auto-discovered: has_payment_term'
-  has_pickup_charge: Pickup fee specification
-  has_pickup_port: Origin port specification
-  has_pricing: Monetary value assignment
-  has_property: Attribute assignment
-  has_puc_rate: 'Auto-discovered: has_puc_rate'
-  has_relationship: Generic business relationship
-  has_type: Entity type classification
-  intermediates: Brokerage/matchmaking
-  is_a: Entity type classification
-  issued_by: Issuance relationship
-  leases_to: Lease relationship
-  located_at: Spatial relationship
-  off_hires_at: Return/termination point
-  offers: Service offering
-  operated_by: Operational responsibility
-  operates_in: 'Auto-discovered: operates_in'
-  owned_by: Ownership relationship
+  books: Booking relationship
+  charters_under: Chartering relationship
+  specifies: Specification relationship
+  guarantees: Guarantee relationship
+  sells_to: Sales relationship
+  subject_to: Subject to relationship
+  repairs: Repair relationship
+  charges: Charging relationship
+  issues: Issuance relationship
+  handles: Handling relationship
+  earns: Earning relationship
+  off_hires_at: Off-hire point
+  disposes_via: Disposal relationship
+  feeds: Feeding relationship
   provides: Service/provision relationship
   provides_service_to: Business service provision
   publishes: Publication/dissemination
-  received_by: Receipt relationship
-  requires_container_type: Container type requirement
-  same_as: 'Auto-discovered: same_as'
-  supported_by: Evidence support
-  to_counterparty: Counterparty relationship
-  transitions_to: State transition
+  intermediates: Brokerage/matchmaking
+  operates: Operation relationship
+  owns: Ownership relationship
+  located_at: Spatial relationship
   transports: Physical movement
-  works_for: 'Auto-discovered: works_for'
+  has_type: Entity type classification
+  has_contract_with: Business agreement
+  has_contract_term: Contractual condition
+  has_pricing: Monetary value assignment
+  has_puc_rate: Pickup charge rate
+  has_free_days: Grace period specification
+  has_daily_rate: Daily rental rate
+  has_property: Attribute assignment
+  has_relationship: Generic business relationship
+  owned_by: Ownership relationship (inverse)
+  offers: Service offering
+  requires: Requirement relationship
+  contains: Containment relationship
+  references: Reference relationship
+  triggers: Trigger relationship
+  to_counterparty: Counterparty relationship
+  received_by: Receipt relationship
+  transitions_to: State transition
+  same_as: Identity relationship
+  is_a: Entity type classification
+  works_for: Employment relationship
+  operated_by: Operational responsibility
+  operates_in: Operational area
+  leases_to: Lease relationship
+  supported_by: Evidence support
+  集装箱（拼箱后装入）: Consolidation operation
   叉车/安检机/地磅: Equipment handling
   设备/IoT: Equipment type
-  集装箱（拼箱后装入）: Consolidation operation

@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1790001659",
-  "timestamp": "2026-09-21T22:40:59.950302",
+  "run_id": "run-1790001859",
+  "timestamp": "2026-09-21T22:44:19.566484",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -31,13 +31,13 @@
     "G4": {
       "name": "Claim-to-Evidence Integrity",
       "status": "FAIL",
-      "details": "27 claims with unsupported predicates"
+      "details": "6 claims with unsupported predicates"
     },
     "G5": {
       "name": "Engineering Verification",
       "status": "PASS",
       "test_count": 51,
-      "commit": "c568778",
+      "commit": "4db5f33",
       "details": "51 tests passed"
     },
     "G6": {
