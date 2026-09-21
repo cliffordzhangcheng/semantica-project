@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789954711",
-  "timestamp": "2026-09-21T09:38:31.260684",
+  "run_id": "run-1789954956",
+  "timestamp": "2026-09-21T09:42:36.376165",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -36,10 +36,10 @@
     },
     "G5": {
       "name": "Engineering Verification",
-      "status": "FAIL",
-      "details": "Tests failed",
-      "commit": "6dc782d",
-      "output": ""
+      "status": "PASS",
+      "test_count": 51,
+      "commit": "46b0e53",
+      "details": "51 tests passed"
     },
     "G6": {
       "name": "Business State Semantic Integrity",
