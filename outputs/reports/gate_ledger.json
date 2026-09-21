@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789955181",
-  "timestamp": "2026-09-21T09:46:21.365669",
+  "run_id": "run-1789956811",
+  "timestamp": "2026-09-21T10:13:31.420831",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -15,30 +15,23 @@
     "G2": {
       "name": "Reality Graph Integrity",
       "status": "FAIL",
-      "details": "No real entities in graph - NER failed or data incomplete"
+      "details": "Graph artifact missing"
     },
     "G3": {
       "name": "Evidence Integrity",
-      "status": "PASS",
-      "count": 6,
-      "valid_count": 6,
-      "validation_rate": "100.0%",
-      "details": "All 6 evidence records pass full contract"
+      "status": "FAIL",
+      "details": "No evidence records found"
     },
     "G4": {
       "name": "Claim-to-Evidence Integrity",
-      "status": "PASS",
-      "count": 6,
-      "spo_coverage": "100%",
-      "evidence_coverage": "100.0%",
-      "dangling_refs": 0,
-      "details": "All 6 claims have SPO structure and evidence binding"
+      "status": "FAIL",
+      "details": "Claims file missing"
     },
     "G5": {
       "name": "Engineering Verification",
       "status": "PASS",
       "test_count": 51,
-      "commit": "83a95ab",
+      "commit": "01626c6",
       "details": "51 tests passed"
     },
     "G6": {
