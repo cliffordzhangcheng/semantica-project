@@ -63,7 +63,7 @@ class PipelineOrchestrator:
             self._generate_evidence_claims()
     
     def _run_ner(self) -> None:
-        """Extract entities from raw documents - REAL extraction only"""
+        """Extract entities from raw documents - STRICT extraction only"""
         output_dir = self.project_root / "outputs"
         entities_file = output_dir / "03_entities.json"
         
@@ -79,52 +79,96 @@ class PipelineOrchestrator:
         entities = {}
         entity_id_counter = 0
         
+        # Strict entity name mapping - ONLY these are valid
+        ENTITY_CANONICAL_MAP = {
+            # Business Actors
+            'containerowner': 'ContainerOwner',
+            'carrier': 'Carrier',
+            'freightforwarder': 'FreightForwarder',
+            'depot': 'Depot',
+            'customer': 'Customer',
+            'cosmos': 'ContainerOwner',
+            'cosmos whales': 'ContainerOwner',
+            'hapag-lloyd': 'Carrier',
+            'hapag': 'Carrier',
+            'maersk': 'Carrier',
+            'one': 'Carrier',
+            'workbuddy': 'WorkBuddy',
+            
+            # Resources
+            'container': 'Container',
+            'soccontainer': 'SOCContainer',
+            'soc': 'SOCContainer',
+            'truck': 'Truck',
+            'equipment': 'Equipment',
+            
+            # Contracts
+            'onewaycontract': 'OneWayContract',
+            'oneway': 'OneWayContract',
+            'placontract': 'PLAContract',
+            'puc': 'PUC',
+            'wishlist': 'WishList',
+            'booking': 'Booking',
+        }
+        
+        # Also accept these variations (case-insensitive)
+        VARIATION_MAP = {
+            'container owner': 'ContainerOwner',
+            'shipping line': 'Carrier',
+            'shippingline': 'Carrier',
+            'freight forwarder': 'FreightForwarder',
+            'freightforwarder': 'FreightForwarder',
+            'social container': 'SOCContainer',
+            'socialcontainer': 'SOCContainer',
+            'plc contract': 'PLAContract',
+            'pick up charge': 'PUC',
+            'wish list': 'WishList',
+        }
+        
         for doc in data.get("documents", []):
             source = doc.get("source", "unknown")
             content = doc.get("content", "")
             
-            # Extract entities from markdown headers (## Entity Name)
-            # Accept broader pattern but filter to known types
+            # Extract entities from markdown headers - VERY STRICT
             header_pattern = r'##\s+([A-Z][A-Za-z0-9\s\-]+)'
             headers = re.findall(header_pattern, content)
             
-            # Known entity patterns (case-insensitive)
-            known_entity_patterns = [
-                'containerowner', 'carrier', 'freightforwarder', 'depot',
-                'container', 'soccontainer', 'truck', 'onewaycontract',
-                'placontract', 'puc', 'wishlist', 'booking', 'customer',
-                'hapag-lloyd', 'maersk', 'cosmos', 'workbuddy', 'one'
-            ]
-            
             for header in headers:
-                entity_name = header.strip()
-                entity_lower = entity_name.lower()
+                header_clean = header.strip().lower()
                 
-                # Check if it matches known entity types
-                is_known = any(k in entity_lower for k in known_entity_patterns)
+                # Check direct match
+                matched = False
+                for key, canonical in ENTITY_CANONICAL_MAP.items():
+                    if key in header_clean and len(header_clean) <= 20:
+                        if not any(entities[e]["name"] == canonical for e in entities):
+                            entity_id_counter += 1
+                            entities[f"e{entity_id_counter}"] = {
+                                "id": f"e{entity_id_counter}",
+                                "name": canonical,
+                                "type": "BusinessActor" if canonical in ['ContainerOwner', 'Carrier', 'Customer', 'FreightForwarder'] else "Resource",
+                                "source_document_id": source,
+                                "evidence_ref": [f"ev_{entity_id_counter}"],
+                                "confidence": 0.9
+                            }
+                            matched = True
+                            break
                 
-                if is_known:
-                    # Map to canonical name
-                    canonical = entity_name
-                    if 'hapag' in entity_lower:
-                        canonical = 'Carrier'
-                    elif 'maersk' in entity_lower:
-                        canonical = 'Carrier'
-                    elif 'cosmos' in entity_lower:
-                        canonical = 'ContainerOwner'
-                    elif 'one' in entity_lower and len(entity_lower) <= 3:
-                        canonical = 'Carrier'
-                    
-                    if entity_name not in entities:
-                        entity_id_counter += 1
-                        entities[f"e{entity_id_counter}"] = {
-                            "id": f"e{entity_id_counter}",
-                            "name": canonical,
-                            "type": "BusinessActor" if canonical in ['ContainerOwner', 'Carrier', 'Customer'] else "Resource",
-                            "source_document_id": source,
-                            "evidence_ref": [f"ev_{entity_id_counter}"],
-                            "confidence": 0.8
-                        }
+                # Check variation map
+                if not matched:
+                    for key, canonical in VARIATION_MAP.items():
+                        if key in header_clean and len(header_clean) <= 25:
+                            if not any(entities[e]["name"] == canonical for e in entities):
+                                entity_id_counter += 1
+                                entities[f"e{entity_id_counter}"] = {
+                                    "id": f"e{entity_id_counter}",
+                                    "name": canonical,
+                                    "type": "BusinessActor" if canonical in ['ContainerOwner', 'Carrier', 'Customer', 'FreightForwarder'] else "Resource",
+                                    "source_document_id": source,
+                                    "evidence_ref": [f"ev_{entity_id_counter}"],
+                                    "confidence": 0.9
+                                }
+                                matched = True
+                                break
             
             # Extract bulleted items - only known business entity names
             # Match specific patterns like "- Container", "- Truck", etc.

@@ -2,85 +2,45 @@
   "entities": {
     "e1": {
       "id": "e1",
-      "name": "Business Actors\n\n  Entity              Description\n  ------------------- -------------\n  Depot",
-      "type": "Resource",
-      "source_document_id": "ai-depot-ontology-mapping.md",
+      "name": "Carrier",
+      "type": "BusinessActor",
+      "source_document_id": "container-invest-ont-core.md",
       "evidence_ref": [
         "ev_1"
       ],
-      "confidence": 0.8
+      "confidence": 0.9
     },
     "e2": {
       "id": "e2",
-      "name": "Physical Resources\n\n  Entity           Description\n  ---------------- -------------\n  Container",
+      "name": "OneWayContract",
       "type": "Resource",
-      "source_document_id": "ai-depot-ontology-mapping.md",
+      "source_document_id": "container-invest-ont-core.md",
       "evidence_ref": [
         "ev_2"
       ],
-      "confidence": 0.8
+      "confidence": 0.9
     },
     "e3": {
       "id": "e3",
-      "name": "ONEWAY",
-      "type": "Resource",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_3"
-      ],
-      "confidence": 0.8
-    },
-    "e4": {
-      "id": "e4",
-      "name": "ONEWAY",
-      "type": "Resource",
-      "source_document_id": "container-invest-ont-core.md",
-      "evidence_ref": [
-        "ev_4"
-      ],
-      "confidence": 0.8
-    },
-    "e5": {
-      "id": "e5",
-      "name": "PUC\n-",
+      "name": "PUC",
       "type": "Resource",
       "source_document_id": "market-quotes.md",
       "evidence_ref": [
-        "ev_5"
+        "ev_3"
       ],
-      "confidence": 0.8
+      "confidence": 0.9
     },
-    "e6": {
-      "id": "e6",
-      "name": "ONEWAY Project 2022\n- SOC",
-      "type": "Resource",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_6"
-      ],
-      "confidence": 0.8
-    },
-    "e7": {
-      "id": "e7",
-      "name": "Carrier",
-      "type": "BusinessActor",
-      "source_document_id": "oneway-corpus.md",
-      "evidence_ref": [
-        "ev_7"
-      ],
-      "confidence": 0.8
-    },
-    "e8": {
-      "id": "e8",
+    "e4": {
+      "id": "e4",
       "name": "WorkBuddy",
       "type": "Resource",
       "source_document_id": "oneway-corpus.md",
       "evidence_ref": [
-        "ev_8"
+        "ev_4"
       ],
-      "confidence": 0.8
+      "confidence": 0.9
     }
   },
   "relations": [],
-  "graph_hash": "5e6706072b35bf8f"
+  "graph_hash": "adbb8d7330c8bcc7"
 }

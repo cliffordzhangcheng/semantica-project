@@ -3,7 +3,7 @@
 title: "Semantica Reality Closure Correction - v0.2"
 type: report
 tags: [semantica, reality-closure, correction, akos]
-created: 2026-09-21T22:08:58.623873
+created: 2026-09-21T22:09:53.284341
 verified: true
 status: PENDING
 ---
@@ -20,7 +20,7 @@ status: PENDING
 
 **整体状态**: SEMANTICA_REALITY_CLOSURE_BLOCKED
 **分支**: openminis/semantica-reality-validation-v0.3
-**提交**: fac928c
+**提交**: 20f3a79
 
 | Gate | 状态 |
 |------|------|
@@ -48,9 +48,9 @@ status: PENDING
 
 ## 二、图谱完整性
 
-**实体数量**: 8
+**实体数量**: 4
 **关系数量**: 0
-**图谱哈希**: `5e6706072b35bf8f`
+**图谱哈希**: `adbb8d7330c8bcc7`
 
 **✅ 无合成实体**
 
@@ -61,13 +61,13 @@ status: PENDING
 
 ## 四、主张完整性
 
-**总主张数**: 8
+**总主张数**: 4
 **业务SPO数**: 0
-**证据绑定率**: 8/30
+**证据绑定率**: 4/30
 **悬空实体引用**: 0
 **悬空证据引用**: 0
 **无效谓词**: 0
-**主张哈希**: `7028558ad244e1bb`
+**主张哈希**: `357ae5f6284e7abc`
 
 ## 五、工件完整性检查
 
@@ -75,10 +75,10 @@ status: PENDING
 $ python3 scripts/check_artifact_integrity.py
 
 === Artifact Integrity Check ===
-Graph: 8 entities, 0 relations
+Graph: 4 entities, 0 relations
   ✅ No synthetic entities
 Evidence: 30/30 valid
-Claims: 8/8 with SPO, 0 dangling refs
+Claims: 4/4 with SPO, 0 dangling refs
 
 ✅ ARTIFACT INTEGRITY VERIFIED
 ```
