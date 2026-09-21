@@ -1,0 +1,216 @@
+{
+  "entities": {
+    "e1": {
+      "id": "e1",
+      "name": "Objective",
+      "type": "Concept",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_1"
+      ],
+      "confidence": 0.8
+    },
+    "e2": {
+      "id": "e2",
+      "name": "Business Actors\n\n  Entity              Description",
+      "type": "Concept",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_2"
+      ],
+      "confidence": 0.8
+    },
+    "e3": {
+      "id": "e3",
+      "name": "Physical Resources\n\n  Entity           Description",
+      "type": "Concept",
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_3"
+      ],
+      "confidence": 0.8
+    },
+    "e4": {
+      "id": "e4",
+      "name": "ONEWAY",
+      "type": "Concept",
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_4"
+      ],
+      "confidence": 0.8
+    },
+    "e5": {
+      "id": "e5",
+      "name": "ONEWAY",
+      "type": "Concept",
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_5"
+      ],
+      "confidence": 0.8
+    },
+    "e6": {
+      "id": "e6",
+      "name": "PUC",
+      "type": "Concept",
+      "source_document_id": "market-quotes.md",
+      "evidence_ref": [
+        "ev_6"
+      ],
+      "confidence": 0.8
+    },
+    "e7": {
+      "id": "e7",
+      "name": "P0",
+      "type": "Concept",
+      "source_document_id": "market-quotes.md",
+      "evidence_ref": [
+        "ev_7"
+      ],
+      "confidence": 0.8
+    },
+    "e8": {
+      "id": "e8",
+      "name": "P1",
+      "type": "Concept",
+      "source_document_id": "market-quotes.md",
+      "evidence_ref": [
+        "ev_8"
+      ],
+      "confidence": 0.8
+    },
+    "e9": {
+      "id": "e9",
+      "name": "40HC: $3,200\uff08COST_REVENUE_FOR_LEASING.xlsx + \u6743\u5a01PDF",
+      "type": "Entity",
+      "source_document_id": "market-quotes.md",
+      "evidence_ref": [
+        "ev_9"
+      ],
+      "confidence": 0.6
+    },
+    "e10": {
+      "id": "e10",
+      "name": "20GP: $1,750\uff08COST_REVENUE_FOR_LEASING.xlsx\uff09",
+      "type": "Entity",
+      "source_document_id": "market-quotes.md",
+      "evidence_ref": [
+        "ev_10"
+      ],
+      "confidence": 0.6
+    },
+    "e11": {
+      "id": "e11",
+      "name": "40HC: $3,000\uff08Chris \u6848\u4f8b\uff0c\u6743\u5a01PDF\uff09",
+      "type": "Entity",
+      "source_document_id": "market-quotes.md",
+      "evidence_ref": [
+        "ev_11"
+      ],
+      "confidence": 0.6
+    },
+    "e12": {
+      "id": "e12",
+      "name": "40HC \u5927\u5ba2\u6237\u957f\u79df: $0.70/day\uff08\u6743\u5a01PDF\uff09",
+      "type": "Entity",
+      "source_document_id": "market-quotes.md",
+      "evidence_ref": [
+        "ev_12"
+      ],
+      "confidence": 0.6
+    },
+    "e13": {
+      "id": "e13",
+      "name": "20GP \u5927\u5ba2\u6237\u957f\u79df: $0.412/day\uff08\u6743\u5a01PDF\uff09",
+      "type": "Entity",
+      "source_document_id": "market-quotes.md",
+      "evidence_ref": [
+        "ev_13"
+      ],
+      "confidence": 0.6
+    },
+    "e14": {
+      "id": "e14",
+      "name": "ONEWAY Project 2022",
+      "type": "Concept",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_14"
+      ],
+      "confidence": 0.8
+    },
+    "e15": {
+      "id": "e15",
+      "name": "Hapag",
+      "type": "Concept",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_15"
+      ],
+      "confidence": 0.8
+    },
+    "e16": {
+      "id": "e16",
+      "name": "WorkBuddy",
+      "type": "Concept",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_16"
+      ],
+      "confidence": 0.8
+    },
+    "e17": {
+      "id": "e17",
+      "name": "SOC \u7bb1\u56de\u8fd0\uff1a\u5229\u7528\u8239\u4e1c\u8231\u4f4d\u4f18\u60e0\u4ef7\u683c\uff0c\u5b89\u6392 SOC \u7bb1\u4ece\u5883\u5916\u88c5\u8d27\u8c03\u56de\u56fd\u5185",
+      "type": "Entity",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_17"
+      ],
+      "confidence": 0.6
+    },
+    "e18": {
+      "id": "e18",
+      "name": "\u6ee1\u8db3\u8239\u4e1c\u79df\u7bb1\u9700\u6c42\uff1a\u5229\u7528\u8239\u4e1c\u79df\u7bb1\u9700\u6c42\uff0c\u914d\u5408\u8239\u4e1c\u8fd0\u8425",
+      "type": "Entity",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_18"
+      ],
+      "confidence": 0.6
+    },
+    "e19": {
+      "id": "e19",
+      "name": "\u5185\u8d38 PLA \u4e1a\u52a1\uff1a\u5229\u7528\u8239\u4e1c PLA\uff08\u534f\u8bae\uff09\u9700\u6c42\uff0c\u7528\u8239\u4e1c\u7bb1\u505a\u5185\u8d38\u4e1a\u52a1",
+      "type": "Entity",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_19"
+      ],
+      "confidence": 0.6
+    },
+    "e20": {
+      "id": "e20",
+      "name": "\u7f8e\u56fd\u63a5\u6536\u6761\u4ef6\uff1a\u4ec5 Chicago \u6536 40' oneway\uff0c\u4e0d\u6536 20'",
+      "type": "Entity",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_20"
+      ],
+      "confidence": 0.6
+    },
+    "e21": {
+      "id": "e21",
+      "name": "Cosmos Whales \u5411 Hapag-Lloyd \u63d0\u4f9b\u96c6\u88c5\u7bb1\u5355\u5411\u79df\u8d41\uff08One-Way Leas",
+      "type": "Entity",
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_21"
+      ],
+      "confidence": 0.6
+    }
+  },
+  "relations": [],
+  "graph_hash": "0d37197dc7461e75"
+}

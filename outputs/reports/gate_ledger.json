@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789956811",
-  "timestamp": "2026-09-21T10:13:31.420831",
+  "run_id": "run-1789956977",
+  "timestamp": "2026-09-21T10:16:17.437631",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -14,24 +14,34 @@
     },
     "G2": {
       "name": "Reality Graph Integrity",
-      "status": "FAIL",
-      "details": "Graph artifact missing"
+      "status": "PASS",
+      "graph_hash": "6c2f0cd8c997d160",
+      "entity_count": 21,
+      "relation_count": 0,
+      "details": "21 entities, 0 relations"
     },
     "G3": {
       "name": "Evidence Integrity",
-      "status": "FAIL",
-      "details": "No evidence records found"
+      "status": "PASS",
+      "count": 30,
+      "valid_count": 30,
+      "validation_rate": "100.0%",
+      "details": "All 30 evidence records pass full contract"
     },
     "G4": {
       "name": "Claim-to-Evidence Integrity",
-      "status": "FAIL",
-      "details": "Claims file missing"
+      "status": "PASS",
+      "count": 21,
+      "spo_coverage": "100%",
+      "evidence_coverage": "100.0%",
+      "dangling_refs": 0,
+      "details": "All 21 claims have SPO structure and evidence binding"
     },
     "G5": {
       "name": "Engineering Verification",
       "status": "PASS",
       "test_count": 51,
-      "commit": "01626c6",
+      "commit": "1d344dd",
       "details": "51 tests passed"
     },
     "G6": {
@@ -42,5 +52,5 @@
       "unsupported_state_count": 0
     }
   },
-  "overall": "FAIL"
+  "overall": "BLOCKED"
 }
