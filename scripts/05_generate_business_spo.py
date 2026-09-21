@@ -18,7 +18,17 @@ def generate_business_spo():
         graph = json.load(f)
     
     entities = graph.get("entities", {})
-    relations = graph.get("relations", [])
+    
+    # Load relations from separate file (not from graph)
+    relations_file = Path("outputs/04_relations.json")
+    if not relations_file.exists():
+        print("Error: relations file not found", file=sys.stderr)
+        return 1
+    
+    with relations_file.open() as f:
+        rel_data = json.load(f)
+    
+    relations = rel_data.get("relations", [])
     
     # Load evidence
     evidence_file = Path("outputs/evidence.jsonl")
