@@ -1,6 +1,6 @@
 {
-  "run_id": "run-1789979921",
-  "timestamp": "2026-09-21T16:38:41.166426",
+  "run_id": "run-1789993478",
+  "timestamp": "2026-09-21T20:24:38.068561",
   "gates": {
     "G0": {
       "name": "Corpus Integrity",
@@ -15,10 +15,10 @@
     "G2": {
       "name": "Reality Graph Integrity",
       "status": "PASS",
-      "graph_hash": "6c2f0cd8c997d160",
+      "graph_hash": "88e525104eaca27c",
       "entity_count": 21,
-      "relation_count": 0,
-      "details": "21 entities, 0 relations"
+      "relation_count": 15,
+      "details": "21 entities, 15 relations"
     },
     "G3": {
       "name": "Evidence Integrity",
@@ -31,19 +31,19 @@
     "G4": {
       "name": "Claim-to-Evidence Integrity",
       "status": "PASS",
-      "count": 21,
+      "count": 36,
       "spo_coverage": "100%",
       "evidence_coverage": "100.0%",
       "dangling_refs": 0,
       "invalid_predicates": 0,
       "unsupported_states": 0,
-      "details": "All 21 claims have SPO structure and evidence binding"
+      "details": "All 36 claims have SPO structure and evidence binding"
     },
     "G5": {
       "name": "Engineering Verification",
       "status": "PASS",
       "test_count": 51,
-      "commit": "7deb7ef",
+      "commit": "9f3447f",
       "details": "51 tests passed"
     },
     "G6": {

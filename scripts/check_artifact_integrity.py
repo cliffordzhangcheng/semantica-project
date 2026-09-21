@@ -75,7 +75,12 @@ def check_claims(claims_path: Path, evidence_path: Path) -> dict:
     return result
 
 def main():
-    base = Path('/var/minis/workspace/semantica-project-clean')
+    import argparse
+    parser = argparse.ArgumentParser(description='Check artifact integrity')
+    parser.add_argument('--project-root', type=Path, default=Path.cwd(), help='Project root directory')
+    args = parser.parse_args()
+    
+    base = args.project_root
     outputs = base / 'outputs'
     
     print('=== Artifact Integrity Check ===')

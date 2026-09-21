@@ -1,4 +1,290 @@
 {
-  "relations": [],
-  "count": 0
+  "relations": [
+    {
+      "relation_id": "r1",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "Container"
+      },
+      "predicate": "located_at",
+      "object": {
+        "entity_id": "literal",
+        "value": "Depot"
+      },
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_1"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:ai-depot-ontology-mapping.md"
+    },
+    {
+      "relation_id": "r2",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "Truck"
+      },
+      "predicate": "transports",
+      "object": {
+        "entity_id": "literal",
+        "value": "Container"
+      },
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_2"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:ai-depot-ontology-mapping.md"
+    },
+    {
+      "relation_id": "r3",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "Customer"
+      },
+      "predicate": "owns",
+      "object": {
+        "entity_id": "literal",
+        "value": "Container"
+      },
+      "source_document_id": "ai-depot-ontology-mapping.md",
+      "evidence_ref": [
+        "ev_3"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:ai-depot-ontology-mapping.md"
+    },
+    {
+      "relation_id": "r4",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "Package"
+      },
+      "predicate": "belongs_to",
+      "object": {
+        "entity_id": "literal",
+        "value": "CargoLot"
+      },
+      "source_document_id": "cfs-ont-core.md",
+      "evidence_ref": [
+        "ev_4"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:cfs-ont-core.md"
+    },
+    {
+      "relation_id": "r5",
+      "subject": {
+        "entity_id": "e5",
+        "value": "OneWayContract"
+      },
+      "predicate": "has_free_days",
+      "object": {
+        "entity_id": "literal",
+        "value": "90-100 days"
+      },
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_5"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
+    },
+    {
+      "relation_id": "r6",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "ContainerAgent"
+      },
+      "predicate": "intermediates",
+      "object": {
+        "entity_id": "e5",
+        "value": "OneWayContract"
+      },
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_6"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
+    },
+    {
+      "relation_id": "r7",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "ContainerOwner"
+      },
+      "predicate": "provides",
+      "object": {
+        "entity_id": "literal",
+        "value": "SOCContainer"
+      },
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_7"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
+    },
+    {
+      "relation_id": "r8",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "Carrier"
+      },
+      "predicate": "publishes",
+      "object": {
+        "entity_id": "literal",
+        "value": "WishList"
+      },
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_8"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
+    },
+    {
+      "relation_id": "r9",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "ContainerAsset"
+      },
+      "predicate": "off_hires_at",
+      "object": {
+        "entity_id": "literal",
+        "value": "Depot"
+      },
+      "source_document_id": "container-invest-ont-core.md",
+      "evidence_ref": [
+        "ev_9"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:container-invest-ont-core.md"
+    },
+    {
+      "relation_id": "r10",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "Container"
+      },
+      "predicate": "located_at",
+      "object": {
+        "entity_id": "literal",
+        "value": "Depot"
+      },
+      "source_document_id": "logistics-ont-core.md",
+      "evidence_ref": [
+        "ev_10"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:logistics-ont-core.md"
+    },
+    {
+      "relation_id": "r11",
+      "subject": {
+        "entity_id": "e21",
+        "value": "Cosmos Whales"
+      },
+      "predicate": "intermediates",
+      "object": {
+        "entity_id": "e21",
+        "value": "Hapag-Lloyd"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_11"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
+    },
+    {
+      "relation_id": "r12",
+      "subject": {
+        "entity_id": "unknown",
+        "value": "Maersk"
+      },
+      "predicate": "has_contract_with",
+      "object": {
+        "entity_id": "e21",
+        "value": "Cosmos Whales"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_12"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
+    },
+    {
+      "relation_id": "r13",
+      "subject": {
+        "entity_id": "e5",
+        "value": "OneWayContract"
+      },
+      "predicate": "has_puc_rate",
+      "object": {
+        "entity_id": "literal",
+        "value": "USD150/container"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_13"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
+    },
+    {
+      "relation_id": "r14",
+      "subject": {
+        "entity_id": "e5",
+        "value": "OneWayContract"
+      },
+      "predicate": "has_free_days",
+      "object": {
+        "entity_id": "literal",
+        "value": "90-100 days"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_14"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
+    },
+    {
+      "relation_id": "r15",
+      "subject": {
+        "entity_id": "e5",
+        "value": "OneWayContract"
+      },
+      "predicate": "has_daily_rate",
+      "object": {
+        "entity_id": "literal",
+        "value": "USD1.0/container"
+      },
+      "source_document_id": "oneway-corpus.md",
+      "evidence_ref": [
+        "ev_15"
+      ],
+      "confidence": 0.85,
+      "extractor": "pattern:v2.0",
+      "provenance": "pipeline:RelationExtraction:v2.0:oneway-corpus.md"
+    }
+  ],
+  "count": 15
 }
