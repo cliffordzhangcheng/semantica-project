@@ -1,0 +1,175 @@
+{
+  "case": {
+    "case_id": "CASE-ONE-N524",
+    "contract_reference": "ONE-N524",
+    "booking_reference": "ONE524SGH",
+    "purchase_order": "CW202602001",
+    "origin_depot": "CNSGHMJ1",
+    "destination_port": "PLGDNDCT",
+    "redelivery_depot": "Tradecon, ul. Gdynska 42, 80-209 Tuchom",
+    "equipment": {"quantity": 26, "type": "20HC"}
+  },
+  "sources": [
+    {
+      "id": "SRC-PI-20260409",
+      "source_path": "New Era/Transworld/Oneway/26x20HC 2026.01.12/PI-ONEN524SGH 2026.04.09.xlsx",
+      "source_sha256": "e4eb1f5c006beb1db9d5f1e775c4bb46fa36ce02d30da944c6bd7885fb47a73a",
+      "locator": "Commercial Invoice rows 13-38",
+      "facts": ["ONE-N524", "ONE524SGH", "26 x 20HC", "CNSGHMJ1", "2026-04-09 invoice issue"]
+    },
+    {
+      "id": "SRC-ERI-26",
+      "source_path": "New Era/Transworld/Oneway/26x20HC 2026.01.12/ERI TRDC26X20HCMAR-26.pdf",
+      "source_sha256": "997bd1cda2494a508abd72c3381b6aa3c312a8d8418f1774b5756bab1352f005",
+      "locator": "page 1, REDELIVERY REFERENCE NO. TRDC26X20HCMAR-26",
+      "facts": ["same 26 container numbers", "Tuchom redelivery depot"]
+    },
+    {
+      "id": "SRC-WR-W20",
+      "source_path": "E-Mail/Weekly Report - XIA-2026Wk20_Monday.eml attachment XIA-2026wk20_Monday.xlsx",
+      "source_sha256": "96102545da34745e1196731387a210d73d0d90ad70a4b47910290153ab3016d3",
+      "locator": "XIA-A rows 2-18",
+      "facts": ["Lak Phen / Maersk Oneway Leasing", "ONE-N524 activity snapshot", "SIZE 20 and HEIGHT 9 6"]
+    },
+    {
+      "id": "SRC-DN-20260820",
+      "source_path": "New Era/Transworld/Oneway/26x20HC 2026.01.12/Billing&Payment/TWDN-2026-08001-DebitNote-Maersk-ONEN524.pdf",
+      "source_sha256": "3763d63f8cf3170d235a4513b6af8ce6da31f64d2c58e8b32a28ad718480f4d9",
+      "locator": "page 1, debit items 3-4",
+      "facts": ["RLGU2503711 off-hire 2026-05-13", "four named units unredeemed as of 2026-07-16"]
+    },
+    {
+      "id": "SRC-CONTAINER-TRACING",
+      "source_path": "__pycache__/New Era/Transworld/Oneway/26x20HC 2026.01.12/container tracing.xlsx",
+      "source_sha256": "d9010b1f1e10399b366e4d20e3e660066ec837ac4cd50a5512e5d5573e1ead18",
+      "locator": "Sheet1, RLGU2503769 row",
+      "facts": ["RLGU2503769 lease 2026-01-29", "RLGU2503769 GATE-OUT EMPTY 2026-02-04", "20HC"]
+    },
+    {
+      "id": "SRC-GATEIN-OWNER-20260521",
+      "source_path": "__pycache__/New Era/Transworld/Oneway/26x20HC 2026.01.12/Gate In status from Owner 2026.05.21.xlsx",
+      "source_sha256": "46f1f412116bd1b45a81c31ae6a3a73b2731c19db72c2796db62cc2ec1917369",
+      "locator": "Arkusz1, RLGU2503769 row",
+      "facts": ["owner gate-in status", "RLGU2503769 gate-in 2026-04-24"]
+    },
+    {
+      "id": "SRC-FOUNDER-20260922",
+      "source_path": "Founder business confirmation in Codex task, 2026-09-22",
+      "source_sha256": "d8dc94e48caba61cc6a7457c2ff3c2b7f14dbffaed69dc6ac778e4372a3a96bf",
+      "locator": "Founder confirmation: points 1-3",
+      "facts": ["all 26 containers off-hired by 2026-07-16", "no longstanding equipment remained"]
+    }
+  ],
+  "events": [
+    {
+      "event_id": "EVT-N524-20260129-LEASE-RECORDED-3769",
+      "event_type": "LEASE_DATE_RECORDED",
+      "scope": "container:RLGU2503769",
+      "occurred_on": "2026-01-29",
+      "date_precision": "day",
+      "evidence_ref": "SRC-CONTAINER-TRACING",
+      "locator": "Sheet1, RLGU2503769 row",
+      "assertion": "The container tracing sheet records 2026-01-29 as the lease date for RLGU2503769.",
+      "state_transition": {"from": "NOT_RECORDED", "to": "LEASED"}
+    },
+    {
+      "event_id": "EVT-N524-20260204-GATE-OUT-EMPTY",
+      "event_type": "GATE_OUT_EMPTY",
+      "scope": "container:RLGU2503769",
+      "occurred_on": "2026-02-04",
+      "date_precision": "day",
+      "evidence_ref": "SRC-CONTAINER-TRACING",
+      "locator": "Sheet1, RLGU2503769 row, GATE-OUT EMPTY",
+      "assertion": "The container tracing sheet records RLGU2503769 as GATE-OUT EMPTY on 2026-02-04.",
+      "state_transition": {"from": "LEASED", "to": "GATE_OUT_EMPTY"}
+    },
+    {
+      "event_id": "EVT-N524-20260129-LEASE-RECORDED",
+      "event_type": "LEASE_DATE_RECORDED",
+      "scope": "container:RLGU2503814",
+      "occurred_on": "2026-01-29",
+      "date_precision": "day",
+      "evidence_ref": "SRC-WR-W20",
+      "locator": "XIA-A!A10:N10, LEASE DATE",
+      "assertion": "The owner weekly report records 2026-01-29 as the lease date for RLGU2503814.",
+      "state_transition": {"from": "NOT_RECORDED", "to": "LEASED"}
+    },
+    {
+      "event_id": "EVT-N524-20260409-INVOICE",
+      "event_type": "PROFORMA_INVOICE_ISSUED",
+      "scope": "case",
+      "occurred_on": "2026-04-09",
+      "date_precision": "day",
+      "evidence_ref": "SRC-PI-20260409",
+      "locator": "Commercial Invoice document details",
+      "assertion": "A proforma invoice for the identified 26-container case was issued.",
+      "state_transition": {"from": "NOT_RECORDED", "to": "INVOICE_ISSUED"}
+    },
+    {
+      "event_id": "EVT-N524-20260421-GATE-OUT",
+      "event_type": "GATE_OUT_FULL",
+      "scope": "container:RLGU2503814",
+      "occurred_on": "2026-04-21",
+      "date_precision": "day",
+      "evidence_ref": "SRC-WR-W20",
+      "locator": "XIA-A!A10:N10",
+      "assertion": "The owner weekly report records RLGU2503814 as GATE-OUT and FULL.",
+      "state_transition": {"from": "LEASED", "to": "GATE_OUT_FULL"}
+    },
+    {
+      "event_id": "EVT-N524-20260423-DISCHARGED",
+      "event_type": "DISCHARGED_FULL",
+      "scope": "container:RLGU2503727",
+      "occurred_on": "2026-04-23",
+      "date_precision": "day",
+      "evidence_ref": "SRC-WR-W20",
+      "locator": "XIA-A!A4:N4",
+      "assertion": "The owner weekly report records RLGU2503727 as DISCHARG and FULL.",
+      "state_transition": {"from": "NOT_RECORDED", "to": "DISCHARGED_FULL"}
+    },
+    {
+      "event_id": "EVT-N524-20260424-GATE-IN-3769",
+      "event_type": "GATE_IN_RECORDED",
+      "scope": "container:RLGU2503769",
+      "occurred_on": "2026-04-24",
+      "date_precision": "day",
+      "evidence_ref": "SRC-GATEIN-OWNER-20260521",
+      "locator": "Arkusz1, RLGU2503769 row",
+      "assertion": "The owner gate-in status sheet records RLGU2503769 as gate-in on 2026-04-24.",
+      "state_transition": {"from": "GATE_OUT_EMPTY", "to": "GATE_IN_RECORDED"}
+    },
+    {
+      "event_id": "EVT-N524-20260425-GATE-IN",
+      "event_type": "GATE_IN_EMPTY",
+      "scope": "container:RLGU2503711",
+      "occurred_on": "2026-04-25",
+      "date_precision": "day",
+      "evidence_ref": "SRC-WR-W20",
+      "locator": "XIA-A!A3:N3",
+      "assertion": "The owner weekly report records RLGU2503711 as GATE-IN and EMPTY.",
+      "state_transition": {"from": "NOT_RECORDED", "to": "GATE_IN_EMPTY"}
+    },
+    {
+      "event_id": "EVT-N524-20260513-OFFHIRE",
+      "event_type": "OFF_HIRE_RECORDED",
+      "scope": "container:RLGU2503711",
+      "occurred_on": "2026-05-13",
+      "date_precision": "day",
+      "evidence_ref": "SRC-DN-20260820",
+      "locator": "page 1, debit item 3",
+      "assertion": "The debit note records off-hire for RLGU2503711 on 2026-05-13.",
+      "state_transition": {"from": "GATE_IN_EMPTY", "to": "OFF_HIRE_RECORDED"}
+    },
+    {
+      "event_id": "EVT-N524-20260716-LOT-OFFHIRE",
+      "event_type": "LOT_OFF_HIRE_COMPLETE",
+      "scope": "lot:LOT-ONE-N524-26",
+      "occurred_on": "2026-07-16",
+      "date_precision": "day",
+      "evidence_ref": "SRC-FOUNDER-20260922",
+      "locator": "Founder confirmation: point 3",
+      "assertion": "Founder confirms all 26 containers were off-hired by 2026-07-16 and no longstanding equipment remained.",
+      "state_transition": {"from": "NOT_RECORDED", "to": "OFF_HIRE_COMPLETE"}
+    }
+  ]
+}

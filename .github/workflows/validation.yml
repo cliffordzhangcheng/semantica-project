@@ -22,6 +22,8 @@ jobs:
         run: python scripts/verify_runtime.py --output artifacts/verification
       - name: Revalidate accepted snapshot from disk
         run: python -m semantica_workbench.cli validate --output artifacts/verification/closure/run1
+      - name: Render review report from checked-out HEAD
+        run: python scripts/check_reality_pilot_report.py --output artifacts/reality-pilot-001-review-report.md
       - name: Upload runtime evidence
         if: always()
         uses: actions/upload-artifact@v4

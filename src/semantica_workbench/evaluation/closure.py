@@ -11,6 +11,7 @@ from semantica_workbench.pipeline.golden import (
     COMPONENTS, MARKERS, build, canonical, digest, inputs, read_json,
     semantic_payload, summary, write_json,
 )
+from semantica_workbench.pipeline.reality import canonical_hashes, source_hash as business_source_hash, validate as validate_business
 
 
 def result(issues):
@@ -32,7 +33,7 @@ def validate(root, directory):
             value = read_json(path)
             if any(marker in canonical(value) for marker in MARKERS):
                 raise ValueError(f'{name}: forbidden marker/path')
-            expected_keys = ({'run_id', 'snapshot_id', 'hashes', 'catalog_hash', 'source_hash'}
+            expected_keys = ({'run_id', 'snapshot_id', 'hashes', 'catalog_hash', 'source_hash', 'business_source_hash'}
                              if name == 'manifest.json' else {'run_id', 'snapshot_id', 'data'})
             if not isinstance(value, dict) or set(value) != expected_keys:
                 raise ValueError(f'{name}: invalid artifact envelope')
@@ -54,7 +55,9 @@ def validate(root, directory):
             problems['GSYNC'].append('Reviewed catalog changed')
         if manifest['source_hash'] != expected['evidence'][0]['source_hash']:
             problems['GSYNC'].append('Source changed since snapshot')
-        graph_projection = {key: data[key] for key in COMPONENTS if key != 'graph'}
+        if manifest['business_source_hash'] != business_source_hash(root):
+            problems['GSYNC'].append('Business source changed since snapshot')
+        graph_projection = {key: data[key] for key in COMPONENTS if key not in ('graph', 'business')}
         if data['graph'] != graph_projection:
             problems['GSYNC'].append('Graph differs from standalone artifacts')
         # Compare complete objects, not ID prefixes, count defaults or labels.
@@ -71,18 +74,26 @@ def validate(root, directory):
             problems['GC'].append('Claim/relation correspondence mismatch')
         if loaded['report.json']['data'] != summary(data, catalog):
             problems['GA'].append('Report/runtime mismatch or truncated report')
+        business_gates = validate_business(data['business'], root)
+        for gate, status in business_gates.items():
+            if status['status'] == 'FAIL':
+                problems['GA'].append(f'{gate}: business validation failed')
         if problems['GSYNC']:
             problems['GA'].append('Snapshot integrity mismatch')
     except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError) as exc:
         for issues in problems.values():
             issues.append(f'Cannot validate complete snapshot: {exc}')
-    return {key: result(issues) for key, issues in problems.items()}
+    gates = {key: result(issues) for key, issues in problems.items()}
+    if 'business_gates' in locals() and data['business']['status'] != 'BLOCKED':
+        gates.update(business_gates)
+    return gates
 
 
 def compare(root, first, second):
     """Rehash two on-disk snapshots; never trust recorded PASS booleans."""
     issues = []
     hashes = []
+    business_hashes = []
     identities = []
     for directory in (first, second):
         gates = validate(root, directory)
@@ -90,6 +101,7 @@ def compare(root, first, second):
             issues.append(f'{directory.name}: snapshot validation failed')
         try:
             hashes.append({key: digest(read_json(directory / f'{key}.json')['data']) for key in COMPONENTS})
+            business_hashes.append(canonical_hashes(read_json(directory / 'business.json')['data']))
             identities.append(read_json(directory / 'manifest.json')['run_id'])
         except (OSError, ValueError, KeyError, TypeError) as exc:
             issues.append(f'Cannot compare: {exc}')
@@ -97,7 +109,9 @@ def compare(root, first, second):
         issues.append('Two distinct run directories and identities required')
     if len(hashes) != 2 or hashes[0] != hashes[1]:
         issues.append('Canonical hashes differ or are missing')
-    return {**result(issues), 'hashes': hashes}
+    if len(business_hashes) != 2 or business_hashes[0] != business_hashes[1]:
+        issues.append('Business canonical hashes differ or are missing')
+    return {**result(issues), 'hashes': hashes, 'business_hashes': business_hashes}
 
 
 def closure(root, destination):
@@ -109,7 +123,7 @@ def closure(root, destination):
                        check=True, cwd=root)
     gates = validate(root, destination / 'run1')
     gates['GDET'] = compare(root, destination / 'run1', destination / 'run2')
-    report = {'gates': gates, 'G6': 'BLOCKED',
+    report = {'gates': gates, 'G6': gates.get('G6', {}).get('status', 'BLOCKED'),
               'engineering_checks': 'PASS' if all(g['status'] == 'PASS' for g in gates.values()) else 'FAIL',
               'admission': 'PENDING_TESTS_CI_AND_FOUNDER_G7'}
     write_json(destination / 'closure.json', report)
