@@ -37,6 +37,13 @@
       "source_sha256": "3763d63f8cf3170d235a4513b6af8ce6da31f64d2c58e8b32a28ad718480f4d9",
       "locator": "page 1, debit items 3-4",
       "facts": ["RLGU2503711 off-hire 2026-05-13", "four named units unredeemed as of 2026-07-16"]
+    },
+    {
+      "id": "SRC-FOUNDER-20260922",
+      "source_path": "Founder business confirmation in Codex task, 2026-09-22",
+      "source_sha256": "d8dc94e48caba61cc6a7457c2ff3c2b7f14dbffaed69dc6ac778e4372a3a96bf",
+      "locator": "Founder confirmation: points 1-3",
+      "facts": ["all 26 containers off-hired by 2026-07-16", "no longstanding equipment remained"]
     }
   ],
   "events": [
@@ -105,6 +112,17 @@
       "locator": "page 1, debit item 3",
       "assertion": "The debit note records off-hire for RLGU2503711 on 2026-05-13.",
       "state_transition": {"from": "GATE_IN_EMPTY", "to": "OFF_HIRE_RECORDED"}
+    },
+    {
+      "event_id": "EVT-N524-20260716-LOT-OFFHIRE",
+      "event_type": "LOT_OFF_HIRE_COMPLETE",
+      "scope": "lot:LOT-ONE-N524-26",
+      "occurred_on": "2026-07-16",
+      "date_precision": "day",
+      "evidence_ref": "SRC-FOUNDER-20260922",
+      "locator": "Founder confirmation: point 3",
+      "assertion": "Founder confirms all 26 containers were off-hired by 2026-07-16 and no longstanding equipment remained.",
+      "state_transition": {"from": "NOT_RECORDED", "to": "OFF_HIRE_COMPLETE"}
     }
   ]
 }

@@ -105,7 +105,7 @@ def payload(root: Path) -> dict:
         "business_graph": graph,
         "source_documents": sources,
         "gates": {key: {"status": "PASS"} for key in ("GEVENT", "GSTATE", "GTIME", "G6")},
-        "limitations": ["No payment confirmation: no SETTLED or CLOSED state.", "The weekly-report snapshot covers 17 of 26 containers; no claim that all 26 were off-hired."],
+        "limitations": ["No payment confirmation: no SETTLED or CLOSED state.", "The 26-container completion claim is a Founder business confirmation, not a replacement for per-container depot EIR records."],
     }
 
 
