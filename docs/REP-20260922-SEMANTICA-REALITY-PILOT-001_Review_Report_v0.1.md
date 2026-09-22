@@ -63,7 +63,11 @@ related_documents:
 | G6 | PASS | 满足受限真实案例的实体、事件、状态和时间线最低条件 |
 | GDET | PASS | 两次独立干净重建的案例实体、事件、状态迁移、时间线、业务图哈希一致 |
 
-本分支当前提交：`c2ce9ec6db5e79ebd0fd28a23d786712e0abdc79`。本地 128 项测试通过；分支 CI 通过并上传复验证据。
+Runtime implementation commit: `c2ce9ec6db5e79ebd0fd28a23d786712e0abdc79`
+
+Current PR/report HEAD: `{{CURRENT_PR_HEAD}}`。该值由 `scripts/check_reality_pilot_report.py` 在生成审阅副本时通过 `git rev-parse HEAD` 注入；模板本身不把运行时实现提交误称为当前 PR HEAD。
+
+本地 128 项测试通过；分支 CI 通过并上传复验证据。
 
 ## 明确不作出的主张
 
