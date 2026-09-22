@@ -41,6 +41,11 @@ sensitive locators. This public report deliberately uses aliases only.
 - **Weekly-report attachment scan:** all spreadsheet attachments in the same
   archive were unpacked and searched against all 26 identifiers. Fifteen
   reports matched, spanning W07 through W18.
+- **Per-container normalization:** the matching reports yielded 390 source
+  observations across 26/26 containers. They are retained as dated source
+  snapshots in the private ledger. Repeated or non-monotonic snapshots are not
+  silently converted into a single lifecycle sequence; they require event-level
+  reconciliation before runtime admission.
 - **Attachment coverage:** attachments are recorded in the private ledger; raw
   attachments and confidential originals are not stored in Git.
 - **Date coverage:** direct N524 evidence spans job/pick-up correspondence in
