@@ -36,6 +36,14 @@ sensitive locators. This public report deliberately uses aliases only.
 ## Completeness results
 
 - **Container identity:** 26/26 accounted for in three independent case files.
+- **Tracing coverage:** the case tracing sheet contains a dated loading entry
+  for 26/26 containers, a dated gate-out entry for 22/26, and a dated gate-in
+  entry for 12/26. These are source observations pending reconciliation with
+  the weekly-report layer.
+- **Cross-source alignment:** all 12 dated tracing gate-in observations have a
+  same-type, same-date weekly-report counterpart. The corresponding counts are
+  2/22 for gate-out and 1/26 for loading, so those two event types remain
+  explicitly unresolved rather than being silently selected from one source.
 - **Email pagination:** complete recursive scan of 535 local messages; no
   search-limit-based absence assertion was made.
 - **Weekly-report attachment scan:** all spreadsheet attachments in the same
