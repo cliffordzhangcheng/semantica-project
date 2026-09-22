@@ -25,10 +25,10 @@ sensitive locators. This public report deliberately uses aliases only.
 | Job formation / release | `SRC-N524-PICKUP-NOTICE` | Direct job-alias email located | Present; attachment exists and is held only in the private ledger. |
 | Lot and container identity | `SRC-N524-PI-20260409` | 26/26 unit rows | Present. The PI and tracing sheet independently enumerate the same 26 canonical numbers. |
 | Operational tracing | `SRC-N524-CONTAINER-TRACING` | 26/26 rows | Present; event/date fields require per-row extraction before admission. |
-| Owner gate-in snapshot | `SRC-N524-OWNER-GATEIN` | 26/26 rows | Present; gate-in is not off-hire. |
+| Owner gate-in snapshot | `SRC-N524-OWNER-GATEIN` | 26 listed rows; 20 dated gate-in entries and 6 blank entries | Present, with six per-container date gaps. Gate-in is not off-hire. |
 | Redelivery authorisation | `SRC-N524-ERI` | Lot-level reference | Present. |
 | Owner weekly movement reports | `SRC-N524-WEEKLY-REPORTS` | 15 spreadsheet attachments across W07–W18; every report attachment was unpacked and searched | Present. The reports provide owner movement/status updates over the lifecycle. One non-readable spreadsheet attachment is recorded in the private ledger. |
-| Off-hire correspondence | `SRC-N524-OFFHIRE-MAILS` | 8 direct archive messages; 13 distinct unit references | Present as written owner/customer confirmation context. Together with weekly owner reports and any Maersk tracking result, it is the accepted evidence channel; a paper EIR is not required by this case model. |
+| Off-hire correspondence | `SRC-N524-OFFHIRE-MAILS` | 8 direct archive messages; 13 distinct unit references | Present as written owner/customer verification context. The scanned messages request off-hire dates; they do not by themselves bind a completed per-container off-hire timestamp. Together with weekly owner reports and any Maersk tracking result, they are the accepted evidence channel; a paper EIR is not required by this case model. |
 | Debit notes / obligations | `SRC-N524-DN-202605`, `SRC-N524-DN-202608` | 3 and 4 named-unit rows respectively | Present for identified charges; does not prove payment or settlement. |
 | Damage / repair | `SRC-N524-DAMAGE-3666`, `SRC-N524-DAMAGE-3671` | Estimates plus image package | Present, subject to later charge-to-obligation linkage. |
 | Payments / allocation | `SRC-N524-PAYMENT` | No case-specific payment allocation found in this pass | Gap. No payment, `SETTLED`, or `CLOSED` fact may be asserted. |
@@ -46,6 +46,9 @@ sensitive locators. This public report deliberately uses aliases only.
   snapshots in the private ledger. Repeated or non-monotonic snapshots are not
   silently converted into a single lifecycle sequence; they require event-level
   reconciliation before runtime admission.
+- **Owner gate-in coverage:** 20/26 containers have a dated owner gate-in
+  entry; the other six remain explicit per-container gaps. These entries are
+  retained as gate-in observations only.
 - **Attachment coverage:** attachments are recorded in the private ledger; raw
   attachments and confidential originals are not stored in Git.
 - **Date coverage:** direct N524 evidence spans job/pick-up correspondence in
@@ -57,9 +60,10 @@ sensitive locators. This public report deliberately uses aliases only.
 
 ## Blocking gaps for Phase B admission
 
-1. Extract each weekly report's per-container status chronology, and supplement
-   it with the authorised Maersk tracking results where weekly records leave a
-   lifecycle ambiguity.
+1. Reconcile each container's normalized weekly snapshots, and supplement them
+   with the authorised Maersk tracking results where the records leave a
+   lifecycle ambiguity. Bind a primary off-hire confirmation for each
+   container before asserting a per-container off-hire event.
 2. Case-specific payment or allocation evidence before any financial settlement
    state can be modeled.
 3. A reconciled mapping from damage estimates and debit-note lines to the
