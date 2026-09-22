@@ -2,9 +2,9 @@
 document_id: REP-20260922-SEMANTICA-REALITY-PILOT-001
 type: evidence_request
 title: "Reality Pilot 001 — One-Way Leasing 一次性证据请求"
-version: v0.1
-status: Review
-state: blocked
+version: v0.2
+status: Superseded
+state: superseded_by_evidence_audit
 owner: Founder
 executor: Codex
 created: 2026-09-22
@@ -13,13 +13,15 @@ privacy: private
 ticket_id: "https://github.com/cliffordzhangcheng/semantica-project/issues/3"
 artifact_relation: evidence_for
 source_of_truth: "GitHub Issue #3"
-next_action: "一次提供下述同一案例材料包，完成身份和箱型核对后重新审计"
-trigger_condition: "材料包进入 governed corpus，具有来源记录和稳定跨文件案例关联"
+next_action: "以受控 evidence manifest 重建并复核 Reality Pilot 001"
+trigger_condition: "仅在新增事实或原始资料哈希变化时重新审计"
 continuation_owner: Codex
 escalation_owner: Founder
 ---
 
-# Reality Pilot 001：证据不足，一次性补充请求
+# Reality Pilot 001：历史证据请求（已被替代）
+
+> 本文件记录 2026-09-22 仓库快照审计的证据缺口。随后获得的 Lak Phen 第20周原始周报与 `/Users/mac/New Era/Transworld/Oneway/26x20HC 2026.01.12/` 中的已核对文件解决了稳定案例身份、箱型、活动和至少两条状态推进所需的最小证据。当前结论见 [evidence audit](reality-pilot-001-evidence-audit.md)；本文件不再表示当前 G6 状态。
 
 **REALITY_PILOT_001_BLOCKED_WITH_EVIDENCE_REQUEST**
 

@@ -2,12 +2,12 @@
   "canonical_task": "https://github.com/cliffordzhangcheng/semantica-project/issues/3",
   "branch": "codex/semantica-reality-pilot-001",
   "base_sha": "eed15e981c6aa937e2137bcf77f9e5a0a73ab42f",
-  "audit_scope": "All tracked data/, corpus/, research/ files at base SHA; repository-local governed snapshot only; no live mailbox or external Vault source search. Untracked forwarder material excluded.",
-  "preferred_case": "26 containers Shanghai to Gdansk/Tuchom; summary calls type 20HC",
-  "candidate_case_reference": "ONE-N524; unresolved 20HC/20GP discrepancy",
-  "stable_real_case_identity_confirmed": false,
-  "evidence_sufficiency": "INSUFFICIENT",
-  "status": "REALITY_PILOT_001_BLOCKED_WITH_EVIDENCE_REQUEST",
+  "audit_scope": "Historical base-SHA-only matrix. Superseded by docs/reality-pilot-001-evidence-audit.md and data/raw/reality-pilot-001-evidence.json after authorized mailbox and local Oneway source review.",
+  "preferred_case": "26 containers, 20HC, CNSGHMJ1 to PLGDNDCT with Tradecon Tuchom redelivery instruction",
+  "candidate_case_reference": "ONE-N524 / ONE524SGH / CW202602001",
+  "stable_real_case_identity_confirmed": true,
+  "evidence_sufficiency": "SUFFICIENT_FOR_LIMITED_G6_BOUNDARY",
+  "status": "SUPERSEDED_BY_REALITY_PILOT_001_EVIDENCE_AUDIT",
   "inventory": [
     {
       "path": "corpus/all_entities_merged.jsonl",
@@ -997,10 +997,10 @@
     "note": "attachment name metadata is not an attachment; do not infer issuance date from filenames"
   },
   "gates": {
-    "GEVENT": "NOT_EVALUATED",
-    "GSTATE": "NOT_EVALUATED",
-    "GTIME": "NOT_EVALUATED",
-    "G6": "BLOCKED"
+    "GEVENT": "SUPERSEDED",
+    "GSTATE": "SUPERSEDED",
+    "GTIME": "SUPERSEDED",
+    "G6": "SUPERSEDED"
   },
   "admitted_pilot_counts": {
     "entities": 0,
@@ -1009,5 +1009,5 @@
     "state_transitions": 0,
     "timeline_items": 0
   },
-  "implementation_decision": "Issue 3 section 14 insufficient-evidence branch: readiness matrix and one request only; do not implement business gates, catalogs or adversarial tests against invented runtime records. Existing engineering baseline controls remain unchanged."
+  "implementation_decision": "Historical decision only. Current implementation is bound to the reviewed sanitized evidence manifest and fails closed if it changes; see docs/reality-pilot-001-evidence-audit.md."
 }
