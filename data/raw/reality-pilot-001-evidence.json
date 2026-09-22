@@ -39,6 +39,20 @@
       "facts": ["RLGU2503711 off-hire 2026-05-13", "four named units unredeemed as of 2026-07-16"]
     },
     {
+      "id": "SRC-CONTAINER-TRACING",
+      "source_path": "__pycache__/New Era/Transworld/Oneway/26x20HC 2026.01.12/container tracing.xlsx",
+      "source_sha256": "d9010b1f1e10399b366e4d20e3e660066ec837ac4cd50a5512e5d5573e1ead18",
+      "locator": "Sheet1, RLGU2503769 row",
+      "facts": ["RLGU2503769 lease 2026-01-29", "RLGU2503769 GATE-OUT EMPTY 2026-02-04", "20HC"]
+    },
+    {
+      "id": "SRC-GATEIN-OWNER-20260521",
+      "source_path": "__pycache__/New Era/Transworld/Oneway/26x20HC 2026.01.12/Gate In status from Owner 2026.05.21.xlsx",
+      "source_sha256": "46f1f412116bd1b45a81c31ae6a3a73b2731c19db72c2796db62cc2ec1917369",
+      "locator": "Arkusz1, RLGU2503769 row",
+      "facts": ["owner gate-in status", "RLGU2503769 gate-in 2026-04-24"]
+    },
+    {
       "id": "SRC-FOUNDER-20260922",
       "source_path": "Founder business confirmation in Codex task, 2026-09-22",
       "source_sha256": "d8dc94e48caba61cc6a7457c2ff3c2b7f14dbffaed69dc6ac778e4372a3a96bf",
@@ -47,6 +61,28 @@
     }
   ],
   "events": [
+    {
+      "event_id": "EVT-N524-20260129-LEASE-RECORDED-3769",
+      "event_type": "LEASE_DATE_RECORDED",
+      "scope": "container:RLGU2503769",
+      "occurred_on": "2026-01-29",
+      "date_precision": "day",
+      "evidence_ref": "SRC-CONTAINER-TRACING",
+      "locator": "Sheet1, RLGU2503769 row",
+      "assertion": "The container tracing sheet records 2026-01-29 as the lease date for RLGU2503769.",
+      "state_transition": {"from": "NOT_RECORDED", "to": "LEASED"}
+    },
+    {
+      "event_id": "EVT-N524-20260204-GATE-OUT-EMPTY",
+      "event_type": "GATE_OUT_EMPTY",
+      "scope": "container:RLGU2503769",
+      "occurred_on": "2026-02-04",
+      "date_precision": "day",
+      "evidence_ref": "SRC-CONTAINER-TRACING",
+      "locator": "Sheet1, RLGU2503769 row, GATE-OUT EMPTY",
+      "assertion": "The container tracing sheet records RLGU2503769 as GATE-OUT EMPTY on 2026-02-04.",
+      "state_transition": {"from": "LEASED", "to": "GATE_OUT_EMPTY"}
+    },
     {
       "event_id": "EVT-N524-20260129-LEASE-RECORDED",
       "event_type": "LEASE_DATE_RECORDED",
@@ -90,6 +126,17 @@
       "locator": "XIA-A!A4:N4",
       "assertion": "The owner weekly report records RLGU2503727 as DISCHARG and FULL.",
       "state_transition": {"from": "NOT_RECORDED", "to": "DISCHARGED_FULL"}
+    },
+    {
+      "event_id": "EVT-N524-20260424-GATE-IN-3769",
+      "event_type": "GATE_IN_RECORDED",
+      "scope": "container:RLGU2503769",
+      "occurred_on": "2026-04-24",
+      "date_precision": "day",
+      "evidence_ref": "SRC-GATEIN-OWNER-20260521",
+      "locator": "Arkusz1, RLGU2503769 row",
+      "assertion": "The owner gate-in status sheet records RLGU2503769 as gate-in on 2026-04-24.",
+      "state_transition": {"from": "GATE_OUT_EMPTY", "to": "GATE_IN_RECORDED"}
     },
     {
       "event_id": "EVT-N524-20260425-GATE-IN",
