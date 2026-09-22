@@ -1,75 +1,41 @@
 # Semantica Ontology Project
 
-**物流现实本体知识库平台**
+The runtime closure pipeline rebuilds a bounded set of reviewed logistics
+assertions from `data/raw/oneway-corpus.md`. It currently admits three Golden
+relations with canonical IDs, exact source spans, scoped claims and SHA-256
+snapshot manifests. This is engineering evidence for further business
+validation; G6 is BLOCKED and Founder G7 review is required for admission.
 
-## 📁 项目结构
+## Install and run
 
-```
-semantica-project/
-├── src/semantica_workbench/    # 正式工程代码
-│   ├── cli.py                 # 统一CLI入口
-│   ├── pipeline/              # 管道编排
-│   ├── evaluation/            # 闸门、指标、证据
-│   ├── adapters/              # legacy适配
-│   └── projection/            # 投影生成
-├── scripts/                   # 兼容入口（薄包装）
-├── tests/                     # 自动化测试
-├── schemas/                   # 契约定义
-├── docs/                      # 文档
-├── data/                      # 原始语料
-│   ├── raw/                   # 未处理数据
-│   └── processed/             # 清洗后数据
-├── outputs/                   # 生成物（gitignored）
-│   ├── graphs/                # 图数据
-│   ├── reports/               # 报告
-│   └── metrics/               # 指标
-├── research/archive/          # 历史研究归档
-├── pyproject.toml            # 唯一依赖源
-└── README.md
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -e '.[dev]' -c constraints.txt
+.venv/bin/python -m semantica_workbench.cli run
+.venv/bin/python -m pytest tests/ -v --junitxml=artifacts/tests.xml
+.venv/bin/python -m semantica_workbench.cli closure --output artifacts/closure
+.venv/bin/python -m semantica_workbench.cli validate --output artifacts/closure/run1
 ```
 
-## 🚀 快速开始
+`run` creates an exclusive snapshot beneath `outputs/runs/`. `closure` launches
+two independent processes into new directories and verifies GR, GC, GA, GDET
+and GSYNC. The output directory must not already exist; use a new name on a
+subsequent run. Validation rereads source text, verifies the full reviewed
+assertions, recalculates digests, compares standalone artifacts to the graph,
+and checks report counts/locators against runtime data. Any missing, malformed,
+mixed-run, unsupported or unexpected artifact fails closed.
 
-### 安装
-```bash
-pip install -e .
-```
+`schemas/golden_catalog.json` is the explicit semantic review boundary. It
+binds complete source clauses and section context to reviewed triples; it is
+not a general NLP extractor. Changes to the catalog require semantic review.
+The input is a curated summary corpus, not independently authenticated raw
+business evidence. A quoted term is not an executed contract or booking.
 
-### 运行
-```bash
-# 正式入口
-python -m semantica_workbench.cli
+See [takeover audit](docs/runtime-closure-audit.md) for OpenMinis KEEP/REWORK/DROP
+and rejected candidates. Historical extraction scripts and G0–G7 reports are
+retained for research/compatibility; they are not the runtime admission path.
+Generated outputs, bytecode and package metadata are not versioned.
 
-# 兼容入口
-python scripts/run_gates.py
-```
-
-## 📊 门禁状态
-
-| 闸门 | 验证内容 | 状态 |
-|------|----------|------|
-| G0 | Corpus目录存在 | 必填 |
-| G1 | Schema文件存在 | 必填 |
-| G2 | Ontology文件存在 | 必填 |
-| G3 | Evidence文件存在 | 必填 |
-| G4 | Claims文件存在 | 必填 |
-| G5 | 测试全部通过 | 必填 |
-| G6 | 无BOOKED状态 | 必填 |
-| G7 | Founder决策 | 最终 |
-
-## 🧪 测试
-```bash
-pytest tests/ -v
-```
-
-## 📝 依赖管理
-
-- **主依赖**: `pyproject.toml`
-- **分组**: runtime / dev / optional(research)
-- **禁止**: requirements.txt（已删除）
-
-## 🔒 安全与合规
-
-- 研究产物归档在 `research/archive/`
-- 生成物在 `outputs/`（gitignored）
-- 凭证和环境变量不在仓库中
+CI runs all existing tests plus adversarial gate regressions, performs the two
+clean rebuilds and uploads commit-bound runtime evidence. A green CI result
+is an engineering candidate only. No production or AKOS writes are performed.

@@ -1,11 +1,11 @@
 name: CI
-
 on:
   push:
-    branches: [main, '**']
+    branches: ['**']
   pull_request:
     branches: [main]
-
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -14,23 +14,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install CPU runtime
+        run: pip install torch --index-url https://download.pytorch.org/whl/cpu
       - name: Install
-        run: pip install -e ".[dev]"
-      - name: Run unit tests
-        run: python -m pytest tests/ -v
-      - name: Static artifact integrity scan
-        run: python scripts/check_artifact_integrity.py --project-root .
-      - name: Run E2E pipeline
-        run: |
-          rm -rf outputs/
-          python -m semantica_workbench.cli run
-      - name: Extract relations
-        run: python scripts/04_relation_extraction.py
-      - name: Generate business SPO
-        run: python scripts/05_generate_business_spo.py
-      - name: Validate gates
-        run: python scripts/run_gates.py --project-root . --run-id ci-$(date +%Y%m%d-%H%M%S)
-      - name: Post-run artifact integrity scan
-        run: python scripts/check_artifact_integrity.py --project-root .
-      - name: Check gate ledger
-        run: cat outputs/reports/gate_ledger.json
+        run: pip install -e '.[dev]' -c constraints.txt
+      - name: Regression tests and independent clean rebuilds
+        run: python scripts/verify_runtime.py --output artifacts/verification
+      - name: Revalidate accepted snapshot from disk
+        run: python -m semantica_workbench.cli validate --output artifacts/verification/closure/run1
+      - name: Upload runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: runtime-closure-${{ github.sha }}
+          path: artifacts/
