@@ -1,45 +1,39 @@
-#!/usr/bin/env python3
-"""Unified command-line entry point for the Semantica pipeline."""
-
-from __future__ import annotations
-
+"""Unified command-line entry point for reviewed runtime snapshots."""
+from pathlib import Path
 import argparse
 import sys
-from pathlib import Path
-
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-if str(PROJECT_ROOT / "src") not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from semantica_workbench.pipeline.orchestrator import PipelineOrchestrator
+from semantica_workbench.evaluation.closure import closure
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Semantica Pipeline")
-    parser.add_argument(
-        "command",
-        nargs="?",
-        default="run",
-        choices=["ingest", "normalize", "ner", "relation", "build", "export", "validate", "run"],
-    )
-    parser.add_argument("--config", "-c", default=None, help="Reserved for future configuration")
-    parser.add_argument("--run-id", "-r", default=None, help="Run ID")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Semantica reviewed Golden pipeline')
+    parser.add_argument('command', nargs='?', default='run', choices=['run', 'ingest', 'validate', 'closure'])
+    parser.add_argument('--project-root', type=Path, default=PROJECT_ROOT)
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--run-id', '-r')
     args = parser.parse_args()
-
-    orchestrator = PipelineOrchestrator(PROJECT_ROOT)
-    
+    root = args.project_root.resolve()
+    orchestrator = PipelineOrchestrator(root)
     try:
-        if args.command == "run":
-            return orchestrator.run_all(run_id=args.run_id)
-        elif args.command == "ingest":
+        if args.command == 'run':
+            return orchestrator.run_all(run_id=args.run_id, output=args.output)
+        if args.command == 'ingest':
             return orchestrator.run_ingest()
-        elif args.command == "validate":
-            return orchestrator.run_validate()
-        else:
-            print(f"Command '{args.command}' not implemented yet", file=sys.stderr)
-            return 1
-    except Exception as exc:
-        print(f"Error: {exc}", file=sys.stderr)
-        return 3
+        if args.output is None:
+            parser.error('--output is required for validate/closure')
+        if args.command == 'validate':
+            return orchestrator.run_validate(args.output)
+        report = closure(root, args.output.resolve())
+        print(report['engineering_checks'])
+        return int(report['engineering_checks'] != 'PASS')
+    except (OSError, ValueError, KeyError) as exc:
+        print(f'Pipeline failed: {exc}', file=sys.stderr)
+        return 1
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     sys.exit(main())

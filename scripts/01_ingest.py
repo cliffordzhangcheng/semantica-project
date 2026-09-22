@@ -22,12 +22,12 @@ def main():
     raw_docs = []
     for f in sorted(files):
         if f.is_file():
-            content = f.read_text(errors='replace')
+            content = f.read_text(encoding='utf-8')
             raw_docs.append({
                 "source": str(f.name),
                 "size_bytes": f.stat().st_size,
                 "content_hash": __import__('hashlib').sha256(content.encode()).hexdigest(),
-                "content": content[:1000],  # truncate for storage
+                "content": content,  # retain exact source for evidence resolution
                 "ingested_at": datetime.now().isoformat()
             })
     

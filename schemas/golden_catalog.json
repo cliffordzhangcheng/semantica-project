@@ -1,0 +1,44 @@
+{
+  "source": "data/raw/oneway-corpus.md",
+  "entities": {
+    "org_cosmos_whales": {"name": "Cosmos Whales", "type": "Organization"},
+    "org_hapag_lloyd": {"name": "Hapag-Lloyd", "type": "Organization"},
+    "quotation_hapag_oneway": {"name": "Hapag-Lloyd ONEWAY 已报商业条款", "type": "Quotation"},
+    "person_phen_lak": {"name": "Mr. Phen Lak", "type": "Person"},
+    "wishlist_phen_lak": {"name": "Mr. Phen Lak monthly wish list", "type": "WishList"}
+  },
+  "predicates": ["provides_service_to", "has_free_days", "publishes"],
+  "assertions": [
+    {
+      "id": "GR-001",
+      "section": "## Hapag-Lloyd ONEWAY 合作",
+      "quote": "- Cosmos Whales 向 Hapag-Lloyd 提供集装箱单向租赁（One-Way Lease）服务",
+      "subject": {"entity_id": "org_cosmos_whales"},
+      "predicate": "provides_service_to",
+      "object": {"entity_id": "org_hapag_lloyd"},
+      "claim_status": "SOURCE_ASSERTED"
+    },
+    {
+      "id": "GR-003",
+      "section": "## Hapag-Lloyd ONEWAY 合作",
+      "quote": "- 已报商业条款：免箱 90-100 天、per diem $1.0/$1.8、Net 60",
+      "subject": {"entity_id": "quotation_hapag_oneway"},
+      "predicate": "has_free_days",
+      "object": {"type": "DurationRange", "minimum": 90, "maximum": 100, "unit": "days"},
+      "claim_status": "QUOTED"
+    },
+    {
+      "id": "GR-005",
+      "section": "## WorkBuddy 箱贸调研",
+      "quote": "- 马士基联系人：Mr. Phen Lak（哥本哈根总部，每月发 wish list）",
+      "subject": {"entity_id": "person_phen_lak"},
+      "predicate": "publishes",
+      "object": {"entity_id": "wishlist_phen_lak"},
+      "claim_status": "SOURCE_ASSERTED"
+    }
+  ],
+  "rejected": {
+    "GR-002": "USD 150 sentence does not uniquely identify an executed contract",
+    "GR-004": "Completed container lot is not a generic container instance"
+  }
+}
