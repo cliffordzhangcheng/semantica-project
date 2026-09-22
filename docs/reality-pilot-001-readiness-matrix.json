@@ -1,0 +1,1013 @@
+{
+  "canonical_task": "https://github.com/cliffordzhangcheng/semantica-project/issues/3",
+  "branch": "codex/semantica-reality-pilot-001",
+  "base_sha": "eed15e981c6aa937e2137bcf77f9e5a0a73ab42f",
+  "audit_scope": "All tracked data/, corpus/, research/ files at base SHA; repository-local governed snapshot only; no live mailbox or external Vault source search. Untracked forwarder material excluded.",
+  "preferred_case": "26 containers Shanghai to Gdansk/Tuchom; summary calls type 20HC",
+  "candidate_case_reference": "ONE-N524; unresolved 20HC/20GP discrepancy",
+  "stable_real_case_identity_confirmed": false,
+  "evidence_sufficiency": "INSUFFICIENT",
+  "status": "REALITY_PILOT_001_BLOCKED_WITH_EVIDENCE_REQUEST",
+  "inventory": [
+    {
+      "path": "corpus/all_entities_merged.jsonl",
+      "sha256": "8213ba26fbcc1ad40f74ce3b32ee26b152b17cb238685bdb3cc6dfec7878cf75",
+      "bytes": 2629,
+      "role": "derived_extraction_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "bytes": 73281,
+      "role": "email_export_partial_not_complete_originals",
+      "record_count": 30,
+      "body_length_boundary": 2000,
+      "records_at_boundary": 26,
+      "selected_case_term_hits": 13
+    },
+    {
+      "path": "corpus/corpus_summary.json",
+      "sha256": "a6feddcc14410007a0348c053ca941a312ac75fb7e2857181a6a127d6662c821",
+      "bytes": 114,
+      "role": "derived_extraction_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "corpus/cosmos_whales_emails.jsonl",
+      "sha256": "f055193317c377abaa665d7c54328020c381f29d4a68afa301ebe9a76da9ff0b",
+      "bytes": 83412,
+      "role": "email_export_partial_not_complete_originals",
+      "record_count": 50,
+      "body_length_boundary": 3000,
+      "records_at_boundary": 10,
+      "selected_case_term_hits": 2
+    },
+    {
+      "path": "corpus/entities_all.jsonl",
+      "sha256": "2980c444c6b35d4a8e32e0455c61cc26b8644fd35374209d12ef007a52385253",
+      "bytes": 9927,
+      "role": "derived_extraction_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "corpus/entities_cw.jsonl",
+      "sha256": "b22b0b39b4a7da550304eba8ad5a9f1561669b3c56b9176a1ce1c3e35735c201",
+      "bytes": 2892,
+      "role": "derived_extraction_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "corpus/merged_entities.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "derived_extraction_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "corpus/merged_entities_fixed.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "derived_extraction_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "corpus/new_entities_from_cw.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "derived_extraction_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "corpus/relations.jsonl",
+      "sha256": "f3076b04836d239ad499f408e2ffc1ef70a2c6cb8323cec4fc93817d8b469a75",
+      "bytes": 21578,
+      "role": "derived_extraction_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/ai-depot-ontology-mapping.md",
+      "sha256": "161d4eeafa6c2d13bfb0c26d2a443f016508a306f7d1867ab923c54b9cbbc162",
+      "bytes": 3688,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/cfs-ont-core.md",
+      "sha256": "3f77264f72f01c29f6dde1da106fbd114b2dcfda9a27ea661ef9d3eee7e3b571",
+      "bytes": 9362,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/container-invest-ont-core.md",
+      "sha256": "504f368a9ccdf31fae931427ef7df1babc2a5303d67ca04c0a7ed76e8b5b0be8",
+      "bytes": 5874,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/logistics-ont-core.md",
+      "sha256": "4e6617cb808171ecbd907f74e00acd4386bf137d7533b78c9ab4be7c16d11ecf",
+      "bytes": 8019,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/market-quotes.md",
+      "sha256": "e918467d1069f2c2f2a3e4f572a04e5bc6a13b762bf7e2bfe6a677311c0766bf",
+      "bytes": 1042,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/oneway-corpus.md",
+      "sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "bytes": 2113,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 4
+    },
+    {
+      "path": "data/raw/ai-depot-ontology-mapping.md",
+      "sha256": "161d4eeafa6c2d13bfb0c26d2a443f016508a306f7d1867ab923c54b9cbbc162",
+      "bytes": 3688,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/raw/cfs-ont-core.md",
+      "sha256": "3f77264f72f01c29f6dde1da106fbd114b2dcfda9a27ea661ef9d3eee7e3b571",
+      "bytes": 9362,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/raw/container-invest-ont-core.md",
+      "sha256": "504f368a9ccdf31fae931427ef7df1babc2a5303d67ca04c0a7ed76e8b5b0be8",
+      "bytes": 5874,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/raw/logistics-ont-core.md",
+      "sha256": "4e6617cb808171ecbd907f74e00acd4386bf137d7533b78c9ab4be7c16d11ecf",
+      "bytes": 8019,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/raw/market-quotes.md",
+      "sha256": "e918467d1069f2c2f2a3e4f572a04e5bc6a13b762bf7e2bfe6a677311c0766bf",
+      "bytes": 1042,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "data/raw/oneway-corpus.md",
+      "sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "bytes": 2113,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 4
+    },
+    {
+      "path": "data/sample.txt",
+      "sha256": "a28d3f0b39bc691d34010b18505d90b12269d712ad6821af5c62928d2cd2b0d2",
+      "bytes": 42,
+      "role": "ontology_or_summary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/entities.jsonl",
+      "sha256": "d4574f982e582164bad22e2f7d311e81b4745fda95de71c1d8f454552af90b2d",
+      "bytes": 196277,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/evidence.jsonl",
+      "sha256": "9e26b39cd60e4e29eeae8ad0ae3dbc4b6f54969c69f087d851dc43e97650573b",
+      "bytes": 48,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/graph_projection.json",
+      "sha256": "372d7b0111470ab0313479cd78b4fb1971c6bc4c52d9c8123657f5fc87419b99",
+      "bytes": 355404,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/lineage.jsonl",
+      "sha256": "5c269acc6fac2bd328d9b07a65adfc1cff9dded076150137b0e24b5989a45cd1",
+      "bytes": 15963,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/manifest.yaml",
+      "sha256": "19f1b83b2652a7487d7a4f01f4c48c5e862a575e03231ff60013a65724bf3e55",
+      "bytes": 611,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/metrics.json",
+      "sha256": "c6cd13401b08fc022097b7121677dc57fa4dddd82e49c9a2b2fa94cccf8e37a1",
+      "bytes": 174,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/ontology.yaml",
+      "sha256": "70e3051232ec158c03947758a86872ce5228d8957df7cfd4c765213d95553073",
+      "bytes": 10117,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/ontology_aliases.yaml",
+      "sha256": "60364be11ca7bf206705154703425c5872e9e52db0d19cf5c9f0657ec69296ee",
+      "bytes": 6087,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/relations.jsonl",
+      "sha256": "718dbfe34e7022c931ddebbeffb94e5c5c1ddb0b58c4722be1d47fd1a2394d62",
+      "bytes": 25987,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/akos_projection/review_queue.jsonl",
+      "sha256": "43f7099e2c9af0c85b420d5f44639c463268f829d73a2cb23dcb70939f1b4f50",
+      "bytes": 4412,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/EXECUTIVE_SUMMARY.md",
+      "sha256": "1537c4eba89d9120fcd184d77fb4ce16ad065e39473b2fd5638b7be4569387c4",
+      "bytes": 4038,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/README.md",
+      "sha256": "9c1de48a09e9ac25de503b2024f76f94d581183c0a577f298d86deac1b8f08ff",
+      "bytes": 2430,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/REPORT.md",
+      "sha256": "8810e9b5710a0290abebb5f966e0f1350ebdcb1b13c277edd7d9f6265dacf7c1",
+      "bytes": 7089,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/corpus_register.json",
+      "sha256": "02b0cc786c503d5061f36e95eed9622be01dba7346e5cc37fac191924a8b76d6",
+      "bytes": 1660,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/entities.jsonl",
+      "sha256": "92c1fa93e14cd7ca59b551d1896d494b29dd2ed4f9ef9a1a4b6c543c30384f9b",
+      "bytes": 25856,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/gap_matrix.json",
+      "sha256": "1504192b62fa7c80797018802bbab5f74fa76f923b654d6c73db320a7066b817",
+      "bytes": 2611,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/pattern_catalog.json",
+      "sha256": "08a2d6d94a6e06e3b851b4dace18d37de9ef26861e30dea6575aa83251192d54",
+      "bytes": 4643,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/provenance_map.yaml",
+      "sha256": "e314678532367b3940f55723fa74d52e25c4ea7a1c35be7f2371f8fe4fb4822f",
+      "bytes": 2716,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/relations.jsonl",
+      "sha256": "eb0007dfe35d80f57389c6272cbf4ad92eb78761e3eaa74622beb1b9b3deb1a8",
+      "bytes": 51445,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/semantica-report-20260917-yiboke.md",
+      "sha256": "b5f584687c9df34460620e7c7c1181a5d9e75186a8c4654fa7b9b6670aa07f30",
+      "bytes": 10840,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-akos-ingestion/yiboke_corpus.json",
+      "sha256": "94b9687a5a1baefdd2a5cbf106c883d61f06888332053a38a108e3950c63d804",
+      "bytes": 36273,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/01-REMEDIATION-IMPLEMENTATION-REPORT-v0.2.1.md",
+      "sha256": "123094c4564514cad1ce89f77214f542e180715ab1ed2d1fc3a2f3f4f9a4d0bd",
+      "bytes": 2440,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/02-ONTOLOGY-CANONICAL-SCHEMA-v0.2.md",
+      "sha256": "7be77b39c6ce7a5e23de966610a4424e9002776f7cefbdfc3f391206a544b46b",
+      "bytes": 3090,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/03-VALIDATED-REALITY-CLAIMS-v0.2.1.json",
+      "sha256": "eaebf489c18653ec1677a25b7b86274e5b1d1f18f621573b7286c921adfed801",
+      "bytes": 45690,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/04-EVIDENCE-MAPS-v0.2.1.json",
+      "sha256": "de7ca3a149ad7098bc6b9986c6e07bedb9d518ebf2de176330e7f409555437a2",
+      "bytes": 8164,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/07-PARTY-ROLE-INSTANCES-v0.2.1.json",
+      "sha256": "5fb53612ef73e037b5a129af1a446270ebd50cc92a79a22db0248b33bf729e9c",
+      "bytes": 10459,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/10-AUTOMATED-VALIDATION-RESULTS-v0.2.1.json",
+      "sha256": "fe4c6058f39f45e0a291f016f57da6120d61f7690f029b7b429fb904708eb1da",
+      "bytes": 2976,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/11-GATE-LEDGER-v0.2.1.json",
+      "sha256": "bd9c409efc685bc1be8fac74d5db8c4e467f899d14fdf52cee4690f847928cd7",
+      "bytes": 3262,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/12-GAP-AND-UNKNOWN-REGISTRY-v0.2.1.json",
+      "sha256": "2f723a0f28d313b5f7934fc814f207f0f1f0f2aa2c810562f1a20b5500e0bbed",
+      "bytes": 2479,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/13-SHADOW-KNOWLEDGE-GRAPH-v0.2.1.ttl",
+      "sha256": "51329dcfa3a91bae28a73d27063e428c08db1c1b2a6effdbe19413e82bef65b6",
+      "bytes": 16086,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/14-V0.2-TO-V0.2.1-CORRECTION-LOG.md",
+      "sha256": "15dfa6696f9fbf7ab8c0e07f1b166c937c7bcb885459b5430b727ae2d1420a6d",
+      "bytes": 2353,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/15-FOUNDER-REVIEW-PACKET-v0.2.1.md",
+      "sha256": "2bb62ba6586b56f0d1c497cbb31b5dc1905f43df9d69b310c3581ab3f1842995",
+      "bytes": 4307,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/README.md",
+      "sha256": "9951f15ee3626874d8a23fa1390482705f8bf7f7b8b4b4736467dd34615924cb",
+      "bytes": 2943,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2.1/baseline-manifest.json",
+      "sha256": "d0168fd496fbb24da86a4240052a1f2940969e2de9aafe4bc734385c6351a3ac",
+      "bytes": 19791,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/01-SPEC-IMPLEMENTATION-REPORT-v0.2.md",
+      "sha256": "db6d61d11e9cc85c77058f6794131a467ae0a614f54a8c4e4013fe9b2b8772a0",
+      "bytes": 2803,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/02-ONTOLOGY-CANONICAL-SCHEMA-v0.2.yaml",
+      "sha256": "ed03a462b52ff3f60d1276bfaf349e8b50b13802aaad419cfc55389069292b14",
+      "bytes": 2514,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/03-ENTITY-CANONICALIZATION-MAP-v0.2.json",
+      "sha256": "570b38a01edb8efc46d182c0df30dc6971e532b432e1335455872a32c155f5d8",
+      "bytes": 11981,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/04-RELATION-NORMALIZATION-REPORT-v0.2.md",
+      "sha256": "63466f4c3cc808ea9e788e63272c360784e9017e156994c85f5cb688b9eb561c",
+      "bytes": 2210,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/05-KNOWLEDGE-GRANULARITY-ANALYSIS-v0.2.md",
+      "sha256": "430de261967b12acb43517b486742f9e10b2f6777dfe72796b0d6f7337d58fee",
+      "bytes": 1665,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/06-INCOTERM-INDEPENDENT-MODEL-v0.2.md",
+      "sha256": "878ff1e6879c31b0192f4b915dc75a8df37701236d09205b51413da722c066da",
+      "bytes": 2634,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/07-PARTY-ROLE-RESOLUTION-v0.2.md",
+      "sha256": "52da609c3e79dbe598de89da5105714284e3085b78a7ef03895b00d5dc7024b5",
+      "bytes": 1954,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/08-SHIPMENT-REALITY-RECORDS-v0.2.json",
+      "sha256": "86a2cd150acb5124a03dab6a57f6164d05af3120cebe06b8a052104c315154b5",
+      "bytes": 9969,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/09-EVIDENCE-MAPS-v0.2.json",
+      "sha256": "71ed221c94f71f8f8aabd7c8f6cf4534f5e46b82339c9aac448370889b002897",
+      "bytes": 87567,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/10-SIX-SHIPMENT-RECONSTRUCTION-v0.2.json",
+      "sha256": "5aaae6f052763292bcbfa13d84bfce95e35778b6f91a1254c8e49b79cf02aa49",
+      "bytes": 2827,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/11-AUTOMATED-VALIDATION-RESULTS-v0.2.json",
+      "sha256": "b0c970d32cb0e7902b2b67058d985875a69cd11bac5352f27048c89bfc664b92",
+      "bytes": 4526,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/12-GAP-ANALYSIS-AND-RISK-REGISTRY-v0.2.json",
+      "sha256": "0f0a00e93f55aec80aeff8e9f03da4679e61713e5331aff6fb834ecabe33e1a0",
+      "bytes": 3202,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/13-SHADOW-KNOWLEDGE-GRAPH-v0.2.ttl",
+      "sha256": "b7727fe6183071bdee2d62bda5f8fdd150379ff0189011938d25153679090b1b",
+      "bytes": 7099,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/14-VOCABULARY-CHANGE-LOG-v0.2.csv",
+      "sha256": "b84277615fe2fc38c8651c127acca03054d50b87d3811791b110b476502bfaae",
+      "bytes": 1532,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/15-FOUNDER-REVIEW-PACKET-v0.2.md",
+      "sha256": "50e3104e7683fa720bbf712d51f2c1e19cb7be35800e0e3298759009602c2a69",
+      "bytes": 6547,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/README.md",
+      "sha256": "d7556c21e601386d3ea2c4f61e2cfce08e9e25b0a4dd777fff842682d3e81f87",
+      "bytes": 2837,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/SPEC-Semantica-AKOS-Logistics-Reality-Ontology-v0.2.md",
+      "sha256": "b8b01c66a0e27960f7c1baab8ba83f40ddcf563c4677fb78d1738970e9e62ae8",
+      "bytes": 21496,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/_v01_data.json",
+      "sha256": "658847265f501e898ee6653c597649e2755f7af2b40105542059195c707db6f2",
+      "bytes": 35960,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/canonical_vocab.json",
+      "sha256": "80e1feb5aee871f37dcf738641795be6d055ab0bf0bde8952787557b28d3d9fe",
+      "bytes": 2888,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    },
+    {
+      "path": "research/archive/semantica-v0.2/knowledge-graph.html",
+      "sha256": "9a38b60a5f5d9772906a2b9b9a42ce5d138e07d8e05c3d72840b3bcc4eb3960e",
+      "bytes": 19937,
+      "role": "derived_archive_not_primary",
+      "selected_case_term_hits": 0
+    }
+  ],
+  "evidence": {
+    "business_model": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 18,
+        "start": 494,
+        "end": 554,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- 班轮公司需要单程箱，在中国港口拾箱（Pick Up），装货出口，到目的地拆空后还箱（Off-Hire）到箱东指定堆场",
+      "admitted_as_business_event": false
+    },
+    "hl_service": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 10,
+        "start": 211,
+        "end": 267,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- Cosmos Whales 向 Hapag-Lloyd 提供集装箱单向租赁（One-Way Lease）服务",
+      "admitted_as_business_event": false
+    },
+    "hl_terms": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 12,
+        "start": 332,
+        "end": 378,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- 已报商业条款：免箱 90-100 天、per diem $1.0/$1.8、Net 60",
+      "admitted_as_business_event": false
+    },
+    "container_constraints": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 13,
+        "start": 379,
+        "end": 418,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- 仅接受 22G1/42G1/45G1（IICL-5+，CSC ≥ 6个月）",
+      "admitted_as_business_event": false
+    },
+    "hl_followup": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 14,
+        "start": 419,
+        "end": 442,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- 2026-06-12 跟进后待 HL 回复",
+      "admitted_as_business_event": false
+    },
+    "contract_narrative": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 20,
+        "start": 619,
+        "end": 667,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- 现有合同：源海基与马士基 One Way Container Lease Agreement",
+      "admitted_as_business_event": false
+    },
+    "wishlist_narrative": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 21,
+        "start": 668,
+        "end": 711,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- 马士基联系人：Mr. Phen Lak（哥本哈根总部，每月发 wish list）",
+      "admitted_as_business_event": false
+    },
+    "selected_case_summary": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 22,
+        "start": 712,
+        "end": 804,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- 已完成案例：26x20'HC 从上海（CNSGHMJ1）到波兰格但斯克（PLGDN），还箱点 Gdansk/Tuchom 堆场（REAL Logistics / Tradecon）",
+      "admitted_as_business_event": false
+    },
+    "other_case": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 23,
+        "start": 805,
+        "end": 839,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- 30x20'HC 从尖沙咀（TST）到澳大利亚布里斯班（BNE）",
+      "admitted_as_business_event": false
+    },
+    "puc_narrative": {
+      "path": "data/raw/oneway-corpus.md",
+      "source_sha256": "d5e500a0cceedc86372082edf94a14dd2132aa3c5c53b0c0e68e0b7f80ffc882",
+      "locator": {
+        "line": 24,
+        "start": 840,
+        "end": 866,
+        "offset_unit": "unicode_codepoint"
+      },
+      "quote": "- PUC 为 USD 150/箱（略高于通常行情）",
+      "admitted_as_business_event": false
+    },
+    "case_reference_gp": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 1,
+        "uid": "1",
+        "field": "body",
+        "body_line": 25,
+        "start": 1097,
+        "end": 1156,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Wed, 12 Aug 2026 08:17:18 +0000",
+      "quote": "1. Contract no. ONE-N524 26 x 20'GP from Shanghai to Gdansk",
+      "admitted_as_business_event": false
+    },
+    "return_retrospective": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 1,
+        "uid": "1",
+        "field": "body",
+        "body_line": 23,
+        "start": 792,
+        "end": 1093,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Wed, 12 Aug 2026 08:17:18 +0000",
+      "quote": "Regretfully up to this moment, we still haven' t received the payment. For your easy reference,  below please find the proforma invoice and debit note (up to 2026.05.21, for your reference, the per diem was accumulated until 2026.07.16 when all 4 longstanding equipment returnded to the off-hire dept)",
+      "admitted_as_business_event": false
+    },
+    "invoice_filename": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 1,
+        "uid": "1",
+        "field": "body",
+        "body_line": 26,
+        "start": 1158,
+        "end": 1195,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Wed, 12 Aug 2026 08:17:18 +0000",
+      "quote": "A. PI-ONEN524SGH 20260409 chopped.pdf",
+      "admitted_as_business_event": false
+    },
+    "puc_amount": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 1,
+        "uid": "1",
+        "field": "body",
+        "body_line": 27,
+        "start": 1197,
+        "end": 1251,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Wed, 12 Aug 2026 08:17:18 +0000",
+      "quote": "PI amount: 26 units x USD150 /unit = Total USD 3900.00",
+      "admitted_as_business_event": false
+    },
+    "debit_note_filename": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 1,
+        "uid": "1",
+        "field": "body",
+        "body_line": 29,
+        "start": 1255,
+        "end": 1303,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Wed, 12 Aug 2026 08:17:18 +0000",
+      "quote": "B. TWDN-2026-05001-DebitNote-Maersk-ONEN524.pdf:",
+      "admitted_as_business_event": false
+    },
+    "case_total": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 1,
+        "uid": "1",
+        "field": "body",
+        "body_line": 36,
+        "start": 1629,
+        "end": 1711,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Wed, 12 Aug 2026 08:17:18 +0000",
+      "quote": "Total amount under contract ONE-N524 is A+B+C:  3900 + 745.62. + 224 = USD 4869.62",
+      "admitted_as_business_event": false
+    },
+    "payment_future": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 1,
+        "uid": "1",
+        "field": "body",
+        "body_line": 3,
+        "start": 16,
+        "end": 129,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Wed, 12 Aug 2026 08:17:18 +0000",
+      "quote": "Due to some technical issue payment not processed in previous cycle, now it will paid in next week payment cycle.",
+      "admitted_as_business_event": false
+    },
+    "received_combined_payment": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 9,
+        "uid": "9",
+        "field": "body",
+        "body_line": 24,
+        "start": 1023,
+        "end": 1272,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Thu, 20 Aug 2026 04:05:50 +0000",
+      "quote": "I just realized that total USD6,890.00 was received by the bank. Thanks for your support, while please kindly arrange the payment of the balanced USD921.62 (EMR and Per diem) at your earliest convenience. Attached please find debit note for details.",
+      "admitted_as_business_event": false
+    },
+    "revise_invoice_request": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 9,
+        "uid": "9",
+        "field": "body",
+        "body_line": 4,
+        "start": 36,
+        "end": 159,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Thu, 20 Aug 2026 04:05:50 +0000",
+      "quote": "We kindly request you to split the Leasing charges and Repair charges separately and issue the revised invoice accordingly.",
+      "admitted_as_business_event": false
+    },
+    "due_year_conflict": {
+      "path": "corpus/cntransworld_emails.jsonl",
+      "source_sha256": "c48f730967cc949c4fd7af4c1ddc4b468cee648a4faa69f54dec6dfcd0012a10",
+      "locator": {
+        "jsonl_line": 17,
+        "uid": "17",
+        "field": "body",
+        "body_line": 4,
+        "start": 36,
+        "end": 244,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Wed, 2 Sep 2026 05:05:33 +0000",
+      "quote": "Please see the screenshot below. The invoice has been booked in our system. However, as the invoice net due date is 19th Sept'25, the payment will be processed in the nearest payment cycle after the due date.",
+      "admitted_as_business_event": false
+    },
+    "corridor_conditional": {
+      "path": "corpus/cosmos_whales_emails.jsonl",
+      "source_sha256": "f055193317c377abaa665d7c54328020c381f29d4a68afa301ebe9a76da9ff0b",
+      "locator": {
+        "jsonl_line": 23,
+        "uid": "190",
+        "field": "body",
+        "body_line": 1,
+        "start": 0,
+        "end": 94,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Mon, 3 Aug 2026 02:38:14 +0000",
+      "quote": "Sure Clifford, for those corridors marked with Y, we may have room to accept oneway currently.",
+      "admitted_as_business_event": false
+    },
+    "corridor_validity": {
+      "path": "corpus/cosmos_whales_emails.jsonl",
+      "source_sha256": "f055193317c377abaa665d7c54328020c381f29d4a68afa301ebe9a76da9ff0b",
+      "locator": {
+        "jsonl_line": 23,
+        "uid": "190",
+        "field": "body",
+        "body_line": 273,
+        "start": 1380,
+        "end": 1408,
+        "offset_unit": "unicode_codepoint_in_decoded_field"
+      },
+      "message_date": "Mon, 3 Aug 2026 02:38:14 +0000",
+      "quote": "Validity : Till Sep 30, 2026",
+      "admitted_as_business_event": false
+    }
+  },
+  "readiness_matrix": [
+    {
+      "class": "business_model",
+      "status": "PRESENT",
+      "scope": "background_only",
+      "evidence_refs": [
+        "business_model"
+      ],
+      "gap": "Not an event for this lot"
+    },
+    {
+      "class": "quotation_terms",
+      "status": "PRESENT",
+      "scope": "HL_quotation_only",
+      "evidence_refs": [
+        "hl_service",
+        "hl_terms",
+        "container_constraints",
+        "hl_followup"
+      ],
+      "gap": "Do not assign HL terms or 2026-06-12 to the Maersk candidate case"
+    },
+    {
+      "class": "case_identity",
+      "status": "PARTIAL",
+      "scope": "selected_case",
+      "evidence_refs": [
+        "selected_case_summary",
+        "case_reference_gp"
+      ],
+      "gap": "26 HC versus 26 GP; ONE-N524 is a candidate link, not yet reconciled; Tuchom link absent in the cited email"
+    },
+    {
+      "class": "commercial_request_wishlist",
+      "status": "PARTIAL",
+      "scope": "Maersk_corridor_background",
+      "evidence_refs": [
+        "wishlist_narrative",
+        "corridor_conditional",
+        "corridor_validity"
+      ],
+      "gap": "Corridor matrix exists in a capped email export; it is conditional availability, not a case-specific request or acceptance"
+    },
+    {
+      "class": "contract",
+      "status": "PARTIAL",
+      "scope": "candidate_ONE-N524",
+      "evidence_refs": [
+        "contract_narrative",
+        "case_reference_gp"
+      ],
+      "gap": "Referenced agreement/contract, no signed artifact or confirmed case terms"
+    },
+    {
+      "class": "counterparty_confirmation",
+      "status": "MISSING",
+      "scope": "selected_case",
+      "evidence_refs": [],
+      "gap": "No selected-lot operational acceptance found; billing acknowledgement is not booking confirmation"
+    },
+    {
+      "class": "booking_operational_acceptance",
+      "status": "MISSING",
+      "scope": "selected_case",
+      "evidence_refs": [],
+      "gap": "No source-bound booking/release-order acceptance with lot/date"
+    },
+    {
+      "class": "pickup_release",
+      "status": "MISSING",
+      "scope": "selected_case",
+      "evidence_refs": [],
+      "gap": "No depot release/EIR/pickup date for identified units"
+    },
+    {
+      "class": "transit_usage",
+      "status": "PARTIAL",
+      "scope": "selected_case_summary",
+      "evidence_refs": [
+        "selected_case_summary"
+      ],
+      "gap": "Route narrative is not dated usage/transport evidence"
+    },
+    {
+      "class": "off_hire_return",
+      "status": "PARTIAL",
+      "scope": "candidate_ONE-N524",
+      "evidence_refs": [
+        "return_retrospective",
+        "selected_case_summary"
+      ],
+      "gap": "Retrospective 2026-07-16 statement concerns last four units; no depot confirmation, unit roster or full 26-unit reconciliation"
+    },
+    {
+      "class": "invoice_settlement",
+      "status": "PARTIAL",
+      "scope": "candidate_ONE-N524",
+      "evidence_refs": [
+        "invoice_filename",
+        "puc_amount",
+        "debit_note_filename",
+        "case_total",
+        "revise_invoice_request",
+        "due_year_conflict"
+      ],
+      "gap": "Invoice/debit-note names and amounts are present, binaries absent; due-year 2025 in a 2026 message requires clarification"
+    },
+    {
+      "class": "payment",
+      "status": "PARTIAL",
+      "scope": "combined_ONE-N524_ONE-N617_thread",
+      "evidence_refs": [
+        "payment_future",
+        "received_combined_payment"
+      ],
+      "gap": "USD 6890 receipt narrative and USD 921.62 balance are in a combined-contract thread; no case-specific allocation/bank confirmation, cannot assert SETTLED/CLOSED"
+    }
+  ],
+  "attachment_check": {
+    "tracked_operational_originals": [],
+    "missing_referenced_files": [
+      "PI-ONEN524SGH 20260409 chopped.pdf",
+      "TWDN-2026-05001-DebitNote-Maersk-ONEN524.pdf",
+      "TWDN-2026-08001-DebitNote-Maersk-ONEN524.pdf"
+    ],
+    "note": "attachment name metadata is not an attachment; do not infer issuance date from filenames"
+  },
+  "gates": {
+    "GEVENT": "NOT_EVALUATED",
+    "GSTATE": "NOT_EVALUATED",
+    "GTIME": "NOT_EVALUATED",
+    "G6": "BLOCKED"
+  },
+  "admitted_pilot_counts": {
+    "entities": 0,
+    "relations": 0,
+    "events": 0,
+    "state_transitions": 0,
+    "timeline_items": 0
+  },
+  "implementation_decision": "Issue 3 section 14 insufficient-evidence branch: readiness matrix and one request only; do not implement business gates, catalogs or adversarial tests against invented runtime records. Existing engineering baseline controls remain unchanged."
+}
