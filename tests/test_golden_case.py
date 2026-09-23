@@ -6,6 +6,8 @@ from pathlib import Path
 import pytest
 
 from semantica_workbench.pipeline import golden_case
+from semantica_workbench.pipeline.golden import build, read_json, write_json
+from semantica_workbench.evaluation.closure import validate as validate_snapshot
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -58,3 +60,13 @@ def test_public_manifest_has_no_raw_source_path_or_hash(project):
     assert "source_path" not in serialized
     assert "source_sha256" not in serialized
     assert "/Users/" not in serialized
+
+
+def test_golden_case_runtime_tampering_fails_snapshot_validation(tmp_path):
+    output = build(ROOT, tmp_path / "run")
+    artifact = read_json(output / "golden_case.json")
+    artifact["data"]["statuses"]["case"] = "CLOSED"
+    write_json(output / "golden_case.json", artifact)
+    gates = validate_snapshot(ROOT, output)
+    assert gates["GA"]["status"] == "FAIL"
+    assert gates["GSYNC"]["status"] == "FAIL"

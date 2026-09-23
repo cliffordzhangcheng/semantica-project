@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 from uuid import uuid4
 
-COMPONENTS = ('entities', 'relations', 'claims', 'evidence', 'graph', 'business')
+COMPONENTS = ('entities', 'relations', 'claims', 'evidence', 'graph', 'business', 'golden_case')
 MARKERS = ('[CONTEXT OFFLOADED]', '/var/minis/', '/tmp/', 'file_write_')
 
 
@@ -101,7 +101,9 @@ def build(root, destination, run_id=None):
     # Kept separate from the bounded Golden relations: Reality Pilot facts are
     # case-specific and must never be promoted into generic ontology claims.
     from semantica_workbench.pipeline.reality import payload as business_payload, source_hash as business_source_hash
+    from semantica_workbench.pipeline.golden_case import payload as golden_case_payload, source_hash as golden_case_source_hash
     payload['business'] = business_payload(root)
+    payload['golden_case'] = golden_case_payload(root)
     destination.mkdir(parents=True, exist_ok=False)
     run_id = run_id or uuid4().hex
     if not isinstance(run_id, str) or not run_id:
@@ -114,17 +116,20 @@ def build(root, destination, run_id=None):
     write_json(destination / 'manifest.json', {
         **identity, 'hashes': hashes, 'catalog_hash': digest(catalog),
         'source_hash': hashlib.sha256(text.encode('utf-8')).hexdigest(),
-        'business_source_hash': business_source_hash(root)})
+        'business_source_hash': business_source_hash(root),
+        'golden_case_source_hash': golden_case_source_hash(root)})
     write_json(destination / 'report.json', {**identity, 'data': summary(payload, catalog)})
     return destination
 
 
 def summary(payload, catalog):
     business = payload['business']
+    golden_case = payload['golden_case']
     return {'counts': {key: len(payload[key]) for key in COMPONENTS if key not in ('graph', 'business')},
             'golden_candidates': len(catalog['assertions']) + len(catalog['rejected']),
             'golden_admitted': [r['relation_id'] for r in payload['relations']],
             'golden_rejected': catalog['rejected'],
             'evidence_locators': {e['evidence_id']: e['locator'] for e in payload['evidence']},
             'G6': business['gates']['G6'],
-            'reality_pilot_001': {'status': business['status'], 'business_hashes': __import__('semantica_workbench.pipeline.reality', fromlist=['canonical_hashes']).canonical_hashes(business)}}
+            'reality_pilot_001': {'status': business['status'], 'business_hashes': __import__('semantica_workbench.pipeline.reality', fromlist=['canonical_hashes']).canonical_hashes(business)},
+            'golden_case_001': {'status': golden_case['status'], 'golden_case_hashes': __import__('semantica_workbench.pipeline.golden_case', fromlist=['canonical_hashes']).canonical_hashes(golden_case) if golden_case['status'] != 'BLOCKED' else {}}}

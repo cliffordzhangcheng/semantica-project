@@ -12,6 +12,7 @@ from semantica_workbench.pipeline.golden import (
     semantic_payload, summary, write_json,
 )
 from semantica_workbench.pipeline.reality import canonical_hashes, source_hash as business_source_hash, validate as validate_business
+from semantica_workbench.pipeline.golden_case import source_hash as golden_case_source_hash, validate as validate_golden_case
 
 
 def result(issues):
@@ -33,7 +34,7 @@ def validate(root, directory):
             value = read_json(path)
             if any(marker in canonical(value) for marker in MARKERS):
                 raise ValueError(f'{name}: forbidden marker/path')
-            expected_keys = ({'run_id', 'snapshot_id', 'hashes', 'catalog_hash', 'source_hash', 'business_source_hash'}
+            expected_keys = ({'run_id', 'snapshot_id', 'hashes', 'catalog_hash', 'source_hash', 'business_source_hash', 'golden_case_source_hash'}
                              if name == 'manifest.json' else {'run_id', 'snapshot_id', 'data'})
             if not isinstance(value, dict) or set(value) != expected_keys:
                 raise ValueError(f'{name}: invalid artifact envelope')
@@ -57,7 +58,9 @@ def validate(root, directory):
             problems['GSYNC'].append('Source changed since snapshot')
         if manifest['business_source_hash'] != business_source_hash(root):
             problems['GSYNC'].append('Business source changed since snapshot')
-        graph_projection = {key: data[key] for key in COMPONENTS if key not in ('graph', 'business')}
+        if manifest['golden_case_source_hash'] != golden_case_source_hash(root):
+            problems['GSYNC'].append('Golden Case source changed since snapshot')
+        graph_projection = {key: data[key] for key in COMPONENTS if key not in ('graph', 'business', 'golden_case')}
         if data['graph'] != graph_projection:
             problems['GSYNC'].append('Graph differs from standalone artifacts')
         # Compare complete objects, not ID prefixes, count defaults or labels.
@@ -78,6 +81,9 @@ def validate(root, directory):
         for gate, status in business_gates.items():
             if status['status'] == 'FAIL':
                 problems['GA'].append(f'{gate}: business validation failed')
+        golden_case_gates = validate_golden_case(data['golden_case'], root)
+        if any(status['status'] == 'FAIL' for status in golden_case_gates.values()):
+            problems['GA'].append('Golden Case runtime validation failed')
         if problems['GSYNC']:
             problems['GA'].append('Snapshot integrity mismatch')
     except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError) as exc:
