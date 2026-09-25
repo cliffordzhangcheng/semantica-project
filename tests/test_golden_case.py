@@ -1,6 +1,7 @@
 """Phase B fail-closed checks for Golden Case 001."""
 import json
 import shutil
+import sys
 from pathlib import Path
 
 import pytest
@@ -8,6 +9,7 @@ import pytest
 from semantica_workbench.pipeline import golden_case
 from semantica_workbench.pipeline.golden import build, read_json, write_json
 from semantica_workbench.evaluation.closure import validate as validate_snapshot
+from semantica_workbench import cli
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -105,3 +107,12 @@ def test_golden_case_runtime_tampering_fails_snapshot_validation(tmp_path):
     gates = validate_snapshot(ROOT, output)
     assert gates["GA"]["status"] == "FAIL"
     assert gates["GSYNC"]["status"] == "FAIL"
+
+
+def test_cli_reports_blocked_golden_case_without_false_success(monkeypatch, capsys):
+    monkeypatch.setattr(sys, "argv", ["semantica", "golden-case", "--project-root", str(ROOT)])
+    assert cli.main() == 0
+    report = json.loads(capsys.readouterr().out)
+    assert report["status"] == "BLOCKED"
+    assert report["statuses"]["case"] == "OPEN"
+    assert report["gates"]["GOPER"]["status"] == "BLOCKED"
