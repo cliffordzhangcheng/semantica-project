@@ -81,10 +81,67 @@ def payload(root: Path) -> dict:
 
 
 def validate(value: dict, root: Path) -> dict:
-    expected = payload(root)
-    if value != expected:
-        return {gate: {"status": "FAIL", "issues": ["Golden Case artifact differs from governed manifest"]} for gate in GATES}
-    return expected["gates"]
+    """Validate the rendered runtime independently of stored gate labels."""
+    issues = {gate: [] for gate in GATES}
+    if value.get("status") == "BLOCKED" and value.get("master_agreement") is None:
+        return {gate: {"status": "BLOCKED", "issues": []} for gate in GATES}
+    master, job, lot = value.get("master_agreement"), value.get("job"), value.get("equipment_lot")
+    if not master or not master.get("rule_ids") or master.get("execution_status") != "OWNER_SIGNED_COUNTERSIGNATURE_NOT_VISIBLE":
+        issues["GMASTER"].append("Master Agreement lineage is invalid")
+    if not job or job.get("id") != "JOB-ONE-N524" or not master or job.get("master_agreement_id") != master.get("id"):
+        issues["GJOB"].append("Job is not bound to the Master Agreement")
+    containers = value.get("containers", [])
+    if len(containers) != 26 or len(set(containers)) != 26 or any(not isinstance(item, str) or not CONTAINER.fullmatch(item) for item in containers):
+        issues["G26"].append("Container identities are incomplete or collide")
+    if not lot or lot.get("job_id") != (job or {}).get("id") or lot.get("quantity") != len(containers) or lot.get("equipment_type") != "20HC":
+        issues["G26"].append("Equipment lot is not consistent with job/container identities")
+    evidence = {item.get("evidence_id"): item for item in value.get("evidence_ledger", [])}
+    if not evidence or any(item.get("redaction_status") != "REDACTED" or not str(item.get("private_ledger_ref", "")).startswith("N524-") for item in evidence.values()):
+        issues["GEVID"].append("Evidence lineage is unsafe or incomplete")
+    events = value.get("events", [])
+    transitions = {item.get("event_id"): item for item in value.get("state_transitions", [])}
+    for event in events:
+        if event.get("evidence_ref") not in evidence:
+            issues["GEVID"].append("Event has dangling evidence")
+        if event.get("event_type") == "OFF_HIRE" and str(event.get("scope", "")).startswith("container:"):
+            issues["GOPER"].append("Container off-hire lacks primary evidence")
+        transition = transitions.get(event.get("event_id"))
+        if not transition or transition.get("scope") != event.get("scope") or transition.get("evidence_ref") != event.get("evidence_ref"):
+            issues["GOPER"].append("Event/state transition lineage is broken")
+        if event.get("date_precision") != "day" or not isinstance(event.get("occurred_on"), str) or re.fullmatch(r"\d{4}-\d{2}-\d{2}", event["occurred_on"]) is None:
+            issues["GTIME"].append("Event has an invented or imprecise timestamp")
+    timeline = value.get("timeline", [])
+    expected_timeline = [{"event_id": event["event_id"], "occurred_on": event["occurred_on"], "date_precision": "day"} for event in sorted(events, key=lambda event: (event["occurred_on"], event["event_id"]))]
+    if timeline != expected_timeline:
+        issues["GTIME"].append("Timeline does not deterministically rebuild from events")
+    if value.get("payments"):
+        issues["GFIN"].append("Payment is present without a reviewed allocation model")
+    obligations = value.get("obligations", [])
+    if not obligations or any(item.get("evidence_ref") not in evidence or item.get("status") != "OUTSTANDING_UNALLOCATED" for item in obligations):
+        issues["GFIN"].append("Financial obligation is unsupported or falsely settled")
+    if value.get("statuses", {}).get("financial") != "OUTSTANDING" or value.get("statuses", {}).get("case") != "OPEN":
+        issues["GOBL"].append("Outstanding obligation is hidden by case status")
+        issues["GCLOSE"].append("Case closure is unsupported")
+    # The current evidence deliberately stops short of per-container off-hire
+    # and timestamp reconciliation.  BLOCKED is the correct gate result here.
+    operational = value.get("statuses", {}).get("operational")
+    if operational != "OFF_HIRE_CONFIRMED_LOT_SCOPE":
+        issues["GOPER"].append("Operational status is not scoped to available evidence")
+    if value != payload(root):
+        issues["GEVID"].append("Runtime differs from the governed evidence manifest")
+    result = {}
+    for gate, messages in issues.items():
+        if messages:
+            result[gate] = {"status": "FAIL", "issues": messages}
+        elif gate == "GOPER":
+            result[gate] = {"status": "BLOCKED", "issues": ["Per-container off-hire confirmation is not yet bound"]}
+        elif gate == "GTIME":
+            result[gate] = {"status": "BLOCKED", "issues": ["Cross-source operational timestamps require reconciliation"]}
+        elif gate == "GCLOSE":
+            result[gate] = {"status": "PASS", "issues": ["Case correctly remains OPEN"]}
+        else:
+            result[gate] = {"status": "PASS", "issues": []}
+    return result
 
 
 def canonical_hashes(value: dict) -> dict:

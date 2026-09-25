@@ -62,6 +62,41 @@ def test_public_manifest_has_no_raw_source_path_or_hash(project):
     assert "/Users/" not in serialized
 
 
+def test_master_agreement_cannot_be_replaced_by_job(project):
+    value = golden_case.payload(project)
+    value["job"]["master_agreement_id"] = value["job"]["id"]
+    gates = golden_case.validate(value, project)
+    assert gates["GJOB"]["status"] == "FAIL"
+
+
+def test_missing_container_is_a_g26_failure(project):
+    value = golden_case.payload(project)
+    value["containers"].pop()
+    gates = golden_case.validate(value, project)
+    assert gates["G26"]["status"] == "FAIL"
+
+
+def test_dangling_event_evidence_is_a_gevid_failure(project):
+    value = golden_case.payload(project)
+    value["events"][0]["evidence_ref"] = "SRC-NOT-FOUND"
+    gates = golden_case.validate(value, project)
+    assert gates["GEVID"]["status"] == "FAIL"
+
+
+def test_outstanding_obligation_cannot_be_hidden_by_closed_case(project):
+    value = golden_case.payload(project)
+    value["statuses"]["case"] = "CLOSED"
+    gates = golden_case.validate(value, project)
+    assert gates["GOBL"]["status"] == "FAIL"
+    assert gates["GCLOSE"]["status"] == "FAIL"
+
+
+def test_out_of_order_timeline_is_a_gtime_failure(project):
+    value = golden_case.payload(project)
+    value["timeline"].reverse()
+    assert golden_case.validate(value, project)["GTIME"]["status"] == "FAIL"
+
+
 def test_golden_case_runtime_tampering_fails_snapshot_validation(tmp_path):
     output = build(ROOT, tmp_path / "run")
     artifact = read_json(output / "golden_case.json")
