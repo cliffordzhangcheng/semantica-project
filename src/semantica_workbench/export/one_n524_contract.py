@@ -9,10 +9,14 @@ from pathlib import Path
 from semantica_workbench.pipeline import golden_case
 
 
-SCHEMA_VERSION = "one-n524-bounded-operational-contract-v0.4"
-SOURCE_TRUTH_HEAD = "a57380bfe150f9ea9a79154aa498d82be97a41bc"
+SCHEMA_VERSION = "one-n524-bounded-operational-contract-v0.4.1"
+SOURCE_TRUTH_HEAD = "f83e17555a485a8aec5d8d55e26bc26eb2d3f886"
 SHARED_SPINE_MANIFEST_SHA256 = "808cfda4b9f4fc1558cc5564e8a2334708e81dcdd0c999252609e82cb69ee6d2"
 LINEAGE = "TASK-20260924-AKOS-CODEX8-CONVERGENCE-OWNER-RECONCILIATION-v0.1"
+CONTRACT_FILE = "one-n524-bounded-operational-contract-v0.4.1.json"
+MATRIX_FILE = "one-n524-evidence-matrix-v0.4.1.json"
+MANIFEST_FILE = "IMMUTABLE-ONE-N524-CONTRACT-MANIFEST-20260926-v0.4.1.json"
+SUPERSEDES_MANIFEST_SHA256 = "8a0ca702c74690cafad41c952c9c97328ae93fe37ab142aa26fec81a1745e8ec"
 
 
 def canonical_bytes(value: object) -> bytes:
@@ -145,7 +149,7 @@ def build_bundle(root: Path) -> tuple[dict, dict, dict]:
     }
     contract = {
         "schema_version": SCHEMA_VERSION,
-        "contract_id": "ONE-N524-BOUNDED-OPERATIONAL-CONTRACT-v0.4",
+        "contract_id": "ONE-N524-BOUNDED-OPERATIONAL-CONTRACT-v0.4.1",
         "lineage": LINEAGE,
         "authority": "DERIVED_READ_ONLY_CANDIDATE",
         "source_truth_head": SOURCE_TRUTH_HEAD,
@@ -194,7 +198,7 @@ def build_bundle(root: Path) -> tuple[dict, dict, dict]:
     }
 
     matrix = {
-        "schema_version": "one-n524-evidence-matrix-v0.4",
+        "schema_version": "one-n524-evidence-matrix-v0.4.1",
         "case_id": runtime["job"]["id"],
         "source_truth_head": SOURCE_TRUTH_HEAD,
         "coverage": {
@@ -209,14 +213,15 @@ def build_bundle(root: Path) -> tuple[dict, dict, dict]:
         "rows": containers,
     }
     manifest = {
-        "manifest_version": "one-n524-contract-manifest-v0.4",
+        "manifest_version": "one-n524-contract-manifest-v0.4.1",
         "lineage": LINEAGE,
         "status": "FROZEN_FOR_CODEX8_READ_ONLY_CONSUMPTION",
+        "supersedes_manifest_sha256": SUPERSEDES_MANIFEST_SHA256,
         "source_truth_head": SOURCE_TRUTH_HEAD,
         "shared_spine_manifest_sha256": SHARED_SPINE_MANIFEST_SHA256,
         "files": {
-            "one-n524-bounded-operational-contract-v0.4.json": digest(contract),
-            "one-n524-evidence-matrix-v0.4.json": digest(matrix),
+            CONTRACT_FILE: digest(contract),
+            MATRIX_FILE: digest(matrix),
         },
         "machine_action": "CODEX8_VERIFY_HASHES_THEN_IMPORT_READ_ONLY_WITHOUT_SEMANTIC_PROMOTION",
         "blocking_conditions": ["GOPER_BLOCKED", "GTIME_BLOCKED", "GFIN_BLOCKED"],
@@ -235,9 +240,9 @@ def validate_bundle(contract: dict, matrix: dict, manifest: dict) -> None:
     _require(all(item["object_type"] != "Event" for item in contract["observations"]),
              "observation promoted to event")
     _require(contract["closure_gate"]["status"] == "BLOCKED", "case was closed")
-    _require(manifest["files"]["one-n524-bounded-operational-contract-v0.4.json"] == digest(contract),
+    _require(manifest["files"][CONTRACT_FILE] == digest(contract),
              "contract hash mismatch")
-    _require(manifest["files"]["one-n524-evidence-matrix-v0.4.json"] == digest(matrix),
+    _require(manifest["files"][MATRIX_FILE] == digest(matrix),
              "matrix hash mismatch")
     serialized = canonical_bytes((contract, matrix, manifest)).decode()
     _require("/Users/" not in serialized and "private_ledger_ref" not in serialized and
@@ -248,9 +253,9 @@ def export_bundle(root: Path, destination: Path) -> dict[str, str]:
     contract, matrix, manifest = build_bundle(root)
     destination.mkdir(parents=True, exist_ok=True)
     values = {
-        "one-n524-bounded-operational-contract-v0.4.json": contract,
-        "one-n524-evidence-matrix-v0.4.json": matrix,
-        "IMMUTABLE-ONE-N524-CONTRACT-MANIFEST-20260926-v0.4.json": manifest,
+        CONTRACT_FILE: contract,
+        MATRIX_FILE: matrix,
+        MANIFEST_FILE: manifest,
     }
     for name, value in values.items():
         (destination / name).write_bytes(canonical_bytes(value))

@@ -9,6 +9,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_contract_is_complete_and_fail_closed():
     contract, matrix, manifest = build_bundle(ROOT)
+    assert contract["source_truth_head"] == matrix["source_truth_head"] == manifest["source_truth_head"] == \
+        "f83e17555a485a8aec5d8d55e26bc26eb2d3f886"
+    assert manifest["supersedes_manifest_sha256"] == \
+        "8a0ca702c74690cafad41c952c9c97328ae93fe37ab142aa26fec81a1745e8ec"
     assert len(contract["containers"]) == matrix["coverage"]["containers"] == 26
     assert matrix["coverage"] == {
         "containers": 26,
@@ -40,7 +44,7 @@ def test_bundle_is_deterministic_redacted_and_matches_committed_files(tmp_path):
     first = export_bundle(ROOT, tmp_path / "first")
     second = export_bundle(ROOT, tmp_path / "second")
     assert first == second
-    target = ROOT / "contracts/one-n524/v0.4"
+    target = ROOT / "contracts/one-n524/v0.4.1"
     for name in first:
         assert (target / name).read_bytes() == (tmp_path / "first" / name).read_bytes()
     text = "".join(path.read_text() for path in target.glob("*.json"))
