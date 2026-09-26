@@ -107,8 +107,24 @@ def payload(root: Path) -> dict:
                  for item in obligations), "Unsupported settlement")
     transitions = [{"transition_id": f"ST-{event['event_id']}", "event_id": event["event_id"], "scope": event["scope"], **event["state_transition"], "occurred_on": event["occurred_on"], "evidence_ref": event["evidence_ref"]} for event in events]
     timeline = [{"event_id": event["event_id"], "occurred_on": event["occurred_on"], "date_precision": "day"} for event in sorted(events, key=lambda e: (e["occurred_on"], e["event_id"]))]
+    container_states = recovered["container_states"]
+    _require(len(container_states) == 26 and
+             {item["container"] for item in container_states} == set(containers),
+             "Per-container state coverage failure")
+    _require(sum(item["state_status"] == "CANDIDATE" for item in container_states) == 5 and
+             sum(item["state_status"] == "UNKNOWN" for item in container_states) == 21,
+             "Per-container unresolved state boundary changed")
+    _require(all(item["weekly_coverage_status"] == "VERIFIED" and
+                 item["reconciliation_status"] == "REQUIRED" for item in container_states),
+             "Per-container weekly coverage or reconciliation status changed")
+    state_by_container = {item["container"]: item for item in container_states}
     nodes = ([{"entity_id": master["id"], "type": "MasterAgreement"}, {"entity_id": job["id"], "type": "OneWayLeaseJob"}, {"entity_id": lot["id"], "type": "EquipmentLot", "quantity": 26, "equipment_type": "20HC"}]
-             + [{"entity_id": f"CONTAINER-{container}", "type": "Container", "container_number": container, "operational_state": "UNRECONCILED"} for container in containers])
+             + [{"entity_id": f"CONTAINER-{container}", "type": "Container",
+                 "container_number": container,
+                 "operational_state": state_by_container[container]["operational_state"],
+                 "state_status": state_by_container[container]["state_status"],
+                 "reconciliation_status": state_by_container[container]["reconciliation_status"]}
+                for container in containers])
     edges = [{"subject": job["id"], "predicate": "governed_by", "object": master["id"], "evidence_ref": master["evidence_ref"]}, {"subject": job["id"], "predicate": "has_equipment_lot", "object": lot["id"], "evidence_ref": lot["evidence_ref"]}]
     for container in containers:
         edges.append({"subject": lot["id"], "predicate": "contains", "object": f"CONTAINER-{container}", "evidence_ref": lot["evidence_ref"]})
@@ -133,6 +149,8 @@ def payload(root: Path) -> dict:
         "receipts": recovered["receipts"], "payments": recovered["payments"],
         "evidence_ledger": sources,
         "billing_documents": recovered["billing_documents"],
+        "weekly_evidence": recovered["weekly_evidence"],
+        "container_states": container_states,
         "operational_assertions": recovered["operational_assertions"],
         "financial_assertions": recovered["financial_assertions"],
         "reconciliation_issues": recovered["reconciliation_issues"],
@@ -146,7 +164,7 @@ def payload(root: Path) -> dict:
 
 def _pending_issues(gate):
     return {
-        "GOPER": ["Billing off-hire assertions retained; full container lifecycle reconciliation remains incomplete"],
+        "GOPER": ["Five container states are CANDIDATE; twenty-one remain UNKNOWN and all require reconciliation"],
         "GTIME": ["Cross-source operational timestamps require reconciliation"],
         "GFIN": ["Reported receipt allocation and billing conflicts remain unresolved"],
         "GCLOSE": ["Case correctly remains OPEN"],
@@ -195,6 +213,10 @@ def validate(value: dict, root: Path) -> dict:
         issues["GTIME"].append("Timeline does not deterministically rebuild from events")
     if value.get("observations") != expected.get("observations"):
         issues["GOPER"].append("Observations differ from source assertions")
+    if value.get("weekly_evidence") != expected.get("weekly_evidence"):
+        issues["GEVID"].append("Weekly report-series coverage differs from recovered evidence")
+    if value.get("container_states") != expected.get("container_states"):
+        issues["GOPER"].append("Per-container unresolved states differ from source assertions")
     for field in ("receipts", "payments", "billing_documents", "financial_assertions", "reconciliation_issues"):
         if value.get(field) != expected.get(field):
             issues["GFIN"].append(f"Recovered {field} differ from source assertions")
@@ -234,5 +256,6 @@ def canonical_hashes(value: dict) -> dict:
         return {}
     return {key: digest(value[key]) for key in (
         "master_agreement", "job", "equipment_lot", "containers", "observations", "events", "state_transitions",
-        "obligations", "receipts", "payments", "billing_documents", "operational_assertions", "financial_assertions",
+        "obligations", "receipts", "payments", "billing_documents", "weekly_evidence",
+        "container_states", "operational_assertions", "financial_assertions",
         "reconciliation_issues", "evidence_ledger", "timeline", "business_graph", "statuses")}

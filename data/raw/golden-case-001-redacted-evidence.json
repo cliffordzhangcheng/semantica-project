@@ -118,15 +118,15 @@
       "evidence_id": "SRC-N524-WEEKLY",
       "source_alias": "SRC-N524-WEEKLY-REPORTS",
       "source_type": "weekly report spreadsheets",
-      "source_date": "2026-05-21",
+      "source_date": "2026-07-13",
       "supports": [
         "container observations"
       ],
       "support_strength": "DIRECT",
       "sensitivity": "CONFIDENTIAL",
       "redaction_status": "REDACTED",
-      "private_ledger_ref": "N524-weekly-container-observations",
-      "notes": "390 dated snapshots across all 26 containers."
+      "private_ledger_ref": "N524-rescan-20260926/supplement",
+      "notes": "Expanded deduplicated series: 25 attachment hashes, W07-W29, 435 rows across all 26 containers; rows remain observations, not events."
     },
     {
       "evidence_id": "SRC-N524-GATEIN",
@@ -265,6 +265,66 @@
     }
   ],
   "recovered_sources": [
+    {
+      "evidence_id": "SRC-N524-WEEKLY-RECOVERED-20260926",
+      "kind": "WEEKLY_OBSERVATION_SERIES",
+      "source_date": "2026-07-13",
+      "support_strength": "DIRECT_REPORT_SERIES",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {"sha256": "a6482fe9a95a3cce972ad48e510435a30aa2a59f06bff50bd4b84908b19defad", "locator": "XIA-2026wk7_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "2a7559a263c576488717fdc7d9eac4ff080fecf45d13ba84eb10cf4044a69731", "locator": "XIA-2026wk8_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "9cd574e05ae2dd9ca8e12346531d537638b4ae46a3feacdaee3a833e45a83949", "locator": "XIA-2026wk9_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "28592bef1d7100ae87f66279c3dc1cbf99756c1a9eb8b3309db32ace1efb620f", "locator": "XIA-2026wk9_Thursday.xlsx: ONE-N524 rows"},
+        {"sha256": "0231fc328636cffbeb07dc73586d78ce24f759621b29a62324247ac87b88795b", "locator": "XIA-2026wk10_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "9ed00352991002775c3e285fb9581e7b1dce0d930f386f19f288111442e6d436", "locator": "XIA-2026wk10_Friday.xlsx: ONE-N524 rows"},
+        {"sha256": "e371472e7460bc71a4409af1822d8b30eecffccf0d866d9ac0b7d8f91659c358", "locator": "XIA-2026wk11_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "3f3b955b1b11e2aff1b09f57494961d8f028b65bf0acbe86d5f3df42f398deac", "locator": "XIA-2026wk12_Thursday.xlsx: ONE-N524 rows"},
+        {"sha256": "8da7a98b61687d3f818e0692ee8413d7e24bbf470b9c7a33ce9e78b298968153", "locator": "XIA-2026wk13_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "2d1b5720f28573ce2ee50443a2d735d68c3987e73de35ce3d53fb38c72baf5f0", "locator": "XIA-2026wk14_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "1215993c2f5ea3e80e62dd9f87fd3eff4ef6642c4a36eecb36369b845fedc0d3", "locator": "XIA-2026wk15_Thursday.xlsx: ONE-N524 rows"},
+        {"sha256": "81edd2f640c66dac2250a95d3eb2db2303533eafbcccdaed7c7923ca24ae8604", "locator": "XIA-2026wk16_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "18bcb8f388dd272eda8d1fa2c6a7feb4997acfeb00e813ee9cba8420420d483a", "locator": "XIA-2026wk17_Tuesday.xlsx: ONE-N524 rows"},
+        {"sha256": "a0bc59b085596bc6354561fd23dfbcf09fa0dc7a3743f808851183f55851f41e", "locator": "XIA-2026wk18_Tuesday.xlsx: ONE-N524 rows"},
+        {"sha256": "9f3841f1b1b8dd1841d181bf7a891396d0a8627e39476f80035766658babe302", "locator": "XIA-2026wk19_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "96102545da34745e1196731387a210d73d0d90ad70a4b47910290153ab3016d3", "locator": "XIA-2026wk20_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "dd3365cee551a05c7dbd0079957febeb59cf90f36ce09811b3895d6e6aa96290", "locator": "XIA-2026wk21_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "62ea8cf8460dcd03d037db4a110e74b2b0b7faf69ff4ee49cc0bd1236504ae7f", "locator": "XIA-2026wk22_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "dec01497aaad9fda9ce37ab22a0296f1bcfb47c816b6fd3122ccf87ccb964abe", "locator": "XIA-2026wk23_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "b8a47b76c6ffeedcd289b83fb769854f675936975b90718f8b7156dc6938637d", "locator": "XIA-2026wk24_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "3a5bbdd38139270850d04510a5bca888b1158eb2cf6724c0d67d01a3f5253682", "locator": "XIA-2026wk25_Thursday.xlsx: ONE-N524 rows"},
+        {"sha256": "db14a4d846366c6469ea490161cc48005549d14db633e939b0b58006bba2f04a", "locator": "XIA-2026wk26_Wednesday.xlsx: ONE-N524 rows"},
+        {"sha256": "1bc808c5c84079ccac25c9fae328a14ecde5a9a0c1c297ad7433059036e179f6", "locator": "XIA-2026wk27_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "aca2f14d872791ba03af7aa342e2485601ffa1f5bcd55a57296c29a9045d9d70", "locator": "XIA-2026wk28_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "cd270a78ebee48f40a9a02c7cf727bcb01d93877224da3ae4c43b81731a5f289", "locator": "XIA-2026wk29_Monday.xlsx: ONE-N524 rows"}
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/supplement",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CANDIDATE",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "attachment_count": 25,
+        "observation_count": 435,
+        "week_start": 7,
+        "week_end": 29,
+        "covered_containers": [
+          "RLGU2503666", "RLGU2503671", "RLGU2503687", "RLGU2503692",
+          "RLGU2503706", "RLGU2503711", "RLGU2503727", "RLGU2503732",
+          "RLGU2503748", "RLGU2503753", "RLGU2503769", "RLGU2503774",
+          "RLGU2503780", "RLGU2503795", "RLGU2503809", "RLGU2503814",
+          "RLGU2503820", "RLGU2503835", "RLGU2503840", "RLGU2503856",
+          "RLGU2503861", "RLGU2503877", "RLGU2503882", "RLGU2503898",
+          "RLGU2503901", "RLGU2503917"
+        ]
+      }
+    },
     {
       "evidence_id": "SRC-N524-RECEIPT-REPORTED-20260820",
       "kind": "RECEIPT_REPORT",

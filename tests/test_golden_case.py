@@ -230,6 +230,45 @@ def test_five_offhire_assertions_do_not_create_26_depot_events(project):
     assert golden_case.validate(value, project)['GOPER']['status'] == 'FAIL'
 
 
+def test_weekly_series_covers_all_containers_without_creating_events(project):
+    value = golden_case.payload(project)
+    series, = value['weekly_evidence']
+    assert series['record_type'] == 'OBSERVATION_SERIES'
+    assert series['attachment_count'] == 25
+    assert series['observation_count'] == 435
+    assert (series['week_start'], series['week_end']) == (7, 29)
+    assert set(series['covered_containers']) == set(value['containers'])
+    assert series['evidence_status'] == 'VERIFIED'
+    assert not any(event['evidence_ref'] == 'SRC-N524-WEEKLY-RECOVERED-20260926'
+                   for event in value['events'])
+
+
+def test_per_container_states_keep_unresolved_units_explicit(project):
+    value = golden_case.payload(project)
+    states = value['container_states']
+    assert len(states) == 26
+    assert sum(item['state_status'] == 'CANDIDATE' for item in states) == 5
+    assert sum(item['state_status'] == 'UNKNOWN' for item in states) == 21
+    assert all(item['weekly_coverage_status'] == 'VERIFIED' for item in states)
+    assert all(item['reconciliation_status'] == 'REQUIRED' for item in states)
+    assert all((item['off_hire_date'] is not None) == (item['state_status'] == 'CANDIDATE')
+               for item in states)
+    assert all((item['off_hire_evidence_ref'] is not None) ==
+               (item['state_status'] == 'CANDIDATE') for item in states)
+
+
+def test_weekly_series_count_or_container_omission_fails(project):
+    mutate(project, lambda v: recovered_source(v, 'WEEKLY_OBSERVATION_SERIES')['facts'].update(
+        observation_count=434))
+    with pytest.raises(ValueError, match='coverage'):
+        golden_case.payload(project)
+    mutate(project, lambda v: recovered_source(v, 'WEEKLY_OBSERVATION_SERIES')['facts'].update(
+        observation_count=435,
+        covered_containers=recovered_source(v, 'WEEKLY_OBSERVATION_SERIES')['facts']['covered_containers'][:-1]))
+    with pytest.raises(ValueError, match='container coverage'):
+        golden_case.payload(project)
+
+
 def test_wrong_offhire_locator_or_strength_fails(project):
     value = golden_case.payload(project)
     value['operational_assertions'][0]['locator'] = 'Commercial Invoice!C999:H999'
@@ -285,8 +324,9 @@ def test_recovered_components_have_rebuild_hashes_even_while_blocked(tmp_path):
     assert result['status'] == 'PASS'
     hashes = result['golden_case_hashes']
     assert hashes[0] == hashes[1]
-    assert {'receipts', 'payments', 'observations', 'operational_assertions',
-            'billing_documents', 'evidence_ledger'} <= set(hashes[0])
+    assert {'receipts', 'payments', 'observations', 'weekly_evidence',
+            'container_states', 'operational_assertions', 'billing_documents',
+            'evidence_ledger'} <= set(hashes[0])
     summary = read_json(first / 'report.json')['data']['golden_case_001']
     assert summary['golden_case_hashes'] == hashes[0]
     assert summary['gates']['GFIN']['status'] == 'BLOCKED'

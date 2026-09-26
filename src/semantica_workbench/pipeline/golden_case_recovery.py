@@ -49,10 +49,14 @@ def project(sources, job_id, containers):
                                       {'job_id', 'document_ref', 'amounts', 'currency'}),
         'PAYABLE_BOOKING': ('CARRIER_BOOKING_EMAIL_AND_VISUALLY_READ_SCREENSHOT',
                            {'job_id', 'amount', 'currency', 'document_date', 'posted_on', 'due_on', 'paid', 'invoice_ref', 'conflicts'}),
+        'WEEKLY_OBSERVATION_SERIES': ('DIRECT_REPORT_SERIES',
+                                      {'job_id', 'attachment_count', 'observation_count',
+                                       'week_start', 'week_end', 'covered_containers'}),
     }
     result = {'receipts': [], 'payments': [], 'billing_documents': [],
               'observations': [], 'operational_assertions': [],
-              'financial_assertions': [], 'reconciliation_issues': []}
+              'financial_assertions': [], 'reconciliation_issues': [],
+              'weekly_evidence': [], 'container_states': []}
     seen = set()
     for source in sorted(sources, key=lambda s: s['evidence_id']):
         require(set(source) == fields, 'Unexpected recovered source shape')
@@ -79,8 +83,9 @@ def project(sources, job_id, containers):
             day(source['source_date'])
         if kind != 'DOCUMENT_VERSION_CONFLICT':
             require(source['source_date'] is not None, 'Missing source report date')
+        if kind in {'RECEIPT_REPORT', 'BILLING_DOCUMENT', 'PAYABLE_BOOKING'}:
             money(facts['amount'])
-        require(facts['currency'] == 'USD', 'Unsupported source currency')
+            require(facts['currency'] == 'USD', 'Unsupported source currency')
         common = {'evidence_ref': sid, 'support_strength': strength,
                   'source_truth_status': truth}
         if kind == 'RECEIPT_REPORT':
@@ -172,6 +177,25 @@ def project(sources, job_id, containers):
                 'evidence_status': 'VERIFIED', 'payment_status': 'UNKNOWN', **common})
             result['reconciliation_issues'].extend(
                 {'code': code, 'status': 'CONFLICTED', **common} for code in facts['conflicts'])
+        elif kind == 'WEEKLY_OBSERVATION_SERIES':
+            require(truth == {'assertion': 'CANDIDATE', 'evidence': 'VERIFIED',
+                    'reconciliation': 'REQUIRED'}, 'Weekly series truth states changed')
+            require(facts['job_id'] == job_id and facts['attachment_count'] == 25 and
+                    len(source['bindings']) == facts['attachment_count'] and
+                    facts['observation_count'] == 435 and facts['week_start'] == 7 and
+                    facts['week_end'] == 29, 'Weekly series coverage changed')
+            covered = facts['covered_containers']
+            require(len(covered) == len(set(covered)) == 26 and set(covered) == set(containers),
+                    'Weekly series container coverage changed')
+            result['weekly_evidence'].append({
+                'series_id': 'SERIES-' + sid, 'record_type': 'OBSERVATION_SERIES',
+                'job_id': job_id, 'attachment_count': facts['attachment_count'],
+                'observation_count': facts['observation_count'],
+                'week_start': facts['week_start'], 'week_end': facts['week_end'],
+                'covered_containers': covered, 'assertion_status': 'CANDIDATE',
+                'evidence_status': 'VERIFIED', 'reconciliation_status': 'REQUIRED',
+                **common,
+            })
     units = [item['container'] for item in result['operational_assertions']]
     require(len(units) == len(set(units)), 'Duplicate or conflicting per-container assertions require reconciliation')
     claims = [item for item in result['financial_assertions'] if item['assertion_type'] == 'CREDITOR_BALANCE_CLAIM']
@@ -192,4 +216,19 @@ def project(sources, job_id, containers):
                 result['reconciliation_issues'].append({'code': 'BILLING_BALANCE_MISMATCH',
                     'status': 'CONFLICTED', 'evidence_ref': claim['evidence_ref'],
                     'support_strength': 'DERIVED_NUMERIC_COMPARISON'})
+    require(len(result['weekly_evidence']) == 1, 'Exactly one recovered weekly series required')
+    weekly = result['weekly_evidence'][0]
+    offhire = {item['container']: item for item in result['operational_assertions']}
+    for container in containers:
+        reported = offhire.get(container)
+        result['container_states'].append({
+            'container': container,
+            'weekly_coverage_status': 'VERIFIED',
+            'weekly_series_ref': weekly['series_id'],
+            'operational_state': 'OFF_HIRE_REPORTED' if reported else 'UNKNOWN',
+            'state_status': 'CANDIDATE' if reported else 'UNKNOWN',
+            'off_hire_date': reported['occurred_on'] if reported else None,
+            'off_hire_evidence_ref': reported['evidence_ref'] if reported else None,
+            'reconciliation_status': 'REQUIRED',
+        })
     return result
