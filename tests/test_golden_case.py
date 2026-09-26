@@ -33,7 +33,7 @@ def mutate(root, change):
 def test_phase_b_model_is_explicitly_blocked_not_closed(project):
     value = golden_case.payload(project)
     assert value["status"] == "BLOCKED"
-    assert value["statuses"] == {"operational": "OFF_HIRE_CONFIRMED_LOT_SCOPE", "financial": "RECONCILIATION_REQUIRED", "case": "OPEN"}
+    assert value["statuses"] == {"operational": "OFF_HIRE_CONFIRMED_LOT_SCOPE", "financial": "REQUIRED", "case": "OPEN"}
     assert len(value["containers"]) == 26
     assert golden_case.validate(value, project)["GOPER"]["status"] == "BLOCKED"
 
@@ -124,14 +124,63 @@ def recovered_source(value, kind):
 
 def test_reported_receipt_is_retained_without_job_allocation(project):
     value = golden_case.payload(project)
-    receipt, = value['payments']
-    assert receipt['status'] == 'REPORTED_UNALLOCATED'
+    receipt, = value['receipts']
+    assert receipt['record_type'] == 'RECEIPT'
+    assert receipt['assertion_status'] == 'CANDIDATE'
+    assert receipt['allocation_status'] == 'UNALLOCATED'
+    assert receipt['value_date_status'] == 'UNKNOWN'
     assert receipt['amount'] == '6890.00'
     assert set(receipt['case_refs']) == {'JOB-ONE-N524', 'JOB-ONE-N617'}
     assert receipt['allocations'] == [] and receipt['bank_value_date'] is None
+    assert value['payments'] == []
     assert value['gates']['GFIN']['status'] == 'BLOCKED'
     assert not any(edge['predicate'] == 'paid_by' for edge in value['business_graph']['edges'])
     assert not any(node['entity_id'] == 'JOB-ONE-N617' for node in value['business_graph']['nodes'])
+
+
+def test_shared_truth_states_are_preserved_as_separate_dimensions(project):
+    value = golden_case.payload(project)
+    receipt = value['receipts'][0]
+    assert {receipt['assertion_status'], receipt['evidence_status'], receipt['entry_mode'],
+            receipt['allocation_status'], receipt['value_date_status']} == {
+                'CANDIDATE', 'VERIFIED', 'USER_ENTERED', 'UNALLOCATED', 'UNKNOWN'}
+    obligation = value['obligations'][0]
+    assert {obligation['status'], *obligation['truth_status'].values()} == {
+        'REQUIRED', 'CONFLICTED', 'UNALLOCATED'}
+
+
+def test_gate_in_and_recovered_reports_remain_observations_not_events(project):
+    value = golden_case.payload(project)
+    observations = value['observations']
+    assert any(item['observation_type'] == 'OWNER_GATE_IN_REPORTED' for item in observations)
+    assert any(item['observation_type'] == 'RECEIPT_REPORTED' for item in observations)
+    assert any(item['observation_type'] == 'PAYABLE_BOOKED' for item in observations)
+    assert all(item['record_type'] == 'OBSERVATION' for item in observations)
+    assert all('event_id' not in item and 'state_transition' not in item for item in observations)
+    assert not any(event['event_type'].endswith(('_OBSERVED', '_REPORTED')) or
+                   event['event_type'] == 'PAYABLE_BOOKED' for event in value['events'])
+    assert {item['event_id'] for item in value['timeline']} == {
+        event['event_id'] for event in value['events']}
+
+
+def test_gate_in_observation_cannot_be_promoted_to_offhire(project):
+    mutate(project, lambda v: v['observations'][0].update(observation_type='OFF_HIRE'))
+    with pytest.raises(ValueError, match='observation type'):
+        golden_case.payload(project)
+
+
+def test_receipt_cannot_be_promoted_to_allocated_payment_in_runtime(project):
+    value = golden_case.payload(project)
+    value['payments'] = [{'payment_id': value['receipts'][0]['receipt_id'],
+                          'allocation_status': 'VERIFIED'}]
+    assert golden_case.validate(value, project)['GFIN']['status'] == 'FAIL'
+
+
+def test_truth_status_cannot_be_collapsed_to_compound_legacy_value(project):
+    mutate(project, lambda v: recovered_source(v, 'RECEIPT_REPORT').update(
+        truth_status={'assertion': 'REPORTED_UNALLOCATED'}))
+    with pytest.raises(ValueError, match='truth status'):
+        golden_case.payload(project)
 
 
 @pytest.mark.parametrize('field,replacement', [
@@ -147,7 +196,7 @@ def test_receipt_cannot_invent_value_date_allocation_or_calendar_date(project, f
 
 def test_receipt_cannot_be_silently_removed_from_runtime(project):
     value = golden_case.payload(project)
-    value['payments'] = []
+    value['receipts'] = []
     assert golden_case.validate(value, project)['GFIN']['status'] == 'FAIL'
 
 
@@ -156,7 +205,9 @@ def test_carrier_booking_does_not_become_payment(project):
     booking = next(a for a in value['financial_assertions'] if a['assertion_type'] == 'CARRIER_PAYABLE_BOOKING')
     assert booking['paid'] is None
     assert booking['invoice_ref'] is None
-    assert len(value['payments']) == 1
+    assert booking['payment_status'] == 'UNKNOWN'
+    assert len(value['receipts']) == 1
+    assert value['payments'] == []
     mutate(project, lambda v: recovered_source(v, 'PAYABLE_BOOKING')['facts'].update(paid=True))
     with pytest.raises(ValueError, match='Booking cannot'):
         golden_case.payload(project)
@@ -172,6 +223,7 @@ def test_five_offhire_assertions_do_not_create_26_depot_events(project):
     value = golden_case.payload(project)
     assert len(value['operational_assertions']) == 5
     assert all(a['assertion_type'] == 'BILLING_REPORTED_OFF_HIRE' for a in value['operational_assertions'])
+    assert all(a['record_type'] == 'OBSERVATION' for a in value['operational_assertions'])
     assert all(a['support_strength'] == 'DIRECT_BILLING_DOCUMENT' for a in value['operational_assertions'])
     assert not any(e['event_type'] == 'OFF_HIRE' for e in value['events'])
     value['operational_assertions'][0]['container'] = 'RLGU2503666'
@@ -197,14 +249,18 @@ def test_billing_versions_remain_alternatives_not_additional_obligations(project
     assert len(value['billing_documents']) == 2
     assert {i['code'] for i in value['reconciliation_issues']} >= {
         'DOCUMENT_VERSION_CONFLICT', 'NUMERIC_AND_WRITTEN_TOTAL_DIFFER', 'RECEIPT_ALLOCATION_UNRESOLVED'}
-    assert all(o['status'] == 'RECONCILIATION_REQUIRED' for o in value['obligations'])
+    assert all(o['status'] == 'REQUIRED' for o in value['obligations'])
+    assert all(o['truth_status'] == {'verification': 'CONFLICTED',
+               'allocation': 'UNALLOCATED', 'reconciliation': 'REQUIRED'}
+               for o in value['obligations'])
     balance = next(a for a in value['financial_assertions'] if a['assertion_type'] == 'CREDITOR_BALANCE_CLAIM')
     assert balance['as_of'] == '2026-08-20'
-    assert balance['verified_current_balance'] is False
+    assert balance['current_balance_status'] == 'UNKNOWN'
     comparison = next(a for a in value['financial_assertions'] if a['assertion_type'] == 'BILLING_TOTAL_COMPARISON')
     assert comparison['billing_total'] == '921.62'
     assert comparison['numeric_totals_match'] is True
-    assert comparison['settlement_inferred'] is False
+    assert comparison['assertion_status'] == 'VERIFIED'
+    assert comparison['settlement_status'] == 'UNKNOWN'
 
 
 def test_erased_case_cannot_pass_as_absent_manifest(project):
@@ -229,7 +285,8 @@ def test_recovered_components_have_rebuild_hashes_even_while_blocked(tmp_path):
     assert result['status'] == 'PASS'
     hashes = result['golden_case_hashes']
     assert hashes[0] == hashes[1]
-    assert {'payments', 'operational_assertions', 'billing_documents', 'evidence_ledger'} <= set(hashes[0])
+    assert {'receipts', 'payments', 'observations', 'operational_assertions',
+            'billing_documents', 'evidence_ledger'} <= set(hashes[0])
     summary = read_json(first / 'report.json')['data']['golden_case_001']
     assert summary['golden_case_hashes'] == hashes[0]
     assert summary['gates']['GFIN']['status'] == 'BLOCKED'

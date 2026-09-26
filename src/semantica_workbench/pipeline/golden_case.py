@@ -12,7 +12,7 @@ import re
 from pathlib import Path
 
 from .golden import digest, read_json
-from .golden_case_recovery import project as project_recovery
+from .golden_case_recovery import TRUTH_STATES, project as project_recovery
 
 
 SOURCE = Path("data/raw/golden-case-001-redacted-evidence.json")
@@ -29,8 +29,8 @@ def blocked_payload() -> dict:
     return {
         "status": "BLOCKED", "reason": "Golden Case 001 redacted evidence manifest is absent",
         "master_agreement": None, "job": None, "equipment_lot": None,
-        "containers": [], "events": [], "state_transitions": [], "obligations": [],
-        "payments": [], "evidence_ledger": [], "timeline": [],
+        "containers": [], "observations": [], "events": [], "state_transitions": [],
+        "obligations": [], "receipts": [], "payments": [], "evidence_ledger": [], "timeline": [],
         "statuses": {"operational": "UNKNOWN", "financial": "UNKNOWN", "case": "OPEN"},
         "gates": {gate: {"status": "BLOCKED", "issues": []} for gate in GATES},
     }
@@ -46,7 +46,8 @@ def payload(root: Path) -> dict:
     if not path.exists():
         return blocked_payload()
     data = read_json(path)
-    expected = {"master_agreement", "job", "equipment_lot", "containers", "sources", "events", "obligations", "recovered_sources"}
+    expected = {"master_agreement", "job", "equipment_lot", "containers", "sources",
+                "observations", "events", "obligations", "recovered_sources"}
     _require(set(data) == expected, "Golden Case manifest has an unexpected shape")
     master, job, lot = data["master_agreement"], data["job"], data["equipment_lot"]
     _require(set(master) == {"id", "rule_ids", "evidence_ref", "execution_status"}, "Invalid master agreement")
@@ -67,18 +68,43 @@ def payload(root: Path) -> dict:
     _require(len(source_ids) == len(sources), "Duplicate source identity")
     for owner in (master, job, lot):
         _require(owner["evidence_ref"] in source_ids, "Entity without evidence")
-    events = data["events"] + recovered["events"]
+    observations = data["observations"] + recovered["observations"]
+    _require(len({item.get("observation_id") for item in observations}) == len(observations),
+             "Duplicate observation identity")
+    allowed_observations = {"OWNER_GATE_IN_REPORTED", "RECEIPT_REPORTED",
+                            "BILLING_REPORTED_OFF_HIRE", "PAYABLE_BOOKED"}
+    for observation in observations:
+        _require(observation.get("record_type") == "OBSERVATION" and
+                 observation.get("evidence_ref") in source_ids,
+                 "Observation without evidence")
+        _require(observation.get("observation_type") in allowed_observations,
+                 "Unsupported observation type")
+        _require("event_id" not in observation and "state_transition" not in observation,
+                 "Observation promoted to event")
+        _require(observation.get("assertion_status") in TRUTH_STATES and
+                 observation.get("evidence_status") in TRUTH_STATES,
+                 "Observation truth status missing")
+        if observation["observation_type"] == "OWNER_GATE_IN_REPORTED":
+            _require(observation.get("evidence_ref") == "SRC-N524-GATEIN" and
+                     observation.get("scope") == "lot:LOT-ONE-N524-26",
+                     "Gate-in observation promoted or changed scope")
+    events = data["events"]
     required_event = {"event_id", "event_type", "scope", "occurred_on", "date_precision", "evidence_ref", "assertion", "state_transition"}
-    _require(len(events) >= 4 and len({event.get("event_id") for event in events}) == len(events), "Insufficient events")
+    _require(len(events) >= 3 and len({event.get("event_id") for event in events}) == len(events), "Insufficient events")
     for event in events:
         _require(set(event) == required_event and event["evidence_ref"] in source_ids, "Event without evidence")
         _require(event["date_precision"] == "day" and re.fullmatch(r"\d{4}-\d{2}-\d{2}", event["occurred_on"]) is not None, "Invented timestamp")
         _require(set(event["state_transition"]) == {"from", "to"}, "Malformed state transition")
+        _require(not event["event_type"].endswith(("_OBSERVED", "_REPORTED")) and
+                 event["event_type"] != "PAYABLE_BOOKED", "Observation promoted to event")
         _require(not (event["event_type"] == "OFF_HIRE" and event["scope"].startswith("container:")), "Per-container off-hire is not source-bound")
     obligations = data["obligations"]
-    required_obligation = {"obligation_id", "type", "status", "evidence_ref", "notes"}
+    required_obligation = {"obligation_id", "type", "status", "truth_status", "evidence_ref", "notes"}
     _require(len(obligations) >= 3 and all(set(item) == required_obligation and item["evidence_ref"] in source_ids for item in obligations), "Invalid obligation")
-    _require(all(item["status"] == "RECONCILIATION_REQUIRED" for item in obligations), "Unsupported settlement")
+    required_truth = {"verification": "CONFLICTED", "allocation": "UNALLOCATED",
+                      "reconciliation": "REQUIRED"}
+    _require(all(item["status"] == "REQUIRED" and item["truth_status"] == required_truth
+                 for item in obligations), "Unsupported settlement")
     transitions = [{"transition_id": f"ST-{event['event_id']}", "event_id": event["event_id"], "scope": event["scope"], **event["state_transition"], "occurred_on": event["occurred_on"], "evidence_ref": event["evidence_ref"]} for event in events]
     timeline = [{"event_id": event["event_id"], "occurred_on": event["occurred_on"], "date_precision": "day"} for event in sorted(events, key=lambda e: (e["occurred_on"], e["event_id"]))]
     nodes = ([{"entity_id": master["id"], "type": "MasterAgreement"}, {"entity_id": job["id"], "type": "OneWayLeaseJob"}, {"entity_id": lot["id"], "type": "EquipmentLot", "quantity": 26, "equipment_type": "20HC"}]
@@ -89,24 +115,30 @@ def payload(root: Path) -> dict:
     for item in obligations:
         nodes.append({"entity_id": item["obligation_id"], "type": "FinancialObligation", "status": item["status"]})
         edges.append({"subject": job["id"], "predicate": "has_obligation", "object": item["obligation_id"], "evidence_ref": item["evidence_ref"]})
-    for receipt in recovered["payments"]:
-        nodes.append({"entity_id": receipt["payment_id"], "type": "ReportedReceipt", "status": receipt["status"], "case_refs": receipt["case_refs"]})
-        edges.append({"subject": job["id"], "predicate": "mentioned_in_receipt", "object": receipt["payment_id"], "evidence_ref": receipt["evidence_ref"]})
+    for receipt in recovered["receipts"]:
+        nodes.append({"entity_id": receipt["receipt_id"], "type": "Receipt",
+                      "assertion_status": receipt["assertion_status"],
+                      "allocation_status": receipt["allocation_status"],
+                      "case_refs": receipt["case_refs"]})
+        edges.append({"subject": job["id"], "predicate": "has_receipt_observation",
+                      "object": receipt["receipt_id"], "evidence_ref": receipt["evidence_ref"]})
     for document in recovered["billing_documents"]:
         nodes.append({"entity_id": document["document_id"], "type": "ProformaInvoice", "charge_type": document["charge_type"]})
         edges.append({"subject": job["id"], "predicate": "has_billing_document", "object": document["document_id"], "evidence_ref": document["evidence_ref"]})
     return {
         "status": "BLOCKED", "master_agreement": master, "job": job,
-        "equipment_lot": lot, "containers": containers, "events": events,
+        "equipment_lot": lot, "containers": containers, "observations": observations,
+        "events": events,
         "state_transitions": transitions, "obligations": obligations,
-        "payments": recovered["payments"], "evidence_ledger": sources,
+        "receipts": recovered["receipts"], "payments": recovered["payments"],
+        "evidence_ledger": sources,
         "billing_documents": recovered["billing_documents"],
         "operational_assertions": recovered["operational_assertions"],
         "financial_assertions": recovered["financial_assertions"],
         "reconciliation_issues": recovered["reconciliation_issues"],
         "timeline": timeline, "business_graph": {"nodes": nodes, "edges": edges},
         "statuses": {"operational": "OFF_HIRE_CONFIRMED_LOT_SCOPE",
-                     "financial": "RECONCILIATION_REQUIRED", "case": "OPEN"},
+                     "financial": "REQUIRED", "case": "OPEN"},
         "gates": {gate: {"status": "BLOCKED" if gate in ("GOPER", "GTIME", "GFIN") else "PASS",
                          "issues": _pending_issues(gate)} for gate in GATES},
     }
@@ -155,19 +187,29 @@ def validate(value: dict, root: Path) -> dict:
             issues["GOPER"].append("Event/state transition lineage is broken")
         if event.get("date_precision") != "day" or not isinstance(event.get("occurred_on"), str) or re.fullmatch(r"\d{4}-\d{2}-\d{2}", event["occurred_on"]) is None:
             issues["GTIME"].append("Event has an invented or imprecise timestamp")
+        if str(event.get("event_type", "")).endswith(("_OBSERVED", "_REPORTED")) or event.get("event_type") == "PAYABLE_BOOKED":
+            issues["GOPER"].append("Observation was promoted to an event")
     timeline = value.get("timeline", [])
     expected_timeline = [{"event_id": event["event_id"], "occurred_on": event["occurred_on"], "date_precision": "day"} for event in sorted(events, key=lambda event: (event["occurred_on"], event["event_id"]))]
     if timeline != expected_timeline:
         issues["GTIME"].append("Timeline does not deterministically rebuild from events")
-    for field in ("payments", "billing_documents", "financial_assertions", "reconciliation_issues"):
+    if value.get("observations") != expected.get("observations"):
+        issues["GOPER"].append("Observations differ from source assertions")
+    for field in ("receipts", "payments", "billing_documents", "financial_assertions", "reconciliation_issues"):
         if value.get(field) != expected.get(field):
             issues["GFIN"].append(f"Recovered {field} differ from source assertions")
+    if value.get("payments"):
+        issues["GFIN"].append("Receipt was promoted to an allocated payment")
     if value.get("operational_assertions") != expected.get("operational_assertions"):
         issues["GOPER"].append("Off-hire assertion scope or source lineage changed")
     obligations = value.get("obligations", [])
-    if not obligations or any(item.get("evidence_ref") not in evidence or item.get("status") != "RECONCILIATION_REQUIRED" for item in obligations):
+    required_truth = {"verification": "CONFLICTED", "allocation": "UNALLOCATED",
+                      "reconciliation": "REQUIRED"}
+    if not obligations or any(item.get("evidence_ref") not in evidence or
+                              item.get("status") != "REQUIRED" or
+                              item.get("truth_status") != required_truth for item in obligations):
         issues["GFIN"].append("Financial obligation is unsupported or falsely settled")
-    if value.get("statuses", {}).get("financial") != "RECONCILIATION_REQUIRED" or value.get("statuses", {}).get("case") != "OPEN":
+    if value.get("statuses", {}).get("financial") != "REQUIRED" or value.get("statuses", {}).get("case") != "OPEN":
         issues["GOBL"].append("Outstanding obligation is hidden by case status")
         issues["GCLOSE"].append("Case closure is unsupported")
     # The current evidence deliberately stops short of per-container off-hire
@@ -191,6 +233,6 @@ def canonical_hashes(value: dict) -> dict:
     if value.get("master_agreement") is None:
         return {}
     return {key: digest(value[key]) for key in (
-        "master_agreement", "job", "equipment_lot", "containers", "events", "state_transitions",
-        "obligations", "payments", "billing_documents", "operational_assertions", "financial_assertions",
+        "master_agreement", "job", "equipment_lot", "containers", "observations", "events", "state_transitions",
+        "obligations", "receipts", "payments", "billing_documents", "operational_assertions", "financial_assertions",
         "reconciliation_issues", "evidence_ledger", "timeline", "business_graph", "statuses")}
