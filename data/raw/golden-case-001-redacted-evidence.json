@@ -1,0 +1,639 @@
+{
+  "master_agreement": {
+    "id": "MASTER-AGREEMENT-2023",
+    "rule_ids": [
+      "MA-EQUIPMENT-BY-CONFIRMATION",
+      "MA-DELIVERY-BY-CONFIRMATION",
+      "MA-REDELIVERY-BY-CONFIRMATION",
+      "MA-RENTAL-BY-CONFIRMATION",
+      "MA-REPAIR-CLEANING-THRESHOLD",
+      "MA-INVOICE-PAYMENT-TIMING",
+      "MA-SET_OFF"
+    ],
+    "evidence_ref": "SRC-MASTER-AGREEMENT",
+    "execution_status": "OWNER_SIGNED_COUNTERSIGNATURE_NOT_VISIBLE"
+  },
+  "job": {
+    "id": "JOB-ONE-N524",
+    "master_agreement_id": "MASTER-AGREEMENT-2023",
+    "booking_reference": "ONE524SGH",
+    "evidence_ref": "SRC-N524-PICKUP"
+  },
+  "equipment_lot": {
+    "id": "LOT-ONE-N524-26",
+    "job_id": "JOB-ONE-N524",
+    "quantity": 26,
+    "equipment_type": "20HC",
+    "evidence_ref": "SRC-N524-PI"
+  },
+  "containers": [
+    "RLGU2503666",
+    "RLGU2503671",
+    "RLGU2503687",
+    "RLGU2503692",
+    "RLGU2503706",
+    "RLGU2503711",
+    "RLGU2503727",
+    "RLGU2503732",
+    "RLGU2503748",
+    "RLGU2503753",
+    "RLGU2503769",
+    "RLGU2503774",
+    "RLGU2503780",
+    "RLGU2503795",
+    "RLGU2503809",
+    "RLGU2503814",
+    "RLGU2503820",
+    "RLGU2503835",
+    "RLGU2503840",
+    "RLGU2503856",
+    "RLGU2503861",
+    "RLGU2503877",
+    "RLGU2503882",
+    "RLGU2503898",
+    "RLGU2503901",
+    "RLGU2503917"
+  ],
+  "sources": [
+    {
+      "evidence_id": "SRC-MASTER-AGREEMENT",
+      "source_alias": "SRC-MASTER-AGREEMENT-20230327",
+      "source_type": "confidential agreement photocopy",
+      "source_date": "2023-03-27",
+      "supports": [
+        "master agreement",
+        "rule registry"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-phase-a-private-evidence-ledger",
+      "notes": "Owner signature/stamp visible; counter-signature not visible."
+    },
+    {
+      "evidence_id": "SRC-N524-PICKUP",
+      "source_alias": "SRC-N524-PICKUP-NOTICE",
+      "source_type": "email",
+      "source_date": "2026-01-15",
+      "supports": [
+        "job",
+        "pickup instruction"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-phase-a-private-evidence-ledger",
+      "notes": "Job and equipment instruction."
+    },
+    {
+      "evidence_id": "SRC-N524-PI",
+      "source_alias": "SRC-N524-PI-20260409",
+      "source_type": "proforma invoice",
+      "source_date": "2026-04-09",
+      "supports": [
+        "equipment lot",
+        "obligation"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-phase-a-private-evidence-ledger",
+      "notes": "26 x 20HC lot."
+    },
+    {
+      "evidence_id": "SRC-N524-TRACING",
+      "source_alias": "SRC-N524-CONTAINER-TRACING",
+      "source_type": "spreadsheet",
+      "source_date": "2026-05-21",
+      "supports": [
+        "container observations"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-per-container-evidence-status",
+      "notes": "Cross-source reconciliation remains required."
+    },
+    {
+      "evidence_id": "SRC-N524-WEEKLY",
+      "source_alias": "SRC-N524-WEEKLY-REPORTS",
+      "source_type": "weekly report spreadsheets",
+      "source_date": "2026-07-13",
+      "supports": [
+        "container observations"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-rescan-20260926/supplement",
+      "notes": "Expanded deduplicated series: 25 attachment hashes, W07-W29, 435 rows across all 26 containers; rows remain observations, not events."
+    },
+    {
+      "evidence_id": "SRC-N524-GATEIN",
+      "source_alias": "SRC-N524-OWNER-GATEIN",
+      "source_type": "owner gate-in spreadsheet",
+      "source_date": "2026-05-21",
+      "supports": [
+        "owner gate-in observations"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-per-container-evidence-status",
+      "notes": "Gate-in is not off-hire."
+    },
+    {
+      "evidence_id": "SRC-N524-DEBIT",
+      "source_alias": "SRC-N524-DEBIT-NOTES",
+      "source_type": "debit note",
+      "source_date": "2026-08-20",
+      "supports": [
+        "per-diem and repair obligations"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-phase-a-private-evidence-ledger",
+      "notes": "Does not establish payment allocation."
+    },
+    {
+      "evidence_id": "SRC-N524-FOUNDER",
+      "source_alias": "SRC-FOUNDER-LOT-CONFIRMATION",
+      "source_type": "Founder confirmation",
+      "source_date": "2026-09-22",
+      "supports": [
+        "lot-level off-hire scope"
+      ],
+      "support_strength": "SCOPED_ATTESTATION",
+      "sensitivity": "INTERNAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-per-container-evidence-status",
+      "notes": "All 26 off-hired by 2026-07-16; not a per-container timestamp."
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-N524-GATEIN-SOURCE",
+      "record_type": "OBSERVATION",
+      "observation_type": "OWNER_GATE_IN_REPORTED",
+      "scope": "lot:LOT-ONE-N524-26",
+      "observed_on": "2026-05-21",
+      "date_precision": "day",
+      "evidence_ref": "SRC-N524-GATEIN",
+      "assertion_status": "CANDIDATE",
+      "evidence_status": "VERIFIED",
+      "assertion": "The owner gate-in source provides dated observations for a subset of the lot; gate-in is not off-hire."
+    }
+  ],
+  "events": [
+    {
+      "event_id": "EVT-N524-PICKUP-INSTRUCTION",
+      "event_type": "PICKUP_INSTRUCTION_ISSUED",
+      "scope": "job:JOB-ONE-N524",
+      "occurred_on": "2026-01-15",
+      "date_precision": "day",
+      "evidence_ref": "SRC-N524-PICKUP",
+      "assertion": "A pickup instruction was issued for the identified job and lot.",
+      "state_transition": {
+        "from": "NOT_RECORDED",
+        "to": "PICKUP_INSTRUCTED"
+      }
+    },
+    {
+      "event_id": "EVT-N524-PI-ISSUED",
+      "event_type": "PROFORMA_INVOICE_ISSUED",
+      "scope": "job:JOB-ONE-N524",
+      "occurred_on": "2026-04-09",
+      "date_precision": "day",
+      "evidence_ref": "SRC-N524-PI",
+      "assertion": "A proforma invoice was issued for the identified equipment lot.",
+      "state_transition": {
+        "from": "NOT_RECORDED",
+        "to": "INVOICED"
+      }
+    },
+    {
+      "event_id": "EVT-N524-LOT-OFFHIRE",
+      "event_type": "LOT_OFF_HIRE_CONFIRMED",
+      "scope": "lot:LOT-ONE-N524-26",
+      "occurred_on": "2026-07-16",
+      "date_precision": "day",
+      "evidence_ref": "SRC-N524-FOUNDER",
+      "assertion": "Founder confirms off-hire completion for all 26 containers at lot scope.",
+      "state_transition": {
+        "from": "OPERATIONALLY_IN_PROGRESS",
+        "to": "OFF_HIRE_CONFIRMED_LOT_SCOPE"
+      }
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "OBL-N524-PUC",
+      "type": "PUC",
+      "status": "REQUIRED",
+      "truth_status": {
+        "verification": "CONFLICTED",
+        "allocation": "UNALLOCATED",
+        "reconciliation": "REQUIRED"
+      },
+      "evidence_ref": "SRC-N524-PI",
+      "notes": "Receipt and billing sources recovered; current job-level balance is not yet reconciled."
+    },
+    {
+      "obligation_id": "OBL-N524-PERDIEM",
+      "type": "PER_DIEM",
+      "status": "REQUIRED",
+      "truth_status": {
+        "verification": "CONFLICTED",
+        "allocation": "UNALLOCATED",
+        "reconciliation": "REQUIRED"
+      },
+      "evidence_ref": "SRC-N524-DEBIT",
+      "notes": "Receipt and billing sources recovered; current job-level balance is not yet reconciled."
+    },
+    {
+      "obligation_id": "OBL-N524-REPAIR",
+      "type": "REPAIR",
+      "status": "REQUIRED",
+      "truth_status": {
+        "verification": "CONFLICTED",
+        "allocation": "UNALLOCATED",
+        "reconciliation": "REQUIRED"
+      },
+      "evidence_ref": "SRC-N524-DEBIT",
+      "notes": "Receipt and billing sources recovered; current job-level balance is not yet reconciled."
+    }
+  ],
+  "recovered_sources": [
+    {
+      "evidence_id": "SRC-N524-OWNER-GATEIN-20260521",
+      "kind": "OWNER_GATE_IN_WORKBOOK",
+      "source_date": "2026-05-21",
+      "support_strength": "DIRECT_OWNER_GATE_IN_WORKBOOK",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "46f1f412116bd1b45a81c31ae6a3a73b2731c19db72c2796db62cc2ec1917369",
+          "locator": "Arkusz1!A2:C27: twenty nonblank owner-reported gate-in rows"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/per-container-offhire-closure",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CANDIDATE",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "gate_in_dates": [
+          {"container": "RLGU2503666", "occurred_on": "2026-04-28", "locator": "Arkusz1!A2:C2"},
+          {"container": "RLGU2503671", "occurred_on": "2026-04-28", "locator": "Arkusz1!A3:C3"},
+          {"container": "RLGU2503687", "occurred_on": "2026-04-29", "locator": "Arkusz1!A4:C4"},
+          {"container": "RLGU2503706", "occurred_on": "2026-04-29", "locator": "Arkusz1!A6:C6"},
+          {"container": "RLGU2503732", "occurred_on": "2026-04-28", "locator": "Arkusz1!A9:C9"},
+          {"container": "RLGU2503748", "occurred_on": "2026-04-30", "locator": "Arkusz1!A10:C10"},
+          {"container": "RLGU2503753", "occurred_on": "2026-04-30", "locator": "Arkusz1!A11:C11"},
+          {"container": "RLGU2503769", "occurred_on": "2026-04-24", "locator": "Arkusz1!A12:C12"},
+          {"container": "RLGU2503774", "occurred_on": "2026-04-28", "locator": "Arkusz1!A13:C13"},
+          {"container": "RLGU2503780", "occurred_on": "2026-04-30", "locator": "Arkusz1!A14:C14"},
+          {"container": "RLGU2503795", "occurred_on": "2026-04-30", "locator": "Arkusz1!A15:C15"},
+          {"container": "RLGU2503809", "occurred_on": "2026-05-06", "locator": "Arkusz1!A16:C16"},
+          {"container": "RLGU2503814", "occurred_on": "2026-04-30", "locator": "Arkusz1!A17:C17"},
+          {"container": "RLGU2503820", "occurred_on": "2026-04-28", "locator": "Arkusz1!A18:C18"},
+          {"container": "RLGU2503840", "occurred_on": "2026-04-28", "locator": "Arkusz1!A20:C20"},
+          {"container": "RLGU2503861", "occurred_on": "2026-05-06", "locator": "Arkusz1!A22:C22"},
+          {"container": "RLGU2503877", "occurred_on": "2026-04-30", "locator": "Arkusz1!A23:C23"},
+          {"container": "RLGU2503882", "occurred_on": "2026-05-05", "locator": "Arkusz1!A24:C24"},
+          {"container": "RLGU2503901", "occurred_on": "2026-05-05", "locator": "Arkusz1!A26:C26"},
+          {"container": "RLGU2503917", "occurred_on": "2026-04-30", "locator": "Arkusz1!A27:C27"}
+        ]
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-OFFHIRE-NOTICE-20260610",
+      "kind": "OFF_HIRE_CORRESPONDENCE",
+      "source_date": "2026-06-10",
+      "support_strength": "FOUNDER_TO_CARRIER_OFF_HIRE_NOTICE",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "a7cf78898b58f8636419a2248c05f36d4b572f94d273e6f3a4f2e61698c2c19d",
+          "locator": "MIME quoted message dated 2026-06-10: per-container Off Hire Date table and four-unit pending list"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/per-container-offhire-closure",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CANDIDATE",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "reported_on": "2026-06-10",
+        "offhire_dates": [
+          {"container": "RLGU2503666", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503666"},
+          {"container": "RLGU2503671", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503671"},
+          {"container": "RLGU2503687", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503687"},
+          {"container": "RLGU2503706", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503706"},
+          {"container": "RLGU2503711", "occurred_on": "2026-05-13", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503711"},
+          {"container": "RLGU2503732", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503732"},
+          {"container": "RLGU2503748", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503748"},
+          {"container": "RLGU2503753", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503753"},
+          {"container": "RLGU2503769", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503769"},
+          {"container": "RLGU2503774", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503774"},
+          {"container": "RLGU2503780", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503780"},
+          {"container": "RLGU2503795", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503795"},
+          {"container": "RLGU2503814", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503814"},
+          {"container": "RLGU2503820", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503820"},
+          {"container": "RLGU2503840", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503840"},
+          {"container": "RLGU2503877", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503877"},
+          {"container": "RLGU2503898", "occurred_on": "2026-04-29", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503898"},
+          {"container": "RLGU2503917", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503917"}
+        ],
+        "pending_containers": [
+          "RLGU2503692",
+          "RLGU2503727",
+          "RLGU2503835",
+          "RLGU2503856"
+        ]
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-WEEKLY-RECOVERED-20260926",
+      "kind": "WEEKLY_OBSERVATION_SERIES",
+      "source_date": "2026-07-13",
+      "support_strength": "DIRECT_REPORT_SERIES",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {"sha256": "a6482fe9a95a3cce972ad48e510435a30aa2a59f06bff50bd4b84908b19defad", "locator": "XIA-2026wk7_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "2a7559a263c576488717fdc7d9eac4ff080fecf45d13ba84eb10cf4044a69731", "locator": "XIA-2026wk8_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "9cd574e05ae2dd9ca8e12346531d537638b4ae46a3feacdaee3a833e45a83949", "locator": "XIA-2026wk9_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "28592bef1d7100ae87f66279c3dc1cbf99756c1a9eb8b3309db32ace1efb620f", "locator": "XIA-2026wk9_Thursday.xlsx: ONE-N524 rows"},
+        {"sha256": "0231fc328636cffbeb07dc73586d78ce24f759621b29a62324247ac87b88795b", "locator": "XIA-2026wk10_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "9ed00352991002775c3e285fb9581e7b1dce0d930f386f19f288111442e6d436", "locator": "XIA-2026wk10_Friday.xlsx: ONE-N524 rows"},
+        {"sha256": "e371472e7460bc71a4409af1822d8b30eecffccf0d866d9ac0b7d8f91659c358", "locator": "XIA-2026wk11_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "3f3b955b1b11e2aff1b09f57494961d8f028b65bf0acbe86d5f3df42f398deac", "locator": "XIA-2026wk12_Thursday.xlsx: ONE-N524 rows"},
+        {"sha256": "8da7a98b61687d3f818e0692ee8413d7e24bbf470b9c7a33ce9e78b298968153", "locator": "XIA-2026wk13_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "2d1b5720f28573ce2ee50443a2d735d68c3987e73de35ce3d53fb38c72baf5f0", "locator": "XIA-2026wk14_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "1215993c2f5ea3e80e62dd9f87fd3eff4ef6642c4a36eecb36369b845fedc0d3", "locator": "XIA-2026wk15_Thursday.xlsx: ONE-N524 rows"},
+        {"sha256": "81edd2f640c66dac2250a95d3eb2db2303533eafbcccdaed7c7923ca24ae8604", "locator": "XIA-2026wk16_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "18bcb8f388dd272eda8d1fa2c6a7feb4997acfeb00e813ee9cba8420420d483a", "locator": "XIA-2026wk17_Tuesday.xlsx: ONE-N524 rows"},
+        {"sha256": "a0bc59b085596bc6354561fd23dfbcf09fa0dc7a3743f808851183f55851f41e", "locator": "XIA-2026wk18_Tuesday.xlsx: ONE-N524 rows"},
+        {"sha256": "9f3841f1b1b8dd1841d181bf7a891396d0a8627e39476f80035766658babe302", "locator": "XIA-2026wk19_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "96102545da34745e1196731387a210d73d0d90ad70a4b47910290153ab3016d3", "locator": "XIA-2026wk20_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "dd3365cee551a05c7dbd0079957febeb59cf90f36ce09811b3895d6e6aa96290", "locator": "XIA-2026wk21_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "62ea8cf8460dcd03d037db4a110e74b2b0b7faf69ff4ee49cc0bd1236504ae7f", "locator": "XIA-2026wk22_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "dec01497aaad9fda9ce37ab22a0296f1bcfb47c816b6fd3122ccf87ccb964abe", "locator": "XIA-2026wk23_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "b8a47b76c6ffeedcd289b83fb769854f675936975b90718f8b7156dc6938637d", "locator": "XIA-2026wk24_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "3a5bbdd38139270850d04510a5bca888b1158eb2cf6724c0d67d01a3f5253682", "locator": "XIA-2026wk25_Thursday.xlsx: ONE-N524 rows"},
+        {"sha256": "db14a4d846366c6469ea490161cc48005549d14db633e939b0b58006bba2f04a", "locator": "XIA-2026wk26_Wednesday.xlsx: ONE-N524 rows"},
+        {"sha256": "1bc808c5c84079ccac25c9fae328a14ecde5a9a0c1c297ad7433059036e179f6", "locator": "XIA-2026wk27_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "aca2f14d872791ba03af7aa342e2485601ffa1f5bcd55a57296c29a9045d9d70", "locator": "XIA-2026wk28_Monday.xlsx: ONE-N524 rows"},
+        {"sha256": "cd270a78ebee48f40a9a02c7cf727bcb01d93877224da3ae4c43b81731a5f289", "locator": "XIA-2026wk29_Monday.xlsx: ONE-N524 rows"}
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/supplement",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CANDIDATE",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "attachment_count": 25,
+        "observation_count": 435,
+        "week_start": 7,
+        "week_end": 29,
+        "covered_containers": [
+          "RLGU2503666", "RLGU2503671", "RLGU2503687", "RLGU2503692",
+          "RLGU2503706", "RLGU2503711", "RLGU2503727", "RLGU2503732",
+          "RLGU2503748", "RLGU2503753", "RLGU2503769", "RLGU2503774",
+          "RLGU2503780", "RLGU2503795", "RLGU2503809", "RLGU2503814",
+          "RLGU2503820", "RLGU2503835", "RLGU2503840", "RLGU2503856",
+          "RLGU2503861", "RLGU2503877", "RLGU2503882", "RLGU2503898",
+          "RLGU2503901", "RLGU2503917"
+        ]
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-RECEIPT-REPORTED-20260820",
+      "kind": "RECEIPT_REPORT",
+      "source_date": "2026-08-20",
+      "support_strength": "QUOTED_CREDITOR_RECEIPT_ATTESTATION",
+      "case_refs": [
+        "JOB-ONE-N524",
+        "JOB-ONE-N617"
+      ],
+      "bindings": [
+        {
+          "sha256": "4e4e334682a3530e3d24cdc4b7b9bf34cab4b16fcf2d4213ca8ac47dce56b674",
+          "locator": "MIME body: quoted creditor statement dated 2026-08-20, receipt and remaining charges paragraphs"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CANDIDATE",
+        "evidence": "VERIFIED",
+        "entry": "USER_ENTERED",
+        "allocation": "UNALLOCATED",
+        "value_date": "UNKNOWN"
+      },
+      "facts": {
+        "reported_on": "2026-08-20",
+        "amount": "6890.00",
+        "currency": "USD",
+        "bank_value_date": null,
+        "allocations": [],
+        "balance_claim": {
+          "job_id": "JOB-ONE-N524",
+          "as_of": "2026-08-20",
+          "amount": "921.62",
+          "currency": "USD"
+        }
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-REPAIR-PI-20260820",
+      "kind": "BILLING_DOCUMENT",
+      "source_date": "2026-08-20",
+      "support_strength": "DIRECT_BILLING_DOCUMENT",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "8bbe8aa154b5ad0be6a7a73a8300cf116aa4fdc1a8dca4348fec3fe85342e479",
+          "locator": "Commercial Invoice!rows18-19; G40 total; G10 invoice date"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CANDIDATE",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "charge_type": "REPAIR",
+        "document_type": "PROFORMA_INVOICE",
+        "amount": "693.62",
+        "currency": "USD",
+        "offhire_dates": [],
+        "conflicts": []
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-PERDIEM-PI-20260820",
+      "kind": "BILLING_DOCUMENT",
+      "source_date": "2026-08-20",
+      "support_strength": "DIRECT_BILLING_DOCUMENT",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "ac7cedbf1cdb432e6f55b3faf8bad4dd360a8f61c594622be74212126686b4b8",
+          "locator": "Commercial Invoice!rows18-22; G26 total; G10 invoice date; A27 written total"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CONFLICTED",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "charge_type": "PER_DIEM",
+        "document_type": "PROFORMA_INVOICE",
+        "amount": "228.00",
+        "currency": "USD",
+        "offhire_dates": [
+          {
+            "container": "RLGU2503711",
+            "occurred_on": "2026-05-13",
+            "locator": "Commercial Invoice!C18:H18"
+          },
+          {
+            "container": "RLGU2503692",
+            "occurred_on": "2026-07-16",
+            "locator": "Commercial Invoice!C19:H19"
+          },
+          {
+            "container": "RLGU2503727",
+            "occurred_on": "2026-07-16",
+            "locator": "Commercial Invoice!C20:H20"
+          },
+          {
+            "container": "RLGU2503835",
+            "occurred_on": "2026-07-16",
+            "locator": "Commercial Invoice!C21:H21"
+          },
+          {
+            "container": "RLGU2503856",
+            "occurred_on": "2026-07-16",
+            "locator": "Commercial Invoice!C22:H22"
+          }
+        ],
+        "conflicts": [
+          "NUMERIC_AND_WRITTEN_TOTAL_DIFFER",
+          "CHARGING_PERIOD_REQUIRES_RECONCILIATION"
+        ]
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-DN-VERSION-CONFLICT",
+      "kind": "DOCUMENT_VERSION_CONFLICT",
+      "source_date": null,
+      "support_strength": "DIRECT_DOCUMENT_VERSION_CONFLICT",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "73039f6ab4b9de69e9033a7cf9c88868989a14f4c5e40ab000d60684759a840e",
+          "locator": "page1 TOTAL DEBIT AMOUNT"
+        },
+        {
+          "sha256": "6c7e69df306f50f6718e6dd10cc453075e7cd8990d51b88880b15d14101e1b16",
+          "locator": "page1 TOTAL DEBIT AMOUNT"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CONFLICTED",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "document_ref": "TWDN-2026-05001",
+        "amounts": [
+          "913.62",
+          "745.62"
+        ],
+        "currency": "USD"
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-PAYABLE-BOOKED-20260902",
+      "kind": "PAYABLE_BOOKING",
+      "source_date": "2026-09-02",
+      "support_strength": "CARRIER_BOOKING_EMAIL_AND_VISUALLY_READ_SCREENSHOT",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "705addbc4642e7d8c219f3231f1db257179d9a14f91c5b0cebc1237d5aed7199",
+          "locator": "MIME top-level reply; invoice booking and due-date statement"
+        },
+        {
+          "sha256": "4d10295c9a20cde8a446a595147e3cd3ad6767b3793c5bb363192dece2dd3fe1",
+          "locator": "MIME part 4 image001.png: document date, posting date, numeric amount, net due date, blank clearing fields"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CONFLICTED",
+        "evidence": "VERIFIED",
+        "payment": "UNKNOWN",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "amount": "228.00",
+        "currency": "USD",
+        "document_date": "2026-08-20",
+        "posted_on": "2026-08-26",
+        "due_on": "2026-09-19",
+        "paid": null,
+        "invoice_ref": null,
+        "conflicts": [
+          "PROSE_AND_SCREENSHOT_YEAR_DIFFER"
+        ]
+      }
+    }
+  ]
+}
