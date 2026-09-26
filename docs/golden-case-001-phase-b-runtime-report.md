@@ -1,60 +1,68 @@
 # Golden Case 001 — Phase B Runtime Checkpoint
 
-## Evidence correction — 2026-09-26
-
-The local rescan recovered a reported receipt, later weekly reports, explicit
-billing off-hire dates and revised billing documents. The runtime described
-below has **not yet admitted** these findings. Its empty payment list and
-`OUTSTANDING` label reflect the old manifest; they must not be presented as
-proof that no payment was received or that the full billed amount remains due.
-Financial source reconciliation and runtime admission remain unfinished.
-No new Founder evidence upload is requested at this checkpoint. See
-`golden-case-001-local-evidence-recovery.md` for the corrected evidence boundary.
+Canonical task: GitHub Issue #7 / PR #8. Updated 2026-09-26.
 
 ## Current runtime result
 
-`ONE-N524` now rebuilds as a separate canonical runtime artifact. It models the
-Master Agreement, the job, the 26-container equipment lot, individual container
-identities, source-bound events, financial obligations, and a redacted evidence
-ledger.
-
-The runtime result is deliberately:
+Recovered source assertions are now admitted to the canonical artifact with
+source hashes, exact redacted locators, support strength and private-ledger
+references. Admission of an assertion does not resolve its business ambiguity.
 
 ```text
 operational status = OFF_HIRE_CONFIRMED_LOT_SCOPE
-financial status   = OUTSTANDING
+financial status   = RECONCILIATION_REQUIRED
 case status        = OPEN
 runtime status     = BLOCKED
 ```
 
-The lot-level off-hire confirmation does not create 26 individual off-hire
-timestamps. No payment allocation is present in this runtime snapshot, so no obligation is `SETTLED` and
-the case cannot be `CLOSED`.
+The previous blanket `OUTSTANDING` label has been removed. Runtime now retains:
+
+- One creditor-reported receipt in the combined N524/N617 thread, with unknown
+  bank value date and no invoice/job allocations. The report date is used only
+  for a `RECEIPT_REPORTED` event, not as the date money entered the bank.
+- Two proforma invoices for different charge categories. Alternative debit-note
+  versions remain reconciliation issues rather than additional obligations.
+- A creditor balance claim scoped to its source date, explicitly not a verified
+  current receivable, and a separate carrier payable-booking assertion.
+- Five per-container billing assertions of off-hire dates. These retain their
+  exact worksheet rows and source strength; they do not become depot-confirmed
+  events or create dates for the remaining 21 containers.
+- Visible allocation, billing-version, numerical/written total, charging-period
+  and source-date discrepancies. No financial closure is inferred.
+
+The graph links the job to its lot, containers, obligations and invoices. A
+receipt is linked by `mentioned_in_receipt`, never `paid_by`; N617 remains an
+external thread reference and is not admitted as a second Golden Case.
 
 ## Gate result
 
 | Gate | Result | Meaning |
 |---|---|---|
-| GMASTER | PASS | Master Agreement hierarchy and rule lineage are bound. |
-| GJOB | PASS | `ONE-N524` is bound to the Master Agreement. |
-| G26 | PASS | 26 unique canonical container identities are present. |
-| GOPER | BLOCKED | Per-container primary off-hire confirmation is not bound. |
-| GFIN | PASS | Obligations are source-bound and no unsupported payment exists. |
-| GOBL | PASS | Outstanding obligations remain visible. |
-| GEVID | PASS | Public evidence metadata is redacted and points to private-ledger references. |
-| GTIME | BLOCKED | Weekly-report and tracing timestamps need reconciliation. |
-| GCLOSE | PASS | `OPEN` is correctly retained. |
+| GMASTER | PASS | Existing Master Agreement hierarchy checks retained. |
+| GJOB | PASS | N524 remains bound to the Master Agreement. |
+| G26 | PASS | All 26 canonical container identities remain present. |
+| GOPER | BLOCKED | Billing assertions are retained; full lifecycle reconciliation is incomplete. |
+| GFIN | BLOCKED | Reported receipt allocation and billing differences remain unresolved. |
+| GOBL | PASS | All three obligation categories remain visible as requiring reconciliation. |
+| GEVID | PASS | Projection agrees with reviewed redacted inputs; confidential-original authentication requires the private admission check. |
+| GTIME | BLOCKED | Weekly/tracing lifecycle reconciliation remains incomplete. |
+| GCLOSE | PASS | OPEN is retained; this is a closure-integrity check, not a CLOSED assertion. |
 
-## Verification
+## Verification boundary
 
-Run the current result with:
+`golden-case` renders the current artifact. Its exit status detects FAIL;
+BLOCKED is not a completed Golden Case. A passing general CI run does not turn
+GOPER/GFIN/GTIME into PASS or approve the case for Founder G7.
 
-```sh
-PYTHONPATH=src python3 -m semantica_workbench.cli golden-case
-```
+Canonical hashes now cover payments, billing documents, source assertions,
+reconciliation issues and the evidence ledger in addition to entities, events,
+transitions, timeline and graph. They are exposed even when business status is
+BLOCKED and compared across independent rebuilds.
 
-The command exits non-zero only for a failed gate. `BLOCKED` is a valid result
-while evidence is incomplete; it is not converted into a pass candidate.
+The private admission check verifies original file/attachment SHA-256 values,
+invoice dates and totals, exact container/remarks rows and the receipt statement.
+It does not independently establish bank settlement or resolve conflicting
+business statements. Raw sources remain outside Git.
 
-The runtime artifact is included in two independent clean rebuilds. Its
-canonical hash must match across both builds before a later gate review.
+Remaining work includes source reconciliation, complete operational modeling,
+and the interactive UI required by Issue #7. No merge or production change.

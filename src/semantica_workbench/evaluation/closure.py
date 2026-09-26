@@ -12,7 +12,7 @@ from semantica_workbench.pipeline.golden import (
     semantic_payload, summary, write_json,
 )
 from semantica_workbench.pipeline.reality import canonical_hashes, source_hash as business_source_hash, validate as validate_business
-from semantica_workbench.pipeline.golden_case import source_hash as golden_case_source_hash, validate as validate_golden_case
+from semantica_workbench.pipeline.golden_case import canonical_hashes as golden_case_hashes, source_hash as golden_case_source_hash, validate as validate_golden_case
 
 
 def result(issues):
@@ -100,6 +100,7 @@ def compare(root, first, second):
     issues = []
     hashes = []
     business_hashes = []
+    golden_hashes = []
     identities = []
     for directory in (first, second):
         gates = validate(root, directory)
@@ -108,6 +109,7 @@ def compare(root, first, second):
         try:
             hashes.append({key: digest(read_json(directory / f'{key}.json')['data']) for key in COMPONENTS})
             business_hashes.append(canonical_hashes(read_json(directory / 'business.json')['data']))
+            golden_hashes.append(golden_case_hashes(read_json(directory / 'golden_case.json')['data']))
             identities.append(read_json(directory / 'manifest.json')['run_id'])
         except (OSError, ValueError, KeyError, TypeError) as exc:
             issues.append(f'Cannot compare: {exc}')
@@ -117,7 +119,9 @@ def compare(root, first, second):
         issues.append('Canonical hashes differ or are missing')
     if len(business_hashes) != 2 or business_hashes[0] != business_hashes[1]:
         issues.append('Business canonical hashes differ or are missing')
-    return {**result(issues), 'hashes': hashes, 'business_hashes': business_hashes}
+    if len(golden_hashes) != 2 or golden_hashes[0] != golden_hashes[1]:
+        issues.append('Golden Case canonical hashes differ or are missing')
+    return {**result(issues), 'hashes': hashes, 'business_hashes': business_hashes, 'golden_case_hashes': golden_hashes}
 
 
 def closure(root, destination):

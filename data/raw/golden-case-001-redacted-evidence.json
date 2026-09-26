@@ -1,1 +1,434 @@
-{"master_agreement":{"id":"MASTER-AGREEMENT-2023","rule_ids":["MA-EQUIPMENT-BY-CONFIRMATION","MA-DELIVERY-BY-CONFIRMATION","MA-REDELIVERY-BY-CONFIRMATION","MA-RENTAL-BY-CONFIRMATION","MA-REPAIR-CLEANING-THRESHOLD","MA-INVOICE-PAYMENT-TIMING","MA-SET_OFF"],"evidence_ref":"SRC-MASTER-AGREEMENT","execution_status":"OWNER_SIGNED_COUNTERSIGNATURE_NOT_VISIBLE"},"job":{"id":"JOB-ONE-N524","master_agreement_id":"MASTER-AGREEMENT-2023","booking_reference":"ONE524SGH","evidence_ref":"SRC-N524-PICKUP"},"equipment_lot":{"id":"LOT-ONE-N524-26","job_id":"JOB-ONE-N524","quantity":26,"equipment_type":"20HC","evidence_ref":"SRC-N524-PI"},"containers":["RLGU2503666","RLGU2503671","RLGU2503687","RLGU2503692","RLGU2503706","RLGU2503711","RLGU2503727","RLGU2503732","RLGU2503748","RLGU2503753","RLGU2503769","RLGU2503774","RLGU2503780","RLGU2503795","RLGU2503809","RLGU2503814","RLGU2503820","RLGU2503835","RLGU2503840","RLGU2503856","RLGU2503861","RLGU2503877","RLGU2503882","RLGU2503898","RLGU2503901","RLGU2503917"],"sources":[{"evidence_id":"SRC-MASTER-AGREEMENT","source_alias":"SRC-MASTER-AGREEMENT-20230327","source_type":"confidential agreement photocopy","source_date":"2023-03-27","supports":["master agreement","rule registry"],"support_strength":"DIRECT","sensitivity":"CONFIDENTIAL","redaction_status":"REDACTED","private_ledger_ref":"N524-phase-a-private-evidence-ledger","notes":"Owner signature/stamp visible; counter-signature not visible."},{"evidence_id":"SRC-N524-PICKUP","source_alias":"SRC-N524-PICKUP-NOTICE","source_type":"email","source_date":"2026-01-15","supports":["job","pickup instruction"],"support_strength":"DIRECT","sensitivity":"CONFIDENTIAL","redaction_status":"REDACTED","private_ledger_ref":"N524-phase-a-private-evidence-ledger","notes":"Job and equipment instruction."},{"evidence_id":"SRC-N524-PI","source_alias":"SRC-N524-PI-20260409","source_type":"proforma invoice","source_date":"2026-04-09","supports":["equipment lot","obligation"],"support_strength":"DIRECT","sensitivity":"CONFIDENTIAL","redaction_status":"REDACTED","private_ledger_ref":"N524-phase-a-private-evidence-ledger","notes":"26 x 20HC lot."},{"evidence_id":"SRC-N524-TRACING","source_alias":"SRC-N524-CONTAINER-TRACING","source_type":"spreadsheet","source_date":"2026-05-21","supports":["container observations"],"support_strength":"DIRECT","sensitivity":"CONFIDENTIAL","redaction_status":"REDACTED","private_ledger_ref":"N524-per-container-evidence-status","notes":"Cross-source reconciliation remains required."},{"evidence_id":"SRC-N524-WEEKLY","source_alias":"SRC-N524-WEEKLY-REPORTS","source_type":"weekly report spreadsheets","source_date":"2026-05-21","supports":["container observations"],"support_strength":"DIRECT","sensitivity":"CONFIDENTIAL","redaction_status":"REDACTED","private_ledger_ref":"N524-weekly-container-observations","notes":"390 dated snapshots across all 26 containers."},{"evidence_id":"SRC-N524-GATEIN","source_alias":"SRC-N524-OWNER-GATEIN","source_type":"owner gate-in spreadsheet","source_date":"2026-05-21","supports":["owner gate-in observations"],"support_strength":"DIRECT","sensitivity":"CONFIDENTIAL","redaction_status":"REDACTED","private_ledger_ref":"N524-per-container-evidence-status","notes":"Gate-in is not off-hire."},{"evidence_id":"SRC-N524-DEBIT","source_alias":"SRC-N524-DEBIT-NOTES","source_type":"debit note","source_date":"2026-08-20","supports":["per-diem and repair obligations"],"support_strength":"DIRECT","sensitivity":"CONFIDENTIAL","redaction_status":"REDACTED","private_ledger_ref":"N524-phase-a-private-evidence-ledger","notes":"Does not establish payment allocation."},{"evidence_id":"SRC-N524-FOUNDER","source_alias":"SRC-FOUNDER-LOT-CONFIRMATION","source_type":"Founder confirmation","source_date":"2026-09-22","supports":["lot-level off-hire scope"],"support_strength":"SCOPED_ATTESTATION","sensitivity":"INTERNAL","redaction_status":"REDACTED","private_ledger_ref":"N524-per-container-evidence-status","notes":"All 26 off-hired by 2026-07-16; not a per-container timestamp."}],"events":[{"event_id":"EVT-N524-PICKUP-INSTRUCTION","event_type":"PICKUP_INSTRUCTION_ISSUED","scope":"job:JOB-ONE-N524","occurred_on":"2026-01-15","date_precision":"day","evidence_ref":"SRC-N524-PICKUP","assertion":"A pickup instruction was issued for the identified job and lot.","state_transition":{"from":"NOT_RECORDED","to":"PICKUP_INSTRUCTED"}},{"event_id":"EVT-N524-PI-ISSUED","event_type":"PROFORMA_INVOICE_ISSUED","scope":"job:JOB-ONE-N524","occurred_on":"2026-04-09","date_precision":"day","evidence_ref":"SRC-N524-PI","assertion":"A proforma invoice was issued for the identified equipment lot.","state_transition":{"from":"NOT_RECORDED","to":"INVOICED"}},{"event_id":"EVT-N524-GATEIN-OBSERVED","event_type":"OWNER_GATE_IN_OBSERVED","scope":"lot:LOT-ONE-N524-26","occurred_on":"2026-05-21","date_precision":"day","evidence_ref":"SRC-N524-GATEIN","assertion":"The owner gate-in source provides dated observations for a subset of the lot.","state_transition":{"from":"NOT_RECORDED","to":"GATE_IN_PARTIALLY_OBSERVED"}},{"event_id":"EVT-N524-LOT-OFFHIRE","event_type":"LOT_OFF_HIRE_CONFIRMED","scope":"lot:LOT-ONE-N524-26","occurred_on":"2026-07-16","date_precision":"day","evidence_ref":"SRC-N524-FOUNDER","assertion":"Founder confirms off-hire completion for all 26 containers at lot scope.","state_transition":{"from":"GATE_IN_PARTIALLY_OBSERVED","to":"OFF_HIRE_CONFIRMED_LOT_SCOPE"}}],"obligations":[{"obligation_id":"OBL-N524-PUC","type":"PUC","status":"OUTSTANDING_UNALLOCATED","evidence_ref":"SRC-N524-PI","notes":"No payment allocation bound."},{"obligation_id":"OBL-N524-PERDIEM","type":"PER_DIEM","status":"OUTSTANDING_UNALLOCATED","evidence_ref":"SRC-N524-DEBIT","notes":"No payment allocation bound."},{"obligation_id":"OBL-N524-REPAIR","type":"REPAIR","status":"OUTSTANDING_UNALLOCATED","evidence_ref":"SRC-N524-DEBIT","notes":"Charge linkage and payment allocation remain incomplete."}]}
+{
+  "master_agreement": {
+    "id": "MASTER-AGREEMENT-2023",
+    "rule_ids": [
+      "MA-EQUIPMENT-BY-CONFIRMATION",
+      "MA-DELIVERY-BY-CONFIRMATION",
+      "MA-REDELIVERY-BY-CONFIRMATION",
+      "MA-RENTAL-BY-CONFIRMATION",
+      "MA-REPAIR-CLEANING-THRESHOLD",
+      "MA-INVOICE-PAYMENT-TIMING",
+      "MA-SET_OFF"
+    ],
+    "evidence_ref": "SRC-MASTER-AGREEMENT",
+    "execution_status": "OWNER_SIGNED_COUNTERSIGNATURE_NOT_VISIBLE"
+  },
+  "job": {
+    "id": "JOB-ONE-N524",
+    "master_agreement_id": "MASTER-AGREEMENT-2023",
+    "booking_reference": "ONE524SGH",
+    "evidence_ref": "SRC-N524-PICKUP"
+  },
+  "equipment_lot": {
+    "id": "LOT-ONE-N524-26",
+    "job_id": "JOB-ONE-N524",
+    "quantity": 26,
+    "equipment_type": "20HC",
+    "evidence_ref": "SRC-N524-PI"
+  },
+  "containers": [
+    "RLGU2503666",
+    "RLGU2503671",
+    "RLGU2503687",
+    "RLGU2503692",
+    "RLGU2503706",
+    "RLGU2503711",
+    "RLGU2503727",
+    "RLGU2503732",
+    "RLGU2503748",
+    "RLGU2503753",
+    "RLGU2503769",
+    "RLGU2503774",
+    "RLGU2503780",
+    "RLGU2503795",
+    "RLGU2503809",
+    "RLGU2503814",
+    "RLGU2503820",
+    "RLGU2503835",
+    "RLGU2503840",
+    "RLGU2503856",
+    "RLGU2503861",
+    "RLGU2503877",
+    "RLGU2503882",
+    "RLGU2503898",
+    "RLGU2503901",
+    "RLGU2503917"
+  ],
+  "sources": [
+    {
+      "evidence_id": "SRC-MASTER-AGREEMENT",
+      "source_alias": "SRC-MASTER-AGREEMENT-20230327",
+      "source_type": "confidential agreement photocopy",
+      "source_date": "2023-03-27",
+      "supports": [
+        "master agreement",
+        "rule registry"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-phase-a-private-evidence-ledger",
+      "notes": "Owner signature/stamp visible; counter-signature not visible."
+    },
+    {
+      "evidence_id": "SRC-N524-PICKUP",
+      "source_alias": "SRC-N524-PICKUP-NOTICE",
+      "source_type": "email",
+      "source_date": "2026-01-15",
+      "supports": [
+        "job",
+        "pickup instruction"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-phase-a-private-evidence-ledger",
+      "notes": "Job and equipment instruction."
+    },
+    {
+      "evidence_id": "SRC-N524-PI",
+      "source_alias": "SRC-N524-PI-20260409",
+      "source_type": "proforma invoice",
+      "source_date": "2026-04-09",
+      "supports": [
+        "equipment lot",
+        "obligation"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-phase-a-private-evidence-ledger",
+      "notes": "26 x 20HC lot."
+    },
+    {
+      "evidence_id": "SRC-N524-TRACING",
+      "source_alias": "SRC-N524-CONTAINER-TRACING",
+      "source_type": "spreadsheet",
+      "source_date": "2026-05-21",
+      "supports": [
+        "container observations"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-per-container-evidence-status",
+      "notes": "Cross-source reconciliation remains required."
+    },
+    {
+      "evidence_id": "SRC-N524-WEEKLY",
+      "source_alias": "SRC-N524-WEEKLY-REPORTS",
+      "source_type": "weekly report spreadsheets",
+      "source_date": "2026-05-21",
+      "supports": [
+        "container observations"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-weekly-container-observations",
+      "notes": "390 dated snapshots across all 26 containers."
+    },
+    {
+      "evidence_id": "SRC-N524-GATEIN",
+      "source_alias": "SRC-N524-OWNER-GATEIN",
+      "source_type": "owner gate-in spreadsheet",
+      "source_date": "2026-05-21",
+      "supports": [
+        "owner gate-in observations"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-per-container-evidence-status",
+      "notes": "Gate-in is not off-hire."
+    },
+    {
+      "evidence_id": "SRC-N524-DEBIT",
+      "source_alias": "SRC-N524-DEBIT-NOTES",
+      "source_type": "debit note",
+      "source_date": "2026-08-20",
+      "supports": [
+        "per-diem and repair obligations"
+      ],
+      "support_strength": "DIRECT",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-phase-a-private-evidence-ledger",
+      "notes": "Does not establish payment allocation."
+    },
+    {
+      "evidence_id": "SRC-N524-FOUNDER",
+      "source_alias": "SRC-FOUNDER-LOT-CONFIRMATION",
+      "source_type": "Founder confirmation",
+      "source_date": "2026-09-22",
+      "supports": [
+        "lot-level off-hire scope"
+      ],
+      "support_strength": "SCOPED_ATTESTATION",
+      "sensitivity": "INTERNAL",
+      "redaction_status": "REDACTED",
+      "private_ledger_ref": "N524-per-container-evidence-status",
+      "notes": "All 26 off-hired by 2026-07-16; not a per-container timestamp."
+    }
+  ],
+  "events": [
+    {
+      "event_id": "EVT-N524-PICKUP-INSTRUCTION",
+      "event_type": "PICKUP_INSTRUCTION_ISSUED",
+      "scope": "job:JOB-ONE-N524",
+      "occurred_on": "2026-01-15",
+      "date_precision": "day",
+      "evidence_ref": "SRC-N524-PICKUP",
+      "assertion": "A pickup instruction was issued for the identified job and lot.",
+      "state_transition": {
+        "from": "NOT_RECORDED",
+        "to": "PICKUP_INSTRUCTED"
+      }
+    },
+    {
+      "event_id": "EVT-N524-PI-ISSUED",
+      "event_type": "PROFORMA_INVOICE_ISSUED",
+      "scope": "job:JOB-ONE-N524",
+      "occurred_on": "2026-04-09",
+      "date_precision": "day",
+      "evidence_ref": "SRC-N524-PI",
+      "assertion": "A proforma invoice was issued for the identified equipment lot.",
+      "state_transition": {
+        "from": "NOT_RECORDED",
+        "to": "INVOICED"
+      }
+    },
+    {
+      "event_id": "EVT-N524-GATEIN-OBSERVED",
+      "event_type": "OWNER_GATE_IN_OBSERVED",
+      "scope": "lot:LOT-ONE-N524-26",
+      "occurred_on": "2026-05-21",
+      "date_precision": "day",
+      "evidence_ref": "SRC-N524-GATEIN",
+      "assertion": "The owner gate-in source provides dated observations for a subset of the lot.",
+      "state_transition": {
+        "from": "NOT_RECORDED",
+        "to": "GATE_IN_PARTIALLY_OBSERVED"
+      }
+    },
+    {
+      "event_id": "EVT-N524-LOT-OFFHIRE",
+      "event_type": "LOT_OFF_HIRE_CONFIRMED",
+      "scope": "lot:LOT-ONE-N524-26",
+      "occurred_on": "2026-07-16",
+      "date_precision": "day",
+      "evidence_ref": "SRC-N524-FOUNDER",
+      "assertion": "Founder confirms off-hire completion for all 26 containers at lot scope.",
+      "state_transition": {
+        "from": "GATE_IN_PARTIALLY_OBSERVED",
+        "to": "OFF_HIRE_CONFIRMED_LOT_SCOPE"
+      }
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "OBL-N524-PUC",
+      "type": "PUC",
+      "status": "RECONCILIATION_REQUIRED",
+      "evidence_ref": "SRC-N524-PI",
+      "notes": "Receipt and billing sources recovered; current job-level balance is not yet reconciled."
+    },
+    {
+      "obligation_id": "OBL-N524-PERDIEM",
+      "type": "PER_DIEM",
+      "status": "RECONCILIATION_REQUIRED",
+      "evidence_ref": "SRC-N524-DEBIT",
+      "notes": "Receipt and billing sources recovered; current job-level balance is not yet reconciled."
+    },
+    {
+      "obligation_id": "OBL-N524-REPAIR",
+      "type": "REPAIR",
+      "status": "RECONCILIATION_REQUIRED",
+      "evidence_ref": "SRC-N524-DEBIT",
+      "notes": "Receipt and billing sources recovered; current job-level balance is not yet reconciled."
+    }
+  ],
+  "recovered_sources": [
+    {
+      "evidence_id": "SRC-N524-RECEIPT-REPORTED-20260820",
+      "kind": "RECEIPT_REPORT",
+      "source_date": "2026-08-20",
+      "support_strength": "QUOTED_CREDITOR_RECEIPT_ATTESTATION",
+      "case_refs": [
+        "JOB-ONE-N524",
+        "JOB-ONE-N617"
+      ],
+      "bindings": [
+        {
+          "sha256": "4e4e334682a3530e3d24cdc4b7b9bf34cab4b16fcf2d4213ca8ac47dce56b674",
+          "locator": "MIME body: quoted creditor statement dated 2026-08-20, receipt and remaining charges paragraphs"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "facts": {
+        "reported_on": "2026-08-20",
+        "amount": "6890.00",
+        "currency": "USD",
+        "bank_value_date": null,
+        "allocations": [],
+        "balance_claim": {
+          "job_id": "JOB-ONE-N524",
+          "as_of": "2026-08-20",
+          "amount": "921.62",
+          "currency": "USD"
+        }
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-REPAIR-PI-20260820",
+      "kind": "BILLING_DOCUMENT",
+      "source_date": "2026-08-20",
+      "support_strength": "DIRECT_BILLING_DOCUMENT",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "8bbe8aa154b5ad0be6a7a73a8300cf116aa4fdc1a8dca4348fec3fe85342e479",
+          "locator": "Commercial Invoice!rows18-19; G40 total; G10 invoice date"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "charge_type": "REPAIR",
+        "document_type": "PROFORMA_INVOICE",
+        "amount": "693.62",
+        "currency": "USD",
+        "offhire_dates": [],
+        "conflicts": []
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-PERDIEM-PI-20260820",
+      "kind": "BILLING_DOCUMENT",
+      "source_date": "2026-08-20",
+      "support_strength": "DIRECT_BILLING_DOCUMENT",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "ac7cedbf1cdb432e6f55b3faf8bad4dd360a8f61c594622be74212126686b4b8",
+          "locator": "Commercial Invoice!rows18-22; G26 total; G10 invoice date; A27 written total"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "charge_type": "PER_DIEM",
+        "document_type": "PROFORMA_INVOICE",
+        "amount": "228.00",
+        "currency": "USD",
+        "offhire_dates": [
+          {
+            "container": "RLGU2503711",
+            "occurred_on": "2026-05-13",
+            "locator": "Commercial Invoice!C18:H18"
+          },
+          {
+            "container": "RLGU2503692",
+            "occurred_on": "2026-07-16",
+            "locator": "Commercial Invoice!C19:H19"
+          },
+          {
+            "container": "RLGU2503727",
+            "occurred_on": "2026-07-16",
+            "locator": "Commercial Invoice!C20:H20"
+          },
+          {
+            "container": "RLGU2503835",
+            "occurred_on": "2026-07-16",
+            "locator": "Commercial Invoice!C21:H21"
+          },
+          {
+            "container": "RLGU2503856",
+            "occurred_on": "2026-07-16",
+            "locator": "Commercial Invoice!C22:H22"
+          }
+        ],
+        "conflicts": [
+          "NUMERIC_AND_WRITTEN_TOTAL_DIFFER",
+          "CHARGING_PERIOD_REQUIRES_RECONCILIATION"
+        ]
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-DN-VERSION-CONFLICT",
+      "kind": "DOCUMENT_VERSION_CONFLICT",
+      "source_date": null,
+      "support_strength": "DIRECT_DOCUMENT_VERSION_CONFLICT",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "73039f6ab4b9de69e9033a7cf9c88868989a14f4c5e40ab000d60684759a840e",
+          "locator": "page1 TOTAL DEBIT AMOUNT"
+        },
+        {
+          "sha256": "6c7e69df306f50f6718e6dd10cc453075e7cd8990d51b88880b15d14101e1b16",
+          "locator": "page1 TOTAL DEBIT AMOUNT"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "document_ref": "TWDN-2026-05001",
+        "amounts": [
+          "913.62",
+          "745.62"
+        ],
+        "currency": "USD"
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-PAYABLE-BOOKED-20260902",
+      "kind": "PAYABLE_BOOKING",
+      "source_date": "2026-09-02",
+      "support_strength": "CARRIER_BOOKING_EMAIL_AND_VISUALLY_READ_SCREENSHOT",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "705addbc4642e7d8c219f3231f1db257179d9a14f91c5b0cebc1237d5aed7199",
+          "locator": "MIME top-level reply; invoice booking and due-date statement"
+        },
+        {
+          "sha256": "4d10295c9a20cde8a446a595147e3cd3ad6767b3793c5bb363192dece2dd3fe1",
+          "locator": "MIME part 4 image001.png: document date, posting date, numeric amount, net due date, blank clearing fields"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/reconciliation",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "amount": "228.00",
+        "currency": "USD",
+        "document_date": "2026-08-20",
+        "posted_on": "2026-08-26",
+        "due_on": "2026-09-19",
+        "paid": null,
+        "invoice_ref": null,
+        "conflicts": [
+          "PROSE_AND_SCREENSHOT_YEAR_DIFFER"
+        ]
+      }
+    }
+  ]
+}

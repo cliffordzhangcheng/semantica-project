@@ -104,8 +104,9 @@ sensitive locators. This public report deliberately uses aliases only.
 These are agent reconciliation tasks using already supplied local materials.
 The previous request for the Founder to resupply evidence is withdrawn pending
 this work. See `golden-case-001-local-evidence-recovery.md`. The current runtime
-has not yet admitted these recovered facts; its earlier empty payment list is
-not a finding that the archive contains no receipt evidence.
+now retains the recovered facts as scoped assertions with unresolved allocation
+and document discrepancies. Its earlier empty payment list was not evidence
+that the archive contained no receipt statement.
 
 No schema, runtime, or UI facts have been changed by Phase A. In particular,
 `GATE_IN` has not been promoted to `OFF_HIRE`, and operational completion is

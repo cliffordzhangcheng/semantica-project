@@ -132,4 +132,4 @@ def summary(payload, catalog):
             'evidence_locators': {e['evidence_id']: e['locator'] for e in payload['evidence']},
             'G6': business['gates']['G6'],
             'reality_pilot_001': {'status': business['status'], 'business_hashes': __import__('semantica_workbench.pipeline.reality', fromlist=['canonical_hashes']).canonical_hashes(business)},
-            'golden_case_001': {'status': golden_case['status'], 'golden_case_hashes': __import__('semantica_workbench.pipeline.golden_case', fromlist=['canonical_hashes']).canonical_hashes(golden_case) if golden_case['status'] != 'BLOCKED' else {}}}
+            'golden_case_001': {'status': golden_case['status'], 'gates': golden_case['gates'], 'golden_case_hashes': __import__('semantica_workbench.pipeline.golden_case', fromlist=['canonical_hashes']).canonical_hashes(golden_case) if golden_case.get('master_agreement') is not None else {}}}

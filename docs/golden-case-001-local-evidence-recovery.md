@@ -2,7 +2,7 @@
 
 Canonical task: GitHub Issue #7 / PR #8
 Reviewed: 2026-09-26
-Scope: correction of archive coverage and evidence absence assertions.
+Scope: corrected archive coverage and subsequent admission of scoped assertions.
 
 ## Finding
 
@@ -54,12 +54,15 @@ Zero parser exceptions do not establish complete visual-content extraction.
   descriptions and earlier debit-note versions also differ.
 - Operational snapshots, billing assertions and lot-level completion must be
   reconciled at their respective scopes, retaining source-specific dates.
-- The Phase B runtime has not yet ingested these findings. Its old
-  `OUTSTANDING` state is not an audited balance, and its empty payment list
-  must not be interpreted as absence of receipt evidence.
+- The Phase B runtime now retains recovered receipt, billing and operational
+  assertions. Its financial state is `RECONCILIATION_REQUIRED`; no current
+  receivable or settlement is inferred from the historical statements.
 
-This correction updates evidence reports only. It does not change runtime,
-claim a Golden Case pass, merge PR #8, or modify production. Raw confidential
+The initial correction updated reports; the subsequent Phase B implementation
+admits these scoped assertions. Neither stage claims a Golden Case pass,
+merges PR #8, or modifies production. Raw confidential
 sources and monetary reconciliation details remain in the private ledger.
-The next action belongs to the executor: reconcile and admit the recovered
-evidence. No new Founder upload or confirmation is currently requested.
+Reconciliation remains in progress. One optional Founder clarification asks
+whether the combined receipt settles the two base PIs and whether the difference
+is a bank fee. Pending a reply, allocation remains unknown. No new upload
+is requested, and unrelated implementation work can continue.

@@ -2,7 +2,8 @@
 
 The public manifest is deliberately redacted.  Its source aliases bind to exact
 hashes and locators in the private evidence ledger; it never contains an
-original file path, message body, contact detail, signature, or payment data.
+original file path, message body, contact detail, signature, or bank account details. Recovered monetary assertions are redacted
+semantic facts, not confidential originals.
 """
 from __future__ import annotations
 
@@ -11,6 +12,7 @@ import re
 from pathlib import Path
 
 from .golden import digest, read_json
+from .golden_case_recovery import project as project_recovery
 
 
 SOURCE = Path("data/raw/golden-case-001-redacted-evidence.json")
@@ -44,7 +46,7 @@ def payload(root: Path) -> dict:
     if not path.exists():
         return blocked_payload()
     data = read_json(path)
-    expected = {"master_agreement", "job", "equipment_lot", "containers", "sources", "events", "obligations"}
+    expected = {"master_agreement", "job", "equipment_lot", "containers", "sources", "events", "obligations", "recovered_sources"}
     _require(set(data) == expected, "Golden Case manifest has an unexpected shape")
     master, job, lot = data["master_agreement"], data["job"], data["equipment_lot"]
     _require(set(master) == {"id", "rule_ids", "evidence_ref", "execution_status"}, "Invalid master agreement")
@@ -59,8 +61,13 @@ def payload(root: Path) -> dict:
     required_source = {"evidence_id", "source_alias", "source_type", "source_date", "supports", "support_strength", "sensitivity", "redaction_status", "private_ledger_ref", "notes"}
     _require(len(sources) >= 7 and len({s.get("evidence_id") for s in sources}) == len(sources), "Invalid evidence ledger")
     _require(all(set(source) == required_source and source["redaction_status"] == "REDACTED" and source["private_ledger_ref"].startswith("N524-") for source in sources), "Unsafe or incomplete evidence ledger")
+    recovered = project_recovery(data["recovered_sources"], job["id"], containers)
+    sources = sources + data["recovered_sources"]
     source_ids = {source["evidence_id"] for source in sources}
-    events = data["events"]
+    _require(len(source_ids) == len(sources), "Duplicate source identity")
+    for owner in (master, job, lot):
+        _require(owner["evidence_ref"] in source_ids, "Entity without evidence")
+    events = data["events"] + recovered["events"]
     required_event = {"event_id", "event_type", "scope", "occurred_on", "date_precision", "evidence_ref", "assertion", "state_transition"}
     _require(len(events) >= 4 and len({event.get("event_id") for event in events}) == len(events), "Insufficient events")
     for event in events:
@@ -71,19 +78,57 @@ def payload(root: Path) -> dict:
     obligations = data["obligations"]
     required_obligation = {"obligation_id", "type", "status", "evidence_ref", "notes"}
     _require(len(obligations) >= 3 and all(set(item) == required_obligation and item["evidence_ref"] in source_ids for item in obligations), "Invalid obligation")
-    _require(all(item["status"] == "OUTSTANDING_UNALLOCATED" for item in obligations), "Unsupported settlement")
+    _require(all(item["status"] == "RECONCILIATION_REQUIRED" for item in obligations), "Unsupported settlement")
     transitions = [{"transition_id": f"ST-{event['event_id']}", "event_id": event["event_id"], "scope": event["scope"], **event["state_transition"], "occurred_on": event["occurred_on"], "evidence_ref": event["evidence_ref"]} for event in events]
     timeline = [{"event_id": event["event_id"], "occurred_on": event["occurred_on"], "date_precision": "day"} for event in sorted(events, key=lambda e: (e["occurred_on"], e["event_id"]))]
     nodes = ([{"entity_id": master["id"], "type": "MasterAgreement"}, {"entity_id": job["id"], "type": "OneWayLeaseJob"}, {"entity_id": lot["id"], "type": "EquipmentLot", "quantity": 26, "equipment_type": "20HC"}]
              + [{"entity_id": f"CONTAINER-{container}", "type": "Container", "container_number": container, "operational_state": "UNRECONCILED"} for container in containers])
     edges = [{"subject": job["id"], "predicate": "governed_by", "object": master["id"], "evidence_ref": master["evidence_ref"]}, {"subject": job["id"], "predicate": "has_equipment_lot", "object": lot["id"], "evidence_ref": lot["evidence_ref"]}]
-    return {"status": "BLOCKED", "master_agreement": master, "job": job, "equipment_lot": lot, "containers": containers, "events": events, "state_transitions": transitions, "obligations": obligations, "payments": [], "evidence_ledger": sources, "timeline": timeline, "business_graph": {"nodes": nodes, "edges": edges}, "statuses": {"operational": "OFF_HIRE_CONFIRMED_LOT_SCOPE", "financial": "OUTSTANDING", "case": "OPEN"}, "gates": {"GMASTER": {"status": "PASS", "issues": []}, "GJOB": {"status": "PASS", "issues": []}, "G26": {"status": "PASS", "issues": []}, "GOPER": {"status": "BLOCKED", "issues": ["Per-container off-hire confirmation is not yet bound"]}, "GFIN": {"status": "PASS", "issues": []}, "GOBL": {"status": "PASS", "issues": []}, "GEVID": {"status": "PASS", "issues": []}, "GTIME": {"status": "BLOCKED", "issues": ["Cross-source operational timestamps require reconciliation"]}, "GCLOSE": {"status": "PASS", "issues": ["Case correctly remains OPEN"]}}}
+    for container in containers:
+        edges.append({"subject": lot["id"], "predicate": "contains", "object": f"CONTAINER-{container}", "evidence_ref": lot["evidence_ref"]})
+    for item in obligations:
+        nodes.append({"entity_id": item["obligation_id"], "type": "FinancialObligation", "status": item["status"]})
+        edges.append({"subject": job["id"], "predicate": "has_obligation", "object": item["obligation_id"], "evidence_ref": item["evidence_ref"]})
+    for receipt in recovered["payments"]:
+        nodes.append({"entity_id": receipt["payment_id"], "type": "ReportedReceipt", "status": receipt["status"], "case_refs": receipt["case_refs"]})
+        edges.append({"subject": job["id"], "predicate": "mentioned_in_receipt", "object": receipt["payment_id"], "evidence_ref": receipt["evidence_ref"]})
+    for document in recovered["billing_documents"]:
+        nodes.append({"entity_id": document["document_id"], "type": "ProformaInvoice", "charge_type": document["charge_type"]})
+        edges.append({"subject": job["id"], "predicate": "has_billing_document", "object": document["document_id"], "evidence_ref": document["evidence_ref"]})
+    return {
+        "status": "BLOCKED", "master_agreement": master, "job": job,
+        "equipment_lot": lot, "containers": containers, "events": events,
+        "state_transitions": transitions, "obligations": obligations,
+        "payments": recovered["payments"], "evidence_ledger": sources,
+        "billing_documents": recovered["billing_documents"],
+        "operational_assertions": recovered["operational_assertions"],
+        "financial_assertions": recovered["financial_assertions"],
+        "reconciliation_issues": recovered["reconciliation_issues"],
+        "timeline": timeline, "business_graph": {"nodes": nodes, "edges": edges},
+        "statuses": {"operational": "OFF_HIRE_CONFIRMED_LOT_SCOPE",
+                     "financial": "RECONCILIATION_REQUIRED", "case": "OPEN"},
+        "gates": {gate: {"status": "BLOCKED" if gate in ("GOPER", "GTIME", "GFIN") else "PASS",
+                         "issues": _pending_issues(gate)} for gate in GATES},
+    }
+
+
+def _pending_issues(gate):
+    return {
+        "GOPER": ["Billing off-hire assertions retained; full container lifecycle reconciliation remains incomplete"],
+        "GTIME": ["Cross-source operational timestamps require reconciliation"],
+        "GFIN": ["Reported receipt allocation and billing conflicts remain unresolved"],
+        "GCLOSE": ["Case correctly remains OPEN"],
+    }.get(gate, [])
+
 
 
 def validate(value: dict, root: Path) -> dict:
     """Validate the rendered runtime independently of stored gate labels."""
     issues = {gate: [] for gate in GATES}
+    expected = payload(root)
     if value.get("status") == "BLOCKED" and value.get("master_agreement") is None:
+        if expected.get("master_agreement") is not None:
+            return {gate: {"status": "FAIL", "issues": ["Existing Golden Case artifact was erased"]} for gate in GATES}
         return {gate: {"status": "BLOCKED", "issues": []} for gate in GATES}
     master, job, lot = value.get("master_agreement"), value.get("job"), value.get("equipment_lot")
     if not master or not master.get("rule_ids") or master.get("execution_status") != "OWNER_SIGNED_COUNTERSIGNATURE_NOT_VISIBLE":
@@ -114,12 +159,15 @@ def validate(value: dict, root: Path) -> dict:
     expected_timeline = [{"event_id": event["event_id"], "occurred_on": event["occurred_on"], "date_precision": "day"} for event in sorted(events, key=lambda event: (event["occurred_on"], event["event_id"]))]
     if timeline != expected_timeline:
         issues["GTIME"].append("Timeline does not deterministically rebuild from events")
-    if value.get("payments"):
-        issues["GFIN"].append("Payment is present without a reviewed allocation model")
+    for field in ("payments", "billing_documents", "financial_assertions", "reconciliation_issues"):
+        if value.get(field) != expected.get(field):
+            issues["GFIN"].append(f"Recovered {field} differ from source assertions")
+    if value.get("operational_assertions") != expected.get("operational_assertions"):
+        issues["GOPER"].append("Off-hire assertion scope or source lineage changed")
     obligations = value.get("obligations", [])
-    if not obligations or any(item.get("evidence_ref") not in evidence or item.get("status") != "OUTSTANDING_UNALLOCATED" for item in obligations):
+    if not obligations or any(item.get("evidence_ref") not in evidence or item.get("status") != "RECONCILIATION_REQUIRED" for item in obligations):
         issues["GFIN"].append("Financial obligation is unsupported or falsely settled")
-    if value.get("statuses", {}).get("financial") != "OUTSTANDING" or value.get("statuses", {}).get("case") != "OPEN":
+    if value.get("statuses", {}).get("financial") != "RECONCILIATION_REQUIRED" or value.get("statuses", {}).get("case") != "OPEN":
         issues["GOBL"].append("Outstanding obligation is hidden by case status")
         issues["GCLOSE"].append("Case closure is unsupported")
     # The current evidence deliberately stops short of per-container off-hire
@@ -127,22 +175,22 @@ def validate(value: dict, root: Path) -> dict:
     operational = value.get("statuses", {}).get("operational")
     if operational != "OFF_HIRE_CONFIRMED_LOT_SCOPE":
         issues["GOPER"].append("Operational status is not scoped to available evidence")
-    if value != payload(root):
+    if value != expected:
         issues["GEVID"].append("Runtime differs from the governed evidence manifest")
     result = {}
     for gate, messages in issues.items():
         if messages:
             result[gate] = {"status": "FAIL", "issues": messages}
-        elif gate == "GOPER":
-            result[gate] = {"status": "BLOCKED", "issues": ["Per-container off-hire confirmation is not yet bound"]}
-        elif gate == "GTIME":
-            result[gate] = {"status": "BLOCKED", "issues": ["Cross-source operational timestamps require reconciliation"]}
-        elif gate == "GCLOSE":
-            result[gate] = {"status": "PASS", "issues": ["Case correctly remains OPEN"]}
         else:
-            result[gate] = {"status": "PASS", "issues": []}
+            result[gate] = {"status": "BLOCKED" if gate in ("GOPER", "GTIME", "GFIN") else "PASS",
+                            "issues": _pending_issues(gate)}
     return result
 
 
 def canonical_hashes(value: dict) -> dict:
-    return {key: digest(value[key]) for key in ("master_agreement", "job", "equipment_lot", "containers", "events", "state_transitions", "obligations", "timeline", "business_graph", "statuses")}
+    if value.get("master_agreement") is None:
+        return {}
+    return {key: digest(value[key]) for key in (
+        "master_agreement", "job", "equipment_lot", "containers", "events", "state_transitions",
+        "obligations", "payments", "billing_documents", "operational_assertions", "financial_assertions",
+        "reconciliation_issues", "evidence_ledger", "timeline", "business_graph", "statuses")}

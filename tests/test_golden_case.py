@@ -33,7 +33,7 @@ def mutate(root, change):
 def test_phase_b_model_is_explicitly_blocked_not_closed(project):
     value = golden_case.payload(project)
     assert value["status"] == "BLOCKED"
-    assert value["statuses"] == {"operational": "OFF_HIRE_CONFIRMED_LOT_SCOPE", "financial": "OUTSTANDING", "case": "OPEN"}
+    assert value["statuses"] == {"operational": "OFF_HIRE_CONFIRMED_LOT_SCOPE", "financial": "RECONCILIATION_REQUIRED", "case": "OPEN"}
     assert len(value["containers"]) == 26
     assert golden_case.validate(value, project)["GOPER"]["status"] == "BLOCKED"
 
@@ -116,3 +116,130 @@ def test_cli_reports_blocked_golden_case_without_false_success(monkeypatch, caps
     assert report["status"] == "BLOCKED"
     assert report["statuses"]["case"] == "OPEN"
     assert report["gates"]["GOPER"]["status"] == "BLOCKED"
+
+
+def recovered_source(value, kind):
+    return next(s for s in value['recovered_sources'] if s['kind'] == kind)
+
+
+def test_reported_receipt_is_retained_without_job_allocation(project):
+    value = golden_case.payload(project)
+    receipt, = value['payments']
+    assert receipt['status'] == 'REPORTED_UNALLOCATED'
+    assert receipt['amount'] == '6890.00'
+    assert set(receipt['case_refs']) == {'JOB-ONE-N524', 'JOB-ONE-N617'}
+    assert receipt['allocations'] == [] and receipt['bank_value_date'] is None
+    assert value['gates']['GFIN']['status'] == 'BLOCKED'
+    assert not any(edge['predicate'] == 'paid_by' for edge in value['business_graph']['edges'])
+    assert not any(node['entity_id'] == 'JOB-ONE-N617' for node in value['business_graph']['nodes'])
+
+
+@pytest.mark.parametrize('field,replacement', [
+    ('bank_value_date', '2026-08-20'),
+    ('allocations', [{'job_id': 'JOB-ONE-N524', 'amount': '6890.00'}]),
+    ('reported_on', '2026-02-30'),
+])
+def test_receipt_cannot_invent_value_date_allocation_or_calendar_date(project, field, replacement):
+    mutate(project, lambda v: recovered_source(v, 'RECEIPT_REPORT')['facts'].update({field: replacement}))
+    with pytest.raises(ValueError):
+        golden_case.payload(project)
+
+
+def test_receipt_cannot_be_silently_removed_from_runtime(project):
+    value = golden_case.payload(project)
+    value['payments'] = []
+    assert golden_case.validate(value, project)['GFIN']['status'] == 'FAIL'
+
+
+def test_carrier_booking_does_not_become_payment(project):
+    value = golden_case.payload(project)
+    booking = next(a for a in value['financial_assertions'] if a['assertion_type'] == 'CARRIER_PAYABLE_BOOKING')
+    assert booking['paid'] is None
+    assert booking['invoice_ref'] is None
+    assert len(value['payments']) == 1
+    mutate(project, lambda v: recovered_source(v, 'PAYABLE_BOOKING')['facts'].update(paid=True))
+    with pytest.raises(ValueError, match='Booking cannot'):
+        golden_case.payload(project)
+
+
+def test_cross_case_billing_cannot_enter_n524(project):
+    mutate(project, lambda v: recovered_source(v, 'BILLING_DOCUMENT')['facts'].update(job_id='JOB-ONE-N617'))
+    with pytest.raises(ValueError, match='Cross-case'):
+        golden_case.payload(project)
+
+
+def test_five_offhire_assertions_do_not_create_26_depot_events(project):
+    value = golden_case.payload(project)
+    assert len(value['operational_assertions']) == 5
+    assert all(a['assertion_type'] == 'BILLING_REPORTED_OFF_HIRE' for a in value['operational_assertions'])
+    assert all(a['support_strength'] == 'DIRECT_BILLING_DOCUMENT' for a in value['operational_assertions'])
+    assert not any(e['event_type'] == 'OFF_HIRE' for e in value['events'])
+    value['operational_assertions'][0]['container'] = 'RLGU2503666'
+    assert golden_case.validate(value, project)['GOPER']['status'] == 'FAIL'
+
+
+def test_wrong_offhire_locator_or_strength_fails(project):
+    value = golden_case.payload(project)
+    value['operational_assertions'][0]['locator'] = 'Commercial Invoice!C999:H999'
+    value['operational_assertions'][0]['support_strength'] = 'DEPOT_CONFIRMED'
+    assert golden_case.validate(value, project)['GOPER']['status'] == 'FAIL'
+
+
+def test_source_hash_and_locator_required_at_admission(project):
+    mutate(project, lambda v: v['recovered_sources'][0]['bindings'][0].update(locator=''))
+    with pytest.raises(ValueError, match='hash or locator'):
+        golden_case.payload(project)
+
+
+def test_billing_versions_remain_alternatives_not_additional_obligations(project):
+    value = golden_case.payload(project)
+    assert len(value['obligations']) == 3
+    assert len(value['billing_documents']) == 2
+    assert {i['code'] for i in value['reconciliation_issues']} >= {
+        'DOCUMENT_VERSION_CONFLICT', 'NUMERIC_AND_WRITTEN_TOTAL_DIFFER', 'RECEIPT_ALLOCATION_UNRESOLVED'}
+    assert all(o['status'] == 'RECONCILIATION_REQUIRED' for o in value['obligations'])
+    balance = next(a for a in value['financial_assertions'] if a['assertion_type'] == 'CREDITOR_BALANCE_CLAIM')
+    assert balance['as_of'] == '2026-08-20'
+    assert balance['verified_current_balance'] is False
+    comparison = next(a for a in value['financial_assertions'] if a['assertion_type'] == 'BILLING_TOTAL_COMPARISON')
+    assert comparison['billing_total'] == '921.62'
+    assert comparison['numeric_totals_match'] is True
+    assert comparison['settlement_inferred'] is False
+
+
+def test_erased_case_cannot_pass_as_absent_manifest(project):
+    gates = golden_case.validate(golden_case.blocked_payload(), project)
+    assert gates['GEVID']['status'] == 'FAIL'
+
+
+def test_billing_comparison_is_calculated_not_a_fixed_pass(project):
+    mutate(project, lambda v: recovered_source(v, 'BILLING_DOCUMENT')['facts'].update(amount='700.00'))
+    value = golden_case.payload(project)
+    comparison = next(a for a in value['financial_assertions'] if a['assertion_type'] == 'BILLING_TOTAL_COMPARISON')
+    assert comparison['numeric_totals_match'] is False
+    assert 'BILLING_BALANCE_MISMATCH' in {i['code'] for i in value['reconciliation_issues']}
+    assert value['statuses']['case'] == 'OPEN'
+
+
+def test_recovered_components_have_rebuild_hashes_even_while_blocked(tmp_path):
+    from semantica_workbench.evaluation.closure import compare
+    first = build(ROOT, tmp_path / 'first')
+    second = build(ROOT, tmp_path / 'second')
+    result = compare(ROOT, first, second)
+    assert result['status'] == 'PASS'
+    hashes = result['golden_case_hashes']
+    assert hashes[0] == hashes[1]
+    assert {'payments', 'operational_assertions', 'billing_documents', 'evidence_ledger'} <= set(hashes[0])
+    summary = read_json(first / 'report.json')['data']['golden_case_001']
+    assert summary['golden_case_hashes'] == hashes[0]
+    assert summary['gates']['GFIN']['status'] == 'BLOCKED'
+
+
+def test_redacted_source_mutation_invalidates_prior_snapshot(project, tmp_path):
+    (project / 'schemas').mkdir()
+    shutil.copy(ROOT / 'schemas/golden_catalog.json', project / 'schemas/golden_catalog.json')
+    for name in ('oneway-corpus.md', 'reality-pilot-001-evidence.json'):
+        shutil.copy(ROOT / 'data/raw' / name, project / 'data/raw' / name)
+    output = build(project, tmp_path / 'snapshot')
+    mutate(project, lambda v: v['recovered_sources'][0]['bindings'][0].update(sha256='a' * 64))
+    assert validate_snapshot(project, output)['GSYNC']['status'] == 'FAIL'

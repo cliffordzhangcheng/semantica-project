@@ -9,7 +9,9 @@ The corrected local scan recovered later weekly reports, explicit billing
 off-hire dates, a customer-reported receipt in the N524/N617 thread, revised
 PIs/debit notes, and a carrier payable-booking reply. See
 `golden-case-001-local-evidence-recovery.md` and the corrected completeness
-report. No new Founder upload/export is requested at this checkpoint.
+report. No new Founder upload/export is requested. One optional clarification on the
+combined receipt and its difference from the two base PIs is pending; the model
+retains unknown allocation while work continues.
 
 ## Work to complete using existing sources
 
