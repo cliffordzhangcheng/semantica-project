@@ -1,5 +1,16 @@
 # Golden Case 001 — Phase B Runtime Checkpoint
 
+## Evidence correction — 2026-09-26
+
+The local rescan recovered a reported receipt, later weekly reports, explicit
+billing off-hire dates and revised billing documents. The runtime described
+below has **not yet admitted** these findings. Its empty payment list and
+`OUTSTANDING` label reflect the old manifest; they must not be presented as
+proof that no payment was received or that the full billed amount remains due.
+Financial source reconciliation and runtime admission remain unfinished.
+No new Founder evidence upload is requested at this checkpoint. See
+`golden-case-001-local-evidence-recovery.md` for the corrected evidence boundary.
+
 ## Current runtime result
 
 `ONE-N524` now rebuilds as a separate canonical runtime artifact. It models the
@@ -17,7 +28,7 @@ runtime status     = BLOCKED
 ```
 
 The lot-level off-hire confirmation does not create 26 individual off-hire
-timestamps. No payment allocation is present, so no obligation is `SETTLED` and
+timestamps. No payment allocation is present in this runtime snapshot, so no obligation is `SETTLED` and
 the case cannot be `CLOSED`.
 
 ## Gate result
