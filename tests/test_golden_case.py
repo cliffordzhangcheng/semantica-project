@@ -219,14 +219,16 @@ def test_cross_case_billing_cannot_enter_n524(project):
         golden_case.payload(project)
 
 
-def test_five_offhire_assertions_do_not_create_26_depot_events(project):
+def test_all_container_dates_remain_observations_until_reconciled(project):
     value = golden_case.payload(project)
-    assert len(value['operational_assertions']) == 5
-    assert all(a['assertion_type'] == 'BILLING_REPORTED_OFF_HIRE' for a in value['operational_assertions'])
+    assertions = value['operational_assertions']
+    assert len(assertions) == 43
+    assert sum(a['assertion_type'] == 'OWNER_REPORTED_DEPOT_GATE_IN' for a in assertions) == 20
+    assert sum(a['assertion_type'] == 'CARRIER_NOTIFIED_OFF_HIRE' for a in assertions) == 18
+    assert sum(a['assertion_type'] == 'BILLING_REPORTED_OFF_HIRE' for a in assertions) == 5
     assert all(a['record_type'] == 'OBSERVATION' for a in value['operational_assertions'])
-    assert all(a['support_strength'] == 'DIRECT_BILLING_DOCUMENT' for a in value['operational_assertions'])
     assert not any(e['event_type'] == 'OFF_HIRE' for e in value['events'])
-    value['operational_assertions'][0]['container'] = 'RLGU2503666'
+    value['operational_assertions'][0]['container'] = 'RLGU2503901'
     assert golden_case.validate(value, project)['GOPER']['status'] == 'FAIL'
 
 
@@ -243,18 +245,42 @@ def test_weekly_series_covers_all_containers_without_creating_events(project):
                    for event in value['events'])
 
 
-def test_per_container_states_keep_unresolved_units_explicit(project):
+def test_per_container_states_separate_lot_completion_from_individual_dates(project):
     value = golden_case.payload(project)
     states = value['container_states']
     assert len(states) == 26
-    assert sum(item['state_status'] == 'CANDIDATE' for item in states) == 5
-    assert sum(item['state_status'] == 'UNKNOWN' for item in states) == 21
+    assert all(item['operational_state'] == 'OFF_HIRE_CONFIRMED_LOT_SCOPE' for item in states)
+    assert all(item['operational_state_scope'] == 'LOT' for item in states)
+    assert all(item['individual_off_hire_date_status'] == 'CANDIDATE' for item in states)
     assert all(item['weekly_coverage_status'] == 'VERIFIED' for item in states)
     assert all(item['reconciliation_status'] == 'REQUIRED' for item in states)
-    assert all((item['off_hire_date'] is not None) == (item['state_status'] == 'CANDIDATE')
+    assert all(item['off_hire_date'] is not None and item['off_hire_evidence_refs']
                for item in states)
-    assert all((item['off_hire_evidence_ref'] is not None) ==
-               (item['state_status'] == 'CANDIDATE') for item in states)
+    assert sum(item['depot_gate_in_date'] is not None for item in states) == 20
+    assert sum(item['carrier_notified_off_hire_date'] is not None for item in states) == 18
+    assert sum(item['billing_reported_off_hire_date'] is not None for item in states) == 5
+    assert sum(item['off_hire_date_basis'] == 'CARRIER_NOTIFIED_OFF_HIRE' for item in states) == 18
+    assert sum(item['off_hire_date_basis'] == 'BILLING_REPORTED_OFF_HIRE' for item in states) == 4
+    assert sum(item['off_hire_date_basis'] == 'OWNER_REPORTED_DEPOT_GATE_IN' for item in states) == 4
+    assert sum(item['date_semantics_status'] == 'DISTINCT_DATE_SEMANTICS_RETAINED'
+               for item in states) == 10
+
+
+def test_owner_gate_in_and_carrier_offhire_dates_are_not_silently_collapsed(project):
+    value = golden_case.payload(project)
+    state = next(item for item in value['container_states']
+                 if item['container'] == 'RLGU2503666')
+    assert state['depot_gate_in_date'] == '2026-04-28'
+    assert state['carrier_notified_off_hire_date'] == '2026-05-08'
+    assert state['off_hire_date'] == '2026-05-08'
+    assert state['date_semantics_status'] == 'DISTINCT_DATE_SEMANTICS_RETAINED'
+
+
+def test_per_container_source_coverage_cannot_be_reduced(project):
+    mutate(project, lambda v: recovered_source(v, 'OWNER_GATE_IN_WORKBOOK')['facts'][
+        'gate_in_dates'].pop())
+    with pytest.raises(ValueError, match='coverage'):
+        golden_case.payload(project)
 
 
 def test_weekly_series_count_or_container_omission_fails(project):

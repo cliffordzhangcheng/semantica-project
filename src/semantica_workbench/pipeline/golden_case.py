@@ -72,6 +72,8 @@ def payload(root: Path) -> dict:
     _require(len({item.get("observation_id") for item in observations}) == len(observations),
              "Duplicate observation identity")
     allowed_observations = {"OWNER_GATE_IN_REPORTED", "RECEIPT_REPORTED",
+                            "OWNER_DEPOT_GATE_IN_REPORTED",
+                            "CARRIER_OFF_HIRE_DATE_NOTIFIED",
                             "BILLING_REPORTED_OFF_HIRE", "PAYABLE_BOOKED"}
     for observation in observations:
         _require(observation.get("record_type") == "OBSERVATION" and
@@ -88,6 +90,11 @@ def payload(root: Path) -> dict:
             _require(observation.get("evidence_ref") == "SRC-N524-GATEIN" and
                      observation.get("scope") == "lot:LOT-ONE-N524-26",
                      "Gate-in observation promoted or changed scope")
+        if observation["observation_type"] in {
+                "OWNER_DEPOT_GATE_IN_REPORTED", "CARRIER_OFF_HIRE_DATE_NOTIFIED"}:
+            _require(str(observation.get("scope", "")).startswith("container:") and
+                     observation["scope"].split(":", 1)[1] in containers,
+                     "Per-container operational observation has invalid scope")
     events = data["events"]
     required_event = {"event_id", "event_type", "scope", "occurred_on", "date_precision", "evidence_ref", "assertion", "state_transition"}
     _require(len(events) >= 3 and len({event.get("event_id") for event in events}) == len(events), "Insufficient events")
@@ -111,9 +118,13 @@ def payload(root: Path) -> dict:
     _require(len(container_states) == 26 and
              {item["container"] for item in container_states} == set(containers),
              "Per-container state coverage failure")
-    _require(sum(item["state_status"] == "CANDIDATE" for item in container_states) == 5 and
-             sum(item["state_status"] == "UNKNOWN" for item in container_states) == 21,
-             "Per-container unresolved state boundary changed")
+    _require(all(item["operational_state"] == "OFF_HIRE_CONFIRMED_LOT_SCOPE" and
+                 item["operational_state_scope"] == "LOT" and
+                 item["individual_off_hire_date_status"] == "CANDIDATE" and
+                 item["off_hire_date"] is not None and
+                 item["off_hire_evidence_refs"]
+                 for item in container_states),
+             "Lot completion and individual date evidence were conflated")
     _require(all(item["weekly_coverage_status"] == "VERIFIED" and
                  item["reconciliation_status"] == "REQUIRED" for item in container_states),
              "Per-container weekly coverage or reconciliation status changed")
@@ -122,7 +133,8 @@ def payload(root: Path) -> dict:
              + [{"entity_id": f"CONTAINER-{container}", "type": "Container",
                  "container_number": container,
                  "operational_state": state_by_container[container]["operational_state"],
-                 "state_status": state_by_container[container]["state_status"],
+                 "operational_state_scope": state_by_container[container]["operational_state_scope"],
+                 "individual_off_hire_date_status": state_by_container[container]["individual_off_hire_date_status"],
                  "reconciliation_status": state_by_container[container]["reconciliation_status"]}
                 for container in containers])
     edges = [{"subject": job["id"], "predicate": "governed_by", "object": master["id"], "evidence_ref": master["evidence_ref"]}, {"subject": job["id"], "predicate": "has_equipment_lot", "object": lot["id"], "evidence_ref": lot["evidence_ref"]}]
@@ -164,8 +176,8 @@ def payload(root: Path) -> dict:
 
 def _pending_issues(gate):
     return {
-        "GOPER": ["Five container states are CANDIDATE; twenty-one remain UNKNOWN and all require reconciliation"],
-        "GTIME": ["Cross-source operational timestamps require reconciliation"],
+        "GOPER": ["All 26 containers have source-bound candidate dates; lot completion remains distinct from individual date reconciliation"],
+        "GTIME": ["Depot gate-in and carrier-notified off-hire dates are retained as distinct semantics where they differ"],
         "GFIN": ["Reported receipt allocation and billing conflicts remain unresolved"],
         "GCLOSE": ["Case correctly remains OPEN"],
     }.get(gate, [])
@@ -234,8 +246,9 @@ def validate(value: dict, root: Path) -> dict:
     if value.get("statuses", {}).get("financial") != "REQUIRED" or value.get("statuses", {}).get("case") != "OPEN":
         issues["GOBL"].append("Outstanding obligation is hidden by case status")
         issues["GCLOSE"].append("Case closure is unsupported")
-    # The current evidence deliberately stops short of per-container off-hire
-    # and timestamp reconciliation.  BLOCKED is the correct gate result here.
+    # Written owner/carrier evidence now covers all individual dates, while
+    # depot gate-in and carrier-effective off-hire semantics remain distinct.
+    # BLOCKED remains correct until business reconciliation admits final events.
     operational = value.get("statuses", {}).get("operational")
     if operational != "OFF_HIRE_CONFIRMED_LOT_SCOPE":
         issues["GOPER"].append("Operational status is not scoped to available evidence")

@@ -266,6 +266,107 @@
   ],
   "recovered_sources": [
     {
+      "evidence_id": "SRC-N524-OWNER-GATEIN-20260521",
+      "kind": "OWNER_GATE_IN_WORKBOOK",
+      "source_date": "2026-05-21",
+      "support_strength": "DIRECT_OWNER_GATE_IN_WORKBOOK",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "46f1f412116bd1b45a81c31ae6a3a73b2731c19db72c2796db62cc2ec1917369",
+          "locator": "Arkusz1!A2:C27: twenty nonblank owner-reported gate-in rows"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/per-container-offhire-closure",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CANDIDATE",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "gate_in_dates": [
+          {"container": "RLGU2503666", "occurred_on": "2026-04-28", "locator": "Arkusz1!A2:C2"},
+          {"container": "RLGU2503671", "occurred_on": "2026-04-28", "locator": "Arkusz1!A3:C3"},
+          {"container": "RLGU2503687", "occurred_on": "2026-04-29", "locator": "Arkusz1!A4:C4"},
+          {"container": "RLGU2503706", "occurred_on": "2026-04-29", "locator": "Arkusz1!A6:C6"},
+          {"container": "RLGU2503732", "occurred_on": "2026-04-28", "locator": "Arkusz1!A9:C9"},
+          {"container": "RLGU2503748", "occurred_on": "2026-04-30", "locator": "Arkusz1!A10:C10"},
+          {"container": "RLGU2503753", "occurred_on": "2026-04-30", "locator": "Arkusz1!A11:C11"},
+          {"container": "RLGU2503769", "occurred_on": "2026-04-24", "locator": "Arkusz1!A12:C12"},
+          {"container": "RLGU2503774", "occurred_on": "2026-04-28", "locator": "Arkusz1!A13:C13"},
+          {"container": "RLGU2503780", "occurred_on": "2026-04-30", "locator": "Arkusz1!A14:C14"},
+          {"container": "RLGU2503795", "occurred_on": "2026-04-30", "locator": "Arkusz1!A15:C15"},
+          {"container": "RLGU2503809", "occurred_on": "2026-05-06", "locator": "Arkusz1!A16:C16"},
+          {"container": "RLGU2503814", "occurred_on": "2026-04-30", "locator": "Arkusz1!A17:C17"},
+          {"container": "RLGU2503820", "occurred_on": "2026-04-28", "locator": "Arkusz1!A18:C18"},
+          {"container": "RLGU2503840", "occurred_on": "2026-04-28", "locator": "Arkusz1!A20:C20"},
+          {"container": "RLGU2503861", "occurred_on": "2026-05-06", "locator": "Arkusz1!A22:C22"},
+          {"container": "RLGU2503877", "occurred_on": "2026-04-30", "locator": "Arkusz1!A23:C23"},
+          {"container": "RLGU2503882", "occurred_on": "2026-05-05", "locator": "Arkusz1!A24:C24"},
+          {"container": "RLGU2503901", "occurred_on": "2026-05-05", "locator": "Arkusz1!A26:C26"},
+          {"container": "RLGU2503917", "occurred_on": "2026-04-30", "locator": "Arkusz1!A27:C27"}
+        ]
+      }
+    },
+    {
+      "evidence_id": "SRC-N524-OFFHIRE-NOTICE-20260610",
+      "kind": "OFF_HIRE_CORRESPONDENCE",
+      "source_date": "2026-06-10",
+      "support_strength": "FOUNDER_TO_CARRIER_OFF_HIRE_NOTICE",
+      "case_refs": [
+        "JOB-ONE-N524"
+      ],
+      "bindings": [
+        {
+          "sha256": "a7cf78898b58f8636419a2248c05f36d4b572f94d273e6f3a4f2e61698c2c19d",
+          "locator": "MIME quoted message dated 2026-06-10: per-container Off Hire Date table and four-unit pending list"
+        }
+      ],
+      "private_ledger_ref": "N524-rescan-20260926/per-container-offhire-closure",
+      "sensitivity": "CONFIDENTIAL",
+      "redaction_status": "REDACTED",
+      "truth_status": {
+        "assertion": "CANDIDATE",
+        "evidence": "VERIFIED",
+        "reconciliation": "REQUIRED"
+      },
+      "facts": {
+        "job_id": "JOB-ONE-N524",
+        "reported_on": "2026-06-10",
+        "offhire_dates": [
+          {"container": "RLGU2503666", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503666"},
+          {"container": "RLGU2503671", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503671"},
+          {"container": "RLGU2503687", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503687"},
+          {"container": "RLGU2503706", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503706"},
+          {"container": "RLGU2503711", "occurred_on": "2026-05-13", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503711"},
+          {"container": "RLGU2503732", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503732"},
+          {"container": "RLGU2503748", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503748"},
+          {"container": "RLGU2503753", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503753"},
+          {"container": "RLGU2503769", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503769"},
+          {"container": "RLGU2503774", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503774"},
+          {"container": "RLGU2503780", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503780"},
+          {"container": "RLGU2503795", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503795"},
+          {"container": "RLGU2503814", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503814"},
+          {"container": "RLGU2503820", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503820"},
+          {"container": "RLGU2503840", "occurred_on": "2026-05-08", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503840"},
+          {"container": "RLGU2503877", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503877"},
+          {"container": "RLGU2503898", "occurred_on": "2026-04-29", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503898"},
+          {"container": "RLGU2503917", "occurred_on": "2026-04-30", "locator": "quoted 2026-06-10 Off Hire Date table row RLGU2503917"}
+        ],
+        "pending_containers": [
+          "RLGU2503692",
+          "RLGU2503727",
+          "RLGU2503835",
+          "RLGU2503856"
+        ]
+      }
+    },
+    {
       "evidence_id": "SRC-N524-WEEKLY-RECOVERED-20260926",
       "kind": "WEEKLY_OBSERVATION_SERIES",
       "source_date": "2026-07-13",

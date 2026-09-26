@@ -52,6 +52,11 @@ def project(sources, job_id, containers):
         'WEEKLY_OBSERVATION_SERIES': ('DIRECT_REPORT_SERIES',
                                       {'job_id', 'attachment_count', 'observation_count',
                                        'week_start', 'week_end', 'covered_containers'}),
+        'OWNER_GATE_IN_WORKBOOK': ('DIRECT_OWNER_GATE_IN_WORKBOOK',
+                                   {'job_id', 'gate_in_dates'}),
+        'OFF_HIRE_CORRESPONDENCE': ('FOUNDER_TO_CARRIER_OFF_HIRE_NOTICE',
+                                    {'job_id', 'reported_on', 'offhire_dates',
+                                     'pending_containers'}),
     }
     result = {'receipts': [], 'payments': [], 'billing_documents': [],
               'observations': [], 'operational_assertions': [],
@@ -196,8 +201,74 @@ def project(sources, job_id, containers):
                 'evidence_status': 'VERIFIED', 'reconciliation_status': 'REQUIRED',
                 **common,
             })
-    units = [item['container'] for item in result['operational_assertions']]
-    require(len(units) == len(set(units)), 'Duplicate or conflicting per-container assertions require reconciliation')
+        elif kind == 'OWNER_GATE_IN_WORKBOOK':
+            require(truth == {'assertion': 'CANDIDATE', 'evidence': 'VERIFIED',
+                    'reconciliation': 'REQUIRED'}, 'Owner gate-in truth states changed')
+            records = facts['gate_in_dates']
+            require(len(records) == 20, 'Owner gate-in coverage changed')
+            units = []
+            for item in records:
+                require(set(item) == {'container', 'occurred_on', 'locator'} and
+                        item['container'] in containers and item['locator'].strip(),
+                        'Invalid owner gate-in scope or locator')
+                day(item['occurred_on'])
+                require(item['occurred_on'] <= source['source_date'],
+                        'Owner gate-in assertion after source date')
+                units.append(item['container'])
+                assertion = {'assertion_type': 'OWNER_REPORTED_DEPOT_GATE_IN',
+                    'record_type': 'OBSERVATION', 'date_semantics': 'DEPOT_GATE_IN',
+                    **item, 'reported_on': source['source_date'],
+                    'assertion_status': 'CANDIDATE', 'evidence_status': 'VERIFIED', **common}
+                result['operational_assertions'].append(assertion)
+                result['observations'].append({
+                    'observation_id': 'OBS-OWNER-GATEIN-' + item['container'],
+                    'record_type': 'OBSERVATION',
+                    'observation_type': 'OWNER_DEPOT_GATE_IN_REPORTED',
+                    'scope': 'container:' + item['container'],
+                    'observed_on': item['occurred_on'], 'reported_on': source['source_date'],
+                    'date_precision': 'day', 'assertion_status': 'CANDIDATE',
+                    'evidence_status': 'VERIFIED', **common,
+                })
+            require(len(units) == len(set(units)), 'Duplicate owner gate-in row')
+        elif kind == 'OFF_HIRE_CORRESPONDENCE':
+            require(truth == {'assertion': 'CANDIDATE', 'evidence': 'VERIFIED',
+                    'reconciliation': 'REQUIRED'}, 'Off-hire notice truth states changed')
+            require(facts['reported_on'] == source['source_date'],
+                    'Off-hire notice date differs from source')
+            day(facts['reported_on'])
+            dated, pending = facts['offhire_dates'], facts['pending_containers']
+            require(len(dated) == 18 and len(pending) == 4 and
+                    len(set(pending)) == 4 and set(pending) <= set(containers),
+                    'Off-hire notice coverage changed')
+            units = []
+            for item in dated:
+                require(set(item) == {'container', 'occurred_on', 'locator'} and
+                        item['container'] in containers and item['locator'].strip(),
+                        'Invalid off-hire notice scope or locator')
+                day(item['occurred_on'])
+                require(item['occurred_on'] <= facts['reported_on'],
+                        'Off-hire notice assertion after report date')
+                units.append(item['container'])
+                assertion = {'assertion_type': 'CARRIER_NOTIFIED_OFF_HIRE',
+                    'record_type': 'OBSERVATION', 'date_semantics': 'OFF_HIRE_EFFECTIVE_DATE',
+                    **item, 'reported_on': facts['reported_on'],
+                    'assertion_status': 'CANDIDATE', 'evidence_status': 'VERIFIED', **common}
+                result['operational_assertions'].append(assertion)
+                result['observations'].append({
+                    'observation_id': 'OBS-OFFHIRE-NOTICE-' + item['container'],
+                    'record_type': 'OBSERVATION',
+                    'observation_type': 'CARRIER_OFF_HIRE_DATE_NOTIFIED',
+                    'scope': 'container:' + item['container'],
+                    'observed_on': item['occurred_on'], 'reported_on': facts['reported_on'],
+                    'date_precision': 'day', 'assertion_status': 'CANDIDATE',
+                    'evidence_status': 'VERIFIED', **common,
+                })
+            require(len(units) == len(set(units)) and not (set(units) & set(pending)),
+                    'Duplicate or contradictory off-hire notice rows')
+    assertion_keys = [(item['assertion_type'], item['container'])
+                      for item in result['operational_assertions']]
+    require(len(assertion_keys) == len(set(assertion_keys)),
+            'Duplicate per-container assertion of the same type')
     claims = [item for item in result['financial_assertions'] if item['assertion_type'] == 'CREDITOR_BALANCE_CLAIM']
     for claim in claims:
         documents = [item for item in result['billing_documents']
@@ -218,17 +289,37 @@ def project(sources, job_id, containers):
                     'support_strength': 'DERIVED_NUMERIC_COMPARISON'})
     require(len(result['weekly_evidence']) == 1, 'Exactly one recovered weekly series required')
     weekly = result['weekly_evidence'][0]
-    offhire = {item['container']: item for item in result['operational_assertions']}
+    by_type = {}
+    for item in result['operational_assertions']:
+        by_type.setdefault(item['assertion_type'], {})[item['container']] = item
+    owner_gate_in = by_type.get('OWNER_REPORTED_DEPOT_GATE_IN', {})
+    notified_offhire = by_type.get('CARRIER_NOTIFIED_OFF_HIRE', {})
+    billing_offhire = by_type.get('BILLING_REPORTED_OFF_HIRE', {})
     for container in containers:
-        reported = offhire.get(container)
+        owner = owner_gate_in.get(container)
+        notified = notified_offhire.get(container)
+        billing = billing_offhire.get(container)
+        reported = notified or billing or owner
+        require(reported is not None, 'Per-container off-hire date evidence is incomplete')
+        evidence_refs = sorted({item['evidence_ref'] for item in (owner, notified, billing)
+                                if item is not None})
+        distinct_dates = {item['occurred_on'] for item in (owner, notified, billing)
+                          if item is not None}
         result['container_states'].append({
             'container': container,
             'weekly_coverage_status': 'VERIFIED',
             'weekly_series_ref': weekly['series_id'],
-            'operational_state': 'OFF_HIRE_REPORTED' if reported else 'UNKNOWN',
-            'state_status': 'CANDIDATE' if reported else 'UNKNOWN',
-            'off_hire_date': reported['occurred_on'] if reported else None,
-            'off_hire_evidence_ref': reported['evidence_ref'] if reported else None,
+            'operational_state': 'OFF_HIRE_CONFIRMED_LOT_SCOPE',
+            'operational_state_scope': 'LOT',
+            'individual_off_hire_date_status': 'CANDIDATE',
+            'off_hire_date': reported['occurred_on'],
+            'off_hire_date_basis': reported['assertion_type'],
+            'off_hire_evidence_refs': evidence_refs,
+            'depot_gate_in_date': owner['occurred_on'] if owner else None,
+            'carrier_notified_off_hire_date': notified['occurred_on'] if notified else None,
+            'billing_reported_off_hire_date': billing['occurred_on'] if billing else None,
+            'date_semantics_status': ('DISTINCT_DATE_SEMANTICS_RETAINED'
+                                      if len(distinct_dates) > 1 else 'ALIGNED_OR_SINGLE_SOURCE'),
             'reconciliation_status': 'REQUIRED',
         })
     return result
